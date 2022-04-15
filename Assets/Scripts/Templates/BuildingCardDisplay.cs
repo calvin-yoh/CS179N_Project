@@ -4,25 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class BuildingCardDisplay : MonoBehaviour
+public class BuildingCardDisplay : CardDisplay
 {
-	public BuildingCard card;
-
+	/*
 	public TextMeshProUGUI nameText;
 	public TextMeshProUGUI effectText;
 
 	public Image artworkImage;
+	*/
 
 	public TextMeshProUGUI healthText;
 
 	// Use this for initialization
 	void Start()
 	{
-		nameText.text = card.name;
-		effectText.text = card.effect;
+		DisplayInformation();
+	}
 
-		artworkImage.sprite = card.artwork;
-
+    protected override void DisplayInformation()
+    {
+		base.DisplayInformation();
 		healthText.text = card.health.ToString();
 	}
 

@@ -19,7 +19,7 @@ public class Card : ScriptableObject
 
 	public Sprite artwork;
 
-	//public int health;
+	public int health = 0;
 
 	public void Print()
 	{
