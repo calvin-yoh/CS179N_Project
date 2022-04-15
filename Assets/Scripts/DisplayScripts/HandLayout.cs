@@ -22,6 +22,7 @@ public class HandLayout : MonoBehaviour
          hand.Add(card);
          FitCards();
          howManyAdded++;
+         start.transform.position -= new Vector3(0.5f, 0, 0);
         card.transform.SetParent (this.gameObject.transform); //Setting my card parent to be the Hand Panel
      }
 
@@ -34,19 +35,19 @@ public class HandLayout : MonoBehaviour
  
         //  if (hand.Count == 0) //if list is null, stop function
         //      return;
-         float totalTwist = 20f;
+         float totalTwist = 20;
         // 20f for example, try various values
         int numberOfCards = hand.Count; //... get this from your List or array
         float twistPerCard = totalTwist / numberOfCards;
-        float startTwist = -1f * (totalTwist / 2f);
+        float startTwist = totalTwist / 2f;
 
         for (int i=0; i < hand.Count; i++){
             GameObject currCard = hand[i].gameObject; //Reference to first image in my list
             currCard.GetComponentInChildren<Canvas>().sortingOrder = i;
             currCard.transform.position = start.position; //relocating my card to the Start Position
             currCard.transform.position += new Vector3 (( i*gapFromOneItemToTheNextOne), 0, 0); // Moving my card 1f to the right
-             float twistForThisCard = startTwist + (i * twistPerCard);
-            currCard.transform.Rotate( 0f, 0f, -twistForThisCard);
+             float twistForThisCard = startTwist - (i * twistPerCard);
+            currCard.transform.rotation = Quaternion.Euler( 0f, 0f, twistForThisCard);
 
             if (i==0 || i == hand.Count - 1){
                 float scalingFactor = 0.01f;
