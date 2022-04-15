@@ -47,7 +47,7 @@ public class HandLayout : MonoBehaviour
             currCard.transform.position = start.position; //relocating my card to the Start Position
             currCard.transform.position += new Vector3 (( i*gapFromOneItemToTheNextOne), 0, 0); // Moving my card 1f to the right
              float twistForThisCard = startTwist - (i * twistPerCard);
-            currCard.transform.rotation = Quaternion.Euler( 0f, 0f, twistForThisCard);
+            currCard.transform.rotation = Quaternion.Euler( 90f, 0f, twistForThisCard);
 
             if (i==0 || i == hand.Count - 1){
                 float scalingFactor = 0.01f;
