@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class BuildingCardDisplay : CardDisplay
+public class StudentCardDisplay : CardDisplay
 {
 	/*
 	public TextMeshProUGUI nameText;
@@ -13,7 +13,8 @@ public class BuildingCardDisplay : CardDisplay
 	public Image artworkImage;
 	*/
 
-	public TextMeshProUGUI healthText;
+	public TextMeshProUGUI durationText;
+	public TextMeshProUGUI effectNameText;
 
 	// Use this for initialization
 	void Start()
@@ -21,9 +22,10 @@ public class BuildingCardDisplay : CardDisplay
 		DisplayInformation();
 	}
 
-    protected override void DisplayInformation()
-    {
+	protected override void DisplayInformation()
+	{
 		base.DisplayInformation();
-		healthText.text = card.health.ToString();
+		durationText.text = card.duration.ToString();
+		effectNameText.text = card.effectName.ToString();
 	}
 }
