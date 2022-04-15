@@ -15,11 +15,14 @@ public class Card : ScriptableObject
 
 	public new string name;
 	public Major major;
+
+	public string effectName;
 	public string effect;
 
 	public Sprite artwork;
 
-	//public int health;
+	public int health = 0;
+	public int duration = 0;
 
 	public void Print()
 	{

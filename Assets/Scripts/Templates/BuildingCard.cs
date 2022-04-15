@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Card", menuName = "Cards/BuildingCard")]
 public class BuildingCard : Card
 {
-	public int health;
+	//public int health;
 
     public override void ApplyEffect()
     {
