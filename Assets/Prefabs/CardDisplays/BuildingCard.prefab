@@ -219,9 +219,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6046434584507389264}
   - component: {fileID: 6046434584507389271}
+  - component: {fileID: 2825328244087362952}
   m_Layer: 0
   m_Name: BuildingCard
-  m_TagString: Untagged
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,6 +264,19 @@ MonoBehaviour:
   staffBackground: {fileID: 21300000, guid: e0fb0b58509532e468bae7d5c840c7dc, type: 3}
   athleticBackground: {fileID: 21300000, guid: e83de67cc081de149b73b96f0e6f3f77, type: 3}
   healthText: {fileID: 6046434585534776339}
+--- !u!65 &2825328244087362952
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6046434584507389265}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2888951, y: 3.8073964, z: 0}
+  m_Center: {x: -0.004856825, y: -0.0015842915, z: -0.0031166673}
 --- !u!1 &6046434584802360254
 GameObject:
   m_ObjectHideFlags: 0
