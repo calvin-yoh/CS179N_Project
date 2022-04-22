@@ -19,12 +19,28 @@ public class CardDisplay : MonoBehaviour
     public Sprite staffBackground;
     public Sprite athleticBackground;
 
+    public bool hasActivatedEffect;
+    public bool inHand;
+
     //public TextMeshProUGUI healthText;
 
     // Start is called before the first frame update
     void Start()
     {
         DisplayInformation();
+        inHand = false;
+        hasActivatedEffect = false;
+    }
+
+    
+	public bool CanActivateEffect(){
+		return !hasActivatedEffect && !inHand;
+	}
+
+    public virtual void ActivateEffect(){
+        Debug.Log("Activating " + this.name + "'s effect");
+        card.ApplyEffect();
+        this.hasActivatedEffect = true;
     }
 
     protected virtual void DisplayInformation()

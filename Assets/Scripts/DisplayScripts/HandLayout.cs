@@ -23,6 +23,7 @@ public class HandLayout : MonoBehaviour
          FitCards();
          howManyAdded++;
          start.transform.position -= new Vector3(0.5f, 0, 0);
+         card.inHand = true;
         card.transform.SetParent (this.gameObject.transform); //Setting my card parent to be the Hand Panel
      }
 

@@ -23,7 +23,6 @@ public class Card : ScriptableObject
 
 	public int health = 0;
 	public int duration = 0;
-	public bool canActivateEffect=true;
 
 	public void Print()
 	{
@@ -32,13 +31,14 @@ public class Card : ScriptableObject
 
 	public virtual void ApplyEffect()
 	{ 
-		if (canActivateEffect){
-			Debug.Log(this.name + " activated its effect");
-			this.canActivateEffect = false;
-		}
-		else{
-			Debug.Log("Cannot activate " + this.name + "'s effect");
-		}
+		// if (canActivateEffect){
+		// 	Debug.Log(this.name + " activated its effect");
+		// 	this.canActivateEffect = false;
+		// }
+		// else{
+		// 	Debug.Log("Cannot activate " + this.name + "'s effect");
+		// 	return;
+		// }
 
 	}
 }
