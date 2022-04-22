@@ -10,7 +10,7 @@ public class HandLayout : MonoBehaviour
      public float howManyAdded; // How many cards I added so far
     public float gapFromOneItemToTheNextOne; //the gap I need between each card
  
-     void Start()
+     void Awake()
      {
          hand = new List<CardDisplay>();
          howManyAdded = 0.0f;

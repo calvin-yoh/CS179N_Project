@@ -33,6 +33,11 @@ public class MouseInput : MonoBehaviour
             RaycastHit hit;
             Physics.Raycast(r, out hit);
             if (hit.collider != null){
+                if (hit.collider.tag == "Card"){
+                    Card c = hit.collider.gameObject.GetComponent<CardDisplay>().card;
+                    c.ApplyEffect();
+                }
+                // Debug.Log("Clicked on " + hit.collider.gameObject.name);
                 return hit.collider.gameObject;
             }
             return null;
