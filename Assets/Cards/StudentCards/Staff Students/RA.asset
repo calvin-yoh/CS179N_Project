@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98205b6eaf9c732488ea4ec64aa0696c, type: 3}
   m_Name: RA
   m_EditorClassIdentifier: 
-  name: 
+  name: RA
   major: 0
-  effectName: 
-  effect: 
+  effectName: Report
+  effect: Disable 1 of your opponent's students for 1 turn
   artwork: {fileID: 0}
   health: 0
-  duration: 0
+  duration: 3
