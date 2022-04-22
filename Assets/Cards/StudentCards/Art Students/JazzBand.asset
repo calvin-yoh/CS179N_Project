@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98205b6eaf9c732488ea4ec64aa0696c, type: 3}
-  m_Name: GraphicDesignClub 4
+  m_Name: JazzBand
   m_EditorClassIdentifier: 
-  name: 
+  name: Jazz Band
   major: 0
-  effectName: 
-  effect: 
+  effectName: Freestyle
+  effect: Flip a coin. If heads, all your students gain +1 duration (not including
+    this card). Otherwise, this card's duration falls to zero.
   artwork: {fileID: 0}
   health: 0
   duration: 4

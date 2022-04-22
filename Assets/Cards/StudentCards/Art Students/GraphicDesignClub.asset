@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98205b6eaf9c732488ea4ec64aa0696c, type: 3}
-  m_Name: VideoEditor
+  m_Name: GraphicDesignClub
   m_EditorClassIdentifier: 
-  name: 
+  name: Graphic Design Club
   major: 0
-  effectName: 
-  effect: 
+  effectName: Redesign
+  effect: If the Arts Building is in play, deal 4 damage to 2 of your opponent's
+    buildings.
   artwork: {fileID: 0}
   health: 0
   duration: 4

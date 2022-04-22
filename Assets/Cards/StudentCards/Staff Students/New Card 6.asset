@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98205b6eaf9c732488ea4ec64aa0696c, type: 3}
-  m_Name: GraphicDesignClub 6
+  m_Name: New Card 6
   m_EditorClassIdentifier: 
   name: 
   major: 0
@@ -18,4 +18,4 @@ MonoBehaviour:
   effect: 
   artwork: {fileID: 0}
   health: 0
-  duration: 4
+  duration: 0

@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98205b6eaf9c732488ea4ec64aa0696c, type: 3}
-  m_Name: GraphicDesignClub 5
+  m_Name: Dance Team
   m_EditorClassIdentifier: 
-  name: 
+  name: Dance Team
   major: 0
-  effectName: 
-  effect: 
+  effectName: Showstoppers
+  effect: Flip a coin. If heads, your opponent's non-Art cards are distracted next
+    turn. Otherwise, yours are.
   artwork: {fileID: 0}
   health: 0
   duration: 4
