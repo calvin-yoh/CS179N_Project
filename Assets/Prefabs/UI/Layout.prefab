@@ -2698,6 +2698,8 @@ MonoBehaviour:
   engineeringBackground: {fileID: 0}
   staffBackground: {fileID: 0}
   athleticBackground: {fileID: 0}
+  hasActivatedEffect: 0
+  inHand: 0
   healthText: {fileID: 0}
 --- !u!212 &1204887254581422085
 SpriteRenderer:
@@ -2805,6 +2807,8 @@ MonoBehaviour:
   engineeringBackground: {fileID: 0}
   staffBackground: {fileID: 0}
   athleticBackground: {fileID: 0}
+  hasActivatedEffect: 0
+  inHand: 0
   healthText: {fileID: 0}
 --- !u!212 &1204887254581862486
 SpriteRenderer:
@@ -3250,6 +3254,8 @@ MonoBehaviour:
   engineeringBackground: {fileID: 0}
   staffBackground: {fileID: 0}
   athleticBackground: {fileID: 0}
+  hasActivatedEffect: 0
+  inHand: 0
   healthText: {fileID: 0}
 --- !u!212 &1204887255535957181
 SpriteRenderer:
@@ -3475,7 +3481,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204887255677472727}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 000a6389cf07be644a367ef572a4e12d, type: 3}
   m_Name: 
@@ -3489,6 +3495,8 @@ MonoBehaviour:
   engineeringBackground: {fileID: 0}
   staffBackground: {fileID: 0}
   athleticBackground: {fileID: 0}
+  hasActivatedEffect: 0
+  inHand: 0
   healthText: {fileID: 0}
 --- !u!1 &1204887256006777914
 GameObject:
@@ -3545,6 +3553,8 @@ MonoBehaviour:
   engineeringBackground: {fileID: 0}
   staffBackground: {fileID: 0}
   athleticBackground: {fileID: 0}
+  hasActivatedEffect: 0
+  inHand: 0
   healthText: {fileID: 0}
 --- !u!212 &1204887256006777913
 SpriteRenderer:
@@ -4087,6 +4097,8 @@ MonoBehaviour:
   engineeringBackground: {fileID: 0}
   staffBackground: {fileID: 0}
   athleticBackground: {fileID: 0}
+  hasActivatedEffect: 0
+  inHand: 0
   healthText: {fileID: 0}
 --- !u!212 &1204887256626423737
 SpriteRenderer:
