@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e52f67d8a0f3fb42965cd3456cd4a4d, type: 3}
-  m_Name: ServerRoom
+  m_Script: {fileID: 11500000, guid: 98205b6eaf9c732488ea4ec64aa0696c, type: 3}
+  m_Name: GraphicDesignClub 7
   m_EditorClassIdentifier: 
-  name: Server Room
-  major: 1
+  name: 
+  major: 0
   effectName: 
-  effect: Every other turn, all building effects are nullified for 1 turn.
-  artwork: {fileID: 21300000, guid: 7350d7ef94c08ff41bff76ec94a7eb07, type: 3}
-  health: 30
-  duration: 0
+  effect: 
+  artwork: {fileID: 0}
+  health: 0
+  duration: 4
