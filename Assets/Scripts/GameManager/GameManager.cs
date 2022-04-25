@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public List<Player> players;
     private int currPlayer = 0;
 
+    //we need to limit the player to playing 1 student and faculty card per turn.
     private void Awake(){
         if (_instance != null && _instance != this){
             Destroy(this.gameObject);
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
         else{
             _instance = this;
         }
+        //maybe here, we can set the 5 building cards.
     }
 
     public void SwitchPlayers(){
