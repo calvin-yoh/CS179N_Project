@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
     // private bool canPlaceStudent = true;
     // private bool canPlaceFaculty = true;
     public HandLayout hand;
-    public List<Card> openDeck;
-    private Stack<Card> deck;
+    public List<Card> openDeck;     // The deck that is loaded, can view in the inspector
+    private Stack<Card> deck;       // The deck used in game that is represented with a stack
     public GameObject display;
 
     public void StartTurn(){
