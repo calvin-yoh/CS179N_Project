@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Musicians
   major: 0
+  type: 1
   effectName: Band together
   effect: While this card is in play, all Arts type cards stay in play (even opponents)
   artwork: {fileID: 0}

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Cast
   major: 0
+  type: 1
   effectName: Entertain
   effect: Flip a coin. If heads, all of the opponent's student cards are distracted
     during the next turn.

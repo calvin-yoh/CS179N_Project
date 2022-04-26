@@ -27,13 +27,18 @@ public class CardDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+    }
+
+    private void OnEnable()
+    {
         DisplayInformation();
         inHand = false;
         hasActivatedEffect = false;
     }
 
-    
-	public bool CanActivateEffect(){
+
+    public bool CanActivateEffect(){
 		return !hasActivatedEffect && !inHand;
 	}
 

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Mechanical Engineer
   major: 1
+  type: 1
   effectName: Mortar Strike
   effect: Deal 5 damage to a target Building and 3 to adjacent buildings
   artwork: {fileID: 0}

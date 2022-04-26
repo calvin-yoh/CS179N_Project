@@ -18,7 +18,14 @@ public class FacultyCardDisplay : CardDisplay
 	// Use this for initialization
 	void Start()
 	{
+
+	}
+
+	private void OnEnable()
+	{
 		DisplayInformation();
+		inHand = false;
+		hasActivatedEffect = false;
 	}
 
 	protected override void DisplayInformation()

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Concept Artist
   major: 0
+  type: 1
   effectName: Sketch
   effect: Heal all your Art-type Building cards by 2.
   artwork: {fileID: 0}

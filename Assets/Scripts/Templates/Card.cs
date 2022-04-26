@@ -13,8 +13,16 @@ public class Card : ScriptableObject
 		Athletics
 	};
 
+	public enum Type
+	{
+		Building,
+		Student,
+		Faculty
+	}
+
 	public new string name;
 	public Major major;
+	public Type type;
 
 	public string effectName;
 	public string effect;

@@ -18,12 +18,18 @@ public class BuildingCardDisplay : CardDisplay
 	// Use this for initialization
 	void Start()
 	{
-		DisplayInformation();
 	}
 
-    protected override void DisplayInformation()
+	private void OnEnable()
+	{
+		DisplayInformation();
+		inHand = false;
+		hasActivatedEffect = false;
+	}
+
+	protected override void DisplayInformation()
     {
 		base.DisplayInformation();
-		healthText.text = card.health.ToString();
+		healthText.text = "HP : " + card.health.ToString();
 	}
 }

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Concoction Specialist
   major: 1
+  type: 1
   effectName: Corrode foundation
   effect: Weaken 1 enemy building for 2 turns, all incoming damge from Engineering
     units is multipled by 2

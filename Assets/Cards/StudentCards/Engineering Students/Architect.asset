@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Architect
   major: 1
+  type: 1
   effectName: Shield Craft
   effect: Grant a shield to one of your buildings that protects it for 6 damage (cannot
     stack on one building).

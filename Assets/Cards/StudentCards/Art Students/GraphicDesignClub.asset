@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Graphic Design Club
   major: 0
+  type: 1
   effectName: Redesign
   effect: If the Arts Building is in play, deal 4 damage to 2 of your opponent's
     buildings.

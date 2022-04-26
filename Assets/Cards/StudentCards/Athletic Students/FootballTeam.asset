@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Football Team
   major: 3
+  type: 1
   effectName: Tackle
   effect: Deal 6 damage to one of your opponents buildings. Deal +3 if the opponent
     does not have an athletics card in play.

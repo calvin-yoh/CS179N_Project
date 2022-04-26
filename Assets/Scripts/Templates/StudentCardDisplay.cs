@@ -25,7 +25,7 @@ public class StudentCardDisplay : CardDisplay
 	protected override void DisplayInformation()
 	{
 		base.DisplayInformation();
-		durationText.text = card.duration.ToString();
+		durationText.text = "Dur : " + card.duration.ToString();
 		effectNameText.text = card.effectName.ToString();
 	}
 }

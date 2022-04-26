@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Soccer Goalkeeper
   major: 3
+  type: 1
   effectName: Last Stand
   effect: 'Flip a coin. If heads, one random friendly building is immune this turn.
     If tails one random soccer player from the opposite team gets +1 duration. '

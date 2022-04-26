@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Cybersecurity Club
   major: 1
+  type: 1
   effectName: Firewall
   effect: While this card is in play, all your buildings receive no damage from engineering
     students.

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Baseball Batter
   major: 3
+  type: 1
   effectName: Home Run
   effect: Bats a baseball to a chosen student from the opponent's team and disables
     them for one turn.

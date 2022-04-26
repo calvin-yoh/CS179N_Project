@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Jazz Band
   major: 0
+  type: 1
   effectName: Freestyle
   effect: Flip a coin. If heads, all your students gain +1 duration (not including
     this card). Otherwise, this card's duration falls to zero.

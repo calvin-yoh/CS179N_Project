@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Event Coordinator
   major: 0
+  type: 1
   effectName: Rally
   effect: Summon 1 student card from your hand
   artwork: {fileID: 0}

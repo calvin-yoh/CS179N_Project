@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Cyborg
   major: 1
+  type: 1
   effectName: Human augmentation
   effect: 'One of the enemy students on the field have a permanent -2 damage '
   artwork: {fileID: 0}

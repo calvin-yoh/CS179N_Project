@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Soccer Striker
   major: 3
+  type: 1
   effectName: Free Kick
   effect: Choose a building to attack, deal 2 damage. +1 damage for every soccer
     player in the student's hand.
