@@ -6,7 +6,7 @@ public class FieldLayout : MonoBehaviour
 {
     [SerializeField] private List<BuildingCardDisplay> buildingCardDisplays = new List<BuildingCardDisplay>();
     [SerializeField] private List<StudentCardDisplay> studentCardDisplays = new List<StudentCardDisplay>();
-    [SerializeField] private List<FacultyCardDisplay> FacultyCardDisplays = new List<FacultyCardDisplay>();
+    [SerializeField] private List<FacultyCardDisplay> facultyCardDisplays = new List<FacultyCardDisplay>();
 
     public Card test;
 
@@ -18,14 +18,19 @@ public class FieldLayout : MonoBehaviour
             bcd.gameObject.SetActive(false);
         foreach (StudentCardDisplay scd in studentCardDisplays)
             scd.gameObject.SetActive(false);
-        foreach (StudentCardDisplay scd in studentCardDisplays)
-            scd.gameObject.SetActive(false);
+        foreach (FacultyCardDisplay fcd in facultyCardDisplays)
+            fcd.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
+        {
             studentCardDisplays[0].card = test;
+            studentCardDisplays[0].gameObject.SetActive(true);
+        }
+            
     }
 }
