@@ -723,3 +723,6 @@ MonoBehaviour:
   engineeringBackground: {fileID: 21300000, guid: c4bc4cd6e4d202242b8335ef4b3b84a5, type: 3}
   staffBackground: {fileID: 21300000, guid: e0fb0b58509532e468bae7d5c840c7dc, type: 3}
   athleticBackground: {fileID: 21300000, guid: e83de67cc081de149b73b96f0e6f3f77, type: 3}
+  hasActivatedEffect: 0
+  inHand: 0
+  glowEffect: {fileID: 0}
