@@ -87,7 +87,7 @@ public class LoadCards : MonoBehaviour
 
 
 
-        float new_height = (cardHeight * rows) + 100;
+        float new_height = (cardHeight * rows) + 300;
         
         rec.sizeDelta = new Vector2(1300, new_height);
 
