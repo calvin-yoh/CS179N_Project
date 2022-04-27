@@ -41,8 +41,8 @@ public class FieldLayout : MonoBehaviour
                 studentCardDisplays[index].gameObject.SetActive(true);
                 break;
             case Card.Type.Faculty:
-                FacultyCardDisplays[index].card = newCard;
-                FacultyCardDisplays[index].gameObject.SetActive(true);
+                facultyCardDisplays[index].card = newCard;
+                facultyCardDisplays[index].gameObject.SetActive(true);
                 break;
             case Card.Type.Building:
                 buildingCardDisplays[index].card = newCard;
