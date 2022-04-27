@@ -3382,7 +3382,7 @@ MonoBehaviour:
   - {fileID: 5414512187128133833}
   - {fileID: 52183315721038162}
   - {fileID: 2213263970785794317}
-  FacultyCardDisplays:
+  facultyCardDisplays:
   - {fileID: 4438002787324157776}
   - {fileID: 3075067890706352753}
   - {fileID: 5914618952480873467}

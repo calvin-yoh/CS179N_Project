@@ -774,6 +774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 1989212604}
+  hand: {fileID: 0}
   startObject: {fileID: 0}
   endObject: {fileID: 0}
   currState: 0
