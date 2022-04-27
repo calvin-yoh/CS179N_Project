@@ -8,14 +8,23 @@ public class LoadCards : MonoBehaviour
     // Thesse lsts are not needed right now. But they will be used later to reference cards.
     List<BuildingCard> BuildingCards = new List<BuildingCard>();
     List<StudentCard> StudentCards = new List<StudentCard>();
-    List<FacultyCard> FacultyCards = new List<FacultyCard>(); // There are no cards in this list yet.
+    List<FacultyCard> FacultyCards = new List<FacultyCard>();
 
 
     public GameObject BuildingCardDisplayPrefab;
+    public GameObject StudentCardDisplayPrefab;
 
-    void displayCard(Card generic_card){
+    void displayStudentCard(StudentCard card){
+        var go = Instantiate(StudentCardDisplayPrefab, transform.position, transform.rotation);
+        go.GetComponent<StudentCardDisplay>().card = card;
+        go.GetComponent<StudentCardDisplay>().DisplayInformation();
+
+        go.transform.SetParent(this.transform);
+    }
+
+    void dislayBuildingCard(BuildingCard card){
         var go = Instantiate(BuildingCardDisplayPrefab, transform.position, transform.rotation);
-        go.GetComponent<BuildingCardDisplay>().card = generic_card;
+        go.GetComponent<BuildingCardDisplay>().card = card;
         go.GetComponent<BuildingCardDisplay>().DisplayInformation();
 
         go.transform.SetParent(this.transform);
@@ -24,8 +33,6 @@ public class LoadCards : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        // Load all the cards from assets.
         Object[] R_BuildingCards = Resources.LoadAll("Cards/BuildingCards", typeof(BuildingCard));
         Object[] R_ArtStudentCards = Resources.LoadAll("Cards/StudentCards/Art Students", typeof(StudentCard));
         Object[] R_AthleticStudentCards = Resources.LoadAll("Cards/StudentCards/Athletic Studnets", typeof(StudentCard));
@@ -37,32 +44,32 @@ public class LoadCards : MonoBehaviour
         foreach(Object x in R_ArtStudentCards){
             StudentCard card = (StudentCard) x;
             StudentCards.Add(card);
-            displayCard(card);
+            displayStudentCard(card);
         }
 
         foreach(Object x in R_AthleticStudentCards){
             StudentCard card = (StudentCard) x;
             StudentCards.Add(card);
-            displayCard(card);
+            displayStudentCard(card);
         }
 
         foreach(Object x in R_EngineeringStudentCards){
             StudentCard card = (StudentCard) x;
             StudentCards.Add(card);
-            displayCard(card);
+            displayStudentCard(card);
         }
 
         foreach(Object x in R_StaffStudentCards){
             StudentCard card = (StudentCard) x;
             StudentCards.Add(card);
-            displayCard(card);
+            displayStudentCard(card);
         }
 
         // Adding all building cards
         foreach(Object x in R_BuildingCards){
             BuildingCard card = (BuildingCard) x;
             BuildingCards.Add(card);
-            displayCard(card);
+            dislayBuildingCard(card);
         }
 
 
