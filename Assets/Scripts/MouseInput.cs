@@ -9,6 +9,7 @@ public class MouseInput : MonoBehaviour
     [SerializeField] private Arrow arrow;
 
     public static MouseInput Instance {get {return _instance;}}
+    public HandLayout hand;
 
     [SerializeField] private GameObject startObject;
     [SerializeField] private GameObject endObject;
@@ -79,12 +80,6 @@ public class MouseInput : MonoBehaviour
                             endObject = hit.collider.gameObject;
                             currState = State.ApplyEffect;
                         }
-                        else if (hit.collider.tag == "Empty"){
-                            Debug.Log(hit.collider.gameObject.name);
-                            Card newCard = startObject.GetComponent<CardDisplay>().card;
-                            hit.collider.gameObject.GetComponent<EmptyBoardSlot>().PlaceCard(newCard);
-                            currState = State.Wait;
-                        }
                         else
                         {
                             currState = State.Wait;
@@ -110,6 +105,7 @@ public class MouseInput : MonoBehaviour
                             EmptyBoardSlot slot = hit.collider.gameObject.GetComponent<EmptyBoardSlot>();
                             if (newCard.type == slot.GetCardType()){
                                 slot.PlaceCard(newCard);
+                                hand.RemoveCard(newCard);
                             }
                             else{
                                 Debug.Log("Card type does not match");
