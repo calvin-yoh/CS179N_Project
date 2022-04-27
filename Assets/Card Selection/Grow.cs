@@ -10,6 +10,11 @@ public class Grow : MonoBehaviour
     void Start()
     {
         rec = GetComponent<RectTransform>();
-        rec.sizeDelta = new Vector2(1300, (cardHeight * rows) + 100);
+
+        float new_height = (cardHeight * rows);
+        
+        rec.sizeDelta = new Vector2(1300, new_height);
+
+        rec.position = new Vector3(0, -(new_height / 2), 0);
     }
 }
