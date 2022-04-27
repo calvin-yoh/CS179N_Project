@@ -28,4 +28,24 @@ public class FieldLayout : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
             studentCardDisplays[0].card = test;
     }
+
+    public void ActivateCard(int index, Card newCard, Card.Type type){
+        switch (type){
+            case Card.Type.Student:
+                studentCardDisplays[index].card = newCard;
+                studentCardDisplays[index].gameObject.SetActive(true);
+                break;
+            case Card.Type.Faculty:
+                FacultyCardDisplays[index].card = newCard;
+                FacultyCardDisplays[index].gameObject.SetActive(true);
+                break;
+            case Card.Type.Building:
+                buildingCardDisplays[index].card = newCard;
+                buildingCardDisplays[index].gameObject.SetActive(true);
+                break;
+            default:
+                Debug.Log("Card type " + type + " not found");
+                break;
+        }
+    }
 }
