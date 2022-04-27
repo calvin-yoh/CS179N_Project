@@ -9,12 +9,13 @@ public class MouseInput : MonoBehaviour
     [SerializeField] private Arrow arrow;
 
     public static MouseInput Instance {get {return _instance;}}
+    public HandLayout hand;
 
     [SerializeField] private GameObject startObject;
     [SerializeField] private GameObject endObject;
 
     public enum State{
-        Wait, Down, Up, ApplyEffect
+        Wait, DownField, DownHand, ApplyEffect
     }
 
     public State currState = State.Wait;
@@ -54,14 +55,18 @@ public class MouseInput : MonoBehaviour
 
                             if (c.CanActivateEffect()){
                                 startObject = hit.collider.gameObject;
-                                currState = State.Down;
+                                currState = State.DownField;
+                            }
+                            else if (c.inHand){
+                                startObject = hit.collider.gameObject;
+                                currState = State.DownHand;
                             }
                         }
 
                     }
                 }
                 break;
-            case State.Down:
+            case State.DownField:
                 if (Input.GetMouseButtonUp(0))
                 {
                     Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -71,6 +76,7 @@ public class MouseInput : MonoBehaviour
                     {
                         if (hit.collider.tag == "Card")
                         {
+                            Debug.Log("Apply effect");
                             endObject = hit.collider.gameObject;
                             currState = State.ApplyEffect;
                         }
@@ -83,6 +89,30 @@ public class MouseInput : MonoBehaviour
                     {
                         currState = State.Wait;
                     }
+                }
+                break;
+            case State.DownHand:
+                if (Input.GetMouseButtonUp(0))
+                {
+                    Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+                    Physics.Raycast(r, out hit);
+                    if (hit.collider != null)
+                    {
+                        if (hit.collider.tag == "Empty"){
+                            Debug.Log(hit.collider.gameObject.name);
+                            Card newCard = startObject.GetComponent<CardDisplay>().card;
+                            EmptyBoardSlot slot = hit.collider.gameObject.GetComponent<EmptyBoardSlot>();
+                            if (newCard.type == slot.GetCardType()){
+                                slot.PlaceCard(newCard);
+                                hand.RemoveCard(newCard);
+                            }
+                            else{
+                                Debug.Log("Card type does not match");
+                            }
+                        }
+                    }
+                    currState = State.Wait;
                 }
                 break;
             case State.ApplyEffect:
@@ -104,8 +134,14 @@ public class MouseInput : MonoBehaviour
                 startObject = null;
                 endObject = null;
                 break;
-            case State.Down:
-                Debug.Log(arrow.gameObject.activeInHierarchy);
+            case State.DownField:
+                // Debug.Log(arrow.gameObject.activeInHierarchy);
+                if(!arrow.isActive)
+                {
+                    arrow.SetupAndActivate(startObject.transform);
+                }
+                break;
+            case State.DownHand:
                 if(!arrow.isActive)
                 {
                     arrow.SetupAndActivate(startObject.transform);
