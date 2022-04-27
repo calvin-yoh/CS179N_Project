@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.05
+  m_fontSize: 0.01
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.65
+  m_fontSize: 0.01
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &372777963921658140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.15
+  m_fontSize: 0.01
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -666,7 +666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7077248147722597311}
   - component: {fileID: 7077248147722597309}
-  - component: {fileID: 3906769024856120317}
+  - component: {fileID: 6377697957664814079}
   m_Layer: 5
   m_Name: UIBuildingCard
   m_TagString: Untagged
@@ -702,7 +702,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7077248147722597310}
   m_CullTransparentMesh: 1
---- !u!114 &3906769024856120317
+--- !u!114 &6377697957664814079
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -711,10 +711,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7077248147722597310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4901593ae9a05f748a1cd6c11cc2492d, type: 3}
+  m_Script: {fileID: 11500000, guid: 000a6389cf07be644a367ef572a4e12d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 6644c0472cbc6e146a00032e201cd921, type: 2}
+  card: {fileID: 0}
   nameText: {fileID: 372777962906193030}
   effectText: {fileID: 372777963461759542}
   artworkImage: {fileID: 372777963624467355}
@@ -726,3 +726,4 @@ MonoBehaviour:
   hasActivatedEffect: 0
   inHand: 0
   glowEffect: {fileID: 0}
+  healthText: {fileID: 372777964459668265}
