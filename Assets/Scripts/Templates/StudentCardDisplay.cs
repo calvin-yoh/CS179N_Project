@@ -21,13 +21,7 @@ public class StudentCardDisplay : CardDisplay
 	{
 	}
 
-	private void OnEnable()
-	{
-		DisplayInformation();
-		hasActivatedEffect = false;
-	}
-
-	protected override void DisplayInformation()
+	public override void DisplayInformation()
 	{
 		base.DisplayInformation();
 		durationText.text = "Dur : " + card.duration.ToString();

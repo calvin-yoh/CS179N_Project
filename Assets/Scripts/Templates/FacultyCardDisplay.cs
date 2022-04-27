@@ -21,13 +21,7 @@ public class FacultyCardDisplay : CardDisplay
 
 	}
 
-	private void OnEnable()
-	{
-		DisplayInformation();
-		hasActivatedEffect = false;
-	}
-
-	protected override void DisplayInformation()
+	public override void DisplayInformation()
 	{
 		base.DisplayInformation();
 		effectNameText.text = card.effectName.ToString();

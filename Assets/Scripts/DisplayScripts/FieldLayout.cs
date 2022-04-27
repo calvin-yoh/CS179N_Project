@@ -43,14 +43,17 @@ public class FieldLayout : MonoBehaviour
             case Card.Type.Student:
                 studentCardDisplays[index].card = newCard;
                 studentCardDisplays[index].gameObject.SetActive(true);
+                studentCardDisplays[index].DisplayInformation();
                 break;
             case Card.Type.Faculty:
                 facultyCardDisplays[index].card = newCard;
                 facultyCardDisplays[index].gameObject.SetActive(true);
+                facultyCardDisplays[index].DisplayInformation();
                 break;
             case Card.Type.Building:
                 buildingCardDisplays[index].card = newCard;
                 buildingCardDisplays[index].gameObject.SetActive(true);
+                buildingCardDisplays[index].DisplayInformation();
                 break;
             default:
                 Debug.Log("Card type " + type + " not found");

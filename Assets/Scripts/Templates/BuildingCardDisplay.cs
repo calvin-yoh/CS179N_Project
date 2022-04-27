@@ -20,13 +20,7 @@ public class BuildingCardDisplay : CardDisplay
 	{
 	}
 
-	private void OnEnable()
-	{
-		DisplayInformation();
-		hasActivatedEffect = false;
-	}
-
-	protected override void DisplayInformation()
+	public override void DisplayInformation()
     {
 		base.DisplayInformation();
 		healthText.text = "HP : " + card.health.ToString();

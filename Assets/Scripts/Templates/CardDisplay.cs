@@ -31,18 +31,17 @@ public class CardDisplay : MonoBehaviour
 
     }
 
-    private void OnEnable()
-    {
-        DisplayInformation();
-        ResetCard();
-    }
-
     public void ResetCard()
     {
         hasActivatedEffect = false;
         if (CanActivateEffect())
         {
             glowEffect.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Turning off glow");
+            glowEffect.SetActive(false);
         }
     }
 
@@ -57,7 +56,7 @@ public class CardDisplay : MonoBehaviour
         glowEffect.SetActive(false);
     }
 
-    protected virtual void DisplayInformation()
+    public virtual void DisplayInformation()
     {
         switch (card.major) {
             case Card.Major.Arts:
