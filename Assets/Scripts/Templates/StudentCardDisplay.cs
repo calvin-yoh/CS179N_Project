@@ -19,13 +19,12 @@ public class StudentCardDisplay : CardDisplay
 	// Use this for initialization
 	void Start()
 	{
-		DisplayInformation();
 	}
 
-	protected override void DisplayInformation()
+	public override void DisplayInformation()
 	{
 		base.DisplayInformation();
-		durationText.text = card.duration.ToString();
+		durationText.text = "Dur : " + card.duration.ToString();
 		effectNameText.text = card.effectName.ToString();
 	}
 }

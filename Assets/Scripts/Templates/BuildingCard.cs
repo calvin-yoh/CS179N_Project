@@ -9,6 +9,6 @@ public class BuildingCard : Card
 
     public override void ApplyEffect()
     {
-        Debug.Log("Activating " + name + "'s effect.");
+        // Debug.Log("Activating " + name + "'s effect.");
     }
 }

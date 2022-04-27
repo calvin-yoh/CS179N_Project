@@ -19,15 +19,44 @@ public class CardDisplay : MonoBehaviour
     public Sprite staffBackground;
     public Sprite athleticBackground;
 
+    public bool hasActivatedEffect;
+    public bool inHand = false;
+    [SerializeField] private GameObject glowEffect;
+
     //public TextMeshProUGUI healthText;
 
     // Start is called before the first frame update
     void Start()
     {
-        DisplayInformation();
+
     }
 
-    protected virtual void DisplayInformation()
+    public void ResetCard()
+    {
+        hasActivatedEffect = false;
+        if (CanActivateEffect())
+        {
+            glowEffect.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Turning off glow");
+            glowEffect.SetActive(false);
+        }
+    }
+
+    public bool CanActivateEffect(){
+		return !hasActivatedEffect && !inHand;
+	}
+
+    public virtual void ActivateEffect(){
+        Debug.Log("Activating " + this.name + "'s effect");
+        card.ApplyEffect();
+        this.hasActivatedEffect = true;
+        glowEffect.SetActive(false);
+    }
+
+    public virtual void DisplayInformation()
     {
         switch (card.major) {
             case Card.Major.Arts:

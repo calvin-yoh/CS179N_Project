@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98205b6eaf9c732488ea4ec64aa0696c, type: 3}
-  m_Name: New Card
+  m_Name: SnowboardingClub
   m_EditorClassIdentifier: 
-  name: 
-  major: 0
-  effectName: 
-  effect: 
+  name: Snowboarding Club
+  major: 3
+  type: 1
+  effectName: Avalanche
+  effect: Flip a coin. If heads, deal 5 damage to all of your opponent's buildings.
+    If tails, all your buildings take 3 damage.
   artwork: {fileID: 0}
   health: 0
-  duration: 0
+  duration: 4
