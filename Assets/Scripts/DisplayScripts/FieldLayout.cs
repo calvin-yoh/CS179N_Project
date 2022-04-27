@@ -10,8 +10,7 @@ public class FieldLayout : MonoBehaviour
 
     public Card test;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         //Remove all visible instances of card displays
         foreach (BuildingCardDisplay bcd in buildingCardDisplays)
@@ -20,6 +19,12 @@ public class FieldLayout : MonoBehaviour
             scd.gameObject.SetActive(false);
         foreach (FacultyCardDisplay fcd in facultyCardDisplays)
             fcd.gameObject.SetActive(false);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
 
     }
 
@@ -28,8 +33,7 @@ public class FieldLayout : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            studentCardDisplays[0].card = test;
-            studentCardDisplays[0].gameObject.SetActive(true);
+            ActivateCard(0, test, test.type);
         }
             
     }

@@ -23,7 +23,6 @@ public class BuildingCardDisplay : CardDisplay
 	private void OnEnable()
 	{
 		DisplayInformation();
-		inHand = false;
 		hasActivatedEffect = false;
 	}
 

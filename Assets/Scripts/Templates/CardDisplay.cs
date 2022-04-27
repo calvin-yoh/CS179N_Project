@@ -20,7 +20,8 @@ public class CardDisplay : MonoBehaviour
     public Sprite athleticBackground;
 
     public bool hasActivatedEffect;
-    public bool inHand;
+    public bool inHand = false;
+    [SerializeField] private GameObject glowEffect;
 
     //public TextMeshProUGUI healthText;
 
@@ -33,10 +34,17 @@ public class CardDisplay : MonoBehaviour
     private void OnEnable()
     {
         DisplayInformation();
-        inHand = false;
-        hasActivatedEffect = false;
+        ResetCard();
     }
 
+    public void ResetCard()
+    {
+        hasActivatedEffect = false;
+        if (CanActivateEffect())
+        {
+            glowEffect.SetActive(true);
+        }
+    }
 
     public bool CanActivateEffect(){
 		return !hasActivatedEffect && !inHand;
@@ -46,6 +54,7 @@ public class CardDisplay : MonoBehaviour
         Debug.Log("Activating " + this.name + "'s effect");
         card.ApplyEffect();
         this.hasActivatedEffect = true;
+        glowEffect.SetActive(false);
     }
 
     protected virtual void DisplayInformation()

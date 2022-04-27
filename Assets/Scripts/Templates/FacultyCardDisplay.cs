@@ -24,7 +24,6 @@ public class FacultyCardDisplay : CardDisplay
 	private void OnEnable()
 	{
 		DisplayInformation();
-		inHand = false;
 		hasActivatedEffect = false;
 	}
 

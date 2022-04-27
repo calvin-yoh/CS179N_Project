@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508364045}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.0119, y: -0.0298, z: 0.5}
-  m_LocalScale: {x: 0.24037354, y: 1, z: 0.39198095}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalScale: {x: 0.25, y: 1, z: 0.4}
   m_Children: []
   m_Father: {fileID: 6046434584507389264}
   m_RootOrder: 1
@@ -398,8 +398,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.004799962, y: 0.29199994}
-  m_SizeDelta: {x: -0.1513, y: -2.184}
+  m_AnchoredPosition: {x: -0.0052250624, y: 0.29199994}
+  m_SizeDelta: {x: -0.15045002, y: -2.184}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6046434584222497952
 CanvasRenderer:
@@ -643,6 +643,7 @@ MonoBehaviour:
   athleticBackground: {fileID: 21300000, guid: e83de67cc081de149b73b96f0e6f3f77, type: 3}
   hasActivatedEffect: 0
   inHand: 0
+  glowEffect: {fileID: 1508364045}
   effectNameText: {fileID: 8997811852516737839}
 --- !u!1 &6046434584802360254
 GameObject:
@@ -894,7 +895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.0203}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2.3, y: 3.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6046434586072524324

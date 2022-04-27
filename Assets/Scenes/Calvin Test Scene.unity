@@ -336,10 +336,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Layout
       objectReference: {fileID: 0}
-    - target: {fileID: 6133048292864777774, guid: 472b963d58959954693bd3c13cb923f3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 472b963d58959954693bd3c13cb923f3, type: 3}
 --- !u!1 &1290538914
@@ -581,7 +577,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: db5fd82abd232d14e8dd5701cc5f147d, type: 3}
   m_Color: {r: 0.6117647, g: 0.49803922, b: 0.36078432, a: 1}
   m_FlipX: 0

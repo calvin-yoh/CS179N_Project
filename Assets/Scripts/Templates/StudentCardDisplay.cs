@@ -19,7 +19,12 @@ public class StudentCardDisplay : CardDisplay
 	// Use this for initialization
 	void Start()
 	{
+	}
+
+	private void OnEnable()
+	{
 		DisplayInformation();
+		hasActivatedEffect = false;
 	}
 
 	protected override void DisplayInformation()
