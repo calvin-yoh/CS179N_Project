@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
 
     public bool isAI = false;
     public int number;
+    private bool hasPlayedStudentCard;
+    private bool hasPlayedFacultyCard;
 
     void Start(){
         // hand = new List<Card>(20);
@@ -26,6 +28,14 @@ public class Player : MonoBehaviour
 
     public FieldLayout GetField(){
         return field;
+    }
+
+    public bool HasPlayedStudentCard(){
+        return hasPlayedStudentCard;
+    }
+
+    public bool HasPlayedFacultyCard(){
+        return hasPlayedFacultyCard;
     }
 
     public void SetUpDeck(){
@@ -47,8 +57,8 @@ public class Player : MonoBehaviour
     }
 
     public void StartTurn(){
-        // canPlaceFaculty = true;
-        // canPlaceStudent = true;
+        hasPlayedFacultyCard = false;
+        hasPlayedStudentCard = false;
         DrawCard();
     }
 
@@ -93,7 +103,27 @@ public class Player : MonoBehaviour
     }
 
     public void PlaceCard(int index, Card newCard){
-        
+        Card.Type type = newCard.type;
+        switch (type){
+            case Card.Type.Student:
+                if (hasPlayedStudentCard){  // Already played student card, don't place card down
+                    return;
+                }
+                else{
+                    hasPlayedStudentCard = true;
+                }
+                break;
+            case Card.Type.Faculty:
+                if (hasPlayedFacultyCard){  // Already played faculty card, don't place card down
+                    return;
+                }
+                else{
+                    hasPlayedFacultyCard = true;
+                }
+                break;
+            default:
+                break;
+        }
         field.ActivateCard(index, newCard);
         hand.RemoveCard(newCard);
     }
