@@ -30,11 +30,23 @@ public class Player : MonoBehaviour
     }
 
     public void SetUpDeck(){
+        ShuffleDeck();
         deck = new Stack<Card>();
         for (int i=0; i < openDeck.Count; i++){
             deck.Push(openDeck[i]);
         }
     }
+
+    public void ShuffleDeck(){
+        int index;
+        for (int i=0; i < openDeck.Count-1; i++){
+            index = Random.Range(i+1, openDeck.Count);
+            Card tmp = openDeck[index];
+            openDeck[index] = openDeck[i];
+            openDeck[i] = tmp;
+        }
+    }
+
     public void StartTurn(){
         // canPlaceFaculty = true;
         // canPlaceStudent = true;
