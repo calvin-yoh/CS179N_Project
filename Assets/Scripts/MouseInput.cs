@@ -82,7 +82,7 @@ public class MouseInput : MonoBehaviour
                     Physics.Raycast(r, out hit);
                     if (hit.collider != null)
                     {
-                        if (hit.collider.tag == "Card")
+                        if (hit.collider.tag == "Card" && hit.collider.gameObject != startObject)
                         {
                             Debug.Log("Apply effect");
                             endObject = hit.collider.gameObject;

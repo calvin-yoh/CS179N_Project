@@ -30,25 +30,28 @@ public class CardDescriptionUI : MonoBehaviour
 
     public void DisplayCard(CardDisplay cardDisplay)
     {
-        switch (cardDisplay.card.type)
+        switch (cardDisplay.GetCardType())
         {
             case Card.Type.Building:
                 buildingCardDisplay.card = cardDisplay.card;
+                buildingCardDisplay.SetUpInformation();
                 buildingCardDisplay.gameObject.SetActive(true);
                 buildingCardDisplay.DisplayInformation();
                 break;
             case Card.Type.Faculty:
                 facultyCardDisplay.card = cardDisplay.card;
+                facultyCardDisplay.SetUpInformation();
                 facultyCardDisplay.gameObject.SetActive(true);
                 facultyCardDisplay.DisplayInformation();
                 break;
             case Card.Type.Student:
                 studentCardDisplay.card = cardDisplay.card;
+                studentCardDisplay.SetUpInformation();
                 studentCardDisplay.gameObject.SetActive(true);
                 studentCardDisplay.DisplayInformation();
                 break;
             default:
-                Debug.Log("Cannot show card description. Wrong cad type");
+                Debug.Log("Cannot show card description. Wrong card type");
                 break;
         }
     }

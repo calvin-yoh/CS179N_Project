@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
 
         cd.card = newCard;
         cd.inHand = true;
+        cd.SetUpInformation();
         cd.ResetCard();
         cd.DisplayInformation();
 
