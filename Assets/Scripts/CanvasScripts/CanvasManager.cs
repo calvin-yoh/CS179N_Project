@@ -8,6 +8,7 @@ public class CanvasManager : MonoBehaviour
     public static CanvasManager Instance { get { return _instance; } }
 
     public CardDescriptionUI cardDescriptionUI;
+    public GameObject endTurnButton;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,16 @@ public class CanvasManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void HideEndTurnButton()
+    {
+        endTurnButton.SetActive(false);   
+    }
+
+    public void ShowEndTurnButton()
+    {
+        endTurnButton.SetActive(true);
     }
 
     public void EndTurnButtonPressed()
