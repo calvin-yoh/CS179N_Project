@@ -52,7 +52,11 @@ public class MouseInput : MonoBehaviour
                         {
                             GameObject cardHit = hit.collider.gameObject;
                             CardDisplay c = cardHit.GetComponent<CardDisplay>();
+                            
+                            //Show card details on the UI
+                            CanvasManager.Instance.ShowCardDetails(c);
 
+                            //Check if on field or in the hand
                             if (c.CanActivateEffect()){
                                 startObject = hit.collider.gameObject;
                                 currState = State.DownField;
@@ -62,7 +66,11 @@ public class MouseInput : MonoBehaviour
                                 currState = State.DownHand;
                             }
                         }
-
+                        else
+                        {
+                            CanvasManager.Instance.HideCardDetails();
+                            Debug.Log("Hit something, not card");
+                        }
                     }
                 }
                 break;
@@ -74,7 +82,7 @@ public class MouseInput : MonoBehaviour
                     Physics.Raycast(r, out hit);
                     if (hit.collider != null)
                     {
-                        if (hit.collider.tag == "Card")
+                        if (hit.collider.tag == "Card" && hit.collider.gameObject != startObject)
                         {
                             Debug.Log("Apply effect");
                             endObject = hit.collider.gameObject;
@@ -172,7 +180,6 @@ public class MouseInput : MonoBehaviour
 
                     if (c.CanActivateEffect()){
                         arrow.SetupAndActivate(cardHit.transform);
-
                     }
                 }
                 // Debug.Log("Clicked on " + hit.collider.gameObject.name);

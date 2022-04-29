@@ -15,14 +15,24 @@ public class BuildingCardDisplay : CardDisplay
 
 	public TextMeshProUGUI healthText;
 
+	//Additional card information
+	private int cardHealth;
+
 	// Use this for initialization
 	void Start()
 	{
 	}
 
+	public override void SetUpInformation()
+	{
+		base.SetUpInformation();
+		cardHealth = card.health;
+	}
+
+
 	public override void DisplayInformation()
     {
 		base.DisplayInformation();
-		healthText.text = "HP : " + card.health.ToString();
+		healthText.text = "HP : " + cardHealth.ToString();
 	}
 }

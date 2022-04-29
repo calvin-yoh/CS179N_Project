@@ -16,8 +16,7 @@ MonoBehaviour:
   major: 1
   type: 1
   effectName: Mines
-  effect: The first attack at the start of an opponents attack phase is nullifiedact
-    up to 2 of your opponent's student cards during their next turn.
+  effect: 'The first attack at the start of an opponents attack phase is nullified '
   artwork: {fileID: 0}
   health: 0
   duration: 5

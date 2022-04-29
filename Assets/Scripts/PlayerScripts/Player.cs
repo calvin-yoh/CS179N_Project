@@ -10,11 +10,13 @@ public class Player : MonoBehaviour
     // private bool canPlaceFaculty = true;
     public HandLayout hand;
     public List<Card> openDeck;     // The deck that is loaded, can view in the inspector
-    private Stack<Card> deck;       // The deck used in game that is represented with a stack
+    protected Stack<Card> deck;       // The deck used in game that is represented with a stack
 
     public GameObject buildingCardDisplay;
     public GameObject studentCardDisplay;
     public GameObject facultyCardDisplay;
+
+    public bool isAI = false;
 
     public void StartTurn(){
         // canPlaceFaculty = true;
@@ -54,6 +56,7 @@ public class Player : MonoBehaviour
 
         cd.card = newCard;
         cd.inHand = true;
+        cd.SetUpInformation();
         cd.ResetCard();
         cd.DisplayInformation();
 

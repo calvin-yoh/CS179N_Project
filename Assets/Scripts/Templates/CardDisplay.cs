@@ -23,6 +23,13 @@ public class CardDisplay : MonoBehaviour
     public bool inHand = false;
     [SerializeField] private GameObject glowEffect;
 
+    //Current Card information
+    private Card.Type cardType;
+    private Card.Major cardMajor;
+    private string cardName;
+    private Sprite cardArtwork;
+    private string cardEffect;
+
     //public TextMeshProUGUI healthText;
 
     // Start is called before the first frame update
@@ -31,8 +38,22 @@ public class CardDisplay : MonoBehaviour
 
     }
 
+    #region Getters/Setters
+    public Card.Major GetCardMajor()
+    {
+        return cardMajor;
+    }
+
+    public Card.Type GetCardType()
+    {
+        return cardType;
+    }
+
+    #endregion
+
     public void ResetCard()
     {
+        Debug.Log("Card Reset");
         hasActivatedEffect = false;
         if (CanActivateEffect())
         {
@@ -51,14 +72,23 @@ public class CardDisplay : MonoBehaviour
 
     public virtual void ActivateEffect(){
         Debug.Log("Activating " + this.name + "'s effect");
-        card.ApplyEffect();
+        //card.ApplyEffect();
         this.hasActivatedEffect = true;
         glowEffect.SetActive(false);
     }
 
+    public virtual void SetUpInformation()
+    {
+        cardType = card.type;
+        cardMajor = card.major;
+        cardName = card.name;
+        cardArtwork = card.artwork;
+        cardEffect = card.effect;
+    }
+
     public virtual void DisplayInformation()
     {
-        switch (card.major) {
+        switch (cardMajor) {
             case Card.Major.Arts:
                 backgroundImage.sprite = artBackground;
                 break;
@@ -76,9 +106,9 @@ public class CardDisplay : MonoBehaviour
                 break;
         }
 
-        nameText.text = card.name;
-        effectText.text = card.effect;
+        nameText.text = cardName;
+        effectText.text = cardEffect;
 
-        artworkImage.sprite = card.artwork;
+        artworkImage.sprite = cardArtwork;
     }
 }

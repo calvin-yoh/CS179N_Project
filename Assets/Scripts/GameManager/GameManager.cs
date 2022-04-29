@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance {get {return _instance;}}
 
     public List<Player> players;
-    private int currPlayer = 0;
+    private int currPlayerIndex = 0;
 
     //we need to limit the player to playing 1 student and faculty card per turn.
     private void Awake(){
@@ -22,8 +22,22 @@ public class GameManager : MonoBehaviour
     }
 
     public void SwitchPlayers(){
-        currPlayer = (currPlayer + 1) % 2;
-        players[currPlayer].StartTurn();
+        currPlayerIndex = (currPlayerIndex + 1) % 2;
+
+        var currPlayer = players[currPlayerIndex];
+
+        if (currPlayer.isAI)
+        {
+            Debug.Log("Playing AI Turn");
+            SimpleAI simpleAI = (SimpleAI)currPlayer;
+            CanvasManager.Instance.HideEndTurnButton();
+            StartCoroutine(simpleAI.PlayAITurn());
+        }
+        else
+        {
+            CanvasManager.Instance.ShowEndTurnButton();
+            currPlayer.StartTurn();
+        } 
     }
 
     // Start is called before the first frame update
