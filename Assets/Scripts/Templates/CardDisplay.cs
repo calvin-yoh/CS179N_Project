@@ -21,6 +21,7 @@ public class CardDisplay : MonoBehaviour
 
     public bool hasActivatedEffect;
     public bool inHand = false;
+    public int playerNumber;
     [SerializeField] private GameObject glowEffect;
 
     //Current Card information

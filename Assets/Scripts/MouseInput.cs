@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Kalkatos.DottedArrow;
 
 public class MouseInput : MonoBehaviour
 {
-    private static MouseInput _instance;
-    [SerializeField] private Arrow arrow;
 
-    public static MouseInput Instance {get {return _instance;}}
-    public HandLayout hand;
+    // [SerializeField] private Arrow arrow;
+    [SerializeField] private Player player;
 
     [SerializeField] private GameObject startObject;
     [SerializeField] private GameObject endObject;
+
+    private CanvasManager canvasInstance;
 
     public enum State{
         Wait, DownField, DownHand, ApplyEffect
@@ -20,13 +19,8 @@ public class MouseInput : MonoBehaviour
 
     public State currState = State.Wait;
 
-    private void Awake(){
-        if (_instance != null && _instance != this){
-            Destroy(this.gameObject);
-        }
-        else{
-            _instance = this;
-        }
+    void Start(){
+        canvasInstance = CanvasManager.Instance;
     }
 
     // Update is called once per frame
@@ -57,13 +51,15 @@ public class MouseInput : MonoBehaviour
                             CanvasManager.Instance.ShowCardDetails(c);
 
                             //Check if on field or in the hand
-                            if (c.CanActivateEffect()){
-                                startObject = hit.collider.gameObject;
-                                currState = State.DownField;
-                            }
-                            else if (c.inHand){
-                                startObject = hit.collider.gameObject;
-                                currState = State.DownHand;
+                            if ( c.playerNumber == player.number){
+                                if (c.CanActivateEffect()){
+                                    startObject = hit.collider.gameObject;
+                                    currState = State.DownField;
+                                }
+                                else if (c.inHand){
+                                    startObject = hit.collider.gameObject;
+                                    currState = State.DownHand;
+                                }
                             }
                         }
                         else
@@ -111,9 +107,8 @@ public class MouseInput : MonoBehaviour
                             Debug.Log(hit.collider.gameObject.name);
                             Card newCard = startObject.GetComponent<CardDisplay>().card;
                             EmptyBoardSlot slot = hit.collider.gameObject.GetComponent<EmptyBoardSlot>();
-                            if (newCard.type == slot.GetCardType()){
-                                slot.PlaceCard(newCard);
-                                hand.RemoveCard(newCard);
+                            if (newCard.type == slot.GetCardType() && slot.GetField() == player.GetField()){
+                                player.PlaceCard(slot.GetIndex(), newCard);
                             }
                             else{
                                 Debug.Log("Card type does not match");
@@ -135,25 +130,17 @@ public class MouseInput : MonoBehaviour
         switch(currState)
         {
             case State.Wait:
-                if(arrow.isActive)
-                {
-                    arrow.Deactivate();
-                }
+                canvasInstance.DeactivateArrow();
                 startObject = null;
                 endObject = null;
                 break;
             case State.DownField:
                 // Debug.Log(arrow.gameObject.activeInHierarchy);
-                if(!arrow.isActive)
-                {
-                    arrow.SetupAndActivate(startObject.transform);
-                }
+                canvasInstance.SetUpArrow(startObject.transform);
                 break;
             case State.DownHand:
-                if(!arrow.isActive)
-                {
-                    arrow.SetupAndActivate(startObject.transform);
-                }
+                 canvasInstance.SetUpArrow(startObject.transform);
+
                 break;
             case State.ApplyEffect:
 
@@ -165,30 +152,30 @@ public class MouseInput : MonoBehaviour
 
 
 
-    GameObject checkObjectClicked(){
-        if (Input.GetMouseButtonDown(0)){
-            // Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            // Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-            // RaycastHit hit = Physics.Raycast(mousePos, Vector2.zero);
-            Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            Physics.Raycast(r, out hit);
-            if (hit.collider != null){
-                if (hit.collider.tag == "Card"){
-                    GameObject cardHit = hit.collider.gameObject;
-                    CardDisplay c = cardHit.GetComponent<CardDisplay>();
+    // GameObject checkObjectClicked(){
+    //     if (Input.GetMouseButtonDown(0)){
+    //         // Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //         // Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+    //         // RaycastHit hit = Physics.Raycast(mousePos, Vector2.zero);
+    //         Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //         RaycastHit hit;
+    //         Physics.Raycast(r, out hit);
+    //         if (hit.collider != null){
+    //             if (hit.collider.tag == "Card"){
+    //                 GameObject cardHit = hit.collider.gameObject;
+    //                 CardDisplay c = cardHit.GetComponent<CardDisplay>();
 
-                    if (c.CanActivateEffect()){
-                        arrow.SetupAndActivate(cardHit.transform);
-                    }
-                }
-                // Debug.Log("Clicked on " + hit.collider.gameObject.name);
-                if(startObject != null){
-                    arrow.Deactivate();
-                }
-                return hit.collider.gameObject;
-            }
-        }
-        return null;
-    }
+    //                 if (c.CanActivateEffect()){
+    //                     arrow.SetupAndActivate(cardHit.transform);
+    //                 }
+    //             }
+    //             // Debug.Log("Clicked on " + hit.collider.gameObject.name);
+    //             if(startObject != null){
+    //                 arrow.Deactivate();
+    //             }
+    //             return hit.collider.gameObject;
+    //         }
+    //     }
+    //     return null;
+    // }
 }

@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
 
     // private bool canPlaceStudent = true;
     // private bool canPlaceFaculty = true;
-    public HandLayout hand;
+    [SerializeField] private HandLayout hand;
+    [SerializeField] private FieldLayout field;
     public List<Card> openDeck;     // The deck that is loaded, can view in the inspector
     protected Stack<Card> deck;       // The deck used in game that is represented with a stack
 
@@ -17,7 +18,23 @@ public class Player : MonoBehaviour
     public GameObject facultyCardDisplay;
 
     public bool isAI = false;
+    public int number;
 
+    void Start(){
+        // hand = new List<Card>(20);
+        
+    }
+
+    public FieldLayout GetField(){
+        return field;
+    }
+
+    public void SetUpDeck(){
+        deck = new Stack<Card>();
+        for (int i=0; i < openDeck.Count; i++){
+            deck.Push(openDeck[i]);
+        }
+    }
     public void StartTurn(){
         // canPlaceFaculty = true;
         // canPlaceStudent = true;
@@ -46,7 +63,6 @@ public class Player : MonoBehaviour
                 gameob = null;
                 Debug.Log("ERROR");
                 break;
-
         }
 
         if (gameob == null)
@@ -55,6 +71,7 @@ public class Player : MonoBehaviour
         CardDisplay cd = gameob.GetComponent<CardDisplay>();
 
         cd.card = newCard;
+        cd.playerNumber = number;
         cd.inHand = true;
         cd.SetUpInformation();
         cd.ResetCard();
@@ -64,19 +81,14 @@ public class Player : MonoBehaviour
         // Debug.Log(this.name + " has " + hand.Count + " cards");
     }
 
+    public void PlaceCard(int index, Card newCard){
+        
+        field.ActivateCard(index, newCard);
+        hand.RemoveCard(newCard);
+    }
+
     public void EndTurn(){
         GameManager.Instance.SwitchPlayers();
     }
 
-    void Start(){
-        deck = new Stack<Card>();
-        // hand = new List<Card>(20);
-        for (int i=0; i < openDeck.Count; i++){
-            deck.Push(openDeck[i]);
-        }
-
-        for (int i=0; i < numStartingCards; i++){
-            DrawCard();
-        }
-    }
 }

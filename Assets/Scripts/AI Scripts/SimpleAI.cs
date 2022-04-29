@@ -18,17 +18,7 @@ public class SimpleAI : Player
         isActivateEffectPhase = false;
         isEndTurnPhase = false;
 
-        deck = new Stack<Card>();
         // hand = new List<Card>(20);
-        for (int i = 0; i < openDeck.Count; i++)
-        {
-            deck.Push(openDeck[i]);
-        }
-
-        for (int i = 0; i < numStartingCards; i++)
-        {
-            DrawCard();
-        }
     }
 
     // Update is called once per frame
@@ -48,6 +38,7 @@ public class SimpleAI : Player
 
     public IEnumerator PlayAITurn()
     {
+        ResetBools();
         StartCoroutine(DrawPhase());
         yield return new WaitUntil(() => isPlaceCardsPhase);
         StartCoroutine(PlaceCardsPhase());

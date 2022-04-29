@@ -10,6 +10,7 @@ public class FieldLayout : MonoBehaviour
 
     public Card test;
 
+
     private void Awake()
     {
         //Remove all visible instances of card displays
@@ -33,28 +34,31 @@ public class FieldLayout : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            ActivateCard(0, test, test.type);
+            // ActivateCard(0, test);
         }
             
     }
 
-    public void ActivateCard(int index, Card newCard, Card.Type type){
+    public void ActivateCard(int index, Card newCard){
+        Card.Type type = newCard.type;
         switch (type){
+            case Card.Type.Building:
+                buildingCardDisplays[index].card = newCard;
+                buildingCardDisplays[index].gameObject.SetActive(true);
+                buildingCardDisplays[index].SetUpInformation();
+                buildingCardDisplays[index].DisplayInformation();
+                break;
+            case Card.Type.Faculty:
+                facultyCardDisplays[index].card = newCard;
+                facultyCardDisplays[index].gameObject.SetActive(true);
+                facultyCardDisplays[index].SetUpInformation();
+                facultyCardDisplays[index].DisplayInformation();
+                break;
             case Card.Type.Student:
                 studentCardDisplays[index].card = newCard;
                 studentCardDisplays[index].gameObject.SetActive(true);
                 studentCardDisplays[index].SetUpInformation();
                 studentCardDisplays[index].DisplayInformation();
-                break;
-            case Card.Type.Faculty:
-                facultyCardDisplays[index].card = newCard;
-                facultyCardDisplays[index].gameObject.SetActive(true);
-                facultyCardDisplays[index].DisplayInformation();
-                break;
-            case Card.Type.Building:
-                buildingCardDisplays[index].card = newCard;
-                buildingCardDisplays[index].gameObject.SetActive(true);
-                buildingCardDisplays[index].DisplayInformation();
                 break;
             default:
                 Debug.Log("Card type " + type + " not found");

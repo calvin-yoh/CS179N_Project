@@ -15,11 +15,15 @@ public class EmptyBoardSlot : MonoBehaviour
         field = GetComponentInParent<FieldLayout>();
     }
 
-    public Card.Type GetCardType(){
-        return type;
+    public int GetIndex(){
+        return index;
     }
 
-    public void PlaceCard(Card newCard){
-        field.ActivateCard(index, newCard, type);
+    public FieldLayout GetField(){
+        return field;
+    }
+
+    public Card.Type GetCardType(){
+        return type;
     }
 }

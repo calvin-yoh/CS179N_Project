@@ -21,6 +21,30 @@ public class GameManager : MonoBehaviour
         //maybe here, we can set the 5 building cards.
     }
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        SetUpGame();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void SetUpGame(){
+        int number = 1;
+        foreach (Player p in players){
+            p.SetUpDeck();
+            p.number = number;
+            number++;
+            for (int i=0; i < p.numStartingCards; i++){
+                p.DrawCard();
+            }
+        }
+    }
+
     public void SwitchPlayers(){
         currPlayerIndex = (currPlayerIndex + 1) % 2;
 
@@ -40,15 +64,4 @@ public class GameManager : MonoBehaviour
         } 
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

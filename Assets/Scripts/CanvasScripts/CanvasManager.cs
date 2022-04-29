@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Kalkatos.DottedArrow;
 
 public class CanvasManager : MonoBehaviour
 {
     private static CanvasManager _instance;
     public static CanvasManager Instance { get { return _instance; } }
 
+
+    [SerializeField] private Arrow arrow;
     public CardDescriptionUI cardDescriptionUI;
     public GameObject endTurnButton;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (_instance != null && _instance != this)
         {
@@ -54,6 +57,17 @@ public class CanvasManager : MonoBehaviour
         cardDescriptionUI.ResetUI();
     }
 
+    public void SetUpArrow(Transform pos){
+        if(!arrow.isActive)
+        {
+            arrow.SetupAndActivate(pos);
+        }
+    }
 
-
+    public void DeactivateArrow(){
+        if(arrow.isActive)
+        {
+            arrow.Deactivate();
+        }
+    }
 }
