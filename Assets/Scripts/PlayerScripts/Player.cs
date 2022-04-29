@@ -124,7 +124,7 @@ public class Player : MonoBehaviour
             default:
                 break;
         }
-        field.ActivateCard(index, newCard);
+        field.ActivateCard(index, newCard, number);
         hand.RemoveCard(newCard);
     }
 
