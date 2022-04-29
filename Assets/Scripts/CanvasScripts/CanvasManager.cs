@@ -8,7 +8,6 @@ public class CanvasManager : MonoBehaviour
     private static CanvasManager _instance;
     public static CanvasManager Instance { get { return _instance; } }
 
-
     [SerializeField] private Arrow arrow;
     public CardDescriptionUI cardDescriptionUI;
     public GameObject endTurnButton;

@@ -71,7 +71,7 @@ public class HandLayout : MonoBehaviour
             GameObject currCard = hand[i].gameObject; //Reference to first image in my list
             currCard.GetComponentInChildren<Canvas>().sortingOrder = i;
             currCard.transform.position = start.position; //relocating my card to the Start Position
-            currCard.transform.position += new Vector3((i * gapFromOneItemToTheNextOne), 0, 0); // Moving my card 1f to the right
+            currCard.transform.position += new Vector3((i * gapFromOneItemToTheNextOne), i * 0.1f, 0); // Moving my card 1f to the right
             float twistForThisCard = startTwist - (i * twistPerCard);
             currCard.transform.rotation = Quaternion.Euler(90f, 0f, twistForThisCard);
 

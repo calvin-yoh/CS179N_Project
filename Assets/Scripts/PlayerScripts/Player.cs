@@ -22,7 +22,6 @@ public class Player : MonoBehaviour
 
     void Start(){
         // hand = new List<Card>(20);
-        
     }
 
     public FieldLayout GetField(){
@@ -37,7 +36,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void ShuffleDeck(){
+    public void ShuffleDeck(){      // Only shuffles at the beginning, does not work for midgame
         int index;
         for (int i=0; i < openDeck.Count-1; i++){
             index = Random.Range(i+1, openDeck.Count);
