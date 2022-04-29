@@ -17,6 +17,7 @@ public class LoadCards : MonoBehaviour
     void displayStudentCard(StudentCard card){
         var go = Instantiate(StudentCardDisplayPrefab, transform.position, transform.rotation);
         go.GetComponent<StudentCardDisplay>().card = card;
+        go.GetComponent<StudentCardDisplay>().SetUpInformation();
         go.GetComponent<StudentCardDisplay>().DisplayInformation();
 
         go.transform.SetParent(this.transform);
@@ -25,6 +26,7 @@ public class LoadCards : MonoBehaviour
     void displayFacultyCard(FacultyCard card){
         var go = Instantiate(FacultyCardDisplayPrefab, transform.position, transform.rotation);
         go.GetComponent<FacultyCardDisplay>().card = card;
+        go.GetComponent<FacultyCardDisplay>().SetUpInformation();
         go.GetComponent<FacultyCardDisplay>().DisplayInformation();
 
         go.transform.SetParent(this.transform);
@@ -33,6 +35,7 @@ public class LoadCards : MonoBehaviour
     void displayBuildingCard(BuildingCard card){
         var go = Instantiate(BuildingCardDisplayPrefab, transform.position, transform.rotation);
         go.GetComponent<BuildingCardDisplay>().card = card;
+        go.GetComponent<BuildingCardDisplay>().SetUpInformation();
         go.GetComponent<BuildingCardDisplay>().DisplayInformation();
 
         go.transform.SetParent(this.transform);
