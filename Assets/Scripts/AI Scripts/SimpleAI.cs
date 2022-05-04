@@ -33,6 +33,8 @@ public class SimpleAI : Player
         isPlaceCardsPhase = false;
         isActivateEffectPhase = false;
         isEndTurnPhase = false;
+        hasPlayedFacultyCard = false;
+        hasPlayedStudentCard = false;
     }
 
 
@@ -64,7 +66,25 @@ public class SimpleAI : Player
     public IEnumerator PlaceCardsPhase()
     {
         Debug.Log("Placing card code goes here");
-        yield return new WaitForSeconds(3f);
+        Card placeCard = GetRandomCardInHand();
+        int index = 0;
+        while (field.CheckIfOccupied(index, placeCard.type)){
+            index++;
+            if (index >= 3 && placeCard.type == Card.Type.Faculty){
+                Debug.Log("Faculty slots are full");
+                isActivateEffectPhase = true;
+                yield break;
+            }
+            else if (index >= 7 && placeCard.type == Card.Type.Student){
+                Debug.Log("Student slots are full");
+                isActivateEffectPhase = true;
+                yield break;
+            }
+        }
+        Debug.Log("Placing " + placeCard.name + " at index " + index);
+        base.PlaceCard(index, placeCard);
+        yield return new WaitForSeconds(1f);
+
         Debug.Log("Moving to next phase");
         isActivateEffectPhase = true;
     }
@@ -76,5 +96,12 @@ public class SimpleAI : Player
         Debug.Log("Ending turn");
         isEndTurnPhase = true;
         yield return null;
+    }
+
+    private Card GetRandomCardInHand(){
+        List<CardDisplay> cardHand = hand.getHand();
+        int randIndex = Random.Range(0, cardHand.Count);
+        Card returnCard = cardHand[randIndex].card;
+        return returnCard;
     }
 }

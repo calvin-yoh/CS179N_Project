@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
 
     // private bool canPlaceStudent = true;
     // private bool canPlaceFaculty = true;
-    [SerializeField] private HandLayout hand;
-    [SerializeField] private FieldLayout field;
+    [SerializeField] protected HandLayout hand;
+    [SerializeField] protected FieldLayout field;
     public List<Card> openDeck;     // The deck that is loaded, can view in the inspector
     protected Stack<Card> deck;       // The deck used in game that is represented with a stack
 
@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
 
     public bool isAI = false;
     public int number;
-    private bool hasPlayedStudentCard;
-    private bool hasPlayedFacultyCard;
+    protected bool hasPlayedStudentCard;
+    protected bool hasPlayedFacultyCard;
 
     void Start(){
         // hand = new List<Card>(20);

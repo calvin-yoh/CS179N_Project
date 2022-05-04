@@ -32,11 +32,21 @@ public class FieldLayout : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            // ActivateCard(0, test);
-        }
             
+    }
+
+    public bool CheckIfOccupied(int index, Card.Type cardType){
+        switch (cardType){
+            case Card.Type.Building:
+                return (buildingCardDisplays[index].gameObject.activeSelf);
+            case Card.Type.Faculty:
+                return (facultyCardDisplays[index].gameObject.activeSelf);
+            case Card.Type.Student:
+                return (studentCardDisplays[index].gameObject.activeSelf);
+            default:
+                Debug.Log("Card type " + cardType + " not found");
+                return false;
+        }
     }
 
     public void ActivateCard(int index, Card newCard, int player){

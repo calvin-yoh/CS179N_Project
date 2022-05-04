@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numStartingCards: 5
   hand: {fileID: 5548332654037528006}
+  field: {fileID: 8945762394388609344}
   openDeck:
   - {fileID: 11400000, guid: 75130406609239a46b2c783081362f2d, type: 2}
   - {fileID: 11400000, guid: 600c8ae2837c6654f9e3b080f576437b, type: 2}
@@ -72,6 +73,7 @@ MonoBehaviour:
   studentCardDisplay: {fileID: 6046434584507389265, guid: 6a29adb4bd76f2a4690e18dd4cd388d4, type: 3}
   facultyCardDisplay: {fileID: 6046434584507389265, guid: afe2ab10ab0cfe842aaf4caa3527e34d, type: 3}
   isAI: 1
+  number: 0
   isDrawPhase: 1
   isPlaceCardsPhase: 0
   isActivateEffectPhase: 0
@@ -211,3 +213,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1204887256358328808, guid: 472b963d58959954693bd3c13cb923f3, type: 3}
   m_PrefabInstance: {fileID: 4827386570562100401}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8945762394388609344 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4529470045609059825, guid: 472b963d58959954693bd3c13cb923f3, type: 3}
+  m_PrefabInstance: {fileID: 4827386570562100401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7fc77d50ea5c464dbb1fac2d1c25887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
