@@ -68,7 +68,7 @@ public class SimpleAI : Player
         Debug.Log("Placing card code goes here");
         Card placeCard = GetRandomCardInHand();
         int index = 0;
-        while (field.CheckIfOccupied(index, placeCard.type)){
+        while (field.CheckIfOccupied(index, placeCard.type)){           // Get next available index on the field
             index++;
             if (index >= 3 && placeCard.type == Card.Type.Faculty){
                 Debug.Log("Faculty slots are full");
