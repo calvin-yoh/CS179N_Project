@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98205b6eaf9c732488ea4ec64aa0696c, type: 3}
   m_Name: Librarian
   m_EditorClassIdentifier: 
-  name: 
-  major: 0
+  name: Librarian
+  major: 2
   type: 1
-  effectName: 
-  effect: 
+  effectName: Shush
+  effect: Give 2 of your opponent's students -3 attack for 1 turn
   artwork: {fileID: 0}
   health: 0
   duration: 0

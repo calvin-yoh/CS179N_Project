@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98205b6eaf9c732488ea4ec64aa0696c, type: 3}
   m_Name: Nurse
   m_EditorClassIdentifier: 
-  name: 
-  major: 0
+  name: Nurse
+  major: 2
   type: 1
-  effectName: 
-  effect: 
+  effectName: Cleanse
+  effect: Reenable 2 disabled cards on the field
   artwork: {fileID: 0}
   health: 0
-  duration: 0
+  duration: 3

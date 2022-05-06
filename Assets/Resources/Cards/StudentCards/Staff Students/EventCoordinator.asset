@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EventCoordinator
   m_EditorClassIdentifier: 
   name: Event Coordinator
-  major: 0
+  major: 2
   type: 1
   effectName: Rally
   effect: Summon 1 student card from your hand

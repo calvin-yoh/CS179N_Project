@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RA
   m_EditorClassIdentifier: 
   name: RA
-  major: 0
+  major: 2
   type: 1
   effectName: Report
   effect: Disable 1 of your opponent's students for 1 turn

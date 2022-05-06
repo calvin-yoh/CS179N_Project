@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Custodian
   m_EditorClassIdentifier: 
   name: Custodian
-  major: 0
+  major: 2
   type: 1
   effectName: Clean
   effect: Restore 2 health to all your buildings

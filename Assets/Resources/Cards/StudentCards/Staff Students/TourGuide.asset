@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98205b6eaf9c732488ea4ec64aa0696c, type: 3}
   m_Name: TourGuide
   m_EditorClassIdentifier: 
-  name: 
-  major: 0
+  name: Tour Guide
+  major: 2
   type: 1
-  effectName: 
-  effect: 
+  effectName: Tour
+  effect: Flip a coin. If heads, draw 1 card
   artwork: {fileID: 0}
   health: 0
-  duration: 0
+  duration: 2
