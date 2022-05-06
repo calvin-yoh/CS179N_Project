@@ -14,4 +14,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: 72e2d15cf9963f44f9ec26b83593ff35
+  - enabled: 1
+    path: Assets/Scenes/StoryMode levels/Level 1.unity
+    guid: efab3c0cbfe71374f8de45ca4acae1a2
+  - enabled: 1
+    path: Assets/Scenes/StoryMode levels/Level 2.unity
+    guid: 82e3dd17cc53e454886e032c578630b1
+  - enabled: 1
+    path: Assets/Scenes/StoryMode levels/Level 3.unity
+    guid: e9d140f66d2321f43980bf9c90792aee
+  - enabled: 1
+    path: Assets/Scenes/StoryMode levels/Level 4.unity
+    guid: 4e574a9c93c0a3b46b5ced01a259c383
+  - enabled: 1
+    path: Assets/Scenes/StoryMode levels/Level 5.unity
+    guid: 5db129c3e3d5f1d4aaf64fcbe4544d15
   m_configObjects: {}
