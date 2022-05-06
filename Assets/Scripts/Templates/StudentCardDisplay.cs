@@ -16,16 +16,31 @@ public class StudentCardDisplay : CardDisplay
 	public TextMeshProUGUI durationText;
 	public TextMeshProUGUI effectNameText;
 
+	//Additional card information
+	private int cardDuration;
+	private string cardEffectName;
+
 	// Use this for initialization
 	void Start()
 	{
-		DisplayInformation();
 	}
 
-	protected override void DisplayInformation()
+	public void ChangeDurationBy(int value)
+	{
+		cardDuration += value;
+	}
+
+    public override void SetUpInformation()
+    {
+        base.SetUpInformation();
+		cardDuration = card.duration;
+		cardEffectName = card.effectName;
+    }
+
+    public override void DisplayInformation()
 	{
 		base.DisplayInformation();
-		durationText.text = card.duration.ToString();
-		effectNameText.text = card.effectName.ToString();
+		durationText.text = "Dur : " + cardDuration.ToString();
+		effectNameText.text = cardEffectName.ToString();
 	}
 }

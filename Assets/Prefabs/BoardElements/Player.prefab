@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5150521060410587089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5150521060410587091}
+  - component: {fileID: 5150521060410587090}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5150521060410587091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5150521060410587089}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 990.4194, y: 479.23907, z: -224.36832}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5150521060410587090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5150521060410587089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78cb30e5f4f88743aa2a1dbc243e39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numStartingCards: 5
+  hand: {fileID: 0}
+  openDeck:
+  - {fileID: 11400000, guid: 75130406609239a46b2c783081362f2d, type: 2}
+  - {fileID: 11400000, guid: 600c8ae2837c6654f9e3b080f576437b, type: 2}
+  - {fileID: 11400000, guid: d14c78dbb6505b7439b38f1af8ff96c9, type: 2}
+  - {fileID: 11400000, guid: dc46166384090514a994e86c5e4c206e, type: 2}
+  - {fileID: 11400000, guid: cbeffe95059b4d84291a5fafb9f3bbe7, type: 2}
+  - {fileID: 11400000, guid: 4b5e61c53089cf0499546f225c2d54b0, type: 2}
+  - {fileID: 11400000, guid: ceff65b9990e332419a54526c0dc1b86, type: 2}
+  - {fileID: 11400000, guid: 404c39d15241aec418f389a0dce098d5, type: 2}
+  - {fileID: 11400000, guid: f3c7a2a47a9daff48a906ea0e2e3834d, type: 2}
+  - {fileID: 11400000, guid: 546a3f4a99328f345b583769656e9071, type: 2}
+  - {fileID: 11400000, guid: 959a9e1287e042240818199fdc860602, type: 2}
+  - {fileID: 11400000, guid: bcb8c549bde234341a5d7a742845fcfb, type: 2}
+  - {fileID: 11400000, guid: 3f8f94adef340f94aa64ea24a213feb3, type: 2}
+  - {fileID: 11400000, guid: 431a1669ed477024298cfc90ec6d540c, type: 2}
+  - {fileID: 11400000, guid: 5230f04009da7fc4f94690899aebc478, type: 2}
+  - {fileID: 11400000, guid: 414aedf5629b0074cbaf6736754f84ca, type: 2}
+  - {fileID: 11400000, guid: d671db716d53255498df33531e32385f, type: 2}
+  - {fileID: 11400000, guid: 71764c018c202f74e9052e321673c3dd, type: 2}
+  - {fileID: 11400000, guid: 9b2f5395c02b6be428f21b4d44af2a13, type: 2}
+  - {fileID: 11400000, guid: 233c04b6acea793448566aeb6c7b2c24, type: 2}
+  buildingCardDisplay: {fileID: 6046434584507389265, guid: e0db28748e26e0b45b694c9fb3ea3cc5, type: 3}
+  studentCardDisplay: {fileID: 6046434584507389265, guid: 6a29adb4bd76f2a4690e18dd4cd388d4, type: 3}
+  facultyCardDisplay: {fileID: 6046434584507389265, guid: afe2ab10ab0cfe842aaf4caa3527e34d, type: 3}

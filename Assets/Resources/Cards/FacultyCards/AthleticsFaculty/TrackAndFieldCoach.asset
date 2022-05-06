@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb8169cefca407419ae4f23d5282d4b, type: 3}
+  m_Name: TrackAndFieldCoach
+  m_EditorClassIdentifier: 
+  name: Track and Field Coach
+  major: 3
+  type: 2
+  effectName: Speedrun
+  effect: Choose 2 of your opponents student cards, and reduce their duration by
+    1.
+  artwork: {fileID: 0}
+  health: 0
+  duration: 0

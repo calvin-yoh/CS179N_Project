@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb8169cefca407419ae4f23d5282d4b, type: 3}
+  m_Name: SoccerCoach
+  m_EditorClassIdentifier: 
+  name: Soccer Coach
+  major: 3
+  type: 2
+  effectName: Living Legend
+  effect: Trigger the effects of all soccer cards on the player's hand. One of the
+    soccer player's on the field is kicked out.
+  artwork: {fileID: 0}
+  health: 0
+  duration: 0

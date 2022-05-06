@@ -13,8 +13,16 @@ public class Card : ScriptableObject
 		Athletics
 	};
 
+	public enum Type
+	{
+		Building,
+		Student,
+		Faculty
+	}
+
 	public new string name;
 	public Major major;
+	public Type type;
 
 	public string effectName;
 	public string effect;
@@ -31,6 +39,14 @@ public class Card : ScriptableObject
 
 	public virtual void ApplyEffect()
 	{ 
+		// if (canActivateEffect){
+		// 	Debug.Log(this.name + " activated its effect");
+		// 	this.canActivateEffect = false;
+		// }
+		// else{
+		// 	Debug.Log("Cannot activate " + this.name + "'s effect");
+		// 	return;
+		// }
 
 	}
 }

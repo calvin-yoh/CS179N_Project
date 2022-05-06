@@ -15,15 +15,24 @@ public class FacultyCardDisplay : CardDisplay
 
 	public TextMeshProUGUI effectNameText;
 
+	//Additional card information
+	private string cardEffectName;
+
 	// Use this for initialization
 	void Start()
 	{
-		DisplayInformation();
+
 	}
 
-	protected override void DisplayInformation()
+	public override void SetUpInformation()
+	{
+		base.SetUpInformation();
+		cardEffectName = card.effectName;
+	}
+
+	public override void DisplayInformation()
 	{
 		base.DisplayInformation();
-		effectNameText.text = card.effectName.ToString();
+		effectNameText.text = cardEffectName;
 	}
 }

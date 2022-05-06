@@ -14,7 +14,7 @@ namespace Kalkatos.DottedArrow
 		private RectTransform myRect;
 		private Canvas canvas;
 		private Camera mainCamera;
-		private bool isActive;
+		public bool isActive {get; private set;}
 
 		private void Awake ()
 		{

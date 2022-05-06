@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e52f67d8a0f3fb42965cd3456cd4a4d, type: 3}
+  m_Name: ServerRoom
+  m_EditorClassIdentifier: 
+  name: Server Room
+  major: 1
+  effectName: 
+  effect: Every other turn, all building effects are nullified for 1 turn.
+  artwork: {fileID: 21300000, guid: 7350d7ef94c08ff41bff76ec94a7eb07, type: 3}
+  health: 30
+  duration: 0
