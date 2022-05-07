@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour
     public void SetUpGame(){
         int number = 1;
         foreach (Player p in players){
-            p.SetUpDeck();
             p.number = number;
+            p.SetUpDeck();
             number++;
             for (int i=0; i < p.numStartingCards; i++){
                 p.DrawCard();

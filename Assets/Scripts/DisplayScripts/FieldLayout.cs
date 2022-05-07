@@ -54,6 +54,7 @@ public class FieldLayout : MonoBehaviour
         switch (type){
             case Card.Type.Building:
                 buildingCardDisplays[index].card = newCard;
+                buildingCardDisplays[index].inPlay = true;
                 buildingCardDisplays[index].playerNumber = player;
                 buildingCardDisplays[index].gameObject.SetActive(true);
                 buildingCardDisplays[index].SetUpInformation();
@@ -61,6 +62,7 @@ public class FieldLayout : MonoBehaviour
                 break;
             case Card.Type.Faculty:
                 facultyCardDisplays[index].card = newCard;
+                facultyCardDisplays[index].inPlay = true;
                 facultyCardDisplays[index].playerNumber = player;
                 facultyCardDisplays[index].gameObject.SetActive(true);
                 facultyCardDisplays[index].SetUpInformation();
@@ -68,6 +70,7 @@ public class FieldLayout : MonoBehaviour
                 break;
             case Card.Type.Student:
                 studentCardDisplays[index].card = newCard;
+                studentCardDisplays[index].inPlay = true;
                 studentCardDisplays[index].playerNumber = player;
                 studentCardDisplays[index].gameObject.SetActive(true);
                 studentCardDisplays[index].SetUpInformation();

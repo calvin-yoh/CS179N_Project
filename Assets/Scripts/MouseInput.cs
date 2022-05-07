@@ -44,6 +44,7 @@ public class MouseInput : MonoBehaviour
                     {
                         if (hit.collider.tag == "Card")
                         {
+                            Debug.Log("Clicked on a card");
                             GameObject cardHit = hit.collider.gameObject;
                             CardDisplay c = cardHit.GetComponent<CardDisplay>();
                             

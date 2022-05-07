@@ -19,8 +19,9 @@ public class CardDisplay : MonoBehaviour
     public Sprite staffBackground;
     public Sprite athleticBackground;
 
-    public bool hasActivatedEffect;
+    public bool hasActivatedEffect = true;
     public bool inHand = false;
+    public bool inPlay = false;
     public int playerNumber;
     [SerializeField] private GameObject glowEffect;
 
@@ -68,7 +69,7 @@ public class CardDisplay : MonoBehaviour
     }
 
     public bool CanActivateEffect(){
-		return !hasActivatedEffect && !inHand;
+		return !hasActivatedEffect && inPlay;
 	}
 
     public virtual void ActivateEffect(){
