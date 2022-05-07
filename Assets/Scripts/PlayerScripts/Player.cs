@@ -10,12 +10,7 @@ public class Player : MonoBehaviour
     // private bool canPlaceFaculty = true;
     [SerializeField] protected HandLayout hand;
     [SerializeField] protected FieldLayout field;
-    public List<Card> openDeck;     // The deck that is loaded, can view in the inspector
-    protected Stack<Card> deck;       // The deck used in game that is represented with a stack
-
-    public GameObject buildingCardDisplay;
-    public GameObject studentCardDisplay;
-    public GameObject facultyCardDisplay;
+    [SerializeField] protected DeckLayout deck;
 
     public bool isAI = false;
     public int number;
@@ -26,34 +21,12 @@ public class Player : MonoBehaviour
         // hand = new List<Card>(20);
     }
 
+    public void SetUpDeck(){
+        deck.SetUpDeck();
+    }
+
     public FieldLayout GetField(){
         return field;
-    }
-
-    public bool HasPlayedStudentCard(){
-        return hasPlayedStudentCard;
-    }
-
-    public bool HasPlayedFacultyCard(){
-        return hasPlayedFacultyCard;
-    }
-
-    public void SetUpDeck(){
-        ShuffleDeck();
-        deck = new Stack<Card>();
-        for (int i=0; i < openDeck.Count; i++){
-            deck.Push(openDeck[i]);
-        }
-    }
-
-    public void ShuffleDeck(){      // Only shuffles at the beginning, does not work for midgame
-        int index;
-        for (int i=0; i < openDeck.Count-1; i++){
-            index = Random.Range(i+1, openDeck.Count);
-            Card tmp = openDeck[index];
-            openDeck[index] = openDeck[i];
-            openDeck[i] = tmp;
-        }
     }
 
     public void StartTurn(){
@@ -63,39 +36,10 @@ public class Player : MonoBehaviour
     }
 
     public void DrawCard(){
-        // hand.Add(deck.Pop());
-        Card newCard = deck.Pop();
-        // CardDisplay newDisplay = new CardDisplay(newCard);
-
-        GameObject gameob;
-
-        switch (newCard.type)
-        {
-            case Card.Type.Building:
-                gameob = Instantiate(buildingCardDisplay, gameObject.transform);
-                break;
-            case Card.Type.Student:
-                gameob = Instantiate(studentCardDisplay, gameObject.transform);
-                break;
-            case Card.Type.Faculty:
-                gameob = Instantiate(facultyCardDisplay, gameObject.transform);
-                break;
-            default:
-                gameob = null;
-                Debug.Log("ERROR");
-                break;
-        }
-
-        if (gameob == null)
-            return;
-
-        CardDisplay cd = gameob.GetComponent<CardDisplay>();
-
-        cd.card = newCard;
-        cd.playerNumber = number;
+        CardDisplay cd = deck.GetTop();
         cd.inHand = true;
         cd.SetUpInformation();
-        cd.ResetCard();
+        cd.ReactivateCard();
         cd.DisplayInformation();
 
         hand.AddCard(cd);

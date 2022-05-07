@@ -52,7 +52,7 @@ public class CardDisplay : MonoBehaviour
 
     #endregion
 
-    public void ResetCard()
+    public void ReactivateCard() // Lets the card be activated (again)
     {
         Debug.Log("Card Reset");
         hasActivatedEffect = false;
