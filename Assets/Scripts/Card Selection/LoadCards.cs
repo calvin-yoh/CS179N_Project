@@ -5,10 +5,11 @@ using UnityEngine;
 public class LoadCards : MonoBehaviour
 {
 
+    
+
     List<BuildingCard> BuildingCards = new List<BuildingCard>();
     List<StudentCard> StudentCards = new List<StudentCard>();
     List<FacultyCard> FacultyCards = new List<FacultyCard>();
-
 
     public GameObject BuildingCardDisplayPrefab;
     public GameObject StudentCardDisplayPrefab;
@@ -113,6 +114,6 @@ public class LoadCards : MonoBehaviour
         
         rec.sizeDelta = new Vector2(1300, new_height);
 
-        rec.position = new Vector3(0, -(new_height / 2), 0);
+        rec.position = new Vector3(rec.position.x, -(new_height / 2), rec.position.z);
     }
 }
