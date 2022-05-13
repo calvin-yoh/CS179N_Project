@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class LoadCards : MonoBehaviour
 {
-    public float gridWidth = 1300f;
-    public float rowSize = 5f;
+
+    
 
     List<BuildingCard> BuildingCards = new List<BuildingCard>();
     List<StudentCard> StudentCards = new List<StudentCard>();
     List<FacultyCard> FacultyCards = new List<FacultyCard>();
-
 
     public GameObject BuildingCardDisplayPrefab;
     public GameObject StudentCardDisplayPrefab;
@@ -105,16 +104,14 @@ public class LoadCards : MonoBehaviour
         // Resizing of the Grid canvas.
         RectTransform rec = GetComponent<RectTransform>();
 
-        float cardHeight = 400f;
+        float cardHeight = 375f;
 
-        float rows = Mathf.Floor((BuildingCards.Count + StudentCards.Count + FacultyCards.Count) / rowSize);
+        float rows = Mathf.Ceil(transform.childCount / 5);
 
 
 
-        float new_height = (cardHeight * rows) + 300;
+        float new_height = (cardHeight * (rows + 1));
         
-        rec.sizeDelta = new Vector2(gridWidth, new_height);
-
-        rec.position = new Vector3(rec.position.x, -(new_height / 2), 0);
+        rec.sizeDelta = new Vector2(rec.sizeDelta.x, new_height);
     }
 }

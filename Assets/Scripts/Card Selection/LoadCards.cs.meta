@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: da822624e2b7b42b19ce34ea75d0a516
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - BuildingCardDisplayPrefab: {fileID: 7077248147722597310, guid: a26ba3a03abb643cb937f4a1724e0333, type: 3}
+  - StudentCardDisplayPrefab: {fileID: 7077248147722597310, guid: 77d730bfcd8b10845b871d5b20c76548, type: 3}
+  - FacultyCardDisplayPrefab: {fileID: 7077248147722597310, guid: 3473855d853bfd046a046dd5b57e9048, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
