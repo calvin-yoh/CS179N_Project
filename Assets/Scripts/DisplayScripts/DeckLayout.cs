@@ -5,6 +5,7 @@ using UnityEngine;
 public class DeckLayout : MonoBehaviour
 {
     public List<Card> openDeck;     // The deck that is loaded, can view in the inspector
+    public List<Card> buildings;
     public GameObject buildingCardDisplay;
     public GameObject studentCardDisplay;
     public GameObject facultyCardDisplay;
@@ -12,8 +13,10 @@ public class DeckLayout : MonoBehaviour
     private Stack<CardDisplay> deck;
     private int number;
 
+    // Instantiates all the cards in the deck at the start of the game
     public void SetUpDeck(){
-        number = gameObject.GetComponentInParent<Player>().number;
+        Player thisPlayer = gameObject.GetComponentInParent<Player>();
+        number = thisPlayer.number;
 
         ShuffleDeck();
         GameObject gameob;
@@ -47,6 +50,10 @@ public class DeckLayout : MonoBehaviour
             cd.SetUpInformation();
             cd.ReactivateCard();
             deck.Push(cd);
+        }
+
+        for (int i=0; i < buildings.Count; i++){
+            thisPlayer.PlaceCard(i, buildings[i]);
         }
     }
 

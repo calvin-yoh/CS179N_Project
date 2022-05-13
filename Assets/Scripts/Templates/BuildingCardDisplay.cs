@@ -53,7 +53,7 @@ public class BuildingCardDisplay : CardDisplay
 			healthText.text = "HP : " + cardHealth.ToString();
 		}
 		else{
-			healthText.text = "HP : " + cardHealth.ToString() + " + " + $"<color = #808080>{cardArmor.ToString()}</color>";
+			healthText.text = "HP : " + cardHealth.ToString() + " + " + $"<color=#A9A9A9>{cardArmor.ToString()}</color>";
 		}
 	}
 

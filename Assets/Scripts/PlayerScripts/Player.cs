@@ -63,6 +63,9 @@ public class Player : MonoBehaviour
                     hasPlayedFacultyCard = true;
                 }
                 break;
+            case Card.Type.Building:
+                field.ActivateCard(index, newCard, number);
+                return;
             default:
                 break;
         }

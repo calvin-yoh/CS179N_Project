@@ -41,6 +41,7 @@ public class FacultyCardDisplay : CardDisplay
 	}
 
 	public void CopyInformation(FacultyCardDisplay oldCard){
+		base.CopyInformation(oldCard);
 		cardEffectName = oldCard.GetCardEffectName();
 	}
 }
