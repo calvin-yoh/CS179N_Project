@@ -108,11 +108,6 @@ public class LoadCards : MonoBehaviour
         });
 
 
-
-        Debug.Log("StudentCards: " + StudentCards.Count);
-        Debug.Log("BuildingCards: " + BuildingCards.Count);
-
-
         // Resizing of the Grid canvas.
         RectTransform rec = GetComponent<RectTransform>();
 

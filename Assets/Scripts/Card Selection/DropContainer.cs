@@ -13,7 +13,6 @@ public class DropContainer : MonoBehaviour, IDropHandler
         if (Array.IndexOf(accepted, eventData.pointerDrag.name) == -1){ return; }
         if (transform.childCount >= 20){ return; }
 
-        Debug.Log(eventData.pointerDrag);
         var copy = Instantiate(eventData.pointerDrag, transform.position, transform.rotation);
         copy.GetComponent<RectTransform>().SetParent(this.transform);
         copy.GetComponent<DragAndDrop>().selected = true;
