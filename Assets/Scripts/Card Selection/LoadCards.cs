@@ -24,6 +24,9 @@ public class LoadCards : MonoBehaviour
         go.GetComponent<StudentCardDisplay>().DisplayInformation();
 
         go.transform.SetParent(this.transform);
+        if (gameObject.name == "Library Grid"){
+            Destroy(go.GetComponent<DragAndDrop>());
+        }
     }
 
     void displayFacultyCard(FacultyCard card){
@@ -33,6 +36,9 @@ public class LoadCards : MonoBehaviour
         go.GetComponent<FacultyCardDisplay>().DisplayInformation();
 
         go.transform.SetParent(this.transform);
+        if (gameObject.name == "Library Grid"){
+            Destroy(go.GetComponent<DragAndDrop>());
+        }
     }
 
     void displayBuildingCard(BuildingCard card){
@@ -42,6 +48,10 @@ public class LoadCards : MonoBehaviour
         go.GetComponent<BuildingCardDisplay>().DisplayInformation();
 
         go.transform.SetParent(this.transform);
+
+        if (gameObject.name == "Library Grid"){
+            Destroy(go.GetComponent<DragAndDrop>());
+        }
     }
     
     // Start is called before the first frame update
