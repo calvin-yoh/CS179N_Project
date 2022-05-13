@@ -11,7 +11,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public bool selected = false;
 
     public void OnPointerDown(PointerEventData eventData){
-        Debug.Log("OnPointerDown");
         var canvas_transform = this.transform.parent.parent.parent;
         var copy = Instantiate(this, canvas_transform.position, canvas_transform.rotation, canvas_transform);
         
@@ -41,12 +40,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerUp(PointerEventData eventData){
         Destroy(rect.gameObject);
         GetComponent<CanvasGroup>().alpha = 1f;
-
-        if (selected){
-            Destroy(gameObject);
-            transform.parent.parent.gameObject.GetComponentInChildren<Text>().text = "Deck: " + (transform.parent.childCount - 1).ToString() + " / 20";
-        }
-
     }
 }
 
