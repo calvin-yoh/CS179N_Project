@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LoadCards : MonoBehaviour
 {
+    public float gridWidth = 1300f;
+    public float rowSize = 5f;
 
     
 
@@ -106,12 +108,18 @@ public class LoadCards : MonoBehaviour
 
         float cardHeight = 375f;
 
-        float rows = Mathf.Ceil(transform.childCount / 5);
+
+        float rows = Mathf.Floor((BuildingCards.Count + StudentCards.Count + FacultyCards.Count) / rowSize);
+
 
 
 
         float new_height = (cardHeight * (rows + 1));
         
-        rec.sizeDelta = new Vector2(rec.sizeDelta.x, new_height);
+
+        rec.sizeDelta = new Vector2(gridWidth, new_height);
+
+        rec.position = new Vector3(rec.position.x, -(new_height / 2), 0);
+
     }
 }
