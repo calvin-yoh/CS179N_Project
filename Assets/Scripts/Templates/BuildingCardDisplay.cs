@@ -17,22 +17,49 @@ public class BuildingCardDisplay : CardDisplay
 
 	//Additional card information
 	private int cardHealth;
+	private int cardArmor;
 
 	// Use this for initialization
 	void Start()
 	{
+		cardArmor = 5;
+	}
+
+	public int GetCardHealth(){
+		return cardHealth;
+	}
+
+	public int GetCardArmor(){
+		return cardArmor;
+	}
+
+	public void SetArmor(int armor){
+		cardArmor = armor;
+		DisplayInformation();
 	}
 
 	public override void SetUpInformation()
 	{
 		base.SetUpInformation();
 		cardHealth = card.health;
+		cardArmor = 0;
 	}
 
 
 	public override void DisplayInformation()
     {
 		base.DisplayInformation();
-		healthText.text = "HP : " + cardHealth.ToString();
+		if (cardArmor == 0){
+			healthText.text = "HP : " + cardHealth.ToString();
+		}
+		else{
+			healthText.text = "HP : " + cardHealth.ToString() + " + " + $"<color = #808080>{cardArmor.ToString()}</color>";
+		}
+	}
+
+	public void CopyInformation(BuildingCardDisplay oldCard){
+		base.CopyInformation(oldCard);
+		cardHealth = oldCard.GetCardHealth();
+		cardArmor = oldCard.GetCardArmor();
 	}
 }

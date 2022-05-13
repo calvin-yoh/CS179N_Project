@@ -35,6 +35,25 @@ public class FieldLayout : MonoBehaviour
             
     }
 
+    public List<BuildingCardDisplay> GetBuildingCards(){
+        return buildingCardDisplays;
+    }
+    public List<FacultyCardDisplay> GetFacultyCards(){
+        return facultyCardDisplays;
+    }
+    public List<StudentCardDisplay> GetStudentCards(){
+        return studentCardDisplays;
+    }
+
+    public void ReduceStudentCardDurations(){
+        foreach (StudentCardDisplay stud in studentCardDisplays){
+            if (stud != null && stud.inPlay){
+                stud.ChangeDurationBy(-1);
+                stud.DisplayInformation();
+            }
+        }
+    }
+
     public bool CheckIfOccupied(int index, Card.Type cardType){
         switch (cardType){
             case Card.Type.Building:

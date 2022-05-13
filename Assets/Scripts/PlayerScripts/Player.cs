@@ -71,6 +71,7 @@ public class Player : MonoBehaviour
     }
 
     public void EndTurn(){
+        field.ReduceStudentCardDurations();
         GameManager.Instance.SwitchPlayers();
     }
 

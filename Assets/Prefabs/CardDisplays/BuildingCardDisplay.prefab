@@ -496,6 +496,8 @@ MonoBehaviour:
   athleticBackground: {fileID: 21300000, guid: e83de67cc081de149b73b96f0e6f3f77, type: 3}
   hasActivatedEffect: 0
   inHand: 0
+  inPlay: 0
+  playerNumber: 0
   glowEffect: {fileID: 1508364045}
   healthText: {fileID: 6046434585534776339}
 --- !u!65 &2825328244087362952
@@ -679,8 +681,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.64715, y: 1.327}
-  m_SizeDelta: {x: -1.436, y: -3.5743}
+  m_AnchoredPosition: {x: -0.3057, y: 1.327}
+  m_SizeDelta: {x: -0.7532, y: -3.5743}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6046434585534776338
 CanvasRenderer:
