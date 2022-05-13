@@ -15,18 +15,16 @@ public class DropContainer : MonoBehaviour, IDropHandler
 
         RectTransform rec = GetComponent<RectTransform>();
 
-        float cardHeight = 200f;
+        float cardHeight = 375f;
 
         float rows = Mathf.Ceil(transform.childCount / 2f);
 
 
 
-        float new_height = (cardHeight * rows) + 300;
+        float new_height = (cardHeight * (rows + 0.5f));
         
         if (new_height > rec.sizeDelta.y){
-            rec.sizeDelta = new Vector2(350, new_height);
-
-            rec.position = new Vector3(rec.position.x, -(new_height / 2), rec.position.z);
+            rec.sizeDelta = new Vector2(rec.sizeDelta.x, new_height);
         }
     }
 }

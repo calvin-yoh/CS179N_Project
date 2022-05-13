@@ -104,16 +104,14 @@ public class LoadCards : MonoBehaviour
         // Resizing of the Grid canvas.
         RectTransform rec = GetComponent<RectTransform>();
 
-        float cardHeight = 400f;
+        float cardHeight = 375f;
 
-        float rows = Mathf.Floor((BuildingCards.Count + StudentCards.Count + FacultyCards.Count) / 5);
+        float rows = Mathf.Ceil(transform.childCount / 5);
 
 
 
-        float new_height = (cardHeight * rows) + 300;
+        float new_height = (cardHeight * (rows + 1));
         
-        rec.sizeDelta = new Vector2(1300, new_height);
-
-        rec.position = new Vector3(rec.position.x, -(new_height / 2), rec.position.z);
+        rec.sizeDelta = new Vector2(rec.sizeDelta.x, new_height);
     }
 }
