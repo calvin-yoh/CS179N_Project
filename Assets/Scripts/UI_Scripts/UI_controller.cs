@@ -65,10 +65,14 @@ public class UI_controller : MonoBehaviour
 
     public void UnlockNextLevel(){
         
-        Debug.Log(SceneManager.GetActiveScene().name);
 
-        if(PlayerPrefs.GetInt("level") < SceneManager.GetActiveScene().name[6] - '0' ){
+        var temp = (SceneManager.GetActiveScene().name[6] - '0');
+        Debug.Log( temp.ToString());
+        //Debug.Log( "Currently save:" + PlayerPrefs.GetInt("level") );
+
+        if(PlayerPrefs.GetInt("level") <= temp){
             PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1 );
+            Debug.Log( "Currently save:" + PlayerPrefs.GetInt("level") );
             PlayerPrefs.Save();
         }
 
