@@ -17,6 +17,6 @@ MonoBehaviour:
   type: 2
   effectName: Expel
   effect: Every 3 turns choose one of your opponents card to remove from play
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: dc43804e96d660e4fa6387284fc9e2bf, type: 3}
   health: 0
   duration: 0

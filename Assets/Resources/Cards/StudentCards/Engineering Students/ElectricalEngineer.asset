@@ -18,6 +18,6 @@ MonoBehaviour:
   effectName: Powersurge
   effect: If you have an engineering building is in play, each non-engineering building
     takes 5 damage.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 99bcef8f03c465d4e97edb96c4218075, type: 3}
   health: 0
   duration: 5

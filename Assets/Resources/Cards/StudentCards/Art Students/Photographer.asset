@@ -17,6 +17,6 @@ MonoBehaviour:
   type: 1
   effectName: Flash On
   effect: Distract one of your opponent's faculty cards during their next turn.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: e6cfef30e1ca7d3498623f6ef245ac7d, type: 3}
   health: 0
   duration: 4
