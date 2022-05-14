@@ -44,4 +44,9 @@ public class FacultyCardDisplay : CardDisplay
 		base.CopyInformation(oldCard);
 		cardEffectName = oldCard.GetCardEffectName();
 	}
+
+	public override void HideCard(){
+		base.HideCard();
+		effectNameText.text = "";
+	}
 }

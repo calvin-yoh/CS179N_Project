@@ -49,7 +49,9 @@ public class MouseInput : MonoBehaviour
                             CardDisplay c = cardHit.GetComponent<CardDisplay>();
                             
                             //Show card details on the UI
-                            CanvasManager.Instance.ShowCardDetails(c);
+                            if (c.playerNumber == player.number || c.inPlay){    // Prevents player from reading opponents hand
+                                CanvasManager.Instance.ShowCardDetails(c);
+                            }
 
                             //Check if on field or in the hand
                             if ( c.playerNumber == player.number){

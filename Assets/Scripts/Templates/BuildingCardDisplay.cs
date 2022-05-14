@@ -62,4 +62,9 @@ public class BuildingCardDisplay : CardDisplay
 		cardHealth = oldCard.GetCardHealth();
 		cardArmor = oldCard.GetCardArmor();
 	}
+
+	public override void HideCard(){
+		base.HideCard();
+		healthText.text = "";
+	}
 }

@@ -47,8 +47,9 @@ public class DeckLayout : MonoBehaviour
             CardDisplay cd = gameob.GetComponent<CardDisplay>();
             cd.card = newCard;
             cd.playerNumber = number;
-            cd.SetUpInformation();
-            cd.ReactivateCard();
+            // cd.SetUpInformation();
+            // cd.ReactivateCard();
+            cd.HideCard();
             deck.Push(cd);
         }
 

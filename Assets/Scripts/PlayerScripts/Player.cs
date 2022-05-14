@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
     public void DrawCard(){
         CardDisplay cd = deck.GetTop();
         cd.inHand = true;
+        cd.SetUpInformation();
+        cd.ReactivateCard();
         cd.DisplayInformation();
 
         hand.AddCard(cd);
@@ -77,5 +79,4 @@ public class Player : MonoBehaviour
         field.ReduceStudentCardDurations();
         GameManager.Instance.SwitchPlayers();
     }
-
 }

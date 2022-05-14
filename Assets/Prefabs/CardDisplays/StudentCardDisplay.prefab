@@ -641,11 +641,15 @@ MonoBehaviour:
   engineeringBackground: {fileID: 21300000, guid: c4bc4cd6e4d202242b8335ef4b3b84a5, type: 3}
   staffBackground: {fileID: 21300000, guid: e0fb0b58509532e468bae7d5c840c7dc, type: 3}
   athleticBackground: {fileID: 21300000, guid: e83de67cc081de149b73b96f0e6f3f77, type: 3}
+  backOfCard: {fileID: 21300000, guid: d6b75150fc9883c40b1f1476bb98197b, type: 3}
   hasActivatedEffect: 0
   inHand: 0
+  inPlay: 0
+  playerNumber: 0
   glowEffect: {fileID: 1508364045}
   durationText: {fileID: 6046434585534776339}
   effectNameText: {fileID: 8997811852516737839}
+  cardDuration: 0
 --- !u!1 &6046434584802360254
 GameObject:
   m_ObjectHideFlags: 0

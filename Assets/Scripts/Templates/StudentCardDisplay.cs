@@ -56,6 +56,11 @@ public class StudentCardDisplay : CardDisplay
         base.CopyInformation(oldCard);
 		cardDuration = oldCard.GetCardDuration();
 		cardEffectName = oldCard.GetCardEffectName();
-
     }
+
+	public override void HideCard(){
+		base.HideCard();
+		durationText.text = "";
+		effectNameText.text = "";
+	}
 }

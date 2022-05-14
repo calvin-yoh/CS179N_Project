@@ -18,6 +18,7 @@ public class CardDisplay : MonoBehaviour
     public Sprite engineeringBackground;
     public Sprite staffBackground;
     public Sprite athleticBackground;
+    public Sprite backOfCard;
 
     public bool hasActivatedEffect = true;
     public bool inHand = false;
@@ -142,5 +143,12 @@ public class CardDisplay : MonoBehaviour
         cardArtwork = oldCard.GetCardArtwork();
         cardEffectString = oldCard.GetCardEffectString(); 
         isDistracted = oldCard.GetIsDistracted();   
+    }
+
+    public virtual void HideCard(){
+        backgroundImage.sprite = backOfCard;
+        nameText.text = "";
+        effectText.text = "";
+        glowEffect.SetActive(false);
     }
 }

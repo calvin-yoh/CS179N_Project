@@ -9,6 +9,7 @@ public class HandLayout : MonoBehaviour
     //  public Transform HandDeck; //The hand panel reference
     public float howManyAdded; // How many cards I added so far
     public float gapFromOneItemToTheNextOne; //the gap I need between each card
+    public bool isFlipped;
 
     void Awake()
     {
@@ -29,12 +30,6 @@ public class HandLayout : MonoBehaviour
 
     public void RemoveCard(Card card)
     {
-        // foreach (CardDisplay cd in hand){
-        //     if (cd.card == card){
-        //         start.transform.position += new Vector3(0.5f, 0, 0);
-        //         hand.Remove(cd);
-        //     }
-        // }
         for (int i = 0; i < hand.Count; i++)
         {
             CardDisplay cd = hand[i];
@@ -73,7 +68,12 @@ public class HandLayout : MonoBehaviour
             currCard.transform.position = start.position; //relocating my card to the Start Position
             currCard.transform.position += new Vector3((i * gapFromOneItemToTheNextOne), i * 0.1f, 0); // Moving my card 1f to the right
             float twistForThisCard = startTwist - (i * twistPerCard);
-            currCard.transform.rotation = Quaternion.Euler(90f, 0f, twistForThisCard);
+            if (!isFlipped){
+                currCard.transform.rotation = Quaternion.Euler(90f, 0f, twistForThisCard);
+            }
+            else{
+                currCard.transform.rotation = Quaternion.Euler(90f, 180, -twistForThisCard);
+            }
 
             if (i == 0 || i == hand.Count - 1)
             {
@@ -85,6 +85,15 @@ public class HandLayout : MonoBehaviour
                 currCard.transform.Translate(0f, -nudgeThisCard, 0f);
             }
         }
-        //  hand.RemoveAt (0);
+
+        if (isFlipped){
+            HideHand();
+        }
+    }
+
+    public void HideHand(){
+        foreach (CardDisplay c in hand){
+            c.HideCard();
+        }
     }
 }
