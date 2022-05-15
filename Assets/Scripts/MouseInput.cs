@@ -123,30 +123,34 @@ public class MouseInput : MonoBehaviour
                 break;
             case State.ApplyEffect:
 
+                Player enemy = GameManager.Instance.GetOpposingPlayer();
+                CardDisplay self = startObject.GetComponent<CardDisplay>();
+                CardDisplay target = endObject.GetComponent<CardDisplay>();
+
                 List<BuildingCardDisplay> friendlyBuildings = player.GetField().GetBuildingCards();
-                List<BuildingCardDisplay> enemyBuildings;
+                List<BuildingCardDisplay> enemyBuildings = enemy.GetField().GetBuildingCards();
 
                 List<FacultyCardDisplay> friendlyFaculties = player.GetField().GetFacultyCards();
-                List<FacultyCardDisplay> enemyFaculties;
+                List<FacultyCardDisplay> enemyFaculties = enemy.GetField().GetFacultyCards(); ;
 
                 List<StudentCardDisplay> friendlyStudents = player.GetField().GetStudentCards();
-                List<StudentCardDisplay> enemyStudents; 
+                List<StudentCardDisplay> enemyStudents = enemy.GetField().GetStudentCards(); 
 
-                DeckLayout friendlyDeck;
-                DeckLayout enemyDeck;
+                DeckLayout friendlyDeck = player.GetDeck();
+                DeckLayout enemyDeck = enemy.GetDeck();
 
-                HandLayout enemyHand;
-                HandLayout friendlyHand;
+                HandLayout friendlyHand = player.GetHand();
+                HandLayout enemyHand = enemy.GetHand();
 
-                CardDisplay target;
-                CardDisplay self;
-
-
-                GameData gd = new GameData(
+                GameData gd = new GameData(friendlyBuildings, enemyBuildings,
+                     friendlyFaculties, enemyFaculties,
+                     friendlyStudents, enemyStudents,
+                     friendlyDeck, enemyDeck,
+                     friendlyHand, enemyHand,
+                     target, self
                     );
 
-
-                startObject.GetComponent<CardDisplay>().card.PerformEffect(gd);
+                self.card.PerformEffect(gd);
                 currState = State.Wait;
                 break;
         }

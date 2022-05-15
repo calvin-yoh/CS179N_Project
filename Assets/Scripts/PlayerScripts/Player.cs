@@ -29,6 +29,16 @@ public class Player : MonoBehaviour
         return field;
     }
 
+    public DeckLayout GetDeck()
+    { 
+        return deck;
+    }
+
+    public HandLayout GetHand()
+    {
+        return hand;
+    }
+
     public void StartTurn(){
         hasPlayedFacultyCard = false;
         hasPlayedStudentCard = false;
