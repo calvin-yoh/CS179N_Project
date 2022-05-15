@@ -51,6 +51,11 @@ public class CardDisplay : MonoBehaviour
         return cardType;
     }
 
+    public string GetCardEffect()
+    {
+        return cardEffect;
+    }
+
     #endregion
 
     public void ReactivateCard() // Lets the card be activated (again)
