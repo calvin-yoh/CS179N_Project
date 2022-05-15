@@ -7,8 +7,4 @@ public class BuildingCard : Card
 {
 	//public int health;
 
-    public override void ApplyEffect()
-    {
-        // Debug.Log("Activating " + name + "'s effect.");
-    }
 }

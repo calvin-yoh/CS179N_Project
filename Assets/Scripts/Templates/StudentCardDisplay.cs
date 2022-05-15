@@ -24,7 +24,9 @@ public class StudentCardDisplay : CardDisplay
 	void Start()
 	{
 	}
-	public int GetCardDuration(){
+
+    #region Getters/Setters
+    public int GetCardDuration(){
 		return cardDuration;
 	}
 	public string GetCardEffectName(){
@@ -36,6 +38,8 @@ public class StudentCardDisplay : CardDisplay
 		cardDuration += value;
 		DisplayInformation();
 	}
+
+    #endregion
 
     public override void SetUpInformation()
     {

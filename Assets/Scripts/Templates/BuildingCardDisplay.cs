@@ -33,7 +33,7 @@ public class BuildingCardDisplay : CardDisplay
 		return cardArmor;
 	}
 
-	public void SetArmor(int armor){
+	public void SetCardArmor(int armor){
 		cardArmor = armor;
 		DisplayInformation();
 	}

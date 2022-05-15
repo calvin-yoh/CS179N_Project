@@ -65,8 +65,18 @@ public class CardDisplay : MonoBehaviour
         return cardEffectString;
     }
 
-    public bool GetIsDistracted(){
+    public bool IsDistracted(){
         return isDistracted;
+    }
+
+    public void DistractCard()
+    {
+        isDistracted = true;
+    }
+
+    public void UnDistractCard()
+    {
+        isDistracted = false;
     }
 
     #endregion
@@ -142,7 +152,7 @@ public class CardDisplay : MonoBehaviour
         cardName = oldCard.GetCardName();
         cardArtwork = oldCard.GetCardArtwork();
         cardEffectString = oldCard.GetCardEffectString(); 
-        isDistracted = oldCard.GetIsDistracted();   
+        isDistracted = oldCard.IsDistracted();   
     }
 
     public virtual void HideCard(){
