@@ -33,6 +33,7 @@ public class CardDisplay : MonoBehaviour
     private Sprite cardArtwork;
     private string cardEffectString;
     private bool isDistracted;
+    private CardEffect cardEffectScript;
 
     //public TextMeshProUGUI healthText;
 
@@ -79,6 +80,11 @@ public class CardDisplay : MonoBehaviour
         isDistracted = false;
     }
 
+    public CardEffect GetCardEffectScript()
+    {
+        return cardEffectScript;
+    }
+
     #endregion
 
     public void ReactivateCard() // Lets the card be activated (again)
@@ -117,6 +123,7 @@ public class CardDisplay : MonoBehaviour
         cardArtwork = card.artwork;
         cardEffectString = card.effect;
         isDistracted = false;
+        LoadCardEffectScript();
     }
 
     // Updates front end ui with backend information
@@ -160,5 +167,23 @@ public class CardDisplay : MonoBehaviour
         nameText.text = "";
         effectText.text = "";
         glowEffect.SetActive(false);
+    }
+
+    public void LoadCardEffectScript()
+    {
+        if (card.effectScript != null)
+        {
+            string scriptName = card.effectScript.name;
+
+            //We need to fetch the Type
+            System.Type scriptType = System.Type.GetType(scriptName + ",Assembly-CSharp");
+            //Now that we have the Type we can use it to Add Component
+            gameObject.AddComponent(scriptType);
+        }
+    }
+
+    public void RemoveCardEffectScript()
+    {
+        cardEffectScript = null;
     }
 }
