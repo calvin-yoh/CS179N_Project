@@ -16,7 +16,9 @@ MonoBehaviour:
   major: 1
   type: 1
   effectName: Script
-  effect: Distract up to 2 of your opponent's student cards during their next turn.
+  effect: 'Choose 1 : Distract a target enemy student for 1 turn OR Distract 2 random
+    enemy student cards for 1 turn.'
   artwork: {fileID: 0}
   health: 0
   duration: 5
+  effectScript: {fileID: 0}

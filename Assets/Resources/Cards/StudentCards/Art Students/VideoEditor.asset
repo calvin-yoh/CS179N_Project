@@ -16,8 +16,8 @@ MonoBehaviour:
   major: 0
   type: 1
   effectName: Crop and Slice
-  effect: If your opponent has a student card with 1 duration, deal 6 damage to one
-    of your opponent's buildings. Otherwise deal 3 damage.
+  effect: Deal 4 damage to a target building.
   artwork: {fileID: 0}
   health: 0
   duration: 4
+  effectScript: {fileID: 0}

@@ -16,8 +16,8 @@ MonoBehaviour:
   major: 1
   type: 1
   effectName: Corrode foundation
-  effect: Weaken 1 enemy building for 2 turns, all incoming damge from Engineering
-    units is multipled by 2
+  effect: 'Choose one : Weaken a target building or Deal 2 damage to a target building.'
   artwork: {fileID: 0}
   health: 0
   duration: 5
+  effectScript: {fileID: 0}

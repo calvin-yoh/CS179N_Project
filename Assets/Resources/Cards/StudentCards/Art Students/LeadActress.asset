@@ -16,8 +16,8 @@ MonoBehaviour:
   major: 0
   type: 1
   effectName: Critical Reviews
-  effect: This card deals (2/4/6/8) damage to one of your opponent's buildings. The
-    lower this card's duration is, the more damage it deals.
+  effect: Deal 2 damage to a target building. For every turn in play, deal 2 more
   artwork: {fileID: 0}
   health: 0
   duration: 4
+  effectScript: {fileID: 0}

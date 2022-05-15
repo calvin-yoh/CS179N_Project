@@ -16,8 +16,8 @@ MonoBehaviour:
   major: 1
   type: 1
   effectName: Firewall
-  effect: While this card is in play, all your buildings receive no damage from engineering
-    students.
+  effect: Grant all friendly buildings 2 armor.
   artwork: {fileID: 0}
   health: 0
   duration: 4
+  effectScript: {fileID: 0}

@@ -16,7 +16,8 @@ MonoBehaviour:
   major: 2
   type: 1
   effectName: Cleanse
-  effect: Reenable 2 disabled cards on the field
+  effect: Activate 2 random friendly distracted cards.
   artwork: {fileID: 0}
   health: 0
   duration: 3
+  effectScript: {fileID: 0}

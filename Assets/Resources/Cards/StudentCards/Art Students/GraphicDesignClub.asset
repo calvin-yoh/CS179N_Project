@@ -16,8 +16,8 @@ MonoBehaviour:
   major: 0
   type: 1
   effectName: Redesign
-  effect: If the Arts Building is in play, deal 4 damage to 2 of your opponent's
-    buildings.
+  effect: Deal 4 damage to 2 random enemy buildings. Requires 1 friendly art building.
   artwork: {fileID: 0}
   health: 0
   duration: 4
+  effectScript: {fileID: 0}

@@ -16,8 +16,9 @@ MonoBehaviour:
   major: 3
   type: 1
   effectName: Last Stand
-  effect: 'Flip a coin. If heads, one random friendly building is immune this turn.
-    If tails one random soccer player from the opposite team gets +1 duration. '
+  effect: 'Flip a coin. If heads, grant 6 armor to a random friendly building. If
+    tails, grant a random enemy student +1 duration. '
   artwork: {fileID: 0}
   health: 0
   duration: 2
+  effectScript: {fileID: 0}

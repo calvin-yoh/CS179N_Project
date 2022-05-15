@@ -16,7 +16,8 @@ MonoBehaviour:
   major: 1
   type: 1
   effectName: Mines
-  effect: 'The first attack at the start of an opponents attack phase is nullified '
+  effect: 'Choose one : Distract an enemy student OR Distract an enemy faculty'
   artwork: {fileID: 0}
   health: 0
   duration: 5
+  effectScript: {fileID: 0}
