@@ -16,8 +16,9 @@ MonoBehaviour:
   major: 3
   type: 1
   effectName: Free Kick
-  effect: Choose a building to attack, deal 2 damage. +1 damage for every soccer
-    player in the student's hand.
+  effect: Deal 2 damage to a target enemy building. For every Soccer card on the
+    field, do 1 more.
   artwork: {fileID: 0}
   health: 0
   duration: 4
+  effectScript: {fileID: 0}

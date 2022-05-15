@@ -16,8 +16,9 @@ MonoBehaviour:
   major: 0
   type: 1
   effectName: Entertain
-  effect: Flip a coin. If heads, all of the opponent's student cards are distracted
-    during the next turn.
+  effect: Flip a coin. If heads, distract all enemy student cards for 1 turn. If
+    tails, reduce all friendly students duration by 1.
   artwork: {fileID: 0}
   health: 0
   duration: 4
+  effectScript: {fileID: 0}

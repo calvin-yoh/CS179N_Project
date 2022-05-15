@@ -16,7 +16,8 @@ MonoBehaviour:
   major: 2
   type: 1
   effectName: Rally
-  effect: Summon 1 student card from your hand
+  effect: 'Grant a target student this ability : act again.'
   artwork: {fileID: 0}
   health: 0
   duration: 2
+  effectScript: {fileID: 0}

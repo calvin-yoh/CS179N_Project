@@ -16,7 +16,8 @@ MonoBehaviour:
   major: 0
   type: 1
   effectName: Band together
-  effect: While this card is in play, all Arts type cards stay in play (even opponents)
+  effect: Grant all Art cards, except this card, +1 duration. (Even opponents)
   artwork: {fileID: 0}
   health: 0
   duration: 4
+  effectScript: {fileID: 0}
