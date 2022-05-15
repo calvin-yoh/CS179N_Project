@@ -122,7 +122,35 @@ public class MouseInput : MonoBehaviour
                 }
                 break;
             case State.ApplyEffect:
-                //EffectSystem add effect. Pass in both startObject and endObject
+
+                Player enemy = GameManager.Instance.GetOpposingPlayer();
+                CardDisplay self = startObject.GetComponent<CardDisplay>();
+                CardDisplay target = endObject.GetComponent<CardDisplay>();
+
+                List<BuildingCardDisplay> friendlyBuildings = player.GetField().GetBuildingCards();
+                List<BuildingCardDisplay> enemyBuildings = enemy.GetField().GetBuildingCards();
+
+                List<FacultyCardDisplay> friendlyFaculties = player.GetField().GetFacultyCards();
+                List<FacultyCardDisplay> enemyFaculties = enemy.GetField().GetFacultyCards(); ;
+
+                List<StudentCardDisplay> friendlyStudents = player.GetField().GetStudentCards();
+                List<StudentCardDisplay> enemyStudents = enemy.GetField().GetStudentCards(); 
+
+                DeckLayout friendlyDeck = player.GetDeck();
+                DeckLayout enemyDeck = enemy.GetDeck();
+
+                HandLayout friendlyHand = player.GetHand();
+                HandLayout enemyHand = enemy.GetHand();
+
+                GameData gd = new GameData(friendlyBuildings, enemyBuildings,
+                     friendlyFaculties, enemyFaculties,
+                     friendlyStudents, enemyStudents,
+                     friendlyDeck, enemyDeck,
+                     friendlyHand, enemyHand,
+                     target, self
+                    );
+
+                self.card.PerformEffect(gd);
                 currState = State.Wait;
                 break;
         }

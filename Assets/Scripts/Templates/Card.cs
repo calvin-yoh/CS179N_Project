@@ -32,21 +32,15 @@ public class Card : ScriptableObject
 	public int health = 0;
 	public int duration = 0;
 
+	public CardEffect effectScript;
+
 	public void Print()
 	{
 		Debug.Log(name + ": " + effect);
 	}
 
-	public virtual void ApplyEffect()
-	{ 
-		// if (canActivateEffect){
-		// 	Debug.Log(this.name + " activated its effect");
-		// 	this.canActivateEffect = false;
-		// }
-		// else{
-		// 	Debug.Log("Cannot activate " + this.name + "'s effect");
-		// 	return;
-		// }
-
+	public void PerformEffect(GameData gd)
+	{
+		effectScript.PerformEffect(gd);
 	}
 }

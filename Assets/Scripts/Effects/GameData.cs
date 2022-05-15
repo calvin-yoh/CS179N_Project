@@ -19,11 +19,15 @@ public class GameData
     public HandLayout enemyHand;
     public HandLayout friendlyHand;
 
-    public GameData(List<BuildingCardDisplay> fbcd, List<BuildingCardDisplay> ebcd, 
+    public CardDisplay target;
+    public CardDisplay self;
+
+    public GameData(List<BuildingCardDisplay> fbcd, List<BuildingCardDisplay> ebcd,
                     List<FacultyCardDisplay> ff, List<FacultyCardDisplay> ef,
                     List<StudentCardDisplay> fs, List<StudentCardDisplay> es,
-                    DeckLayout fd, DeckLayout ed, 
-                    HandLayout fh, HandLayout eh)
+                    DeckLayout fd, DeckLayout ed,
+                    HandLayout fh, HandLayout eh, 
+                    CardDisplay t, CardDisplay s)
     {
         friendlyBuildings = fbcd;
         enemyBuildings = ebcd;
@@ -34,6 +38,8 @@ public class GameData
         friendlyDeck = fd;
         enemyDeck = ed;
         friendlyHand = fh;
-        enemyHand = eh;   
+        enemyHand = eh;
+        target = t;
+        self = s;
     }
 }

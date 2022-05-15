@@ -7,8 +7,4 @@ public class FacultyCard : Card
 {
     //public int health;
     
-    public override void ApplyEffect()
-    {
-        Debug.Log("This card's duration is : " + duration);
-    }
 }
