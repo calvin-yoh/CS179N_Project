@@ -37,6 +37,10 @@ public class GameManager : MonoBehaviour
         return players[currPlayerIndex];
     }
 
+    public Player GetOpposingPlayer(){
+        return players[(currPlayerIndex+1) % 2];
+    }
+
     public void SetUpGame(){
         int number = 1;
         foreach (Player p in players){
