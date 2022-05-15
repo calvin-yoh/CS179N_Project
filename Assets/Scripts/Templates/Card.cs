@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 //[CreateAssetMenu(fileName = "New Card", menuName = "Cards/BuildingCard")]
@@ -32,15 +33,19 @@ public class Card : ScriptableObject
 	public int health = 0;
 	public int duration = 0;
 
-	public CardEffect effectScript;
+	public MonoScript effectScript;
 
 	public void Print()
 	{
 		Debug.Log(name + ": " + effect);
 	}
 
+	/*
 	public void PerformEffect(GameData gd)
 	{
-		effectScript.PerformEffect(gd);
+		CardEffect c = effectScript as CardEffect;
+		Debug.Log(effectScript);
+		c.PerformEffect(gd);
 	}
+	*/
 }

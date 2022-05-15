@@ -150,7 +150,16 @@ public class MouseInput : MonoBehaviour
                      target, self
                     );
 
-                self.card.PerformEffect(gd);
+                CardEffect temp;
+
+                if(startObject.TryGetComponent(out temp))
+                {
+                    if (!self.hasActivatedEffect)
+                    {
+                        temp.PerformEffect(gd);
+                        self.hasActivatedEffect = true;
+                    }    
+                }
                 currState = State.Wait;
                 break;
         }

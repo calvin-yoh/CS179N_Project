@@ -290,6 +290,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 414aedf5629b0074cbaf6736754f84ca, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 414aedf5629b0074cbaf6736754f84ca, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 414aedf5629b0074cbaf6736754f84ca, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 414aedf5629b0074cbaf6736754f84ca, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 414aedf5629b0074cbaf6736754f84ca, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 414aedf5629b0074cbaf6736754f84ca, type: 2}
     - target: {fileID: 5150521060410587089, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: m_Name
       value: Player

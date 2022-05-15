@@ -23,6 +23,7 @@ public class StudentCardDisplay : CardDisplay
 	// Use this for initialization
 	void Start()
 	{
+		
 	}
 
     #region Getters/Setters
