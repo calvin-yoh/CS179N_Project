@@ -43,7 +43,9 @@ public class CanvasManager : MonoBehaviour
 
     public void EndTurnButtonPressed()
     {
-        GameManager.Instance.SwitchPlayers();
+        Player currPlayer = GameManager.Instance.GetCurrentPlayer();
+        currPlayer.EndTurn();
+        // GameManager.Instance.SwitchPlayers();
     }
 
     public void ShowCardDetails(CardDisplay cardDisplay)

@@ -24,6 +24,10 @@ public class FacultyCardDisplay : CardDisplay
 
 	}
 
+	public string GetCardEffectName(){
+		return cardEffectName;
+	}
+
 	public override void SetUpInformation()
 	{
 		base.SetUpInformation();
@@ -34,5 +38,15 @@ public class FacultyCardDisplay : CardDisplay
 	{
 		base.DisplayInformation();
 		effectNameText.text = cardEffectName;
+	}
+
+	public void CopyInformation(FacultyCardDisplay oldCard){
+		base.CopyInformation(oldCard);
+		cardEffectName = oldCard.GetCardEffectName();
+	}
+
+	public override void HideCard(){
+		base.HideCard();
+		effectNameText.text = "";
 	}
 }

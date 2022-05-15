@@ -494,8 +494,11 @@ MonoBehaviour:
   engineeringBackground: {fileID: 21300000, guid: c4bc4cd6e4d202242b8335ef4b3b84a5, type: 3}
   staffBackground: {fileID: 21300000, guid: e0fb0b58509532e468bae7d5c840c7dc, type: 3}
   athleticBackground: {fileID: 21300000, guid: e83de67cc081de149b73b96f0e6f3f77, type: 3}
+  backOfCard: {fileID: 21300000, guid: d6b75150fc9883c40b1f1476bb98197b, type: 3}
   hasActivatedEffect: 0
   inHand: 0
+  inPlay: 0
+  playerNumber: 0
   glowEffect: {fileID: 1508364045}
   healthText: {fileID: 6046434585534776339}
 --- !u!65 &2825328244087362952
@@ -679,8 +682,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.64715, y: 1.327}
-  m_SizeDelta: {x: -1.436, y: -3.5743}
+  m_AnchoredPosition: {x: -0.3057, y: 1.327}
+  m_SizeDelta: {x: -0.7532, y: -3.5743}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6046434585534776338
 CanvasRenderer:
@@ -710,7 +713,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'HP : 20'
+  m_text: 'HP : 30 + <color=#A9A9A9>5</color>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

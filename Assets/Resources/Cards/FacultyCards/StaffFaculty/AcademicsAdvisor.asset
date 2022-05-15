@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb8169cefca407419ae4f23d5282d4b, type: 3}
   m_Name: AcademicsAdvisor
   m_EditorClassIdentifier: 
-  name: 
+  name: Academics Advisor
   major: 2
   type: 2
-  effectName: 
-  effect: 
+  effectName: Advise
+  effect: Choose one of your students cards to prevent it from being disabled for
+    1 turn
   artwork: {fileID: 0}
   health: 0
   duration: 0

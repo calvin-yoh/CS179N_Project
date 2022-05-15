@@ -17,6 +17,6 @@ MonoBehaviour:
   type: 1
   effectName: Sketch
   effect: Heal all your Art-type Building cards by 2.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 8e0414bf50e26c14fbe2422369b8b2b5, type: 3}
   health: 0
   duration: 4

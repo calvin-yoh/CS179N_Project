@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb8169cefca407419ae4f23d5282d4b, type: 3}
   m_Name: AdmissionsOffice
   m_EditorClassIdentifier: 
-  name: 
+  name: Admissions Office
   major: 2
   type: 2
-  effectName: 
-  effect: 
-  artwork: {fileID: 0}
+  effectName: Decline
+  effect: Every other turn, without looking, choose one card from your opponent's
+    hand and discard it.
+  artwork: {fileID: 21300000, guid: 8cccabb1eb08c0e4cabe701e5dece1f1, type: 3}
   health: 0
   duration: 0

@@ -18,6 +18,7 @@ public class CardDisplay : MonoBehaviour
     public Sprite engineeringBackground;
     public Sprite staffBackground;
     public Sprite athleticBackground;
+    public Sprite backOfCard;
 
     public bool hasActivatedEffect = true;
     public bool inHand = false;
@@ -30,7 +31,8 @@ public class CardDisplay : MonoBehaviour
     private Card.Major cardMajor;
     private string cardName;
     private Sprite cardArtwork;
-    private string cardEffect;
+    private string cardEffectString;
+    private bool isDistracted;
 
     //public TextMeshProUGUI healthText;
 
@@ -51,9 +53,20 @@ public class CardDisplay : MonoBehaviour
         return cardType;
     }
 
-    public string GetCardEffect()
-    {
-        return cardEffect;
+    public string GetCardName(){
+        return cardName;
+    }
+
+    public Sprite GetCardArtwork(){
+        return cardArtwork;
+    }
+
+    public string GetCardEffectString(){
+        return cardEffectString;
+    }
+
+    public bool GetIsDistracted(){
+        return isDistracted;
     }
 
     #endregion
@@ -84,15 +97,19 @@ public class CardDisplay : MonoBehaviour
         glowEffect.SetActive(false);
     }
 
+    // Sets up backend information for card during initalization
+
     public virtual void SetUpInformation()
     {
         cardType = card.type;
         cardMajor = card.major;
         cardName = card.name;
         cardArtwork = card.artwork;
-        cardEffect = card.effect;
+        cardEffectString = card.effect;
+        isDistracted = false;
     }
 
+    // Updates front end ui with backend information
     public virtual void DisplayInformation()
     {
         switch (cardMajor) {
@@ -114,8 +131,24 @@ public class CardDisplay : MonoBehaviour
         }
 
         nameText.text = cardName;
-        effectText.text = cardEffect;
+        effectText.text = cardEffectString;
 
         artworkImage.sprite = cardArtwork;
+    }
+
+    public virtual void CopyInformation(CardDisplay oldCard){
+        cardType = oldCard.GetCardType();
+        cardMajor = oldCard.GetCardMajor();
+        cardName = oldCard.GetCardName();
+        cardArtwork = oldCard.GetCardArtwork();
+        cardEffectString = oldCard.GetCardEffectString(); 
+        isDistracted = oldCard.GetIsDistracted();   
+    }
+
+    public virtual void HideCard(){
+        backgroundImage.sprite = backOfCard;
+        nameText.text = "";
+        effectText.text = "";
+        glowEffect.SetActive(false);
     }
 }

@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public Player GetCurrentPlayer(){
+        return players[currPlayerIndex];
+    }
+
     public void SetUpGame(){
         int number = 1;
         foreach (Player p in players){
