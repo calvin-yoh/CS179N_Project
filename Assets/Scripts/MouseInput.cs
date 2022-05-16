@@ -141,13 +141,16 @@ public class MouseInput : MonoBehaviour
 
                 HandLayout friendlyHand = player.GetHand();
                 HandLayout enemyHand = enemy.GetHand();
+                Player friendly = GameManager.Instance.GetCurrentPlayer();
+                Player enemyPlayer = GameManager.Instance.GetOpposingPlayer();
 
                 GameData gd = new GameData(friendlyBuildings, enemyBuildings,
                      friendlyFaculties, enemyFaculties,
                      friendlyStudents, enemyStudents,
                      friendlyDeck, enemyDeck,
                      friendlyHand, enemyHand,
-                     target, self
+                     target, self,
+                     friendly, enemy
                     );
 
                 CardEffect temp;

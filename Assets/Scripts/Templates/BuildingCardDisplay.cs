@@ -24,6 +24,7 @@ public class BuildingCardDisplay : CardDisplay
 	// Use this for initialization
 	void Start()
 	{
+
 	}
 
 	public int GetCardHealth(){

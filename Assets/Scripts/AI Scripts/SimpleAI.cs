@@ -111,6 +111,9 @@ public class SimpleAI : Player
         HandLayout friendlyHand = this.GetHand();
         HandLayout enemyHand = enemy.GetHand();
 
+        Player friendly = GameManager.Instance.GetCurrentPlayer();
+        Player enemyPlayer = GameManager.Instance.GetOpposingPlayer();
+
         foreach (StudentCardDisplay student in field.GetActiveStudentCards()){
             self = student;
             if (student.GetCardEffectScript().targetTeam == CardEffect.TargetTeam.Friendly){
@@ -125,7 +128,8 @@ public class SimpleAI : Player
                                         friendlyStudents, enemyStudents,
                                         friendlyDeck, enemyDeck,
                                         friendlyHand, enemyHand,
-                                        target, self);
+                                        target, self,
+                                        friendly, enemyPlayer);
             student.ActivateEffect(gd);
         }
         yield return new WaitForSeconds(1f);

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GameDevelopers : CardEffect
 {
-    void Start()
-    {
+    protected override void Start(){
+        targetType = Card.Type.Student;
+        targetTeam = TargetTeam.Enemy;
     }
-
     public override int PerformEffect(GameData data)
     {
 
