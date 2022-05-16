@@ -21,4 +21,15 @@ public abstract class CardEffect : MonoBehaviour
     /// <param name="data"></param>
     /// <returns></returns>
     public abstract int PerformEffect(GameData data);
+
+    //Flip a coin. 0 for Heads. 1 for Tails
+    public int FlipCoin(int luckModifier)
+    {
+        int rand = Random.Range(0, 100);
+
+        if (rand < 50 + luckModifier)
+            return 0;
+        else
+            return 1;
+    }    
 }
