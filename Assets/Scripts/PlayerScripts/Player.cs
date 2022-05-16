@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     protected bool hasPlayedStudentCard;
     protected bool hasPlayedFacultyCard;
 
+    private int luckModifier = 0;
+
     void Start(){
         // hand = new List<Card>(20);
     }
@@ -24,6 +26,8 @@ public class Player : MonoBehaviour
     public void SetUpDeck(){
         deck.SetUpDeck();
     }
+
+    #region Getters/Setters
 
     public FieldLayout GetField(){
         return field;
@@ -38,6 +42,18 @@ public class Player : MonoBehaviour
     {
         return hand;
     }
+
+    public int GetLuckModifier()
+    {
+        return luckModifier;
+    }
+
+    public void SetLuckModifier(int newLuckModifier)
+    {
+        luckModifier = newLuckModifier;
+    }
+
+    #endregion
 
     public void StartTurn(){
         hasPlayedFacultyCard = false;
