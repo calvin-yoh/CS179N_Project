@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
     public void StartTurn(){
         hasPlayedFacultyCard = false;
         hasPlayedStudentCard = false;
+        field.ReactivateCards();
         DrawCard();
     }
 

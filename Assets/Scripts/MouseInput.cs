@@ -157,11 +157,12 @@ public class MouseInput : MonoBehaviour
 
                 if(startObject.TryGetComponent(out temp))
                 {
-                    if (!self.hasActivatedEffect)
-                    {
-                        temp.PerformEffect(gd);
-                        self.hasActivatedEffect = true;
-                    }    
+                    self.ActivateEffect(gd);
+                    // if (!self.hasActivatedEffect)
+                    // {
+                    //     temp.PerformEffect(gd);
+                    //     self.hasActivatedEffect = true;
+                    // }    
                 }
                 currState = State.Wait;
                 break;

@@ -107,10 +107,12 @@ public abstract class CardDisplay : MonoBehaviour
 	}
 
     public virtual void ActivateEffect(GameData gm){
-        Debug.Log("Activating " + this.name + "'s effect");
-        cardEffectScript.PerformEffect(gm);
-        this.hasActivatedEffect = true;
-        glowEffect.SetActive(false);
+        if (CanActivateEffect()){
+            Debug.Log("Activating " + this.name + "'s effect");
+            cardEffectScript.PerformEffect(gm);
+            this.hasActivatedEffect = true;
+            glowEffect.SetActive(false);
+        }
     }
 
     // Sets up backend information for card during initalization
