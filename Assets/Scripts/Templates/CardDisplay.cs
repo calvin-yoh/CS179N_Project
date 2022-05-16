@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Text;
 
 public abstract class CardDisplay : MonoBehaviour
 {
@@ -36,17 +37,16 @@ public abstract class CardDisplay : MonoBehaviour
     public CardEffect cardEffectScript;
 
     //Turn by turn Card info
-    private int effectModifier = 0;
+    private int effectValueModifier = 0;
 
     //public TextMeshProUGUI healthText;
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
-
     #region Getters/Setters
+
     public Card.Major GetCardMajor()
     {
         return cardMajor;
@@ -57,19 +57,19 @@ public abstract class CardDisplay : MonoBehaviour
         return cardType;
     }
 
-    public string GetCardName(){
+    public string GetCardName() {
         return cardName;
     }
 
-    public Sprite GetCardArtwork(){
+    public Sprite GetCardArtwork() {
         return cardArtwork;
     }
 
-    public string GetCardEffectString(){
+    public string GetCardEffectString() {
         return cardEffectString;
     }
 
-    public bool IsDistracted(){
+    public bool IsDistracted() {
         return isDistracted;
     }
 
@@ -88,14 +88,15 @@ public abstract class CardDisplay : MonoBehaviour
         return cardEffectScript;
     }
 
-    public int GetEffectModifier()
+    public int GetEffectValueModifier()
     {
-        return effectModifier;
+        return effectValueModifier;
     }
 
-    public void SetEffectModifier(int val)
+    public void SetEffectValueModifier(int val)
     {
-        effectModifier = val;
+        effectValueModifier = val;
+        UpdateEffectString();
     }
 
     #endregion
@@ -110,7 +111,7 @@ public abstract class CardDisplay : MonoBehaviour
         }
         else
         {
-            if (isDistracted){
+            if (isDistracted) {
                 isDistracted = false;
             }
             Debug.Log("Turning off glow");
@@ -118,12 +119,12 @@ public abstract class CardDisplay : MonoBehaviour
         }
     }
 
-    public bool CanActivateEffect(){
-		return !hasActivatedEffect && inPlay && !isDistracted;
-	}
+    public bool CanActivateEffect() {
+        return !hasActivatedEffect && inPlay && !isDistracted;
+    }
 
-    public virtual void ActivateEffect(GameData gm){
-        if (CanActivateEffect()){
+    public virtual void ActivateEffect(GameData gm) {
+        if (CanActivateEffect()) {
             Debug.Log("Activating " + this.name + "'s effect");
             cardEffectScript.PerformEffect(gm);
             this.hasActivatedEffect = true;
@@ -139,8 +140,8 @@ public abstract class CardDisplay : MonoBehaviour
         cardMajor = card.major;
         cardName = card.name;
         cardArtwork = card.artwork;
-        cardEffectString = card.effect;
         isDistracted = false;
+        UpdateEffectString();
         LoadCardEffectScript();
     }
 
@@ -171,16 +172,16 @@ public abstract class CardDisplay : MonoBehaviour
         artworkImage.sprite = cardArtwork;
     }
 
-    public virtual void CopyInformation(CardDisplay oldCard){
+    public virtual void CopyInformation(CardDisplay oldCard) {
         cardType = oldCard.GetCardType();
         cardMajor = oldCard.GetCardMajor();
         cardName = oldCard.GetCardName();
         cardArtwork = oldCard.GetCardArtwork();
-        cardEffectString = oldCard.GetCardEffectString(); 
-        isDistracted = oldCard.IsDistracted();   
+        cardEffectString = oldCard.GetCardEffectString();
+        isDistracted = oldCard.IsDistracted();
     }
 
-    public virtual void HideCard(){
+    public virtual void HideCard() {
         backgroundImage.sprite = backOfCard;
         nameText.text = "";
         effectText.text = "";
@@ -199,7 +200,7 @@ public abstract class CardDisplay : MonoBehaviour
             gameObject.AddComponent(scriptType);
 
             CardEffect temp;
-            if(this.TryGetComponent(out temp))
+            if (this.TryGetComponent(out temp))
             {
                 cardEffectScript = temp;
             }
@@ -210,7 +211,7 @@ public abstract class CardDisplay : MonoBehaviour
     {
         cardEffectScript = null;
         CardEffect temp;
-        if(gameObject.TryGetComponent(out temp))
+        if (gameObject.TryGetComponent(out temp))
         {
             Destroy(temp);
         }
@@ -218,6 +219,56 @@ public abstract class CardDisplay : MonoBehaviour
 
     public void RemoveEffectModifier()
     {
-        effectModifier = 0;
+        effectValueModifier = 0;
+        UpdateEffectString();
+    }
+
+    public void UpdateEffectString()
+    {
+        string text = card.effect;
+        int x = 0;
+        StringBuilder sb = new StringBuilder();
+        StringBuilder updatedString = new StringBuilder();
+
+        while (x < text.Length)
+        {
+            if (text[x].Equals('{'))
+            {
+                x++;
+                
+                //Find the entire damage number
+                while (x < text.Length && !text[x].Equals('}'))
+                {
+                    sb.Append(text[x]);
+                    x++;
+                }
+                //End
+                x++;
+
+                //Update the damage number
+                int tempDamage;
+                if (!int.TryParse(sb.ToString(), out tempDamage))
+                {
+                    Debug.LogError(card.name + " has an invalid effect text with dynamic damage.Check the scriptable object.");
+                    return;
+                }
+
+                if (GetEffectValueModifier() != 0)
+                {
+                    tempDamage += GetEffectValueModifier();
+                }
+                updatedString.Append($"<b>*{tempDamage}*</b>");
+
+                //End
+                sb.Clear();
+            }
+            else
+            {
+                updatedString.Append(text[x]);
+                x++;
+            }
+        }
+
+        cardEffectString =  updatedString.ToString();
     }
 }

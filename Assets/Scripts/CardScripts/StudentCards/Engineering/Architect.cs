@@ -15,9 +15,11 @@ public class Architect : CardEffect
         GameObject go = data.target.gameObject;
         BuildingCardDisplay target;
 
+        int effectValue = 6 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
+
         if (go.TryGetComponent(out target))
         {
-            target.SetCardArmor(target.GetCardArmor() + 6);
+            target.SetCardArmor(target.GetCardArmor() + effectValue);
             Debug.Log("Architect worked");
         }
         else
