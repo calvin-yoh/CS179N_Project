@@ -38,6 +38,9 @@ public class StudentCardDisplay : CardDisplay
 	{
 		cardDuration += value;
 		DisplayInformation();
+		if (cardDuration <= 0){
+			this.gameObject.SetActive(false);
+		}
 	}
 
     #endregion
