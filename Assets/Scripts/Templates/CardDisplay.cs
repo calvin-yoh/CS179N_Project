@@ -35,6 +35,9 @@ public abstract class CardDisplay : MonoBehaviour
     private bool isDistracted;
     public CardEffect cardEffectScript;
 
+    //Turn by turn Card info
+    private int effectModifier = 0;
+
     //public TextMeshProUGUI healthText;
 
     // Start is called before the first frame update
@@ -193,5 +196,15 @@ public abstract class CardDisplay : MonoBehaviour
     public void RemoveCardEffectScript()
     {
         cardEffectScript = null;
+        CardEffect temp;
+        if(gameObject.TryGetComponent(out temp))
+        {
+            Destroy(temp);
+        }
+    }
+
+    public void RemoveEffectModifier()
+    {
+        effectModifier = 0;
     }
 }
