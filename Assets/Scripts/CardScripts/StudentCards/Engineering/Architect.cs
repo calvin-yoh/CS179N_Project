@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Architect : CardEffect
-{ 
+{
+    //Shield Craft - Grant a target building 6 armor.
     public override int PerformEffect(GameData data)
     {
         GameObject go = data.target.gameObject;

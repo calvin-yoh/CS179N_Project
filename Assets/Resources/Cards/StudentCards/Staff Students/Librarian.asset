@@ -19,5 +19,5 @@ MonoBehaviour:
   effect: Reduce a target student's effect value by 2 for 1 turn.
   artwork: {fileID: 21300000, guid: c38d5e8c57e2d8d4a852215de787208f, type: 3}
   health: 0
-  duration: 0
+  duration: 4
   effectScript: {fileID: 0}

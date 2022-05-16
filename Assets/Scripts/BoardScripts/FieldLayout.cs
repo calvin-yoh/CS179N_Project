@@ -74,6 +74,7 @@ public class FieldLayout : MonoBehaviour
             case Card.Type.Building:
                 buildingCardDisplays[index].card = newCard;
                 buildingCardDisplays[index].inPlay = true;
+                buildingCardDisplays[index].SetFieldLocation(index + 1);
                 buildingCardDisplays[index].playerNumber = player;
                 buildingCardDisplays[index].gameObject.SetActive(true);
                 buildingCardDisplays[index].SetUpInformation();
