@@ -92,7 +92,43 @@ public class SimpleAI : Player
     public IEnumerator ActivateEffectPhase()
     {
         Debug.Log("Activating effect code goes here");
-        yield return new WaitForSeconds(3f);
+        Player enemy = GameManager.Instance.GetOpposingPlayer();
+        CardDisplay self;
+        CardDisplay target;
+
+        List<BuildingCardDisplay> friendlyBuildings = this.GetField().GetBuildingCards();
+        List<BuildingCardDisplay> enemyBuildings = enemy.GetField().GetBuildingCards();
+
+        List<FacultyCardDisplay> friendlyFaculties = this.GetField().GetFacultyCards();
+        List<FacultyCardDisplay> enemyFaculties = enemy.GetField().GetFacultyCards(); ;
+
+        List<StudentCardDisplay> friendlyStudents = this.GetField().GetStudentCards();
+        List<StudentCardDisplay> enemyStudents = enemy.GetField().GetStudentCards(); 
+
+        DeckLayout friendlyDeck = this.GetDeck();
+        DeckLayout enemyDeck = enemy.GetDeck();
+
+        HandLayout friendlyHand = this.GetHand();
+        HandLayout enemyHand = enemy.GetHand();
+
+        foreach (StudentCardDisplay student in field.GetActiveStudentCards()){
+            self = student;
+            if (student.GetCardEffectScript().targetTeam == CardEffect.TargetTeam.Friendly){
+
+                target = field.GetRandomCard(student.GetCardEffectScript().targetType);
+            }
+            else{
+                target = enemy.GetField().GetRandomCard(student.GetCardEffectScript().targetType);
+            }
+            GameData gd = new GameData(friendlyBuildings, enemyBuildings,
+                                        friendlyFaculties, enemyFaculties,
+                                        friendlyStudents, enemyStudents,
+                                        friendlyDeck, enemyDeck,
+                                        friendlyHand, enemyHand,
+                                        target, self);
+            student.ActivateEffect(gd);
+        }
+        yield return new WaitForSeconds(1f);
         Debug.Log("Ending turn");
         isEndTurnPhase = true;
         yield return null;
