@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class MechanicalEngineer : CardEffect
 {
+    void Start()
+    {
+        targetType = Card.Type.Building;
+        targetTeam = TargetTeam.Enemy;
+    }
+
     //Mortar Strike - Deal 5 damage to a target building and 3 to adjacent buildings
     public override int PerformEffect(GameData data)
     {

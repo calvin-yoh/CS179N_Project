@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Architect : CardEffect
 {
-    //Shield Craft - Grant a target building 6 armor.
     void Start(){
         targetType = Card.Type.Building;
         targetTeam = TargetTeam.Friendly;
     }
 
+    //Shield Craft - Grant a target building 6 armor.
     public override int PerformEffect(GameData data)
     {
         GameObject go = data.target.gameObject;

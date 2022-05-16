@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameDevelopers : CardEffect
 {
+    void Start()
+    {
+    }
+
     public override int PerformEffect(GameData data)
     {
 

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class CyberSecurityClub : CardEffect
 {
+    void Start()
+    {
+        targetType = Card.Type.Building;
+        targetTeam = TargetTeam.Friendly;
+    }
+
     //Firewall - Grant all friendly buildings 2 armor.
     public override int PerformEffect(GameData data)
     {
