@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Architect : CardEffect
 { 
+    void Start(){
+        targetType = Card.Type.Building;
+        targetTeam = TargetTeam.Friendly;
+    }
+
     public override int PerformEffect(GameData data)
     {
         GameObject go = data.target.gameObject;

@@ -22,7 +22,6 @@ public class BuildingCardDisplay : CardDisplay
 	// Use this for initialization
 	void Start()
 	{
-		cardArmor = 5;
 	}
 
 	public int GetCardHealth(){

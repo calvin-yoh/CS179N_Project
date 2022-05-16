@@ -45,6 +45,51 @@ public class FieldLayout : MonoBehaviour
         return studentCardDisplays;
     }
 
+    public List<BuildingCardDisplay> GetActiveBuildingCards(){
+        List<BuildingCardDisplay> newList = new List<BuildingCardDisplay>();
+        foreach (BuildingCardDisplay bd in buildingCardDisplays){
+            if (bd.inPlay){
+                newList.Add(bd);
+            }
+        }
+        return newList;
+    }
+    public List<FacultyCardDisplay> GetActiveFacultyCards(){
+        List<FacultyCardDisplay> newList = new List<FacultyCardDisplay>();
+        foreach (FacultyCardDisplay fd in facultyCardDisplays){
+            if (fd.inPlay){
+                newList.Add(fd);
+            }
+        }
+        return newList;
+    }
+    public List<StudentCardDisplay> GetActiveStudentCards(){
+        List<StudentCardDisplay> newList = new List<StudentCardDisplay>();
+        foreach (StudentCardDisplay cd in studentCardDisplays){
+            if (cd.inPlay){
+                newList.Add(cd);
+            }
+        }
+        return newList;
+    }
+
+    public CardDisplay GetRandomCard(Card.Type type){
+        switch (type){
+            case Card.Type.Building:
+                List<BuildingCardDisplay> bds = GetActiveBuildingCards();
+                return bds[Random.Range(0, bds.Count)];
+            case Card.Type.Faculty:
+                List<FacultyCardDisplay> fds = GetActiveFacultyCards();
+                return fds[Random.Range(0, fds.Count)];
+            case Card.Type.Student:
+                List<StudentCardDisplay> sds = GetActiveStudentCards();
+                return sds[Random.Range(0, sds.Count)];
+            default:
+                Debug.Log("Target type not found");
+                return null;
+        }
+    }
+
     public void ReduceStudentCardDurations(){
         foreach (StudentCardDisplay stud in studentCardDisplays){
             if (stud != null && stud.inPlay){
