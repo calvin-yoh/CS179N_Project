@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class CardDisplay : MonoBehaviour
+public abstract class CardDisplay : MonoBehaviour
 {
     public Card card;
 
