@@ -4,20 +4,16 @@ using UnityEngine;
 
 public abstract class CardEffect : MonoBehaviour
 {
-    public enum TargetType{
-        AOEStudent,
-        AOEBuilding,
-        SingleStudent,
-        SingleBuilding
-    }
-
     public enum TargetTeam{
         Friendly,
         Enemy
     }
 
-    public Card.Type targetType;
-    public TargetTeam targetTeam;
+    // Used for AI, does not affect the player decisions
+    public Card.Type targetType;    // What kind of cards this effect targets
+    public TargetTeam targetTeam;   // Whether this card should target friendly cards or enemy cards
+
+    protected abstract void Start();   // Declare targetType and targetTeam here
 
     /// <summary>
     /// Performs the specific card effect. Should return the number of seconds the effect will take to resolve
