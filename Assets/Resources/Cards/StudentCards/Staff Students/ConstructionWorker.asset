@@ -16,8 +16,8 @@ MonoBehaviour:
   major: 2
   type: 1
   effectName: Deconstruct
-  effect: Flip a coin. If heads, deal 5 damage to a target building. If tails, deal
-    3 damage to a target building
+  effect: Flip a coin. If heads, deal {5} damage to a target building. If tails,
+    deal {3} damage to a target building.
   artwork: {fileID: 0}
   health: 0
   duration: 3

@@ -16,7 +16,7 @@ MonoBehaviour:
   major: 2
   type: 1
   effectName: Rally
-  effect: 'Grant a target student this ability : act again.'
+  effect: 'Grant {1} target student this ability : act again.'
   artwork: {fileID: 0}
   health: 0
   duration: 2

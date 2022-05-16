@@ -16,7 +16,7 @@ MonoBehaviour:
   major: 0
   type: 1
   effectName: Band together
-  effect: Grant all Art cards, except this card, +1 duration. (Even opponents)
+  effect: Grant all Art cards, except this card, +1 duration. (Even opponents).
   artwork: {fileID: 0}
   health: 0
   duration: 4

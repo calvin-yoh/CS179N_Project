@@ -16,7 +16,7 @@ MonoBehaviour:
   major: 2
   type: 1
   effectName: Clean
-  effect: Heal all friendly buildings by 2
+  effect: Heal all friendly buildings by {2}.
   artwork: {fileID: 0}
   health: 0
   duration: 4

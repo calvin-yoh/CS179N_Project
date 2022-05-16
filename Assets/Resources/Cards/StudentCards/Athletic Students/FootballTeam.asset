@@ -16,8 +16,8 @@ MonoBehaviour:
   major: 3
   type: 1
   effectName: Tackle
-  effect: Deal 6 damage to a target enemy building. If there is no enemy Athletic
-    card, deal 3 more.
+  effect: Deal {6} damage to a target enemy building. If there is no enemy Athletic
+    card, deal {3} more.
   artwork: {fileID: 0}
   health: 0
   duration: 3

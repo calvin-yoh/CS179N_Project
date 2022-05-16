@@ -16,7 +16,8 @@ MonoBehaviour:
   major: 0
   type: 1
   effectName: Critical Reviews
-  effect: Deal 2 damage to a target building. For every turn in play, deal 2 more
+  effect: Deal {2} damage to a target building. For every turn in play, deal {2}
+    more.
   artwork: {fileID: 0}
   health: 0
   duration: 4
