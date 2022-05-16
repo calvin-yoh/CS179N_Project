@@ -16,7 +16,7 @@ MonoBehaviour:
   major: 0
   type: 0
   effectName: 
-  effect: Every turn, this building recovers 2 health points
+  effect: Every turn, this building recovers {2} health points.
   artwork: {fileID: 0}
   health: 30
   duration: 0

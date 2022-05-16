@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e52f67d8a0f3fb42965cd3456cd4a4d, type: 3}
-  m_Name: ResidenceHall
+  m_Name: IceRink
   m_EditorClassIdentifier: 
-  name: Residence Hall
-  major: 2
+  name: Ice Rink
+  major: 3
+  type: 0
   effectName: 
-  effect: All your students last 1 extra turn than specified on their card.
+  effect: Your Athletics card's "Flip a coin effects" are {20}% more likely to land
+    on heads.
   artwork: {fileID: 0}
-  health: 35
+  health: 30
   duration: 0
+  effectScript: {fileID: 0}

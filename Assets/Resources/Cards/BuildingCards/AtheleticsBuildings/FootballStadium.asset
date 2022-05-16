@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Football Stadium
   major: 3
+  type: 0
   effectName: 
-  effect: Your student field maximum is increased by 1 / Your student field maximum
-    is increased by 2
+  effect: All Athletics cards gain {+1} effect power for each friendly student Athletics
+    card.
   artwork: {fileID: 0}
   health: 30
   duration: 0
+  effectScript: {fileID: 0}

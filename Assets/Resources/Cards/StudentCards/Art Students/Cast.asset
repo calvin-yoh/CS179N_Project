@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98205b6eaf9c732488ea4ec64aa0696c, type: 3}
   m_Name: Cast
   m_EditorClassIdentifier: 
-  name: Cast
+  name: 'Actor : Cast'
   major: 0
   type: 1
   effectName: Entertain
