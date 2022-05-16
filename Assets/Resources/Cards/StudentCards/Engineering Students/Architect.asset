@@ -16,8 +16,7 @@ MonoBehaviour:
   major: 1
   type: 1
   effectName: Shield Craft
-  effect: Grant a shield to one of your buildings that protects it for 6 damage (cannot
-    stack on one building).
+  effect: Grant a target building 6 armor
   artwork: {fileID: 0}
   health: 0
   duration: 5

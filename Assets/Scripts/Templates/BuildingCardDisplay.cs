@@ -15,6 +15,8 @@ public class BuildingCardDisplay : CardDisplay
 
 	public TextMeshProUGUI healthText;
 
+	private int fieldLocation = 0;
+
 	//Additional card information
 	private int cardHealth;
 	private int cardArmor;
@@ -22,10 +24,16 @@ public class BuildingCardDisplay : CardDisplay
 	// Use this for initialization
 	void Start()
 	{
+
 	}
 
 	public int GetCardHealth(){
 		return cardHealth;
+	}
+
+	public void SetCardHealth(int newHealth)
+	{
+		cardHealth = newHealth;
 	}
 
 	public int GetCardArmor(){
@@ -35,6 +43,16 @@ public class BuildingCardDisplay : CardDisplay
 	public void SetCardArmor(int armor){
 		cardArmor = armor;
 		DisplayInformation();
+	}
+
+	public void SetFieldLocation(int loc)
+	{
+		fieldLocation = loc;
+	}
+
+	public int GetFieldLocation()
+	{
+		return fieldLocation;
 	}
 
 	public override void SetUpInformation()
