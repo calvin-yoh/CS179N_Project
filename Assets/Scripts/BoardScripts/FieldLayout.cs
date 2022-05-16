@@ -90,6 +90,15 @@ public class FieldLayout : MonoBehaviour
         }
     }
 
+    public void ReactivateCards(){
+        foreach (StudentCardDisplay student in GetActiveStudentCards()){
+            student.ReactivateCard();
+        }
+        foreach (FacultyCardDisplay faculty in GetActiveFacultyCards()){
+            faculty.ReactivateCard();
+        }
+    }
+
     public void ReduceStudentCardDurations(){
         foreach (StudentCardDisplay stud in studentCardDisplays){
             if (stud != null && stud.inPlay){
