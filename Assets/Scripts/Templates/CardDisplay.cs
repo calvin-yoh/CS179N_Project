@@ -110,13 +110,16 @@ public abstract class CardDisplay : MonoBehaviour
         }
         else
         {
+            if (isDistracted){
+                isDistracted = false;
+            }
             Debug.Log("Turning off glow");
             glowEffect.SetActive(false);
         }
     }
 
     public bool CanActivateEffect(){
-		return !hasActivatedEffect && inPlay;
+		return !hasActivatedEffect && inPlay && !isDistracted;
 	}
 
     public virtual void ActivateEffect(GameData gm){
