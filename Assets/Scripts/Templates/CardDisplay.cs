@@ -88,6 +88,16 @@ public abstract class CardDisplay : MonoBehaviour
         return cardEffectScript;
     }
 
+    public int GetEffectModifier()
+    {
+        return effectModifier;
+    }
+
+    public void SetEffectModifier(int val)
+    {
+        effectModifier = val;
+    }
+
     #endregion
 
     public void ReactivateCard() // Lets the card be activated (again)
