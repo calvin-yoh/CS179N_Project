@@ -103,6 +103,17 @@ public class FieldLayout : MonoBehaviour
         foreach (StudentCardDisplay stud in studentCardDisplays){
             if (stud != null && stud.inPlay){
                 stud.ChangeDurationBy(-1);
+            }
+        }
+    }
+
+    public void ReduceEffectModifiers()
+    {
+        foreach (StudentCardDisplay stud in studentCardDisplays)
+        {
+            if (stud != null && stud.inPlay)
+            {
+                stud.RemoveEffectModifier();
                 stud.DisplayInformation();
             }
         }
@@ -139,6 +150,7 @@ public class FieldLayout : MonoBehaviour
                 facultyCardDisplays[index].inPlay = true;
                 facultyCardDisplays[index].playerNumber = player;
                 facultyCardDisplays[index].gameObject.SetActive(true);
+                facultyCardDisplays[index].ReactivateCard();
                 facultyCardDisplays[index].SetUpInformation();
                 facultyCardDisplays[index].DisplayInformation();
                 break;
@@ -147,6 +159,7 @@ public class FieldLayout : MonoBehaviour
                 studentCardDisplays[index].inPlay = true;
                 studentCardDisplays[index].playerNumber = player;
                 studentCardDisplays[index].gameObject.SetActive(true);
+                studentCardDisplays[index].ReactivateCard();
                 studentCardDisplays[index].SetUpInformation();
                 studentCardDisplays[index].DisplayInformation();
                 break;

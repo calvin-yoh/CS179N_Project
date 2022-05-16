@@ -16,7 +16,7 @@ MonoBehaviour:
   major: 0
   type: 1
   effectName: Redesign
-  effect: Deal 4 damage to 2 random enemy buildings. Requires 1 friendly art building.
+  effect: Deal {4} damage to 2 random enemy buildings. Requires 1 friendly art building.
   artwork: {fileID: 0}
   health: 0
   duration: 4

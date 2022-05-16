@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Basketball Court
   major: 3
+  type: 0
   effectName: 
   effect: If you have exactly 5 students on the field, your Athletics cards gain
     +5 card power
   artwork: {fileID: 0}
   health: 40
   duration: 0
+  effectScript: {fileID: 0}

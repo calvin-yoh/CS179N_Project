@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   effectName: Freestyle
   effect: Flip a coin. If heads, grant all friendly students 1 duration. If tails,
-    reduce this card's duration by 1
+    reduce this card's duration by 1.
   artwork: {fileID: 0}
   health: 0
   duration: 4

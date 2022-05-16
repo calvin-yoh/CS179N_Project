@@ -8,14 +8,16 @@ public class CyberSecurityClub : CardEffect
         targetType = Card.Type.Building;
         targetTeam = TargetTeam.Friendly;
     }
-    //Firewall - Grant all friendly buildings 2 armor.
+    //Firewall - Grant all friendly buildings {2} armor.
     public override int PerformEffect(GameData data)
     {
         List<BuildingCardDisplay> temp = data.friendlyBuildings;
+
+        int effectValue = 2 + data.self.GetEffectValueModifier();
         
         foreach(BuildingCardDisplay building in temp)
         {
-            building.SetCardArmor(building.GetCardArmor() + 2);
+            building.SetCardArmor(building.GetCardArmor() + effectValue);
         }
 
         return 0;

@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Chef : CardEffect
+{
+    protected override void Start()
+    {
+        targetType = Card.Type.Student;
+        targetTeam = TargetTeam.Friendly;
+    }
+    //Grant a target student +2 effect value.
+    public override int PerformEffect(GameData data)
+    {
+        GameObject go = data.target.gameObject;
+        StudentCardDisplay target;
+
+        int effectValue = 2;
+
+        if (go.TryGetComponent(out target))
+        {
+            target.SetEffectValueModifier(target.GetEffectValueModifier() + effectValue);
+            Debug.Log("Chef worked");
+        }
+        else
+        {
+            Debug.Log("Chef Card Effect Error");
+        }
+        return 0;
+    }
+}

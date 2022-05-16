@@ -16,7 +16,7 @@ MonoBehaviour:
   major: 1
   type: 1
   effectName: Mines
-  effect: 'Choose one : Distract an enemy student OR Distract an enemy faculty'
+  effect: 'Choose one : Distract an enemy student OR Distract an enemy faculty.'
   artwork: {fileID: 0}
   health: 0
   duration: 5

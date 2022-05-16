@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   effectName: Human augmentation
   effect: 'Choose one : Reduce a student''s duration by 1 turn OR Reduce a student''s
-    effect value by 1.'
+    effect value by {1}.'
   artwork: {fileID: 0}
   health: 0
   duration: 5

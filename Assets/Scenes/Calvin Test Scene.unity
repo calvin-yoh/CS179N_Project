@@ -234,17 +234,25 @@ PrefabInstance:
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 71764c018c202f74e9052e321673c3dd, type: 2}
+      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 71764c018c202f74e9052e321673c3dd, type: 2}
+      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 71764c018c202f74e9052e321673c3dd, type: 2}
+      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 71764c018c202f74e9052e321673c3dd, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[9]
       value: 
       objectReference: {fileID: 11400000, guid: 71764c018c202f74e9052e321673c3dd, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
@@ -828,6 +836,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: openDeck.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: openDeck.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3be4a42bf230aec4d9b456356f868640, type: 2}
+    - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: openDeck.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3be4a42bf230aec4d9b456356f868640, type: 2}
+    - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: openDeck.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3be4a42bf230aec4d9b456356f868640, type: 2}
+    - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: openDeck.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3be4a42bf230aec4d9b456356f868640, type: 2}
+    - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: openDeck.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3be4a42bf230aec4d9b456356f868640, type: 2}
+    - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: openDeck.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3be4a42bf230aec4d9b456356f868640, type: 2}
+    - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: openDeck.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3be4a42bf230aec4d9b456356f868640, type: 2}
+    - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: openDeck.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3be4a42bf230aec4d9b456356f868640, type: 2}
+    - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: openDeck.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3be4a42bf230aec4d9b456356f868640, type: 2}
+    - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: openDeck.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3be4a42bf230aec4d9b456356f868640, type: 2}
+    - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: openDeck.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3be4a42bf230aec4d9b456356f868640, type: 2}
+    - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: openDeck.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3be4a42bf230aec4d9b456356f868640, type: 2}
     - target: {fileID: 397443902971027873, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: m_Name
       value: AI

@@ -35,11 +35,11 @@ public class BuildingCardDisplay : CardDisplay
 	{
 		cardHealth = newHealth;
 		if (cardHealth <= 0){
-			this.gameObject.SetActive(false);
+			RemoveCardFromPlay();
 		}
 	}
 
-	public void ReduceHealth(int damageTaken){
+	public void DamageBuilding(int damageTaken){
 		if (cardArmor > 0){
 			if (cardArmor > damageTaken){
 				cardArmor -= damageTaken;
@@ -53,7 +53,7 @@ public class BuildingCardDisplay : CardDisplay
 
 		cardHealth -= damageTaken;
 		if (cardHealth <= 0){
-			this.gameObject.SetActive(false);
+			RemoveCardFromPlay();
 		}
 	}
 

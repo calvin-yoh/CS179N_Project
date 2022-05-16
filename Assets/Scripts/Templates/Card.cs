@@ -11,14 +11,16 @@ public class Card : ScriptableObject
 		Arts,
 		Engineering,
 		Staff,
-		Athletics
+		Athletics,
+		None
 	};
 
 	public enum Type
 	{
 		Building,
 		Student,
-		Faculty
+		Faculty,
+		None
 	}
 
 	public new string name;

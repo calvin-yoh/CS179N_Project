@@ -16,7 +16,7 @@ MonoBehaviour:
   major: 1
   type: 1
   effectName: Powersurge
-  effect: All non-engineering building takes 5 damage. Requires 1 friendly engineering
+  effect: All non-engineering building takes {5} damage. Requires 1 friendly engineering
     building.
   artwork: {fileID: 21300000, guid: 99bcef8f03c465d4e97edb96c4218075, type: 3}
   health: 0

@@ -112,7 +112,8 @@ public abstract class CardDisplay : MonoBehaviour
         else
         {
             if (isDistracted) {
-                isDistracted = false;
+                hasActivatedEffect = true;
+                UnDistractCard();
             }
             Debug.Log("Turning off glow");
             glowEffect.SetActive(false);
@@ -223,6 +224,33 @@ public abstract class CardDisplay : MonoBehaviour
         UpdateEffectString();
     }
 
+    public void RemoveCardFromPlay() 
+    {
+        ResetCardToPlaceholder();
+        this.gameObject.SetActive(false);
+    }
+
+    public void ResetCardToPlaceholder()
+    {
+        card = null;
+
+        hasActivatedEffect = false;
+        inHand = false;
+        inPlay = false;
+
+        //Current Card information
+        cardType = Card.Type.None;
+        cardMajor = Card.Major.None;
+        cardName = null;
+        cardArtwork = null;
+        cardEffectString = null;
+        isDistracted = false;
+        cardEffectScript = null;
+
+        //Turn by turn Card info
+        effectValueModifier = 0;
+    }
+
     public void UpdateEffectString()
     {
         string text = card.effect;
@@ -256,8 +284,13 @@ public abstract class CardDisplay : MonoBehaviour
                 if (GetEffectValueModifier() != 0)
                 {
                     tempDamage += GetEffectValueModifier();
+                    updatedString.Append($"<b>*{tempDamage}*</b>");
                 }
-                updatedString.Append($"<b>*{tempDamage}*</b>");
+                else
+                {
+                    updatedString.Append($"<b>{tempDamage}</b>");
+                }
+                
 
                 //End
                 sb.Clear();

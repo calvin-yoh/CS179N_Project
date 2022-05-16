@@ -37,9 +37,14 @@ public class StudentCardDisplay : CardDisplay
 	public void ChangeDurationBy(int value)
 	{
 		cardDuration += value;
-		DisplayInformation();
-		if (cardDuration <= 0){
-			this.gameObject.SetActive(false);
+		
+		if (cardDuration <= 0)
+		{
+			RemoveCardFromPlay();
+		}
+		else
+		{
+			DisplayInformation();
 		}
 	}
 
