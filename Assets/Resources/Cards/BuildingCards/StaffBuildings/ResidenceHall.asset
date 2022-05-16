@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e52f67d8a0f3fb42965cd3456cd4a4d, type: 3}
-  m_Name: IceRink
+  m_Name: ResidenceHall
   m_EditorClassIdentifier: 
-  name: Ice Rink
-  major: 3
+  name: Residence Hall
+  major: 2
+  type: 0
   effectName: 
-  effect: Your Athletics card's "Flip a coin effects" are more likely to land on
-    heads
+  effect: All your students gain +1 duration when played.
   artwork: {fileID: 0}
-  health: 30
+  health: 35
   duration: 0
+  effectScript: {fileID: 0}

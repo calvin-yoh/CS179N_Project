@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e52f67d8a0f3fb42965cd3456cd4a4d, type: 3}
-  m_Name: Arts Building
+  m_Name: FootballStadium
   m_EditorClassIdentifier: 
-  name: Arts Building
-  major: 0
+  name: Football Stadium
+  major: 3
+  type: 0
   effectName: 
-  effect: Every turn, this building recovers 2 health points
+  effect: All Athletics cards gain {+1} effect power for each friendly student Athletics
+    card.
   artwork: {fileID: 0}
   health: 30
   duration: 0
+  effectScript: {fileID: 0}

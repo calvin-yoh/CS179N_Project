@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e52f67d8a0f3fb42965cd3456cd4a4d, type: 3}
-  m_Name: Sculpting Lab
+  m_Name: ComputerLab
   m_EditorClassIdentifier: 
-  name: Sculpting Lab
-  major: 0
+  name: Computer Lab
+  major: 1
+  type: 0
   effectName: 
-  effect: The opponent's student cards have -1 duration
+  effect: All friendly engineering card's "Flip a coin effects" are {15}% more likely
+    to land on heads.
   artwork: {fileID: 0}
-  health: 35
+  health: 40
   duration: 0
+  effectScript: {fileID: 0}

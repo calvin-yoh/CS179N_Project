@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e52f67d8a0f3fb42965cd3456cd4a4d, type: 3}
-  m_Name: Gym
+  m_Name: Arts Building
   m_EditorClassIdentifier: 
-  name: Gym
-  major: 3
+  name: Arts Building
+  major: 0
+  type: 0
   effectName: 
-  effect: All your Athletics cards last an extra turn than specified on their card
+  effect: Every turn, this building recovers {2} health points.
   artwork: {fileID: 0}
-  health: 50
+  health: 30
   duration: 0
+  effectScript: {fileID: 0}
