@@ -50,32 +50,32 @@ public class MechanicalEngineer : CardEffect
                 //Attack location 1 and 2/4
                 case 1:
                     target.SetCardHealth(target.GetCardHealth() - effectValue1);
-                    buildingsOnField[2].SetCardHealth(buildingsOnField[2].GetCardHealth() - effectValue2);
-                    buildingsOnField[4].SetCardHealth(buildingsOnField[4].GetCardHealth() - effectValue2);
+                    if (buildingsOnField.ContainsKey(2)) buildingsOnField[2].SetCardHealth(buildingsOnField[2].GetCardHealth() - effectValue2);
+                    if (buildingsOnField.ContainsKey(4)) buildingsOnField[4].SetCardHealth(buildingsOnField[4].GetCardHealth() - effectValue2);
                     break;
                 //Attack location 2 and 1/5
                 case 2:
                     target.SetCardHealth(target.GetCardHealth() - effectValue1);
-                    buildingsOnField[1].SetCardHealth(buildingsOnField[1].GetCardHealth() - effectValue2);
-                    buildingsOnField[5].SetCardHealth(buildingsOnField[5].GetCardHealth() - effectValue2);
+                    if (buildingsOnField.ContainsKey(1)) buildingsOnField[1].SetCardHealth(buildingsOnField[1].GetCardHealth() - effectValue2);
+                    if (buildingsOnField.ContainsKey(5)) buildingsOnField[5].SetCardHealth(buildingsOnField[5].GetCardHealth() - effectValue2);
                     break;
                 //Attack location 3 and 4
                 case 3:
                     target.SetCardHealth(target.GetCardHealth() - effectValue1);
-                    buildingsOnField[4].SetCardHealth(buildingsOnField[4].GetCardHealth() - effectValue2);
+                    if (buildingsOnField.ContainsKey(4)) buildingsOnField[4].SetCardHealth(buildingsOnField[4].GetCardHealth() - effectValue2);
                     break;
                 //Attack location 4 and 1/3/5
                 case 4:
                     target.SetCardHealth(target.GetCardHealth() - effectValue1);
-                    buildingsOnField[1].SetCardHealth(buildingsOnField[1].GetCardHealth() - effectValue2);
-                    buildingsOnField[3].SetCardHealth(buildingsOnField[3].GetCardHealth() - effectValue2);
-                    buildingsOnField[5].SetCardHealth(buildingsOnField[5].GetCardHealth() - effectValue2);
+                    if (buildingsOnField.ContainsKey(1)) buildingsOnField[1].SetCardHealth(buildingsOnField[1].GetCardHealth() - effectValue2);
+                    if (buildingsOnField.ContainsKey(3)) buildingsOnField[3].SetCardHealth(buildingsOnField[3].GetCardHealth() - effectValue2);
+                    if (buildingsOnField.ContainsKey(5)) buildingsOnField[5].SetCardHealth(buildingsOnField[5].GetCardHealth() - effectValue2);
                     break;
                 //Attack location 5 and 2/4
                 case 5:
                     target.SetCardHealth(target.GetCardHealth() - effectValue1);
-                    buildingsOnField[2].SetCardHealth(buildingsOnField[2].GetCardHealth() - effectValue2);
-                    buildingsOnField[4].SetCardHealth(buildingsOnField[4].GetCardHealth() - effectValue2);
+                    if (buildingsOnField.ContainsKey(2)) buildingsOnField[2].SetCardHealth(buildingsOnField[2].GetCardHealth() - effectValue2);
+                    if (buildingsOnField.ContainsKey(4)) buildingsOnField[4].SetCardHealth(buildingsOnField[4].GetCardHealth() - effectValue2);
                     break;
                 default:
                     Debug.Log("Mechanical Engineer Effect failed. Invalid building index");

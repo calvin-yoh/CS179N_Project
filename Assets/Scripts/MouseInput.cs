@@ -128,14 +128,14 @@ public class MouseInput : MonoBehaviour
                 List<CardDisplay> target = new List<CardDisplay>();
                 target.Add(endObject.GetComponent<CardDisplay>());
 
-                List<BuildingCardDisplay> friendlyBuildings = player.GetField().GetBuildingCards();
-                List<BuildingCardDisplay> enemyBuildings = enemy.GetField().GetBuildingCards();
+                List<BuildingCardDisplay> friendlyBuildings = player.GetField().GetActiveBuildingCards();
+                List<BuildingCardDisplay> enemyBuildings = enemy.GetField().GetActiveBuildingCards();
 
-                List<FacultyCardDisplay> friendlyFaculties = player.GetField().GetFacultyCards();
-                List<FacultyCardDisplay> enemyFaculties = enemy.GetField().GetFacultyCards(); ;
+                List<FacultyCardDisplay> friendlyFaculties = player.GetField().GetActiveFacultyCards();
+                List<FacultyCardDisplay> enemyFaculties = enemy.GetField().GetActiveFacultyCards(); ;
 
-                List<StudentCardDisplay> friendlyStudents = player.GetField().GetStudentCards();
-                List<StudentCardDisplay> enemyStudents = enemy.GetField().GetStudentCards(); 
+                List<StudentCardDisplay> friendlyStudents = player.GetField().GetActiveStudentCards();
+                List<StudentCardDisplay> enemyStudents = enemy.GetField().GetActiveStudentCards(); 
 
                 DeckLayout friendlyDeck = player.GetDeck();
                 DeckLayout enemyDeck = enemy.GetDeck();
