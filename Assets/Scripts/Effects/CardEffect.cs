@@ -24,14 +24,50 @@ public abstract class CardEffect : MonoBehaviour
     /// <returns></returns>
     public abstract int PerformEffect(GameData data);
 
-    //Flip a coin. 0 for Heads. 1 for Tails
+    //Flip a coin. 0 for Tails. 1 for Head
     public int FlipCoin(int luckModifier)
     {
         int rand = Random.Range(0, 100);
 
         if (rand < 50 + luckModifier)
-            return 0;
-        else
             return 1;
-    }    
+        else
+            return 0;
+    }
+
+    public int GetLuckModifier(LuckModifier modifier, Card.Type type, Card.Major major)
+    {
+        int total = 0;
+        switch(type)
+        {
+            case Card.Type.Student:
+                total += modifier.GetStudentLuckModifier();
+                break;
+            case Card.Type.Faculty:
+                total += modifier.GetFacultyLuckModifier();
+                break;
+            default:
+                Debug.Log("Getting luck modifier failed");
+                break;
+        }
+        switch (major)
+        {
+            case Card.Major.Athletics:
+                total += modifier.GetAthleticsLuckModifier();
+                break;
+            case Card.Major.Arts:
+                total += modifier.GetArtsLuckModifier();
+                break;
+            case Card.Major.Engineering:
+                total += modifier.GetEngineeringLuckModifier();
+                break;
+            case Card.Major.Staff:
+                total += modifier.GetStaffLuckModifier();
+                break;
+            default:
+                Debug.Log("Getting luck modifier failed");
+                break;
+        }
+        return total;
+    }
 }
