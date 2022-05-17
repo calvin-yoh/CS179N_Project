@@ -95,7 +95,7 @@ public class SimpleAI : Player
         Debug.Log("Activating effect code goes here");
         Player enemy = GameManager.Instance.GetOpposingPlayer();
         CardDisplay self;
-        CardDisplay target;
+        List<CardDisplay> target = new List<CardDisplay>();
 
         List<BuildingCardDisplay> friendlyBuildings = this.GetField().GetBuildingCards();
         List<BuildingCardDisplay> enemyBuildings = enemy.GetField().GetBuildingCards();
@@ -119,10 +119,10 @@ public class SimpleAI : Player
             self = student;
             if (student.GetCardEffectScript().targetTeam == CardEffect.TargetTeam.Friendly){
 
-                target = field.GetRandomCard(student.GetCardEffectScript().targetType);
+                target.Add(field.GetRandomCard(student.GetCardEffectScript().targetType));
             }
             else{
-                target = enemy.GetField().GetRandomCard(student.GetCardEffectScript().targetType);
+                target.Add(enemy.GetField().GetRandomCard(student.GetCardEffectScript().targetType));
             }
             GameData gd = new GameData(friendlyBuildings, enemyBuildings,
                                         friendlyFaculties, enemyFaculties,
@@ -132,6 +132,7 @@ public class SimpleAI : Player
                                         target, self,
                                         friendly, enemyPlayer);
             student.ActivateEffect(gd);
+            target.Clear();
         }
         yield return new WaitForSeconds(1f);
         Debug.Log("Ending turn");

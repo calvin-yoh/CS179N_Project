@@ -125,7 +125,8 @@ public class MouseInput : MonoBehaviour
 
                 Player enemy = GameManager.Instance.GetOpposingPlayer();
                 CardDisplay self = startObject.GetComponent<CardDisplay>();
-                CardDisplay target = endObject.GetComponent<CardDisplay>();
+                List<CardDisplay> target = new List<CardDisplay>();
+                target.Add(endObject.GetComponent<CardDisplay>());
 
                 List<BuildingCardDisplay> friendlyBuildings = player.GetField().GetBuildingCards();
                 List<BuildingCardDisplay> enemyBuildings = enemy.GetField().GetBuildingCards();

@@ -7,7 +7,7 @@ public class RA : CardEffect
     protected override void Start(){
         targetType = Card.Type.Student;
         targetTeam = TargetTeam.Enemy;
-        needsTargetting = true;
+        numTargets = 1;
     }
 
     // Report - Distract a target enemy student for 1 turn.

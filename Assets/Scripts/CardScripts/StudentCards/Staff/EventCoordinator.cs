@@ -7,7 +7,7 @@ public class EventCoordinator : CardEffect
     protected override void Start(){
         targetType = Card.Type.Student;
         targetTeam = TargetTeam.Friendly;
-        needsTargetting = true;
+        numTargets = 1;
     }
 
     // Rally - Grant a target student this ability : act again.

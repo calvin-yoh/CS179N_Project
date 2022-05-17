@@ -12,7 +12,7 @@ public abstract class CardEffect : MonoBehaviour
     // Used for AI, does not affect the player decisions
     public Card.Type targetType;    // What kind of cards this effect targets
     public TargetTeam targetTeam;   // Whether this card should target friendly cards or enemy cards
-    public bool numTargets;         // How many cards this can target
+    public int numTargets;         // How many cards this can target
     public bool isChooseOne;        // Whether this card is choose one or not   
 
     protected abstract void Start();   // Declare targetType and targetTeam here

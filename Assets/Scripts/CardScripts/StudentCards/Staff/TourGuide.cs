@@ -7,7 +7,7 @@ public class TourGuide : CardEffect
     protected override void Start(){
         targetType = Card.Type.Building;
         targetTeam = TargetTeam.Friendly;
-        needsTargetting = false;
+        numTargets = 0;
     }
 
     // Tour - Flip a coin. If heads, draw 1 card. If tails, nothing happens
