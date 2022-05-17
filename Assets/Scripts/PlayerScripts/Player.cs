@@ -16,8 +16,8 @@ public class Player : MonoBehaviour
     public int number;
     protected bool hasPlayedStudentCard;
     protected bool hasPlayedFacultyCard;
-
-    private int luckModifier = 0;
+    
+    private LuckModifier luckModifier = new LuckModifier();
 
     void Start(){
         // hand = new List<Card>(20);
@@ -43,14 +43,9 @@ public class Player : MonoBehaviour
         return hand;
     }
 
-    public int GetLuckModifier()
+    public LuckModifier GetLuckModifier()
     {
         return luckModifier;
-    }
-
-    public void SetLuckModifier(int newLuckModifier)
-    {
-        luckModifier = newLuckModifier;
     }
 
     #endregion
