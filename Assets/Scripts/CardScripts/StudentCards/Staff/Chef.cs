@@ -12,7 +12,7 @@ public class Chef : CardEffect
     //Grant a target student +2 effect value.
     public override int PerformEffect(GameData data)
     {
-        GameObject go = data.target.gameObject;
+        GameObject go = data.target[0].gameObject;
         StudentCardDisplay target;
 
         int effectValue = 2;

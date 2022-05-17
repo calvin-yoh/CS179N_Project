@@ -8,11 +8,12 @@ public class MechanicalEngineer : CardEffect
     protected override void Start(){
         targetType = Card.Type.Building;
         targetTeam = TargetTeam.Enemy;
+        needsTargetting = true;
     }
     //Mortar Strike - Deal {5} damage to a target building and {3} to adjacent buildings.
     public override int PerformEffect(GameData data)
     {
-        GameObject go = data.target.gameObject;
+        GameObject go = data.target[0].gameObject;
         BuildingCardDisplay target;
 
         int effectValue1 = 5 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
