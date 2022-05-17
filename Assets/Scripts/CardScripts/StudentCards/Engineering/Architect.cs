@@ -8,11 +8,12 @@ public class Architect : CardEffect
     protected override void Start(){
         targetType = Card.Type.Building;
         targetTeam = TargetTeam.Friendly;
+        needsTargetting = true;
     }
     //Shield Craft - Grant a target building 6 armor.
     public override int PerformEffect(GameData data)
     {
-        GameObject go = data.target.gameObject;
+        GameObject go = data.target[0].gameObject;
         BuildingCardDisplay target;
 
         int effectValue = 6 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
