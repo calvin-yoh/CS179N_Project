@@ -14,15 +14,12 @@ public class TourGuide : CardEffect
     // Tour - Flip a coin. If heads, draw 1 card. If tails, nothing happens
     public override int PerformEffect(GameData data)
     {
-        LuckModifier lm = data.friendlyPlayer.GetLuckModifier();
-        Card.Type cardType = data.self.GetCardType();
-        Card.Major cardMajor = data.self.GetCardMajor();
-
-        int luckModifier = GetLuckModifier(lm, cardType, cardMajor);
+        int luckModifier = GetLuckModifierValue(data.friendlyPlayer, data.self);
 
         if (FlipCoin(luckModifier) == 1)
         {
             data.friendlyPlayer.DrawCard();
+            Debug.Log("Tour guide hit heads");
         }
         else
         {
