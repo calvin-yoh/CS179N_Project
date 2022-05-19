@@ -35,6 +35,7 @@ public class FieldLayout : MonoBehaviour
             
     }
 
+    // Gets inactive cards too
     public List<BuildingCardDisplay> GetBuildingCards(){
         return buildingCardDisplays;
     }

@@ -12,6 +12,9 @@ public class Custodian : CardEffect
 
     // Clean - Heal all friendly buildings by {2}.
     public override int PerformEffect(GameData data){
+        foreach (BuildingCardDisplay building in data.friendlyBuildings){
+            building.HealBuilding(2 + data.self.GetEffectValueModifier());
+        }
         return 0;
     }
 }

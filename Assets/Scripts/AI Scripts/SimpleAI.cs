@@ -97,14 +97,14 @@ public class SimpleAI : Player
         CardDisplay self;
         List<CardDisplay> target = new List<CardDisplay>();
 
-        List<BuildingCardDisplay> friendlyBuildings = this.GetField().GetBuildingCards();
-        List<BuildingCardDisplay> enemyBuildings = enemy.GetField().GetBuildingCards();
+        List<BuildingCardDisplay> friendlyBuildings = this.GetField().GetActiveBuildingCards();
+        List<BuildingCardDisplay> enemyBuildings = enemy.GetField().GetActiveBuildingCards();
 
-        List<FacultyCardDisplay> friendlyFaculties = this.GetField().GetFacultyCards();
-        List<FacultyCardDisplay> enemyFaculties = enemy.GetField().GetFacultyCards(); ;
+        List<FacultyCardDisplay> friendlyFaculties = this.GetField().GetActiveFacultyCards();
+        List<FacultyCardDisplay> enemyFaculties = enemy.GetField().GetActiveFacultyCards(); ;
 
-        List<StudentCardDisplay> friendlyStudents = this.GetField().GetStudentCards();
-        List<StudentCardDisplay> enemyStudents = enemy.GetField().GetStudentCards(); 
+        List<StudentCardDisplay> friendlyStudents = this.GetField().GetActiveStudentCards();
+        List<StudentCardDisplay> enemyStudents = enemy.GetField().GetActiveStudentCards(); 
 
         DeckLayout friendlyDeck = this.GetDeck();
         DeckLayout enemyDeck = enemy.GetDeck();
