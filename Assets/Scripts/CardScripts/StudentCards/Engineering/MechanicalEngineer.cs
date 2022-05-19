@@ -81,11 +81,12 @@ public class MechanicalEngineer : CardEffect
                     Debug.Log("Mechanical Engineer Effect failed. Invalid building index");
                     break;
             }
-            Debug.Log("Architect worked");
+            Debug.Log("Mechanical Engineer worked");
         }
         else
         {
             Debug.Log("Mechanical Engineer Effect failed");
+            return -1;
         }
         return 0;
     }

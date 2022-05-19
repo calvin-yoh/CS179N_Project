@@ -21,11 +21,7 @@ public class Statistician : CardEffect
 
         if (go.TryGetComponent(out target))
         {
-            LuckModifier lm = data.friendlyPlayer.GetLuckModifier();
-            Card.Type cardType = data.self.GetCardType();
-            Card.Major cardMajor = data.self.GetCardMajor();
-
-            int luckModifier = GetLuckModifier(lm, cardType, cardMajor);
+            int luckModifier = GetLuckModifierValue(data.friendlyPlayer, data.self);
             int effectValue = 8 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
 
             if (FlipCoin(luckModifier) == 1)

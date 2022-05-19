@@ -35,10 +35,15 @@ public abstract class CardEffect : MonoBehaviour
             return 0;
     }
 
-    public int GetLuckModifier(LuckModifier modifier, Card.Type type, Card.Major major)
+    public int GetLuckModifierValue(Player friendlyPlayer, CardDisplay self)
     {
         int total = 0;
-        switch(type)
+
+        LuckModifier modifier = friendlyPlayer.GetLuckModifier();
+        Card.Type cardType = self.GetCardType();
+        Card.Major cardMajor = self.GetCardMajor();
+
+        switch (cardType)
         {
             case Card.Type.Student:
                 total += modifier.GetStudentLuckModifier();
@@ -50,7 +55,7 @@ public abstract class CardEffect : MonoBehaviour
                 Debug.Log("Getting luck modifier failed");
                 break;
         }
-        switch (major)
+        switch (cardMajor)
         {
             case Card.Major.Athletics:
                 total += modifier.GetAthleticsLuckModifier();
@@ -69,5 +74,23 @@ public abstract class CardEffect : MonoBehaviour
                 break;
         }
         return total;
+    }
+
+    public List<BuildingCardDisplay> ChooseRandomBuildings(List<BuildingCardDisplay> list, int count)
+    {
+        List<BuildingCardDisplay> result = new List<BuildingCardDisplay>();
+
+        if (list.Count <= count)
+        {
+            return list;
+        }
+
+        for (int i = 0; i < count; i++)
+        {
+            int tempTarget = Random.Range(0, list.Count);
+            result.Add(list[tempTarget]);
+            list.RemoveAt(tempTarget);
+        }
+        return result;
     }
 }
