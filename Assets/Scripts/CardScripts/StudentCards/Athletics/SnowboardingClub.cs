@@ -10,7 +10,7 @@ public class SnowboardingClub : CardEffect
         numTargets = 0;
     }
 
-    // Tour - Flip a coin. If heads, draw 1 card. If tails, nothing happens
+    // Flip a coin. If heads, deal {5} damage to all enemy buildings. If tails, deal {3} damage to all friendly buildings.
     public override int PerformEffect(GameData data)
     {
         int luckModifier = GetLuckModifierValue(data.friendlyPlayer, data.self);
@@ -21,11 +21,13 @@ public class SnowboardingClub : CardEffect
         {
             buildingsToDamage = data.enemyBuildings;
             damage = 5 + data.self.GetEffectValueModifier();
+            Debug.Log("Snowboarding Club hit heads");
         }
         else
         {
             buildingsToDamage = data.friendlyBuildings;
             damage = 3 + data.self.GetEffectValueModifier();
+            Debug.Log("Snowboarding Club hit tails");
         }
 
         foreach (BuildingCardDisplay building in buildingsToDamage){

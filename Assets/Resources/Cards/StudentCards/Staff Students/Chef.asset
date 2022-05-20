@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   effectName: Invigorate
   effect: Grant a target student +2 effect value.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 1db95b0dd3097124b9505714ec5f1797, type: 3}
   health: 0
   duration: 4
   effectScript: {fileID: 11500000, guid: 22bd71af7b360db49b053aaf0d8b40c7, type: 3}

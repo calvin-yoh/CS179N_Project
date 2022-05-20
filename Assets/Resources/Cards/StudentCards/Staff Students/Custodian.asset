@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   effectName: Clean
   effect: Heal all friendly buildings by {2}.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 958ea39410e06bc42ac282025b5c0542, type: 3}
   health: 0
   duration: 4
   effectScript: {fileID: 11500000, guid: 0aa52d9b53a3d4d458ffacec34d97e9d, type: 3}

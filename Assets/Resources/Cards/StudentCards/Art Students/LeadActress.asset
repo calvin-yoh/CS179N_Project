@@ -18,7 +18,7 @@ MonoBehaviour:
   effectName: Critical Reviews
   effect: Deal {2} damage to a target building. For every turn in play, deal {2}
     more.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 96932572b67c67449b35019a1ee264d7, type: 3}
   health: 0
   duration: 4
   effectScript: {fileID: 0}
