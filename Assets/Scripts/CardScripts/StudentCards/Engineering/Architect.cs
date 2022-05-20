@@ -16,7 +16,7 @@ public class Architect : CardEffect
         GameObject go = data.target[0].gameObject;
         BuildingCardDisplay target;
 
-        int effectValue = 6 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
+        int effectValue = 6 + data.self.GetEffectValueModifier();
 
         if (go.TryGetComponent(out target))
         {
