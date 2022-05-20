@@ -18,7 +18,7 @@ MonoBehaviour:
   effectName: 
   effect: When your turn starts, this building switches health with an random opponent's
     building.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 2072746f035965c479f8d9f7a9c39c5b, type: 3}
   health: 40
   duration: 0
   effectScript: {fileID: 0}

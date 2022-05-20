@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   effectName: Cleanse
   effect: Activate 2 random friendly distracted cards.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 4cfbf00234c755f48aa24c3aac26a629, type: 3}
   health: 0
   duration: 3
   effectScript: {fileID: 0}

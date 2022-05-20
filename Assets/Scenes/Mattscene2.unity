@@ -817,7 +817,7 @@ PrefabInstance:
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: buildings.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 907bcc83d18e21b468d48a0bb59faf97, type: 2}
+      objectReference: {fileID: 11400000, guid: 88bbf88eca263d841b485f289ff2c502, type: 2}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: buildings.Array.data[4]
       value: 

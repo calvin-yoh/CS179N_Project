@@ -18,6 +18,7 @@ MonoBehaviour:
   effectName: Advise
   effect: Choose one of your students cards to prevent it from being disabled for
     1 turn
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: a58509f36bdfff04fbc911eb4813138f, type: 3}
   health: 0
   duration: 0
+  effectScript: {fileID: 0}
