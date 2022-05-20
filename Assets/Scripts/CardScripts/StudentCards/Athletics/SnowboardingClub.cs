@@ -21,11 +21,13 @@ public class SnowboardingClub : CardEffect
         {
             buildingsToDamage = data.enemyBuildings;
             damage = 5 + data.self.GetEffectValueModifier();
+            Debug.Log("Snowboarding Club hit heads");
         }
         else
         {
             buildingsToDamage = data.friendlyBuildings;
             damage = 3 + data.self.GetEffectValueModifier();
+            Debug.Log("Snowboarding Club hit tails");
         }
 
         foreach (BuildingCardDisplay building in buildingsToDamage){
