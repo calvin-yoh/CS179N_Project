@@ -699,6 +699,7 @@ GameObject:
   - component: {fileID: 8157616335984971276}
   - component: {fileID: 3490181759754047356}
   - component: {fileID: 7486689367189093932}
+  - component: {fileID: 940577848145696531}
   m_Layer: 5
   m_Name: UIBuildingCard
   m_TagString: Untagged
@@ -760,11 +761,13 @@ MonoBehaviour:
   engineeringBackground: {fileID: 21300000, guid: c4bc4cd6e4d202242b8335ef4b3b84a5, type: 3}
   staffBackground: {fileID: 21300000, guid: e0fb0b58509532e468bae7d5c840c7dc, type: 3}
   athleticBackground: {fileID: 21300000, guid: e83de67cc081de149b73b96f0e6f3f77, type: 3}
+  backOfCard: {fileID: 0}
   hasActivatedEffect: 0
   inHand: 0
   inPlay: 0
   playerNumber: 0
   glowEffect: {fileID: 0}
+  cardEffectScript: {fileID: 0}
   healthText: {fileID: 372777964459668265}
 --- !u!114 &3490181759754047356
 MonoBehaviour:
@@ -778,7 +781,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6b0354ce6654678a5670ba5829c288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selected: 0
 --- !u!225 &7486689367189093932
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -791,3 +793,44 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &940577848145696531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7077248147722597310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 0
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}

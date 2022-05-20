@@ -8,14 +8,39 @@ using UnityEngine.UI;
 
 public class DropContainer : MonoBehaviour, IDropHandler
 {
+    public  int facultyCount = 0;
+    public  int studentCount = 0;
+    public  int buildingCount = 0;
+
+    private const int MAX_STUDENT_CAPACITY = 12;
+    private const int MAX_BUILDING_CAPACITY = 5;
+    private const int MAX_FACULTY_CAPACITY = 3;
+    private const int MAX_TOTAL_CAPACITY = 20;
+
     public void OnDrop(PointerEventData eventData){
         string[] accepted = {"UIStudentCard(Clone)", "UIBuildingCard(Clone)", "UIFacutlyCard(Clone)"};
-        if (Array.IndexOf(accepted, eventData.pointerDrag.name) == -1){ return; }
-        if (transform.childCount >= 20){ return; }
+        if (transform.childCount >= MAX_TOTAL_CAPACITY){ return; }
+
+        switch(eventData.pointerDrag.name){
+            case "UIStudentCard(Clone)":
+                if (studentCount >= MAX_STUDENT_CAPACITY) return;
+                studentCount++;
+                break;  
+            case "UIBuildingCard(Clone)":
+                if (buildingCount >= MAX_BUILDING_CAPACITY) return;
+                buildingCount++;
+                break;
+            case "UIFacultyCard(Clone)":
+                if (facultyCount >= MAX_FACULTY_CAPACITY) return;
+                facultyCount++;
+                break;
+            default:
+                return;
+        }
 
         var copy = Instantiate(eventData.pointerDrag, transform.position, transform.rotation);
         copy.GetComponent<RectTransform>().SetParent(this.transform);
-        copy.GetComponent<DragAndDrop>().selected = true;
+        copy.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
 
         RectTransform rec = GetComponent<RectTransform>();
 
