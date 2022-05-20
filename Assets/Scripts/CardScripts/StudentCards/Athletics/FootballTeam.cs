@@ -10,7 +10,7 @@ public class FootballTeam : CardEffect
         numTargets = 1;
     }
 
-    // Tour - Flip a coin. If heads, draw 1 card. If tails, nothing happens
+    // Deal {6} damage to a target enemy building. If there is no enemy Athletic card, deal {3} more.
     public override int PerformEffect(GameData data)
     {
         int damage = 6 + data.self.GetEffectValueModifier();

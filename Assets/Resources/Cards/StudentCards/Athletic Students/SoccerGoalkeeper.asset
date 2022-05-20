@@ -21,4 +21,4 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: f3daa2d5bb400504e92b92441bfeaf53, type: 3}
   health: 0
   duration: 2
-  effectScript: {fileID: 0}
+  effectScript: {fileID: 11500000, guid: 7f976f035495fc549a538161e221bd63, type: 3}
