@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   effectName: Report
   effect: Distract a target enemy student for 1 turn.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: d3bba2a0ea80b8f4bb0b9839ed870da6, type: 3}
   health: 0
   duration: 3
   effectScript: {fileID: 0}

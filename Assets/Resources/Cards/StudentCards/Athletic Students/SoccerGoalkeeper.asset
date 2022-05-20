@@ -18,7 +18,7 @@ MonoBehaviour:
   effectName: Last Stand
   effect: 'Flip a coin. If heads, grant {6} armor to a random friendly building.
     If tails, grant a random enemy student +1 duration. '
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: f3daa2d5bb400504e92b92441bfeaf53, type: 3}
   health: 0
   duration: 2
   effectScript: {fileID: 0}

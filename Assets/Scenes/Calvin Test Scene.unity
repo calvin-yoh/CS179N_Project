@@ -212,37 +212,41 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: buildings.Array.size
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 404c39d15241aec418f389a0dce098d5, type: 2}
+      objectReference: {fileID: 11400000, guid: f9b26ef466c1a014b848ca93171e110d, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 404c39d15241aec418f389a0dce098d5, type: 2}
+      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 404c39d15241aec418f389a0dce098d5, type: 2}
+      objectReference: {fileID: 11400000, guid: be86c6fa48af51444a401263c38c95d8, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 404c39d15241aec418f389a0dce098d5, type: 2}
+      objectReference: {fileID: 11400000, guid: 8922d4c689af7c548a7e29d2efbea5f0, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: dc46166384090514a994e86c5e4c206e, type: 2}
+      objectReference: {fileID: 11400000, guid: 558406bee3e6ca74faf0b41386291aec, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: dc46166384090514a994e86c5e4c206e, type: 2}
+      objectReference: {fileID: 11400000, guid: 3f8f94adef340f94aa64ea24a213feb3, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: dc46166384090514a994e86c5e4c206e, type: 2}
+      objectReference: {fileID: 11400000, guid: 3f8f94adef340f94aa64ea24a213feb3, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[7]
       value: 
@@ -258,11 +262,11 @@ PrefabInstance:
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: buildings.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 257bd0a52af77104db21b6fb8fe09646, type: 2}
+      objectReference: {fileID: 11400000, guid: a4d22014655087046b9a8d5b883102bd, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: buildings.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 951c49892b2462c46a5da2a2e394d45f, type: 2}
+      objectReference: {fileID: 11400000, guid: 1e16998796b14ee47abc259ab4d74e63, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: buildings.Array.data[2]
       value: 
@@ -270,11 +274,19 @@ PrefabInstance:
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: buildings.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 88bbf88eca263d841b485f289ff2c502, type: 2}
+      objectReference: {fileID: 11400000, guid: f3f889e8bb663ff45b4b8e512a3018f2, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: buildings.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 6210905feb98da94baaf9eab42eb7673, type: 2}
+      objectReference: {fileID: 11400000, guid: 4cd2a2d1c3b49d94389b705abd21118a, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f1e5dcf3664b7843b110eb2a958dfec, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f1e5dcf3664b7843b110eb2a958dfec, type: 2}
     - target: {fileID: 61897636, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -912,6 +924,14 @@ PrefabInstance:
       propertyPath: openDeck.Array.data[11]
       value: 
       objectReference: {fileID: 11400000, guid: 3be4a42bf230aec4d9b456356f868640, type: 2}
+    - target: {fileID: 1170981859, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170981859, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 397443902971027873, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: m_Name
       value: AI
@@ -959,6 +979,10 @@ PrefabInstance:
     - target: {fileID: 397443902971027875, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5548332654037528006, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: isFlipped
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8945762394388609344, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: hand
