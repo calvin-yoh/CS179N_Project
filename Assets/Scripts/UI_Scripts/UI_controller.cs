@@ -45,6 +45,11 @@ public class UI_controller : MonoBehaviour
         SceneManager.LoadScene("Level 5");
     }
 
+    public void GoToDeckEditor()
+    {
+        SceneManager.LoadScene("Bryan Scene");
+    }
+
 
 
 
