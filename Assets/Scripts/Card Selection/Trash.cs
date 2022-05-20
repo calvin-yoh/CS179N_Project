@@ -7,15 +7,32 @@ using UnityEngine.UI;
 
 public class Trash : MonoBehaviour, IDropHandler
 {
+    public GameObject deckGrid;
     public void OnDrop(PointerEventData eventData){
 
         var card = eventData.pointerDrag;
-        string[] accepted = {"UIStudentCard(Clone)(Clone)", "UIBuildingCard(Clone)(Clone)", "UIFacutlyCard(Clone)(Clone)"};
-        if (Array.IndexOf(accepted, card.name) == -1){ return; }
 
-        if (!card.GetComponent<DragAndDrop>().selected){ return; }
 
-        transform.parent.gameObject.GetComponentInChildren<Text>().text =  "Deck: " + (card.transform.parent.childCount - 1).ToString() + " / 20";
+        switch(card.name){
+            case "UIStudentCard(Clone)(Clone)":
+                if (deckGrid.GetComponent<DropContainer>().studentCount <= 0) return;
+                deckGrid.GetComponent<DropContainer>().studentCount--;
+                break;   
+            case "UIBuildingCard(Clone)(Clone)":
+                if (deckGrid.GetComponent<DropContainer>().buildingCount <= 0) return;
+                deckGrid.GetComponent<DropContainer>().buildingCount--;
+                break;
+            case "UIFacultyCard(Clone)(Clone)":
+                if (deckGrid.GetComponent<DropContainer>().facultyCount <= 0) return;
+                deckGrid.GetComponent<DropContainer>().facultyCount--;
+                break;
+            default:
+                return;
+        }
+
+        if (!(card.transform.parent.gameObject.name == "Deck Grid")){ return; }
+
+        deckGrid.transform.parent.gameObject.GetComponentInChildren<Text>().text =  "Deck: " + (deckGrid.transform.childCount - 1).ToString() + " / 20";
         Destroy(card);
     }
 }
