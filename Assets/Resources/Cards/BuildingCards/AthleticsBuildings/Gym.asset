@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 0
   effectName: 
   effect: All your Athletics cards gain +1 duration when played.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: dfc9c18290bf4bd42815b6705e5978ed, type: 3}
   health: 50
   duration: 0
   effectScript: {fileID: 0}

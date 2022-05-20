@@ -18,7 +18,7 @@ MonoBehaviour:
   effectName: 
   effect: All friendly engineering card's "Flip a coin effects" are {15}% more likely
     to land on heads.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 1959828afbda52943a80bcd029e88565, type: 3}
   health: 40
   duration: 0
   effectScript: {fileID: 0}

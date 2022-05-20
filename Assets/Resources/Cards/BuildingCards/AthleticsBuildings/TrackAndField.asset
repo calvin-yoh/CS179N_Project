@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Track and Field
   major: 3
+  type: 0
   effectName: 
   effect: You can summon 1 extra student on your turn
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: b88917fb238407c4b8b62bedcac3b27a, type: 3}
   health: 30
   duration: 0
+  effectScript: {fileID: 0}

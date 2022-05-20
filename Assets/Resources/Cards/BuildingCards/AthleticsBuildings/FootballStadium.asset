@@ -18,7 +18,7 @@ MonoBehaviour:
   effectName: 
   effect: All Athletics cards gain {+1} effect power for each friendly student Athletics
     card.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 47fe624532d825b46b46f6010fd57811, type: 3}
   health: 30
   duration: 0
   effectScript: {fileID: 0}

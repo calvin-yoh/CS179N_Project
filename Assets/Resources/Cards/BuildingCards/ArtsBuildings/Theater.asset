@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Theater
   major: 0
+  type: 0
   effectName: 
   effect: If any Actor card is in play, this building cannot be attacked.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 12948c9038678ba4a95b66522bf33537, type: 3}
   health: 25
   duration: 0
+  effectScript: {fileID: 0}
