@@ -19,5 +19,5 @@ MonoBehaviour:
   effect: Deal {6} damage to an opposing non-engineering building.
   artwork: {fileID: 0}
   health: 0
-  duration: 5
+  duration: 3
   effectScript: {fileID: 11500000, guid: aacf27404a91744169f96a65d6d7b31a, type: 3}

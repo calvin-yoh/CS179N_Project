@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Demolitionist : CardEffect
+public class ConcoctionSpecialist : CardEffect
 {
     protected override void Start()
     {
@@ -10,20 +10,20 @@ public class Demolitionist : CardEffect
         targetTeam = TargetTeam.Enemy;
         numTargets = 1;
     }
-    //Deal {6} damage to an opposing non-engineering building.
+    //Deal {3} damage to an opposing building.
     public override int PerformEffect(GameData data)
     {
         
         BuildingCardDisplay target;
-        int effectValue = 6 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
+        int effectValue = 3 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
         
-        if (data.target[0].gameObject.TryGetComponent(out target) && target.GetCardMajor() != Card.Major.Engineering)
+        if (data.target[0].gameObject.TryGetComponent(out target))
         {
                 target.DamageBuilding(effectValue);
-                Debug.Log("Demolitionist Worked");
+                Debug.Log("Concoction Specialist Worked");
         }
         else{
-            Debug.Log("Demolitionist Error or Targetted Engineering Building");
+            Debug.Log("Concoction Specialist Error");
         }
         
         return 0;
