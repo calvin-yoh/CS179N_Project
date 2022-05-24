@@ -15,7 +15,7 @@ public class Cyborg : CardEffect
     {
         
         StudentCardDisplay target;
-        int effectValue = 1;
+        int effectValue = 1 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
         if (data.target[0].gameObject.TryGetComponent(out target))
         {
             target.ChangeDurationBy(-1 * effectValue);
