@@ -16,18 +16,18 @@ public class ConstructionWorker : CardEffect
     {
         int luckModifier = GetLuckModifierValue(data.friendlyPlayer, data.self);
         var target = data.target[0];
-        int headsEffectValue = 5 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
+        int headsEffectValue = 7 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
         int tailsEffectValue = 3 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
 
         if (FlipCoin(luckModifier) == 1)
         {
             target.gameObject.GetComponent<BuildingCardDisplay>().DamageBuilding(headsEffectValue);
-            Debug.Log("Tour guide hit heads");
+            Debug.Log("ConstructionWorker hit heads");
         }
         else
         {
             target.gameObject.GetComponent<BuildingCardDisplay>().DamageBuilding(tailsEffectValue);
-            Debug.Log("Tour guide hit  coin flip");
+            Debug.Log("ConstructionWorker hit  coin flip");
         }
         return 0;
     }

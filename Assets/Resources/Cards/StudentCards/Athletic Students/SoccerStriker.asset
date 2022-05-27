@@ -18,7 +18,7 @@ MonoBehaviour:
   effectName: Free Kick
   effect: Deal {2} damage to a target enemy building. For every Soccer card on the
     field, do 1 more.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 6f00f6214a18c431e99053ec430aadea, type: 3}
   health: 0
   duration: 4
   effectScript: {fileID: 11500000, guid: 8130e043a12fb564fba0327a555f65bd, type: 3}

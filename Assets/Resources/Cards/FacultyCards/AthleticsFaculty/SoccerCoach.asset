@@ -18,6 +18,7 @@ MonoBehaviour:
   effectName: Living Legend
   effect: Trigger the effects of all soccer cards on the player's hand. One of the
     soccer player's on the field is kicked out.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 2073fe8f7311b4f54bc0b2638a568e15, type: 3}
   health: 0
   duration: 0
+  effectScript: {fileID: 0}
