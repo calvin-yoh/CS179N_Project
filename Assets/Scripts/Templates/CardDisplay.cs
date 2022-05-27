@@ -25,6 +25,7 @@ public abstract class CardDisplay : MonoBehaviour
     public bool inHand = false;
     public bool inPlay = false;
     public int playerNumber;
+    public int turnsInPlay;
     [SerializeField] private GameObject glowEffect;
 
     //Current Card information
@@ -142,6 +143,7 @@ public abstract class CardDisplay : MonoBehaviour
         cardName = card.name;
         cardArtwork = card.artwork;
         isDistracted = false;
+        turnsInPlay = 0;
         UpdateEffectString();
         LoadCardEffectScript();
     }
@@ -246,7 +248,7 @@ public abstract class CardDisplay : MonoBehaviour
         cardEffectString = null;
         isDistracted = false;
         cardEffectScript = null;
-
+        turnsInPlay = 0;
         //Turn by turn Card info
         effectValueModifier = 0;
     }
