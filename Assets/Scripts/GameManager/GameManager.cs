@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
     public List<Player> players;
     private int currPlayerIndex = 0;
 
-    [SerializeField] private CanvasManager cm;
-
     //we need to limit the player to playing 1 student and faculty card per turn.
     private void Awake(){
         if (_instance != null && _instance != this){

@@ -764,6 +764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1768421173}
   - component: {fileID: 1768421172}
+  - component: {fileID: 1768421174}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -786,7 +787,6 @@ MonoBehaviour:
   players:
   - {fileID: 870139432}
   - {fileID: 205769584}
-  cm: {fileID: 0}
 --- !u!4 &1768421173
 Transform:
   m_ObjectHideFlags: 0
@@ -801,6 +801,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1768421174
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768421171}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1a9a1ae5745b8014ea5d97dbcf7afe74, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1899709812
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +1040,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: openDeck.Array.size
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: buildings.Array.size
@@ -985,7 +1081,7 @@ PrefabInstance:
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: openDeck.Array.data[8]
       value: 
-      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
+      objectReference: {fileID: 11400000, guid: 8922d4c689af7c548a7e29d2efbea5f0, type: 2}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: openDeck.Array.data[9]
       value: 
@@ -1010,6 +1106,10 @@ PrefabInstance:
       propertyPath: buildings.Array.data[4]
       value: 
       objectReference: {fileID: 11400000, guid: f90ed613e8e0a6c4198b1ff34da54f59, type: 2}
+    - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
+      propertyPath: openDeck.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
     - target: {fileID: 1170981859, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16
