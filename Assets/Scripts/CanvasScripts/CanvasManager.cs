@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Kalkatos.DottedArrow;
+using TMPro;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class CanvasManager : MonoBehaviour
     public static CanvasManager Instance { get { return _instance; } }
 
     [SerializeField] private Arrow arrow;
+    [SerializeField] private GameObject endScreen;
+    [SerializeField] private TextMeshProUGUI endText;
     public CardDescriptionUI cardDescriptionUI;
     public GameObject endTurnButton;
 
@@ -70,5 +73,10 @@ public class CanvasManager : MonoBehaviour
         {
             arrow.Deactivate();
         }
+    }
+
+    public void ActivateEndScreen(int winnerNumber){
+        endText.text = "Player " + winnerNumber + " wins!";
+        endScreen.SetActive(true);
     }
 }
