@@ -221,6 +221,7 @@ public abstract class CardDisplay : MonoBehaviour
         if (gameObject.TryGetComponent(out temp))
         {
             Destroy(temp);
+            Debug.Log("Destory effect script");
         }
     }
 
@@ -255,6 +256,7 @@ public abstract class CardDisplay : MonoBehaviour
         turnsInPlay = 0;
         //Turn by turn Card info
         effectValueModifier = 0;
+        RemoveCardEffectScript();
     }
 
     public void UpdateEffectString()
