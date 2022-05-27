@@ -16,8 +16,8 @@ MonoBehaviour:
   major: 1
   type: 1
   effectName: Corrode foundation
-  effect: 'Choose one : Weaken a target building or Deal {2} damage to a target building.'
+  effect: Deal {3} damage to an opposing building.
   artwork: {fileID: 0}
   health: 0
   duration: 5
-  effectScript: {fileID: 0}
+  effectScript: {fileID: 11500000, guid: 523fe63d7dc8245c9b76833522dd85ef, type: 3}
