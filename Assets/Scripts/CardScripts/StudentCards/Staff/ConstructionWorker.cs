@@ -27,7 +27,7 @@ public class ConstructionWorker : CardEffect
         else
         {
             target.gameObject.GetComponent<BuildingCardDisplay>().DamageBuilding(tailsEffectValue);
-            Debug.Log("ConstructionWorker hit  coin flip");
+            Debug.Log("ConstructionWorker failed coin flip");
         }
         return 0;
     }
