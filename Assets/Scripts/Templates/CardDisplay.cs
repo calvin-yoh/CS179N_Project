@@ -100,6 +100,10 @@ public abstract class CardDisplay : MonoBehaviour
         UpdateEffectString();
     }
 
+    public void IncreaseTurnCount(){
+        turnsInPlay++;
+    }
+
     #endregion
 
     public void ReactivateCard() // Lets the card be activated (again)
