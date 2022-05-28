@@ -11,10 +11,16 @@ public class MouseInput : MonoBehaviour
     [SerializeField] private GameObject startObject;
     [SerializeField] private GameObject endObject;
 
+
+    private List<CardDisplay> targets = new List<CardDisplay>();
+
     private CanvasManager canvasInstance;
 
+    public bool activateButtonWasPressed;
+    private int currNumTargets;
+
     public enum State{
-        Wait, DownField, DownHand, ApplyEffect
+        Wait, DownHand, ApplyEffect, WaitForButton, ChoosingTargets, ChoseTarget
     }
 
     public State currState = State.Wait;
@@ -57,7 +63,8 @@ public class MouseInput : MonoBehaviour
                             if ( c.playerNumber == player.number){
                                 if (c.CanActivateEffect()){
                                     startObject = hit.collider.gameObject;
-                                    currState = State.DownField;
+                                    c.EnableEffectButton();
+                                    currState = State.WaitForButton;
                                 }
                                 else if (c.inHand){
                                     startObject = hit.collider.gameObject;
@@ -72,32 +79,7 @@ public class MouseInput : MonoBehaviour
                         }
                     }
                 }
-                break;
-            case State.DownField:
-                if (Input.GetMouseButtonUp(0))
-                {
-                    Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    RaycastHit hit;
-                    Physics.Raycast(r, out hit);
-                    if (hit.collider != null)
-                    {
-                        if (hit.collider.tag == "Card" && hit.collider.gameObject != startObject)
-                        {
-                            Debug.Log("Apply effect");
-                            endObject = hit.collider.gameObject;
-                            currState = State.ApplyEffect;
-                        }
-                        else
-                        {
-                            currState = State.Wait;
-                        }
-                    }
-                    else
-                    {
-                        currState = State.Wait;
-                    }
-                }
-                break;
+                break;             
             case State.DownHand:
                 if (Input.GetMouseButtonUp(0))
                 {
@@ -121,12 +103,62 @@ public class MouseInput : MonoBehaviour
                     currState = State.Wait;
                 }
                 break;
+            case State.WaitForButton:
+                if (!activateButtonWasPressed && Input.GetMouseButtonDown(0))
+                {
+                    Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+                    Physics.Raycast(r, out hit);
+                    if (hit.collider != null)
+                    {
+                        Debug.Log(hit.collider.tag);
+                        CardDisplay x = startObject.GetComponent<CardDisplay>();
+                        x.DisableEffectButton();
+                        currState = State.Wait;
+                    }
+                }
+                
+                break;
+            case State.ChoosingTargets:
+                if (Input.GetMouseButtonUp(0))
+                {
+                    Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+                    Physics.Raycast(r, out hit);
+                    if (hit.collider != null)
+                    {
+                        if (hit.collider.tag == "Card" && hit.collider.gameObject != startObject)
+                        {
+                            Debug.Log("Apply effect");
+                            targets.Add(hit.collider.gameObject.GetComponent<CardDisplay>());
+                            currNumTargets -= 1;
+                            currState = State.ChoseTarget;
+                        }
+                    }
+                }
+                break;
+            case State.ChoseTarget:
+                if(currNumTargets > 0)
+                {
+                    currState = State.ChoosingTargets;
+                }
+                else
+                {
+                    currState = State.ApplyEffect;
+                }
+                break;
+
             case State.ApplyEffect:
 
                 Player enemy = GameManager.Instance.GetOpposingPlayer();
                 CardDisplay self = startObject.GetComponent<CardDisplay>();
-                List<CardDisplay> target = new List<CardDisplay>();
-                target.Add(endObject.GetComponent<CardDisplay>());
+                // List<CardDisplay> target = new List<CardDisplay>();
+
+                /*
+                if (endObject != null){
+                    target.Add(endObject.GetComponent<CardDisplay>());
+                }
+                */
 
                 List<BuildingCardDisplay> friendlyBuildings = player.GetField().GetActiveBuildingCards();
                 List<BuildingCardDisplay> enemyBuildings = enemy.GetField().GetActiveBuildingCards();
@@ -150,7 +182,7 @@ public class MouseInput : MonoBehaviour
                      friendlyStudents, enemyStudents,
                      friendlyDeck, enemyDeck,
                      friendlyHand, enemyHand,
-                     target, self,
+                     targets, self,
                      friendly, enemy
                     );
 
@@ -158,12 +190,7 @@ public class MouseInput : MonoBehaviour
 
                 if(startObject.TryGetComponent(out temp))
                 {
-                    self.ActivateEffect(gd);
-                    // if (!self.hasActivatedEffect)
-                    // {
-                    //     temp.PerformEffect(gd);
-                    //     self.hasActivatedEffect = true;
-                    // }    
+                    self.ActivateEffect(gd); 
                 }
                 currState = State.Wait;
                 break;
@@ -178,14 +205,22 @@ public class MouseInput : MonoBehaviour
                 canvasInstance.DeactivateArrow();
                 startObject = null;
                 endObject = null;
-                break;
-            case State.DownField:
-                // Debug.Log(arrow.gameObject.activeInHierarchy);
-                canvasInstance.SetUpArrow(startObject.transform);
+                if(targets.Count != 0)
+                {
+                    targets.Clear();
+                }
+                currNumTargets = 0;
+                activateButtonWasPressed = false;
                 break;
             case State.DownHand:
                  canvasInstance.SetUpArrow(startObject.transform);
-
+                break;
+            case State.ChoosingTargets:
+                // Debug.Log(arrow.gameObject.activeInHierarchy);
+                canvasInstance.SetUpArrow(startObject.transform);
+                break;
+            case State.ChoseTarget:
+                canvasInstance.DeactivateArrow();
                 break;
             case State.ApplyEffect:
 
@@ -195,7 +230,25 @@ public class MouseInput : MonoBehaviour
         }
     }
 
+    public void PressedActivateCardButton()
+    {
+        CardEffect tempCard;
 
+        if(startObject.TryGetComponent(out tempCard))
+        {
+            startObject.GetComponent<CardDisplay>().DisableEffectButton();
+            activateButtonWasPressed = true;
+            if(tempCard.numTargets == 0)
+            {
+                currState = State.ApplyEffect;
+            }
+            else
+            {
+                currNumTargets = tempCard.numTargets;
+                currState = State.ChoosingTargets;
+            }
+        }
+    }
 
     // GameObject checkObjectClicked(){
     //     if (Input.GetMouseButtonDown(0)){

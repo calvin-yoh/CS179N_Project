@@ -27,6 +27,9 @@ public abstract class CardDisplay : MonoBehaviour
     public int playerNumber;
     public int turnsInPlay;
     [SerializeField] private GameObject glowEffect;
+    [SerializeField] private GameObject ActivateEffectButton;
+
+    public bool activateButtonWasPressed;
 
     //Current Card information
     private Card.Type cardType;
@@ -311,5 +314,13 @@ public abstract class CardDisplay : MonoBehaviour
         }
 
         cardEffectString =  updatedString.ToString();
+    }
+
+    public void EnableEffectButton(){
+        ActivateEffectButton.SetActive(true);
+    }
+    
+    public void DisableEffectButton(){
+        ActivateEffectButton.SetActive(false);
     }
 }
