@@ -109,7 +109,7 @@ public class MouseInput : MonoBehaviour
                     Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit hit;
                     Physics.Raycast(r, out hit);
-                    if (hit.collider != null)
+                    if (hit.collider != null && hit.collider.tag != "EffectButton")
                     {
                         Debug.Log(hit.collider.tag);
                         CardDisplay x = startObject.GetComponent<CardDisplay>();
