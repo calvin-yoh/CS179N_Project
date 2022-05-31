@@ -37,27 +37,37 @@ public class CardsManager : MonoBehaviour
         // Adding all the cards to the card dictionary.
         foreach(Object x in R_ArtStudentCards){
             var card = (Card)x;
-            cardDict.Add(card.name, card);
+            if(!cardDict.ContainsKey(card.name)){
+                cardDict.Add(card.name, card);
+            }
         }
 
         foreach(Object x in R_AthleticStudentCards){
             var card = (Card)x;
-            cardDict.Add(card.name, card);
+            if(!cardDict.ContainsKey(card.name)){
+                cardDict.Add(card.name, card);
+            }
         }
 
         foreach(Object x in R_EngineeringStudentCards){
             var card = (Card)x;
-            cardDict.Add(card.name, card);
+            if(!cardDict.ContainsKey(card.name)){
+                cardDict.Add(card.name, card);
+            }
         }
 
         foreach(Object x in R_StaffStudentCards){
             var card = (Card)x;
-            cardDict.Add(card.name, card);
+            if(!cardDict.ContainsKey(card.name)){
+                cardDict.Add(card.name, card);
+            }
         }
 
         foreach(Object x in R_BuildingCards){
             var card = (BuildingCard)x;
-            cardDict.Add(card.name, card);
+            if(!cardDict.ContainsKey(card.name)){
+                cardDict.Add(card.name, card);
+            }
         }
 
 
