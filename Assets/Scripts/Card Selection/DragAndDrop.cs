@@ -8,6 +8,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     private RectTransform rect;
     private CanvasGroup canvasGroup;
+    public Card.Type type; // Select it on the inspector. 
 
     public void OnPointerDown(PointerEventData eventData){
         var canvas_transform = this.transform.parent.parent.parent;

@@ -4,127 +4,59 @@ using UnityEngine;
 
 public class LoadCards : MonoBehaviour
 {
-    public float gridWidth = 1300f;
-    public float rowSize = 5f;
-
-    
-
-    List<BuildingCard> BuildingCards = new List<BuildingCard>();
-    List<StudentCard> StudentCards = new List<StudentCard>();
-    List<FacultyCard> FacultyCards = new List<FacultyCard>();
-
     public GameObject BuildingCardDisplayPrefab;
     public GameObject StudentCardDisplayPrefab;
     public GameObject FacultyCardDisplayPrefab;
+    public float cardSize;
 
-    void displayStudentCard(StudentCard card){
-        var go = Instantiate(StudentCardDisplayPrefab, transform.position, transform.rotation);
-        go.GetComponent<StudentCardDisplay>().card = card;
-        go.GetComponent<StudentCardDisplay>().SetUpInformation();
-        go.GetComponent<StudentCardDisplay>().DisplayInformation();
+    public void loadAll(){
+        foreach(var card in CardsManager.getAllCards()){
+            switch(card.type){
+                case Card.Type.Building:
+                    var buildingCard = (BuildingCard)card;
+                    var buildingCardDisplay = Instantiate(BuildingCardDisplayPrefab, transform);
+                    buildingCardDisplay.GetComponent<BuildingCardDisplay>().card = buildingCard;
 
-        go.transform.SetParent(this.transform);
-        if (gameObject.name == "Library Grid"){
-            Destroy(go.GetComponent<DragAndDrop>());
+                    buildingCardDisplay.GetComponent<BuildingCardDisplay>().SetUpInformation();
+                    buildingCardDisplay.GetComponent<BuildingCardDisplay>().DisplayInformation();
+
+                    break;
+                case Card.Type.Student:
+                    var studentCard = (StudentCard)card;
+                    var studentCardDisplay = Instantiate(StudentCardDisplayPrefab, transform);
+                    studentCardDisplay.GetComponent<StudentCardDisplay>().card = studentCard;
+
+                    studentCardDisplay.GetComponent<StudentCardDisplay>().SetUpInformation();
+                    studentCardDisplay.GetComponent<StudentCardDisplay>().DisplayInformation();
+                    break;
+                case Card.Type.Faculty:
+                    var facultyCard = (FacultyCard)card;
+                    var facultyCardDisplay = Instantiate(FacultyCardDisplayPrefab, transform);
+                    facultyCardDisplay.GetComponent<FacultyCardDisplay>().card = facultyCard;
+
+                    facultyCardDisplay.GetComponent<FacultyCardDisplay>().SetUpInformation();
+                    facultyCardDisplay.GetComponent<FacultyCardDisplay>().DisplayInformation();
+                    break;
+            }
         }
+
+        //resize the rectTransform to fit all the cards vertically
+        int columns = 5;
+        int rows = Mathf.CeilToInt(transform.childCount / (columns - 1));
+        var rectTransform = GetComponent<RectTransform>();
+        rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, cardSize * (rows + 1));
     }
 
-    void displayFacultyCard(FacultyCard card){
-        var go = Instantiate(FacultyCardDisplayPrefab, transform.position, transform.rotation);
-        go.GetComponent<FacultyCardDisplay>().card = card;
-        go.GetComponent<FacultyCardDisplay>().SetUpInformation();
-        go.GetComponent<FacultyCardDisplay>().DisplayInformation();
-
-        go.transform.SetParent(this.transform);
-        if (gameObject.name == "Library Grid"){
-            Destroy(go.GetComponent<DragAndDrop>());
+    public GameObject getPrefab(Card.Type type){
+        switch(type){
+            case Card.Type.Building:
+                return BuildingCardDisplayPrefab;
+            case Card.Type.Student:
+                return StudentCardDisplayPrefab;
+            case Card.Type.Faculty:
+                return FacultyCardDisplayPrefab;
         }
+        return null;
     }
 
-    void displayBuildingCard(BuildingCard card){
-        var go = Instantiate(BuildingCardDisplayPrefab, transform.position, transform.rotation);
-        go.GetComponent<BuildingCardDisplay>().card = card;
-        go.GetComponent<BuildingCardDisplay>().SetUpInformation();
-        go.GetComponent<BuildingCardDisplay>().DisplayInformation();
-
-        go.transform.SetParent(this.transform);
-
-        if (gameObject.name == "Library Grid"){
-            Destroy(go.GetComponent<DragAndDrop>());
-        }
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {   
-        // Loading faculty cards (NO FACULTY CARDS YET);
-
-        // Loading student cards
-        Object[] R_ArtStudentCards = Resources.LoadAll("Cards/StudentCards/Art Students", typeof(StudentCard));
-        Object[] R_AthleticStudentCards = Resources.LoadAll("Cards/StudentCards/Athletic Studnets", typeof(StudentCard));
-        Object[] R_EngineeringStudentCards = Resources.LoadAll("Cards/StudentCards/Engineering Students", typeof(StudentCard));
-        Object[] R_StaffStudentCards = Resources.LoadAll("Cards/StudentCards/Staff Students", typeof(StudentCard));
-        
-        // Loading Buiding cards.
-        Object[] R_BuildingCards = Resources.LoadAll("Cards/BuildingCards", typeof(BuildingCard));
-
-
-        // Adding all the student cards to the StudentCards list.
-        foreach(Object x in R_ArtStudentCards){
-            StudentCard card = (StudentCard) x;
-            StudentCards.Add(card);
-        }
-
-        foreach(Object x in R_AthleticStudentCards){
-            StudentCard card = (StudentCard) x;
-            StudentCards.Add(card);
-        }
-
-        foreach(Object x in R_EngineeringStudentCards){
-            StudentCard card = (StudentCard) x;
-            StudentCards.Add(card);
-        }
-
-        foreach(Object x in R_StaffStudentCards){
-            StudentCard card = (StudentCard) x;
-            StudentCards.Add(card);
-        }
-
-        // Adding all building cards
-        foreach(Object x in R_BuildingCards){
-            BuildingCard card = (BuildingCard) x;
-            BuildingCards.Add(card);
-        }
-
-
-
-        // Displaying all cards.
-        StudentCards.ForEach(card => {
-            displayStudentCard(card);
-        });
-
-        BuildingCards.ForEach(card => {
-            displayBuildingCard(card);
-        });
-
-
-        // Resizing of the Grid canvas.
-        RectTransform rec = GetComponent<RectTransform>();
-
-        float cardHeight = 375f;
-
-
-        float rows = Mathf.Floor((BuildingCards.Count + StudentCards.Count + FacultyCards.Count) / rowSize);
-
-
-
-
-        float new_height = (cardHeight * (rows + 1));
-        
-
-        rec.sizeDelta = new Vector2(gridWidth, new_height);
-
-        rec.position = new Vector3(rec.position.x, -(new_height / 2), 0);
-
-    }
 }

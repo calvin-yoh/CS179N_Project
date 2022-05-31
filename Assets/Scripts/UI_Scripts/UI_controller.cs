@@ -47,7 +47,7 @@ public class UI_controller : MonoBehaviour
 
     public void GoToDeckEditor()
     {
-        SceneManager.LoadScene("Bryan Scene");
+        SceneManager.LoadScene("Deck Editor");
     }
 
 
