@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -70,6 +71,24 @@ public class GameManager : MonoBehaviour
             CanvasManager.Instance.ShowEndTurnButton();
             currPlayer.StartTurn();
         } 
+    }
+
+    public void CheckGameEnded(int playerNumber){
+        Player p = players[playerNumber - 1];
+        FieldLayout field = p.GetField();
+        if (field.GetActiveBuildingCards().Count == 0){
+            players.RemoveAt(playerNumber - 1);
+        }
+
+        if (players.Count == 1){
+            CanvasManager.Instance.ActivateEndScreen(players[0].number);
+            StartCoroutine(ReturnToMenu());
+        }
+    }
+
+    private IEnumerator ReturnToMenu(){
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(1);
     }
 
 }

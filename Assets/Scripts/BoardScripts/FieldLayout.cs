@@ -78,17 +78,21 @@ public class FieldLayout : MonoBehaviour
         switch (type){
             case Card.Type.Building:
                 List<BuildingCardDisplay> bds = GetActiveBuildingCards();
-                return bds[Random.Range(0, bds.Count)];
+                if (bds.Count > 0) return bds[Random.Range(0, bds.Count)];
+                break;
             case Card.Type.Faculty:
                 List<FacultyCardDisplay> fds = GetActiveFacultyCards();
-                return fds[Random.Range(0, fds.Count)];
+                if (fds.Count > 0) return fds[Random.Range(0, fds.Count)];
+                break;
             case Card.Type.Student:
                 List<StudentCardDisplay> sds = GetActiveStudentCards();
-                return sds[Random.Range(0, sds.Count)];
+                if (sds.Count > 0) return sds[Random.Range(0, sds.Count)];
+                break;
             default:
                 Debug.Log("Target type not found");
-                return null;
+                break;
         }
+        return null;
     }
 
     public void ReactivateCards(){

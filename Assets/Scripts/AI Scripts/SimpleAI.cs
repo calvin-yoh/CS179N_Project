@@ -117,12 +117,15 @@ public class SimpleAI : Player
 
         foreach (StudentCardDisplay student in field.GetActiveStudentCards()){
             self = student;
+            CardDisplay temp;
             if (student.GetCardEffectScript().targetTeam == CardEffect.TargetTeam.Friendly){
+                temp = field.GetRandomCard(student.GetCardEffectScript().targetType);
+                if (temp != null) target.Add(temp);
 
-                target.Add(field.GetRandomCard(student.GetCardEffectScript().targetType));
             }
             else{
-                target.Add(enemy.GetField().GetRandomCard(student.GetCardEffectScript().targetType));
+                temp = enemy.GetField().GetRandomCard(student.GetCardEffectScript().targetType);
+                if (temp != null) target.Add(temp);
             }
             GameData gd = new GameData(friendlyBuildings, enemyBuildings,
                                         friendlyFaculties, enemyFaculties,
@@ -131,6 +134,9 @@ public class SimpleAI : Player
                                         friendlyHand, enemyHand,
                                         target, self,
                                         friendly, enemyPlayer);
+            if (target.Count < student.GetCardEffectScript().numTargets){
+                continue;
+            }
             student.ActivateEffect(gd);
             target.Clear();
         }

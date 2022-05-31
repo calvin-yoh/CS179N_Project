@@ -25,7 +25,11 @@ public abstract class CardDisplay : MonoBehaviour
     public bool inHand = false;
     public bool inPlay = false;
     public int playerNumber;
+    public int turnsInPlay;
     [SerializeField] private GameObject glowEffect;
+    [SerializeField] private GameObject ActivateEffectButton;
+
+    public bool activateButtonWasPressed;
 
     //Current Card information
     private Card.Type cardType;
@@ -99,6 +103,10 @@ public abstract class CardDisplay : MonoBehaviour
         UpdateEffectString();
     }
 
+    public void IncreaseTurnCount(){
+        turnsInPlay++;
+    }
+
     #endregion
 
     public void ReactivateCard() // Lets the card be activated (again)
@@ -142,6 +150,7 @@ public abstract class CardDisplay : MonoBehaviour
         cardName = card.name;
         cardArtwork = card.artwork;
         isDistracted = false;
+        turnsInPlay = 0;
         UpdateEffectString();
         LoadCardEffectScript();
     }
@@ -215,6 +224,7 @@ public abstract class CardDisplay : MonoBehaviour
         if (gameObject.TryGetComponent(out temp))
         {
             Destroy(temp);
+            Debug.Log("Destory effect script");
         }
     }
 
@@ -246,9 +256,10 @@ public abstract class CardDisplay : MonoBehaviour
         cardEffectString = null;
         isDistracted = false;
         cardEffectScript = null;
-
+        turnsInPlay = 0;
         //Turn by turn Card info
         effectValueModifier = 0;
+        RemoveCardEffectScript();
     }
 
     public void UpdateEffectString()
@@ -303,5 +314,13 @@ public abstract class CardDisplay : MonoBehaviour
         }
 
         cardEffectString =  updatedString.ToString();
+    }
+
+    public void EnableEffectButton(){
+        ActivateEffectButton.SetActive(true);
+    }
+    
+    public void DisableEffectButton(){
+        ActivateEffectButton.SetActive(false);
     }
 }

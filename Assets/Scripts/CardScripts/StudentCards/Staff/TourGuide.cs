@@ -15,10 +15,13 @@ public class TourGuide : CardEffect
     public override int PerformEffect(GameData data)
     {
         int luckModifier = GetLuckModifierValue(data.friendlyPlayer, data.self);
-
+        int effectValue = 1 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
         if (FlipCoin(luckModifier) == 1)
         {
-            data.friendlyPlayer.DrawCard();
+            for(int i = 0; i < effectValue; i++)
+            {
+                data.friendlyPlayer.DrawCard();
+            }
             Debug.Log("Tour guide hit heads");
         }
         else
