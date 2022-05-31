@@ -18,19 +18,21 @@ public class DropContainer : MonoBehaviour, IDropHandler
     private const int MAX_TOTAL_CAPACITY = 20;
 
     public void OnDrop(PointerEventData eventData){
-        string[] accepted = {"UIStudentCard(Clone)", "UIBuildingCard(Clone)", "UIFacutlyCard(Clone)"};
         if (transform.childCount >= MAX_TOTAL_CAPACITY){ return; }
 
-        switch(eventData.pointerDrag.name){
-            case "UIStudentCard(Clone)":
+        var card = eventData.pointerDrag;
+        if (card.transform.parent.gameObject.name == "Deck Grid"){ return; }
+
+        switch(card.GetComponent<DragAndDrop>().type){
+            case Card.Type.Student:
                 if (studentCount >= MAX_STUDENT_CAPACITY) return;
                 studentCount++;
                 break;  
-            case "UIBuildingCard(Clone)":
+            case Card.Type.Building:
                 if (buildingCount >= MAX_BUILDING_CAPACITY) return;
                 buildingCount++;
                 break;
-            case "UIFacultyCard(Clone)":
+            case Card.Type.Faculty:
                 if (facultyCount >= MAX_FACULTY_CAPACITY) return;
                 facultyCount++;
                 break;

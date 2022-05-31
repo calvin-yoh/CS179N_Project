@@ -8,6 +8,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     private RectTransform rect;
     private CanvasGroup canvasGroup;
+    public Card.Type type;
 
     public void OnPointerDown(PointerEventData eventData){
         var canvas_transform = this.transform.parent.parent.parent;
@@ -23,6 +24,21 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         GetComponent<CanvasGroup>().alpha = 0.6f;
         copy.GetComponent<RectTransform>().localScale = new Vector3(1.75f, 1.75f, 1.75f);
+
+        Debug.Log(this.name);
+        switch(this.name){
+            case "UIStudentCard(Clone)":
+                type = Card.Type.Student;
+                break;
+            case "UIBuildingCard(Clone)":
+                type = Card.Type.Building;
+                break;
+            case "UIFacultyCard(Clone)":
+                type = Card.Type.Faculty;
+                break;
+            default:
+                return;
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData){

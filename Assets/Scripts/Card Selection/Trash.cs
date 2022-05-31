@@ -13,19 +13,17 @@ public class Trash : MonoBehaviour, IDropHandler
         var card = eventData.pointerDrag;
 
 
-        switch(card.name){
-            case "UIStudentCard(Clone)(Clone)":
-                if (deckGrid.GetComponent<DropContainer>().studentCount <= 0) return;
+        switch(card.GetComponent<DragAndDrop>().type){
+            case Card.Type.Student:
                 deckGrid.GetComponent<DropContainer>().studentCount--;
-                break;   
-            case "UIBuildingCard(Clone)(Clone)":
-                if (deckGrid.GetComponent<DropContainer>().buildingCount <= 0) return;
+                break;
+            case Card.Type.Building:
                 deckGrid.GetComponent<DropContainer>().buildingCount--;
                 break;
-            case "UIFacultyCard(Clone)(Clone)":
-                if (deckGrid.GetComponent<DropContainer>().facultyCount <= 0) return;
+            case Card.Type.Faculty:
                 deckGrid.GetComponent<DropContainer>().facultyCount--;
                 break;
+        
             default:
                 return;
         }

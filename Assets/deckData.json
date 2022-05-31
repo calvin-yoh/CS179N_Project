@@ -1,0 +1,1 @@
+{"cards":["","{\n    \"name\": \"Architect\",\n    \"major\": 1,\n    \"type\": 1,\n    \"effectName\": \"Shield Craft\",\n    \"effect\": \"Grant a target building {6} armor.\",\n    \"artwork\": {\n        \"instanceID\": 0\n    },\n    \"health\": 0,\n    \"duration\": 5,\n    \"effectScript\": {\n        \"instanceID\": 2112\n    }\n}"]}
