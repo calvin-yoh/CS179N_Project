@@ -428,6 +428,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &640573478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 640573480}
+  - component: {fileID: 640573479}
+  m_Layer: 0
+  m_Name: CardsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &640573479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640573478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ceb2de6da3b44b499a14fe5449dc79d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardCanvas: {fileID: 1338283699}
+  deckCanvas: {fileID: 1997568915}
+--- !u!4 &640573480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640573478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 230.41399, y: 21.898607, z: -555.85834}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &786259362
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,16 +756,20 @@ PrefabInstance:
       value: 0.28773582
       objectReference: {fileID: 0}
     - target: {fileID: 4412757169163487465, guid: e1d7489097597c545ade6f1f498d82ee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412757169163487465, guid: e1d7489097597c545ade6f1f498d82ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1997568922}
+      objectReference: {fileID: 640573479}
     - target: {fileID: 4412757169163487465, guid: e1d7489097597c545ade6f1f498d82ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: saveCards
+      value: saveCurrentDeck
       objectReference: {fileID: 0}
     - target: {fileID: 4412757169163487465, guid: e1d7489097597c545ade6f1f498d82ee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SaveCardsToJSON, Assembly-CSharp
+      value: CardsManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4412757169163487466, guid: e1d7489097597c545ade6f1f498d82ee, type: 3}
       propertyPath: m_Pivot.x
@@ -1185,10 +1234,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1338283700}
   - component: {fileID: 1338283702}
+  - component: {fileID: 1338283705}
   - component: {fileID: 1338283701}
   - component: {fileID: 1338283704}
   - component: {fileID: 1338283703}
-  - component: {fileID: 1338283706}
   m_Layer: 5
   m_Name: Grid Area
   m_TagString: Untagged
@@ -1307,7 +1356,7 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 50}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &1338283706
+--- !u!114 &1338283705
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1319,11 +1368,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da822624e2b7b42b19ce34ea75d0a516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridWidth: 1300
-  rowSize: 5
   BuildingCardDisplayPrefab: {fileID: 7077248147722597310, guid: a26ba3a03abb643cb937f4a1724e0333, type: 3}
   StudentCardDisplayPrefab: {fileID: 7077248147722597310, guid: 77d730bfcd8b10845b871d5b20c76548, type: 3}
   FacultyCardDisplayPrefab: {fileID: 7077248147722597310, guid: 3473855d853bfd046a046dd5b57e9048, type: 3}
+  cardSize: 300
 --- !u!1 &1404260602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1669,6 @@ GameObject:
   - component: {fileID: 1997568918}
   - component: {fileID: 1997568917}
   - component: {fileID: 1997568921}
-  - component: {fileID: 1997568922}
   m_Layer: 5
   m_Name: Deck Grid
   m_TagString: Untagged
@@ -1755,19 +1802,6 @@ MonoBehaviour:
   facultyCount: 0
   studentCount: 0
   buildingCount: 0
---- !u!114 &1997568922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997568915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 459fb8577e9d34f6f85fd9c4b1cf3713, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deckData: []
 --- !u!224 &2021483656 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4412757169163487466, guid: e1d7489097597c545ade6f1f498d82ee, type: 3}

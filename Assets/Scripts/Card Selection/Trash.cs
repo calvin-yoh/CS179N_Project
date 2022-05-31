@@ -15,22 +15,25 @@ public class Trash : MonoBehaviour, IDropHandler
 
         switch(card.GetComponent<DragAndDrop>().type){
             case Card.Type.Student:
-                deckGrid.GetComponent<DropContainer>().studentCount--;
+                if(deckGrid.GetComponent<DropContainer>().studentCount > 0){
+                    deckGrid.GetComponent<DropContainer>().studentCount--;
+                }
                 break;
             case Card.Type.Building:
-                deckGrid.GetComponent<DropContainer>().buildingCount--;
+                if(deckGrid.GetComponent<DropContainer>().buildingCount > 0){
+                    deckGrid.GetComponent<DropContainer>().buildingCount--;
+                }
                 break;
             case Card.Type.Faculty:
-                deckGrid.GetComponent<DropContainer>().facultyCount--;
+                if(deckGrid.GetComponent<DropContainer>().facultyCount > 0){
+                    deckGrid.GetComponent<DropContainer>().facultyCount--;
+                }
                 break;
-        
             default:
                 return;
         }
 
         if (!(card.transform.parent.gameObject.name == "Deck Grid")){ return; }
-
-        deckGrid.transform.parent.gameObject.GetComponentInChildren<Text>().text =  "Deck: " + (deckGrid.transform.childCount - 1).ToString() + " / 20";
         Destroy(card);
     }
 }

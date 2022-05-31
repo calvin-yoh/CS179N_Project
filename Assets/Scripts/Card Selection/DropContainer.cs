@@ -17,11 +17,20 @@ public class DropContainer : MonoBehaviour, IDropHandler
     private const int MAX_FACULTY_CAPACITY = 3;
     private const int MAX_TOTAL_CAPACITY = 20;
 
+    private int previousChildCount = 0;
+
+    public GameObject studentSymbol;
+    public GameObject buildingSymbol;
+    public GameObject facultySymbol;
+
     public void OnDrop(PointerEventData eventData){
+        addCard(eventData.pointerDrag);
+    }
+
+    public void addCard(GameObject card){
         if (transform.childCount >= MAX_TOTAL_CAPACITY){ return; }
 
-        var card = eventData.pointerDrag;
-        if (card.transform.parent.gameObject.name == "Deck Grid"){ return; }
+        if (card.transform.parent == this.transform){ return; }
 
         switch(card.GetComponent<DragAndDrop>().type){
             case Card.Type.Student:
@@ -40,7 +49,7 @@ public class DropContainer : MonoBehaviour, IDropHandler
                 return;
         }
 
-        var copy = Instantiate(eventData.pointerDrag, transform.position, transform.rotation);
+        var copy = Instantiate(card, transform.position, transform.rotation);
         copy.GetComponent<RectTransform>().SetParent(this.transform);
         copy.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
 
@@ -50,15 +59,23 @@ public class DropContainer : MonoBehaviour, IDropHandler
 
         float rows = Mathf.Ceil(transform.childCount / 2f);
 
-
-
         float new_height = (cardHeight * (rows + 0.5f));
         
         if (new_height > rec.sizeDelta.y){
             rec.sizeDelta = new Vector2(rec.sizeDelta.x, new_height);
         }
+    }
 
+    void Update(){
+        if (transform.childCount != previousChildCount){
+            transform.parent.gameObject.GetComponentInChildren<Text>().text =  "Deck: " + transform.childCount.ToString() + " / 20";
+            
+            studentSymbol.GetComponentInChildren<Text>().text = "Student Cards: " + studentCount.ToString();
+            buildingSymbol.GetComponentInChildren<Text>().text = "Building Cards: " + buildingCount.ToString();
+            facultySymbol.GetComponentInChildren<Text>().text = "Faculty Cards: " + facultyCount.ToString();
 
-        transform.parent.gameObject.GetComponentInChildren<Text>().text =  "Deck: " + transform.childCount.ToString() + " / 20";
+            CardsManager.saveCurrentDeck();
+            previousChildCount = transform.childCount;
+        }
     }
 }
