@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   effectName: Home Run
   effect: Distract an enemy student card for 1 turn.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 119e28fb76a2b442ab9a6396e2febc42, type: 3}
   health: 0
   duration: 3
   effectScript: {fileID: 11500000, guid: 7967c24314ada2540bae02a3df914bc7, type: 3}

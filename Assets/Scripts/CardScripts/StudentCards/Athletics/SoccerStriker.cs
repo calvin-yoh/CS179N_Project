@@ -9,14 +9,14 @@ public class SoccerStriker : CardEffect
         targetTeam = TargetTeam.Enemy;
         numTargets = 1;
     }
-    // Deal {2} damage to a target enemy building. For every Soccer card on the field, do 1 more.
+    // Deal {3} damage to a target enemy building. For every Soccer card on the field, do 1 more.
     public override int PerformEffect(GameData data)
     {
         GameObject go = data.target[0].gameObject;
         BuildingCardDisplay target;
 
-        int baseDamage = 2 + data.self.GetEffectValueModifier();
-        int soccerCount = 0;
+        int baseDamage = 3 + data.self.GetEffectValueModifier();
+        int soccerCount = -1;
         foreach (CardDisplay c in data.friendlyBuildings){
             string s = c.GetCardName();
             if (s.Contains("Soccer")){
