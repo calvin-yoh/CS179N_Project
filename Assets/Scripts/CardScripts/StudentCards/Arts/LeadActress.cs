@@ -14,8 +14,7 @@ public class LeadActress : CardEffect
     public override int PerformEffect(GameData data)
     {
         int baseDamage = 2;
-        data.self.SetEffectValueModifier(data.self.GetEffectValueModifier() + (baseDamage * data.self.turnsInPlay));
-        int damage = baseDamage + data.self.GetEffectValueModifier();
+        int damage = baseDamage + (data.self.turnsInPlay * baseDamage);
         BuildingCardDisplay building = (BuildingCardDisplay)data.target[0];
         building.DamageBuilding(damage);
         Debug.Log("LeadActress did " + damage + " damage to " + building.GetCardName());

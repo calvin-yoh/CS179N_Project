@@ -14,6 +14,7 @@ public class DanceTeam : CardEffect
         int luckModifier = GetLuckModifierValue(data.friendlyPlayer, data.self);
 
         if (FlipCoin(luckModifier) == 1){
+            //get two random enemy cards and distract them
             Debug.Log("Dance Team hit heads");
             for (int i = 0; i < 2; i++){
                 int randIndex = Random.Range(0, data.enemyStudents.Count);
@@ -23,6 +24,7 @@ public class DanceTeam : CardEffect
             }
         }
         else{
+            //get two random friendly cards and distract them. Log the results
             Debug.Log("Dance Team hit tails");
             for (int i = 0; i < 2; i++){
                 int randIndex = Random.Range(0, data.friendlyStudents.Count);
