@@ -222,15 +222,15 @@ PrefabInstance:
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: f9b26ef466c1a014b848ca93171e110d, type: 2}
+      objectReference: {fileID: 11400000, guid: 75130406609239a46b2c783081362f2d, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
+      objectReference: {fileID: 11400000, guid: 75130406609239a46b2c783081362f2d, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: be86c6fa48af51444a401263c38c95d8, type: 2}
+      objectReference: {fileID: 11400000, guid: 75130406609239a46b2c783081362f2d, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[3]
       value: 
@@ -458,6 +458,7 @@ MonoBehaviour:
   player: {fileID: 870139432}
   startObject: {fileID: 0}
   endObject: {fileID: 0}
+  activateButtonWasPressed: 0
   currState: 0
 --- !u!1001 &1408480494
 PrefabInstance:

@@ -100,6 +100,7 @@ public class Player : MonoBehaviour
     public void EndTurn(){
         field.ReduceStudentCardDurations();
         field.ReduceEffectModifiers();
+        field.IncreaseTurnCount();
         GameManager.Instance.SwitchPlayers();
     }
 }

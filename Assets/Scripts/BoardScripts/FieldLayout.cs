@@ -95,6 +95,18 @@ public class FieldLayout : MonoBehaviour
         return null;
     }
 
+    public void IncreaseTurnCount(){
+        foreach (BuildingCardDisplay bcd in buildingCardDisplays){
+            bcd.IncreaseTurnCount();
+        }
+        foreach (FacultyCardDisplay fcd in facultyCardDisplays){
+            fcd.IncreaseTurnCount();
+        }
+        foreach (StudentCardDisplay scd in studentCardDisplays){
+            scd.IncreaseTurnCount();
+        }
+    }
+
     public void ReactivateCards(){
         foreach (StudentCardDisplay student in GetActiveStudentCards()){
             student.ReactivateCard();
