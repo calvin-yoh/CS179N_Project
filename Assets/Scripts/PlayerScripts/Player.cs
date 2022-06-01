@@ -68,7 +68,44 @@ public class Player : MonoBehaviour
         // Debug.Log(this.name + " has " + hand.Count + " cards");
     }
 
-    public void PlaceCard(int index, Card newCard){
+    //Dupe to prevent breaking current functionality
+    public void PlaceCard(int index, Card newCard)
+    {
+        Card.Type type = newCard.type;
+        switch (type)
+        {
+            case Card.Type.Student:
+                if (hasPlayedStudentCard)
+                {  // Already played student card, don't place card down
+                    return;
+                }
+                else
+                {
+                    hasPlayedStudentCard = true;
+                }
+                break;
+            case Card.Type.Faculty:
+                if (hasPlayedFacultyCard)
+                {  // Already played faculty card, don't place card down
+                    return;
+                }
+                else
+                {
+                    hasPlayedFacultyCard = true;
+                }
+                break;
+            case Card.Type.Building:
+                field.ActivateCard(index, newCard, number);
+                return;
+            default:
+                break;
+        }
+        field.ActivateCard(index, newCard, number);
+        hand.RemoveCard(newCard);
+    }
+
+    public void PlaceCard(int index, CardDisplay newCardDisplay){
+        Card newCard = newCardDisplay.card;
         Card.Type type = newCard.type;
         switch (type){
             case Card.Type.Student:
@@ -88,12 +125,12 @@ public class Player : MonoBehaviour
                 }
                 break;
             case Card.Type.Building:
-                field.ActivateCard(index, newCard, number);
+                field.ActivateCard(index, newCardDisplay, number);
                 return;
             default:
                 break;
         }
-        field.ActivateCard(index, newCard, number);
+        field.ActivateCard(index, newCardDisplay, number);
         hand.RemoveCard(newCard);
     }
 

@@ -198,7 +198,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5150521060410587090, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
   m_PrefabInstance: {fileID: 1095604872}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324525729}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e78cb30e5f4f88743aa2a1dbc243e39f, type: 3}
@@ -211,110 +211,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: openDeck.Array.size
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: buildings.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: openDeck.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 75130406609239a46b2c783081362f2d, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: openDeck.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 75130406609239a46b2c783081362f2d, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: openDeck.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 75130406609239a46b2c783081362f2d, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: openDeck.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 8922d4c689af7c548a7e29d2efbea5f0, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: openDeck.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 558406bee3e6ca74faf0b41386291aec, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: openDeck.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 3f8f94adef340f94aa64ea24a213feb3, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: openDeck.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: 3f8f94adef340f94aa64ea24a213feb3, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: openDeck.Array.data[7]
-      value: 
-      objectReference: {fileID: 11400000, guid: b356618501d2ede44ba0ce31d893c338, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: openDeck.Array.data[8]
-      value: 
-      objectReference: {fileID: 11400000, guid: b356618501d2ede44ba0ce31d893c338, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: openDeck.Array.data[9]
-      value: 
-      objectReference: {fileID: 11400000, guid: b356618501d2ede44ba0ce31d893c338, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: buildings.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: a4d22014655087046b9a8d5b883102bd, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: buildings.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 1e16998796b14ee47abc259ab4d74e63, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: buildings.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 951c49892b2462c46a5da2a2e394d45f, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: buildings.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: f3f889e8bb663ff45b4b8e512a3018f2, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: buildings.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 4cd2a2d1c3b49d94389b705abd21118a, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: openDeck.Array.data[10]
-      value: 
-      objectReference: {fileID: 11400000, guid: 4f1e5dcf3664b7843b110eb2a958dfec, type: 2}
-    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: openDeck.Array.data[11]
-      value: 
-      objectReference: {fileID: 11400000, guid: 4f1e5dcf3664b7843b110eb2a958dfec, type: 2}
-    - target: {fileID: 61897636, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1009353484121100250, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1204887255029928878, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1204887256197667190, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5150521060410587089, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5150521060410587090, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: hand
-      value: 
-      objectReference: {fileID: 1280201959}
-    - target: {fileID: 5150521060410587090, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-      propertyPath: field
-      value: 
-      objectReference: {fileID: 2017055665}
     - target: {fileID: 5150521060410587091, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -361,17 +261,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
---- !u!114 &1280201959 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1009353484121100251, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-  m_PrefabInstance: {fileID: 1095604872}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd7aab64e3e41c24ead6c0598e22b101, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1290538914
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,28 +327,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1324525729 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5150521060410587089, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-  m_PrefabInstance: {fileID: 1095604872}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1324525730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324525729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62232b91e336a3f42b95310247665d22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 870139432}
-  startObject: {fileID: 0}
-  endObject: {fileID: 0}
-  activateButtonWasPressed: 0
-  currState: 0
 --- !u!1001 &1408480494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -795,6 +662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1768421173}
   - component: {fileID: 1768421172}
+  - component: {fileID: 1768421174}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -831,15 +699,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2017055665 stripped
+--- !u!114 &1768421174
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4529470045736166767, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
-  m_PrefabInstance: {fileID: 1095604872}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1768421171}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7fc77d50ea5c464dbb1fac2d1c25887, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fb4803144db84644bc949314cedaf98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4827386570897380183
@@ -916,7 +785,7 @@ PrefabInstance:
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: buildings.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: d7fda29f847361f458cfe90f3c705748, type: 2}
+      objectReference: {fileID: 11400000, guid: 6644c0472cbc6e146a00032e201cd921, type: 2}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: openDeck.Array.data[10]
       value: 

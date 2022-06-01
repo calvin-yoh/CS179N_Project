@@ -25,7 +25,7 @@ public class BuildingCardDisplay : CardDisplay
 	// Use this for initialization
 	void Start()
 	{
-		BUILDING_MAX_HEALTH = base.card.health;
+		BUILDING_MAX_HEALTH = cardHealth;
 	}
 
 	public int GetCardHealth(){

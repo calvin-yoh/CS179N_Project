@@ -150,9 +150,12 @@ public class FieldLayout : MonoBehaviour
         }
     }
 
-    public void ActivateCard(int index, Card newCard, int player){
+    //dupe to avoid breaking stuff
+    public void ActivateCard(int index, Card newCard, int player)
+    {
         Card.Type type = newCard.type;
-        switch (type){
+        switch (type)
+        {
             case Card.Type.Building:
                 buildingCardDisplays[index].card = newCard;
                 buildingCardDisplays[index].inPlay = true;
@@ -178,6 +181,48 @@ public class FieldLayout : MonoBehaviour
                 studentCardDisplays[index].gameObject.SetActive(true);
                 studentCardDisplays[index].ReactivateCard();
                 studentCardDisplays[index].SetUpInformation();
+                studentCardDisplays[index].DisplayInformation();
+                break;
+            default:
+                Debug.Log("Card type " + type + " not found");
+                break;
+        }
+    }
+
+    //Copies information from a given CARD DISPLAY. This means that values are transfered accordingly.
+    //This is IMPORTANT when we modify values in the hand, and then place them onto the field.
+    public void ActivateCard(int index, CardDisplay newCardDisplay, int player){
+        Card newCard = newCardDisplay.card;
+        Card.Type type = newCard.type;
+        switch (type){
+            case Card.Type.Building:
+                buildingCardDisplays[index].card = newCard;
+                buildingCardDisplays[index].inPlay = true;
+                buildingCardDisplays[index].SetFieldLocation(index + 1);
+                buildingCardDisplays[index].playerNumber = player;
+                buildingCardDisplays[index].gameObject.SetActive(true);
+                buildingCardDisplays[index].CopyInformation(newCardDisplay as BuildingCardDisplay);
+                //buildingCardDisplays[index].SetUpInformation();
+                buildingCardDisplays[index].DisplayInformation();
+                break;
+            case Card.Type.Faculty:
+                facultyCardDisplays[index].card = newCard;
+                facultyCardDisplays[index].inPlay = true;
+                facultyCardDisplays[index].playerNumber = player;
+                facultyCardDisplays[index].gameObject.SetActive(true);
+                facultyCardDisplays[index].ReactivateCard();
+                facultyCardDisplays[index].CopyInformation(newCardDisplay as FacultyCardDisplay);
+                //facultyCardDisplays[index].SetUpInformation();
+                facultyCardDisplays[index].DisplayInformation();
+                break;
+            case Card.Type.Student:
+                studentCardDisplays[index].card = newCard;
+                studentCardDisplays[index].inPlay = true;
+                studentCardDisplays[index].playerNumber = player;
+                studentCardDisplays[index].gameObject.SetActive(true);
+                studentCardDisplays[index].ReactivateCard();
+                studentCardDisplays[index].CopyInformation(newCardDisplay as StudentCardDisplay);
+                //studentCardDisplays[index].SetUpInformation();
                 studentCardDisplays[index].DisplayInformation();
                 break;
             default:

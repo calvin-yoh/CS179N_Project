@@ -19,6 +19,9 @@ public class MouseInput : MonoBehaviour
     public bool activateButtonWasPressed;
     private int currNumTargets;
 
+    //temp variables
+    private bool tempPlacedCard;
+
     public enum State{
         Wait, DownHand, ApplyEffect, WaitForButton, ChoosingTargets, ChoseTarget
     }
@@ -90,10 +93,14 @@ public class MouseInput : MonoBehaviour
                     {
                         if (hit.collider.tag == "Empty"){
                             Debug.Log(hit.collider.gameObject.name);
-                            Card newCard = startObject.GetComponent<CardDisplay>().card;
+                            CardDisplay downHandCardDisplay = startObject.GetComponent<CardDisplay>();
+                            Card newCard = downHandCardDisplay.card;
+
                             EmptyBoardSlot slot = hit.collider.gameObject.GetComponent<EmptyBoardSlot>();
-                            if (newCard.type == slot.GetCardType() && slot.GetField() == player.GetField()){
-                                player.PlaceCard(slot.GetIndex(), newCard);
+                            if (!tempPlacedCard && newCard.type == slot.GetCardType() && slot.GetField() == player.GetField()){
+                                tempPlacedCard = true;
+                                EventsManager.CallOnCardPlayedFromHand(downHandCardDisplay);
+                                player.PlaceCard(slot.GetIndex(), downHandCardDisplay);
                             }
                             else{
                                 Debug.Log("Card type does not match");
@@ -205,6 +212,7 @@ public class MouseInput : MonoBehaviour
                 canvasInstance.DeactivateArrow();
                 startObject = null;
                 endObject = null;
+                tempPlacedCard = false;
                 if(targets.Count != 0)
                 {
                     targets.Clear();
@@ -230,6 +238,7 @@ public class MouseInput : MonoBehaviour
         }
     }
 
+    //Referenced in a button event
     public void PressedActivateCardButton()
     {
         CardEffect tempCard;

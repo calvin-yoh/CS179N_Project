@@ -189,6 +189,8 @@ public abstract class CardDisplay : MonoBehaviour
         cardArtwork = oldCard.GetCardArtwork();
         cardEffectString = oldCard.GetCardEffectString();
         isDistracted = oldCard.IsDistracted();
+        UpdateEffectString();
+        LoadCardEffectScript();
     }
 
     public virtual void HideCard() {
@@ -208,12 +210,13 @@ public abstract class CardDisplay : MonoBehaviour
             System.Type scriptType = System.Type.GetType(scriptName + ",Assembly-CSharp");
             //Now that we have the Type we can use it to Add Component
             gameObject.AddComponent(scriptType);
-
+            
             CardEffect temp;
             if (this.TryGetComponent(out temp))
             {
                 cardEffectScript = temp;
             }
+            
         }
     }
 

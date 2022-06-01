@@ -67,7 +67,8 @@ public class SimpleAI : Player
     public IEnumerator PlaceCardsPhase()
     {
         Debug.Log("Placing card code goes here");
-        Card placeCard = GetRandomCardInHand();
+        CardDisplay placeCardDisplay = GetRandomCardInHand();
+        Card placeCard = placeCardDisplay.card;
         int index = 0;
         while (field.CheckIfOccupied(index, placeCard.type)){           // Get next available index on the field
             index++;
@@ -83,7 +84,7 @@ public class SimpleAI : Player
             }
         }
         Debug.Log("Placing " + placeCard.name + " at index " + index);
-        base.PlaceCard(index, placeCard);
+        base.PlaceCard(index, placeCardDisplay);
         yield return new WaitForSeconds(1f);
 
         Debug.Log("Moving to next phase");
@@ -146,10 +147,10 @@ public class SimpleAI : Player
         yield return null;
     }
 
-    private Card GetRandomCardInHand(){
+    private CardDisplay GetRandomCardInHand(){
         List<CardDisplay> cardHand = hand.getHand();
         int randIndex = Random.Range(0, cardHand.Count);
-        Card returnCard = cardHand[randIndex].card;
+        CardDisplay returnCard = cardHand[randIndex];
         return returnCard;
     }
 }
