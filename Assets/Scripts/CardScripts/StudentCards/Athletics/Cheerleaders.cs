@@ -2,27 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameDevelopers : CardEffect
+public class Cheerleaders : CardEffect
 {
     protected override void Start()
     {
         targetType = Card.Type.Student;
-        targetTeam = TargetTeam.Enemy;
+        targetTeam = TargetTeam.Friendly;
         numTargets = 1;
     }
 
-    // Script - Distract a target enemy student for 1 turn.
+    // Rally - Grant a target student this ability : act again.
     public override int PerformEffect(GameData data)
     {
         StudentCardDisplay student;
         if (data.target[0].gameObject.TryGetComponent(out student))
         {
-            data.target[0].DistractCard();
-            Debug.Log("GameDevelopers worked");
+            data.target[0].ReactivateCard();
+            Debug.Log("Cheerleaders worked");
         }
         else
         {
-            Debug.Log("Error with GameDevelopers effect");
+            Debug.Log("Error with Cheerleaders effect");
         }
         return 0;
     }

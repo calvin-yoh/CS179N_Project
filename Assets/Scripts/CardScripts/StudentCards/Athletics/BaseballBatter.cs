@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameDevelopers : CardEffect
+public class BaseballBatter : CardEffect
 {
     protected override void Start()
     {
@@ -11,18 +11,18 @@ public class GameDevelopers : CardEffect
         numTargets = 1;
     }
 
-    // Script - Distract a target enemy student for 1 turn.
+    // Report - Distract a target enemy student for 1 turn.
     public override int PerformEffect(GameData data)
     {
         StudentCardDisplay student;
         if (data.target[0].gameObject.TryGetComponent(out student))
         {
             data.target[0].DistractCard();
-            Debug.Log("GameDevelopers worked");
+            Debug.Log("BaseballBatter worked");
         }
         else
         {
-            Debug.Log("Error with GameDevelopers effect");
+            Debug.Log("Error with BaseballBatter effect");
         }
         return 0;
     }
