@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   effectName: Corrode foundation
   effect: Deal {3} damage to an opposing building.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 5cae2c687ee6a284e87b7c1e921932fe, type: 3}
   health: 0
   duration: 5
   effectScript: {fileID: 11500000, guid: 523fe63d7dc8245c9b76833522dd85ef, type: 3}
