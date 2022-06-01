@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public static class DeckSave{
-    public static List<string> cards;
+public class DeckSave{
+    public List<string> cards;
 }
 
 
