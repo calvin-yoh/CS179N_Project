@@ -12,7 +12,8 @@ public class Trash : MonoBehaviour, IDropHandler
 
         var card = eventData.pointerDrag;
 
-
+        //continue only if parent of card is deckGrid
+        if (card.transform.parent != deckGrid.transform) return;
         switch(card.GetComponent<DragAndDrop>().type){
             case Card.Type.Student:
                 if(deckGrid.GetComponent<DropContainer>().studentCount > 0){

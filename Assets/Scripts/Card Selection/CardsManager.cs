@@ -26,7 +26,7 @@ public class CardsManager : MonoBehaviour
 
         // Loading student cards
         Object[] R_ArtStudentCards = Resources.LoadAll("Cards/StudentCards/Art Students", typeof(StudentCard));
-        Object[] R_AthleticStudentCards = Resources.LoadAll("Cards/StudentCards/Athletic Studnets", typeof(StudentCard));
+        Object[] R_AthleticStudentCards = Resources.LoadAll("Cards/StudentCards/Athletic Students", typeof(StudentCard));
         Object[] R_EngineeringStudentCards = Resources.LoadAll("Cards/StudentCards/Engineering Students", typeof(StudentCard));
         Object[] R_StaffStudentCards = Resources.LoadAll("Cards/StudentCards/Staff Students", typeof(StudentCard));
         
