@@ -21,54 +21,49 @@ public class CardsManager : MonoBehaviour
         cardsGrid = GameObject.Find("Cards Grid");
         deckGrid = GameObject.Find("Deck Grid");
 
-
-        // Loading faculty cards (NO FACULTY CARDS YET);
-
         // Loading student cards
         Object[] R_ArtStudentCards = Resources.LoadAll("Cards/StudentCards/Art Students", typeof(StudentCard));
         Object[] R_AthleticStudentCards = Resources.LoadAll("Cards/StudentCards/Athletic Students", typeof(StudentCard));
         Object[] R_EngineeringStudentCards = Resources.LoadAll("Cards/StudentCards/Engineering Students", typeof(StudentCard));
         Object[] R_StaffStudentCards = Resources.LoadAll("Cards/StudentCards/Staff Students", typeof(StudentCard));
-        
+
+        // Loading Faculty cards
+        Object[] R_Art_FacultyCards = Resources.LoadAll("Cards/FacultyCards/ArtsFaculty", typeof(FacultyCard));
+        Object[] R_Athletic_FacultyCards = Resources.LoadAll("Cards/FacultyCards/AthleticsFaculty", typeof(FacultyCard));
+        Object[] R_Engineering_FacultyCards = Resources.LoadAll("Cards/FacultyCards/EngineeringFaculty", typeof(FacultyCard));
+        Object[] R_Staff_FacultyCards = Resources.LoadAll("Cards/FacultyCards/StaffFaculty", typeof(FacultyCard));
+
         // Loading Buiding cards.
         Object[] R_BuildingCards = Resources.LoadAll("Cards/BuildingCards", typeof(BuildingCard));
 
+        
+        List<Object[]> R_cards = new List<Object[]>();
+        R_cards.Add(R_ArtStudentCards);
+        R_cards.Add(R_AthleticStudentCards);
+        R_cards.Add(R_EngineeringStudentCards);
+        R_cards.Add(R_StaffStudentCards);
+        R_cards.Add(R_Art_FacultyCards);
+        R_cards.Add(R_Athletic_FacultyCards);
+        R_cards.Add(R_Engineering_FacultyCards);
+        R_cards.Add(R_Staff_FacultyCards);
+        R_cards.Add(R_BuildingCards);
+
+
+
 
         // Adding all the cards to the card dictionary.
-        foreach(Object x in R_ArtStudentCards){
-            var card = (Card)x;
-            if(!cardDict.ContainsKey(card.name)){
+        foreach (Object[] R_card in R_cards)
+        {
+            foreach (Object R_cardObj in R_card)
+            {
+                var card = (Card)R_cardObj;
+                if(!cardDict.ContainsKey(card.name)){
                 cardDict.Add(card.name, card);
+            }
             }
         }
 
-        foreach(Object x in R_AthleticStudentCards){
-            var card = (Card)x;
-            if(!cardDict.ContainsKey(card.name)){
-                cardDict.Add(card.name, card);
-            }
-        }
 
-        foreach(Object x in R_EngineeringStudentCards){
-            var card = (Card)x;
-            if(!cardDict.ContainsKey(card.name)){
-                cardDict.Add(card.name, card);
-            }
-        }
-
-        foreach(Object x in R_StaffStudentCards){
-            var card = (Card)x;
-            if(!cardDict.ContainsKey(card.name)){
-                cardDict.Add(card.name, card);
-            }
-        }
-
-        foreach(Object x in R_BuildingCards){
-            var card = (BuildingCard)x;
-            if(!cardDict.ContainsKey(card.name)){
-                cardDict.Add(card.name, card);
-            }
-        }
 
 
         //check if the currenDeckPath exists if not create it.
