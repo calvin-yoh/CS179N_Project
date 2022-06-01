@@ -18,13 +18,14 @@ public class BuildingCardDisplay : CardDisplay
 	private int fieldLocation = 0;
 
 	//Additional card information
+	private int BUILDING_MAX_HEALTH;
 	private int cardHealth;
 	private int cardArmor;
 
 	// Use this for initialization
 	void Start()
 	{
-
+		BUILDING_MAX_HEALTH = base.card.health;
 	}
 
 	public int GetCardHealth(){
@@ -60,6 +61,9 @@ public class BuildingCardDisplay : CardDisplay
 
 	public void HealBuilding(int healthHealed){
 		cardHealth += healthHealed;
+		if (cardHealth > BUILDING_MAX_HEALTH){
+			cardHealth = BUILDING_MAX_HEALTH;
+		}
 	}
 
 	public int GetCardArmor(){

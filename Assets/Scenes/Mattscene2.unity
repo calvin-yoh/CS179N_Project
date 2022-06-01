@@ -237,6 +237,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: buildings.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -259,27 +263,27 @@ PrefabInstance:
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 4f1e5dcf3664b7843b110eb2a958dfec, type: 2}
+      objectReference: {fileID: 11400000, guid: d14c78dbb6505b7439b38f1af8ff96c9, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 4f1e5dcf3664b7843b110eb2a958dfec, type: 2}
+      objectReference: {fileID: 11400000, guid: d14c78dbb6505b7439b38f1af8ff96c9, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 4f1e5dcf3664b7843b110eb2a958dfec, type: 2}
+      objectReference: {fileID: 11400000, guid: d14c78dbb6505b7439b38f1af8ff96c9, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[7]
       value: 
-      objectReference: {fileID: 11400000, guid: 959a9e1287e042240818199fdc860602, type: 2}
+      objectReference: {fileID: 11400000, guid: 600c8ae2837c6654f9e3b080f576437b, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[8]
       value: 
-      objectReference: {fileID: 11400000, guid: 8922d4c689af7c548a7e29d2efbea5f0, type: 2}
+      objectReference: {fileID: 11400000, guid: 600c8ae2837c6654f9e3b080f576437b, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[9]
       value: 
-      objectReference: {fileID: 11400000, guid: 8922d4c689af7c548a7e29d2efbea5f0, type: 2}
+      objectReference: {fileID: 11400000, guid: 75130406609239a46b2c783081362f2d, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: buildings.Array.data[0]
       value: 
@@ -300,6 +304,14 @@ PrefabInstance:
       propertyPath: buildings.Array.data[4]
       value: 
       objectReference: {fileID: 11400000, guid: d7fda29f847361f458cfe90f3c705748, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 75130406609239a46b2c783081362f2d, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 600c8ae2837c6654f9e3b080f576437b, type: 2}
     - target: {fileID: 5150521060410587089, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: m_Name
       value: Player
@@ -435,6 +447,10 @@ PrefabInstance:
       propertyPath: endScreen
       value: 
       objectReference: {fileID: 460768377}
+    - target: {fileID: 4404098272667194461, guid: 18119fa970380534b885eb3f2ed3846c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4404098274375530867, guid: 18119fa970380534b885eb3f2ed3846c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1053,23 +1069,23 @@ PrefabInstance:
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: openDeck.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
+      objectReference: {fileID: 11400000, guid: 959a9e1287e042240818199fdc860602, type: 2}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: openDeck.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
+      objectReference: {fileID: 11400000, guid: 3f8f94adef340f94aa64ea24a213feb3, type: 2}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: openDeck.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
+      objectReference: {fileID: 11400000, guid: 5230f04009da7fc4f94690899aebc478, type: 2}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: openDeck.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
+      objectReference: {fileID: 11400000, guid: 5230f04009da7fc4f94690899aebc478, type: 2}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: openDeck.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
+      objectReference: {fileID: 11400000, guid: 5230f04009da7fc4f94690899aebc478, type: 2}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: openDeck.Array.data[6]
       value: 
@@ -1077,7 +1093,7 @@ PrefabInstance:
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: openDeck.Array.data[7]
       value: 
-      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
+      objectReference: {fileID: 11400000, guid: 431a1669ed477024298cfc90ec6d540c, type: 2}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: openDeck.Array.data[8]
       value: 
@@ -1085,7 +1101,7 @@ PrefabInstance:
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: openDeck.Array.data[9]
       value: 
-      objectReference: {fileID: 11400000, guid: cd2d48c86d4fa8a49ab9de62ff969be5, type: 2}
+      objectReference: {fileID: 11400000, guid: 5230f04009da7fc4f94690899aebc478, type: 2}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: buildings.Array.data[0]
       value: 
