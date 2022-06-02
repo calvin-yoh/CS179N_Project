@@ -6,7 +6,7 @@ public class FootballStadium : CardEffect
 {
     private int athleteCount;
     private GameData data;
-    
+
     protected override void Start()
     {
         targetType = Card.Type.Student;
@@ -32,6 +32,7 @@ public class FootballStadium : CardEffect
     // All Athletics cards gain {+1} effect power for each friendly student Athletics card.
     public override int PerformEffect(GameData data)
     {
+        this.data = data;
         int athleteCount = 0;
         foreach(StudentCardDisplay s in data.friendlyStudents){
             if (s.GetCardMajor() == Card.Major.Athletics){
