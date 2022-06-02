@@ -68,6 +68,7 @@ public class Player : MonoBehaviour
     public void DrawCard(){
         CardDisplay cd = deck.GetTop();
         cd.inHand = true;
+        cd.inDeck = false;
         cd.SetUpInformation();
         cd.ReactivateCard();
         cd.DisplayInformation();
@@ -80,39 +81,9 @@ public class Player : MonoBehaviour
     }
 
     //Dupe to prevent breaking current functionality
-    public void PlaceCard(int index, Card newCard)
+    public void PlaceBuilding(int index, Card newCard)
     {
-        Card.Type type = newCard.type;
-        switch (type)
-        {
-            case Card.Type.Student:
-                if (hasPlayedStudentCard)
-                {  // Already played student card, don't place card down
-                    return;
-                }
-                else
-                {
-                    hasPlayedStudentCard = true;
-                }
-                break;
-            case Card.Type.Faculty:
-                if (hasPlayedFacultyCard)
-                {  // Already played faculty card, don't place card down
-                    return;
-                }
-                else
-                {
-                    hasPlayedFacultyCard = true;
-                }
-                break;
-            case Card.Type.Building:
-                field.ActivateCard(index, newCard, number);
-                return;
-            default:
-                break;
-        }
         field.ActivateCard(index, newCard, number);
-        hand.RemoveCard(newCard);
     }
 
     public void PlaceCard(int index, CardDisplay newCardDisplay){
@@ -141,8 +112,9 @@ public class Player : MonoBehaviour
             default:
                 break;
         }
-        field.ActivateCard(index, newCardDisplay, number);
-        hand.RemoveCard(newCard);
+        CardDisplay c = field.ActivateCard(index, newCardDisplay, number);
+        ev.CallOnCardPlayedFromHand(c);
+        hand.RemoveCard(newCardDisplay);
 
         //place card sound effect
         placeCardSound.Play();

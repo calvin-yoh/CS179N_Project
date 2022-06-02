@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 5150521060410587091}
   - component: {fileID: 5150521060410587090}
   - component: {fileID: 1324525730}
+  - component: {fileID: 2429063169739394079}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -113,9 +114,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numStartingCards: 5
+  drawSound: {fileID: 0}
+  placeCardSound: {fileID: 0}
   hand: {fileID: 1009353484121100251}
   field: {fileID: 4529470045736166767}
   deck: {fileID: 61897635}
+  ev: {fileID: 2429063169739394079}
   isAI: 0
   number: 0
 --- !u!114 &1324525730
@@ -135,6 +139,18 @@ MonoBehaviour:
   endObject: {fileID: 0}
   activateButtonWasPressed: 0
   currState: 0
+--- !u!114 &2429063169739394079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5150521060410587089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb4803144db84644bc949314cedaf98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &162300062
 PrefabInstance:
   m_ObjectHideFlags: 0

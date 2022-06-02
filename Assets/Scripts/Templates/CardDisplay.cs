@@ -24,6 +24,7 @@ public abstract class CardDisplay : MonoBehaviour
     public bool hasActivatedEffect = true;
     public bool inHand = false;
     public bool inPlay = false;
+    public bool inDeck = false;
     public int playerNumber;
     public int turnsInPlay;
     [SerializeField] private GameObject glowEffect;

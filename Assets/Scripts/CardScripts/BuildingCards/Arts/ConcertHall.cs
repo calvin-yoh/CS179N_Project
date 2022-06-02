@@ -15,8 +15,7 @@ public class ConcertHall : CardEffect
     {
         Player currPlayer = GameManager.Instance.GetCurrentPlayer();
         EventsManager em = currPlayer.GetEventsManager();
-        em.OnCardPlayedFromHand += CardPlayedFromHandPassive;
-        //Debug.Log("Event effect :", gameObject);
+        em.OnCardPlayedFromHand += CardPlayedFromHandPassive;    
     }
 
     private void OnDisable()

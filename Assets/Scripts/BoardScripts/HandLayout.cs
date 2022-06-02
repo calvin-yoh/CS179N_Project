@@ -28,12 +28,12 @@ public class HandLayout : MonoBehaviour
         card.transform.SetParent(this.gameObject.transform); //Setting my card parent to be the Hand Panel
     }
 
-    public void RemoveCard(Card card)
+    public void RemoveCard(CardDisplay card)
     {
         for (int i = 0; i < hand.Count; i++)
         {
             CardDisplay cd = hand[i];
-            if (cd.card == card)
+            if (cd == card)
             {
                 hand.RemoveAt(i);
                 start.transform.position += new Vector3(0.5f, 0, 0);
