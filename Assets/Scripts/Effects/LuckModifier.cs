@@ -43,4 +43,14 @@ public class LuckModifier
     public void ChangeAthleticsLuckModifier(int val) { athleticsLuckModifier += val; }
     public void ChangeStaffLuckModifier(int val) { staffLuckModifier = val; }
 
+    public void ResetLuckModifiers()
+    {
+        studentLuckModifier = 0;
+        facultyLuckModifier = 0;
+
+        engineeringLuckModifier = 0;
+        artsLuckModifier = 0;
+        athleticsLuckModifier = 0;
+        staffLuckModifier = 0;
+    }
 }
