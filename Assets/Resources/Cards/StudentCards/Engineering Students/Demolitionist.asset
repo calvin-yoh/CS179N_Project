@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   effectName: Mines
   effect: Deal {6} damage to an opposing non-engineering building.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 14455e9a9cea436439bf44dd300578ec, type: 3}
   health: 0
   duration: 3
   effectScript: {fileID: 11500000, guid: aacf27404a91744169f96a65d6d7b31a, type: 3}

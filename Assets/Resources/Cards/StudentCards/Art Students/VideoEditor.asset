@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   effectName: Crop and Slice
   effect: Deal {4} damage to a target building.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: fced961bd0a6179459446d8babab7c8a, type: 3}
   health: 0
   duration: 4
   effectScript: {fileID: 11500000, guid: df41308c570655f48a90193b6894f44f, type: 3}

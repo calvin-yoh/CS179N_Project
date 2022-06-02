@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   effectName: Mortar Strike
   effect: Deal {5} damage to a target building and {3} to adjacent buildings.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 21b2eaf6d23de7f4eaa00cd57d74e03a, type: 3}
   health: 0
   duration: 2
   effectScript: {fileID: 11500000, guid: 2c4693645f98e2b4fac234ff1714e75d, type: 3}

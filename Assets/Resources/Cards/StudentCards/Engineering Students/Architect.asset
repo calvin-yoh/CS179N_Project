@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   effectName: Shield Craft
   effect: Grant a target building {6} armor.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 193d8c59fdea7ee429676569367227d9, type: 3}
   health: 0
   duration: 5
   effectScript: {fileID: 11500000, guid: feb1ab98584a32f48b1d4040d57fc70f, type: 3}
