@@ -694,7 +694,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6963798962299760463, guid: 3c381401333222140849ff4ff826c870, type: 3}
   m_PrefabInstance: {fileID: 6963798961764980538}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6963798961764980539}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 604343b9e434b2042a41c989ff3875f4, type: 3}
@@ -1018,6 +1018,7 @@ GameObject:
   m_Component:
   - component: {fileID: 923201594}
   - component: {fileID: 923201595}
+  - component: {fileID: 923201596}
   m_Layer: 5
   m_Name: Volume
   m_TagString: Untagged
@@ -1098,18 +1099,31 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6963798961764980539}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 923201596}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: ChangeVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &923201596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923201593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d2120a528ec4af4a88e8ca53564a5a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 923201595}
 --- !u!1 &979791892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2805,8 +2819,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c381401333222140849ff4ff826c870, type: 3}
---- !u!1 &6963798961764980539 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6963798962299760462, guid: 3c381401333222140849ff4ff826c870, type: 3}
-  m_PrefabInstance: {fileID: 6963798961764980538}
-  m_PrefabAsset: {fileID: 0}

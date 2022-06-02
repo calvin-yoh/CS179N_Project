@@ -6,6 +6,9 @@ public class Player : MonoBehaviour
 {
     public int numStartingCards = 5;
 
+    public AudioSource drawSound;
+    public AudioSource placeCardSound;
+
     // private bool canPlaceStudent = true;
     // private bool canPlaceFaculty = true;
     [SerializeField] protected HandLayout hand;
@@ -66,6 +69,9 @@ public class Player : MonoBehaviour
 
         hand.AddCard(cd);
         // Debug.Log(this.name + " has " + hand.Count + " cards");
+
+        //sound effect for draw
+        drawSound.Play();
     }
 
     //Dupe to prevent breaking current functionality
@@ -132,6 +138,9 @@ public class Player : MonoBehaviour
         }
         field.ActivateCard(index, newCardDisplay, number);
         hand.RemoveCard(newCard);
+
+        //place card sound effect
+        placeCardSound.Play();
     }
 
     public void EndTurn(){

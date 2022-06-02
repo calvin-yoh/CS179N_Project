@@ -56,6 +56,7 @@ public class SimpleAI : Player
     public IEnumerator DrawPhase()
     {
         Debug.Log("Drawing a card");
+        
         //DrawCard();
         StartTurn();
         yield return new WaitForSeconds(2f);
