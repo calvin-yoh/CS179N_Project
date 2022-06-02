@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] protected HandLayout hand;
     [SerializeField] protected FieldLayout field;
     [SerializeField] protected DeckLayout deck;
+    [SerializeField] protected EventsManager ev;
 
     public bool isAI = false;
     public int number;
@@ -46,6 +47,10 @@ public class Player : MonoBehaviour
     public LuckModifier GetLuckModifier()
     {
         return luckModifier;
+    }
+
+    public EventsManager GetEventsManager(){
+        return ev;
     }
 
     #endregion

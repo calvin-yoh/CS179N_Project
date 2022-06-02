@@ -13,12 +13,16 @@ public class ConcertHall : CardEffect
 
     private void OnEnable()
     {
-        EventsManager.OnCardPlayedFromHand += CardPlayedFromHandPassive;
+        // Player currPlayer = GameManager.Instance.GetCurrentPlayer();
+        // EventsManager em = currPlayer.GetEventsManager();
+        // em.OnCardPlayedFromHand += CardPlayedFromHandPassive;    
     }
 
     private void OnDisable()
     {
-        EventsManager.OnCardPlayedFromHand -= CardPlayedFromHandPassive;
+        Player currPlayer = GameManager.Instance.GetCurrentPlayer();
+        EventsManager em = currPlayer.GetEventsManager();
+        em.OnCardPlayedFromHand -= CardPlayedFromHandPassive;
     }
 
     //Your student cards have +1 duration when played.
