@@ -37,8 +37,11 @@ public class MouseInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       CheckState();
-       DoState();
+        CheckInformation();
+        if (GameManager.Instance.GetCurrentPlayer() == player){
+            CheckState();
+            DoState();
+        }
     }
 
     void CheckState()
@@ -59,10 +62,10 @@ public class MouseInput : MonoBehaviour
                             GameObject cardHit = hit.collider.gameObject;
                             CardDisplay c = cardHit.GetComponent<CardDisplay>();
                             
-                            //Show card details on the UI
-                            if (c.playerNumber == player.number || c.inPlay){    // Prevents player from reading opponents hand
-                                CanvasManager.Instance.ShowCardDetails(c);
-                            }
+                            // //Show card details on the UI
+                            // if (c.playerNumber == player.number || c.inPlay){    // Prevents player from reading opponents hand
+                            //     CanvasManager.Instance.ShowCardDetails(c);
+                            // }
 
                             //Check if on field or in the hand
                             if ( c.playerNumber == player.number){
@@ -77,11 +80,11 @@ public class MouseInput : MonoBehaviour
                                 }
                             }
                         }
-                        else
-                        {
-                            CanvasManager.Instance.HideCardDetails();
-                            Debug.Log("Hit something, not card");
-                        }
+                        // else
+                        // {
+                        //     CanvasManager.Instance.HideCardDetails();
+                        //     Debug.Log("Hit something, not card");
+                        // }
                     }
                 }
                 break;             
@@ -101,7 +104,6 @@ public class MouseInput : MonoBehaviour
                             EmptyBoardSlot slot = hit.collider.gameObject.GetComponent<EmptyBoardSlot>();
                             if (!tempPlacedCard && newCard.type == slot.GetCardType() && slot.GetField() == player.GetField()){
                                 tempPlacedCard = true;
-                                ev.CallOnCardPlayedFromHand(downHandCardDisplay);
                                 player.PlaceCard(slot.GetIndex(), downHandCardDisplay);
                             }
                             else{
@@ -240,6 +242,34 @@ public class MouseInput : MonoBehaviour
         }
     }
 
+    private void CheckInformation(){
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Physics.Raycast(r, out hit);
+            if (hit.collider != null)
+            {
+                if (hit.collider.tag == "Card")
+                {
+                    GameObject cardHit = hit.collider.gameObject;
+                    CardDisplay c = cardHit.GetComponent<CardDisplay>();
+                    
+                    //Show card details on the UI
+                    if ((c.playerNumber == player.number || c.inPlay) && !c.inDeck){    // Prevents player from reading opponents hand
+                        CanvasManager.Instance.ShowCardDetails(c);
+
+                    }                
+                }
+                else
+                {
+                    CanvasManager.Instance.HideCardDetails();
+                    Debug.Log("Hit something, not card");
+                }
+            }
+        }
+    }
+
     //Referenced in a button event
     public void PressedActivateCardButton()
     {
@@ -260,31 +290,4 @@ public class MouseInput : MonoBehaviour
             }
         }
     }
-
-    // GameObject checkObjectClicked(){
-    //     if (Input.GetMouseButtonDown(0)){
-    //         // Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //         // Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-    //         // RaycastHit hit = Physics.Raycast(mousePos, Vector2.zero);
-    //         Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //         RaycastHit hit;
-    //         Physics.Raycast(r, out hit);
-    //         if (hit.collider != null){
-    //             if (hit.collider.tag == "Card"){
-    //                 GameObject cardHit = hit.collider.gameObject;
-    //                 CardDisplay c = cardHit.GetComponent<CardDisplay>();
-
-    //                 if (c.CanActivateEffect()){
-    //                     arrow.SetupAndActivate(cardHit.transform);
-    //                 }
-    //             }
-    //             // Debug.Log("Clicked on " + hit.collider.gameObject.name);
-    //             if(startObject != null){
-    //                 arrow.Deactivate();
-    //             }
-    //             return hit.collider.gameObject;
-    //         }
-    //     }
-    //     return null;
-    // }
 }
