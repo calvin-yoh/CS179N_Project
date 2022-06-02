@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   effectName: Human augmentation
   effect: Reduce an opposing student's duration by {1} turn.
-  artwork: {fileID: 21300000, guid: 29374fe14e6cb324ea0648ab6b5f7242, type: 3}
+  artwork: {fileID: 0}
   health: 0
   duration: 5
   effectScript: {fileID: 11500000, guid: 22859e2b708b74458afcb3a06a659e49, type: 3}
