@@ -18,6 +18,7 @@ public class MouseInput : MonoBehaviour
 
     public bool activateButtonWasPressed;
     private int currNumTargets;
+    private EventsManager ev;
 
     //temp variables
     private bool tempPlacedCard;
@@ -30,6 +31,7 @@ public class MouseInput : MonoBehaviour
 
     void Start(){
         canvasInstance = CanvasManager.Instance;
+        ev = player.GetEventsManager();
     }
 
     // Update is called once per frame
@@ -99,7 +101,7 @@ public class MouseInput : MonoBehaviour
                             EmptyBoardSlot slot = hit.collider.gameObject.GetComponent<EmptyBoardSlot>();
                             if (!tempPlacedCard && newCard.type == slot.GetCardType() && slot.GetField() == player.GetField()){
                                 tempPlacedCard = true;
-                                EventsManager.CallOnCardPlayedFromHand(downHandCardDisplay);
+                                ev.CallOnCardPlayedFromHand(downHandCardDisplay);
                                 player.PlaceCard(slot.GetIndex(), downHandCardDisplay);
                             }
                             else{

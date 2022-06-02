@@ -13,13 +13,15 @@ public class Gym : CardEffect
 
     private void OnEnable()
     {
-        EventsManager.OnCardPlayedFromHand += CardPlayedFromHandPassive;
-    }
+        Player currPlayer = GameManager.Instance.GetCurrentPlayer();
+        EventsManager em = currPlayer.GetEventsManager();
+        em.OnCardPlayedFromHand -= CardPlayedFromHandPassive;    }
 
     private void OnDisable()
     {
-        EventsManager.OnCardPlayedFromHand -= CardPlayedFromHandPassive;
-    }
+        Player currPlayer = GameManager.Instance.GetCurrentPlayer();
+        EventsManager em = currPlayer.GetEventsManager();
+        em.OnCardPlayedFromHand -= CardPlayedFromHandPassive;    }
 
     // All your Athletics cards gain +1 duration when played.
     public override int PerformEffect(GameData data)

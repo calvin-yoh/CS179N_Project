@@ -139,7 +139,7 @@ public class FieldLayout : MonoBehaviour
     }
 
     //dupe to avoid breaking stuff
-    public void ActivateCard(int index, Card newCard, int player)
+    public CardDisplay ActivateCard(int index, Card newCard, int player)
     {
         Card.Type type = newCard.type;
         switch (type)
@@ -152,7 +152,7 @@ public class FieldLayout : MonoBehaviour
                 buildingCardDisplays[index].gameObject.SetActive(true);
                 buildingCardDisplays[index].SetUpInformation();
                 buildingCardDisplays[index].DisplayInformation();
-                break;
+                return buildingCardDisplays[index];
             case Card.Type.Faculty:
                 facultyCardDisplays[index].card = newCard;
                 facultyCardDisplays[index].inPlay = true;
@@ -161,7 +161,7 @@ public class FieldLayout : MonoBehaviour
                 facultyCardDisplays[index].ReactivateCard();
                 facultyCardDisplays[index].SetUpInformation();
                 facultyCardDisplays[index].DisplayInformation();
-                break;
+                return facultyCardDisplays[index];
             case Card.Type.Student:
                 studentCardDisplays[index].card = newCard;
                 studentCardDisplays[index].inPlay = true;
@@ -170,16 +170,17 @@ public class FieldLayout : MonoBehaviour
                 studentCardDisplays[index].ReactivateCard();
                 studentCardDisplays[index].SetUpInformation();
                 studentCardDisplays[index].DisplayInformation();
-                break;
+                return studentCardDisplays[index];
             default:
                 Debug.Log("Card type " + type + " not found");
                 break;
         }
+        return null;
     }
 
     //Copies information from a given CARD DISPLAY. This means that values are transfered accordingly.
     //This is IMPORTANT when we modify values in the hand, and then place them onto the field.
-    public void ActivateCard(int index, CardDisplay newCardDisplay, int player){
+    public CardDisplay ActivateCard(int index, CardDisplay newCardDisplay, int player){
         Card newCard = newCardDisplay.card;
         Card.Type type = newCard.type;
         switch (type){
@@ -192,7 +193,7 @@ public class FieldLayout : MonoBehaviour
                 buildingCardDisplays[index].CopyInformation(newCardDisplay as BuildingCardDisplay);
                 //buildingCardDisplays[index].SetUpInformation();
                 buildingCardDisplays[index].DisplayInformation();
-                break;
+                return buildingCardDisplays[index];
             case Card.Type.Faculty:
                 facultyCardDisplays[index].card = newCard;
                 facultyCardDisplays[index].inPlay = true;
@@ -202,7 +203,7 @@ public class FieldLayout : MonoBehaviour
                 facultyCardDisplays[index].CopyInformation(newCardDisplay as FacultyCardDisplay);
                 //facultyCardDisplays[index].SetUpInformation();
                 facultyCardDisplays[index].DisplayInformation();
-                break;
+                return facultyCardDisplays[index];
             case Card.Type.Student:
                 studentCardDisplays[index].card = newCard;
                 studentCardDisplays[index].inPlay = true;
@@ -212,10 +213,11 @@ public class FieldLayout : MonoBehaviour
                 studentCardDisplays[index].CopyInformation(newCardDisplay as StudentCardDisplay);
                 //studentCardDisplays[index].SetUpInformation();
                 studentCardDisplays[index].DisplayInformation();
-                break;
+                return studentCardDisplays[index];
             default:
                 Debug.Log("Card type " + type + " not found");
                 break;
         }
+        return null;
     }
 }
