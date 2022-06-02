@@ -32,8 +32,11 @@ public class ConcertHall : CardEffect
         StudentCardDisplay scd = card.GetComponent<StudentCardDisplay>();
         if (scd != null)
         {
-            Debug.Log("ConcertHall building increased dur");
-            scd.ChangeDurationBy(1);
+            if (scd.playerNumber == GameManager.Instance.GetCurrentPlayer().number)
+            {
+                Debug.Log("ConcertHall building increased dur");
+                scd.ChangeDurationBy(1);
+            }
         }
     }
 }
