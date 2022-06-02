@@ -24,6 +24,16 @@ public class FootballStadium : CardEffect
 
         int effectValue = 1 + (athleteCount * data.self.GetEffectValueModifier());
 
+        foreach(BuildingCardDisplay b in data.friendlyBuildings){
+            if (b.GetCardMajor() == Card.Major.Athletics){
+                b.SetEffectValueModifier(b.GetEffectValueModifier() + effectValue);
+            }
+        }
+        foreach(FacultyCardDisplay f in data.friendlyFaculties){
+            if (f.GetCardMajor() == Card.Major.Athletics){
+                f.SetEffectValueModifier(f.GetEffectValueModifier() + effectValue);
+            }
+        }
         foreach(StudentCardDisplay s in data.friendlyStudents){
             if (s.GetCardMajor() == Card.Major.Athletics){
                 s.SetEffectValueModifier(s.GetEffectValueModifier() + effectValue);
