@@ -13,4 +13,5 @@ public class EventsManager : MonoBehaviour
             OnCardPlayedFromHand(card);
         }
     }
+
 }

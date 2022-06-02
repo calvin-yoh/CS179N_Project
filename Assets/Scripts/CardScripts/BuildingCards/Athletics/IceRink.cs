@@ -11,18 +11,13 @@ public class IceRink : CardEffect
         numTargets = 0;
     }
 
-    private void OnEnable()
-    {
-        
-    }
-
-    private void OnDisable()
-    {
-    }
-
     // Your Athletics card's "Flip a coin effects" are {20}% more likely to land on heads.
     public override int PerformEffect(GameData data)
     {
+        int effectValue = 20 + data.self.GetEffectValueModifier();
+        LuckModifier modifier = data.friendlyPlayer.GetLuckModifier();
+
+        modifier.ChangeAthleticsLuckModifier(effectValue);
         return 0;
     }
 }

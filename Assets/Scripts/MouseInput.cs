@@ -197,12 +197,7 @@ public class MouseInput : MonoBehaviour
                      friendly, enemy
                     );
 
-                CardEffect temp;
-
-                if(startObject.TryGetComponent(out temp))
-                {
-                    self.ActivateEffect(gd); 
-                }
+                self.ActivateEffect(gd); 
                 currState = State.Wait;
                 break;
         }

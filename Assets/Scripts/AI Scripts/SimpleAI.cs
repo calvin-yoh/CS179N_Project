@@ -33,8 +33,8 @@ public class SimpleAI : Player
         isPlaceCardsPhase = false;
         isActivateEffectPhase = false;
         isEndTurnPhase = false;
-        hasPlayedFacultyCard = false;
-        hasPlayedStudentCard = false;
+        numStudentCardsCanPlace = 1;
+        numFacultyCardsCanPlace = 1;
     }
 
 
