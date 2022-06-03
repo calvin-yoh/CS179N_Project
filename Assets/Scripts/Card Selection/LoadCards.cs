@@ -46,17 +46,4 @@ public class LoadCards : MonoBehaviour
         var rectTransform = GetComponent<RectTransform>();
         rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, cardSize * (rows + 1));
     }
-
-    public GameObject getPrefab(Card.Type type){
-        switch(type){
-            case Card.Type.Building:
-                return BuildingCardDisplayPrefab;
-            case Card.Type.Student:
-                return StudentCardDisplayPrefab;
-            case Card.Type.Faculty:
-                return FacultyCardDisplayPrefab;
-        }
-        return null;
-    }
-
 }
