@@ -3,19 +3,25 @@
     "decks": [
         {
             "cards": [
-                "Jazz Band",
-                "Baseball Batter"
+                "Baseball Batter",
+                "Soccer Goalkeeper",
+                "Soccer Striker",
+                "Video Editor",
+                "Actor : Lead Actress",
+                "Actor : Lead Actress",
+                "Soccer Goalkeeper",
+                "Musicians",
+                "Demolitionist",
+                "Concoction Specialist",
+                "Librarian",
+                "Event Coordinator",
+                "Film Professor",
+                "Soccer Coach"
             ]
         },
         {
             "cards": [
-                "Sculpting Lab",
-                "Soccer Goalkeeper",
-                "Football Team",
-                "Baseball Batter",
-                "Soccer Striker",
-                "Dance Team",
-                "Dance Team"
+                "Soccer Coach"
             ]
         }
     ]
