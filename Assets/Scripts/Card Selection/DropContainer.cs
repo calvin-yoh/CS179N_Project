@@ -23,7 +23,14 @@ public class DropContainer : MonoBehaviour, IDropHandler
     public GameObject buildingSymbol;
     public GameObject facultySymbol;
 
-    public void Start(){
+    public void loadCurrentDeck(){
+        foreach(Transform child in transform){
+            Destroy(child.gameObject);
+        }
+        facultyCount = 0;
+        studentCount = 0;
+        buildingCount = 0;
+
         foreach(Card card in CardsManager.instance.getCurrentDeck()){
             var temp = Instantiate(CardsManager.instance.getCardPrefab(card.type));
             temp.GetComponent<CardDisplay>().card = card;
