@@ -23,9 +23,6 @@ public class CardsManager : MonoBehaviour
     private Dictionary<string, Card> cardDict = new Dictionary<string, Card>();
     private string currentDeckPath;
 
-    public GameObject cardsGrid;
-    public GameObject deckGrid;
-
     public GameObject buildingCardDisplayPrefab;
     public GameObject studentCardDisplayPrefab;
     public GameObject facultyCardDisplayPrefab;
