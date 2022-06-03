@@ -52,12 +52,8 @@ public class RobotArena : CardEffect
                 }
             }
 
-            EventsManager em = currPlayer.GetEventsManager();
-            em.OnCardPlayedFromHand -= CardPassive;
-            CardDisplay newCopy = currPlayer.PlaceCard(index, placedCard);
-            em.OnCardPlayedFromHand += CardPassive;    
-
-            StudentCardDisplay newStudent = newCopy.GetComponent<StudentCardDisplay>();
+            CardDisplay c = currPlayer.GetField().ActivateCard(index, placedCard, currPlayer.number);
+            StudentCardDisplay newStudent = c as StudentCardDisplay;
             newStudent.SetDuration(effectValue);
         }
     }

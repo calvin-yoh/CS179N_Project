@@ -114,6 +114,8 @@ MonoBehaviour:
   ev: {fileID: 8523505419204553094}
   isAI: 1
   number: 0
+  numStudentCardsCanPlace: 0
+  numFacultyCardsCanPlace: 0
   isDrawPhase: 1
   isPlaceCardsPhase: 0
   isActivateEffectPhase: 0
@@ -143,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1009353482526682237, guid: ac27d66e4f84bc144b2f173efcd6d484, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 1009353482526682237, guid: ac27d66e4f84bc144b2f173efcd6d484, type: 3}
       propertyPath: m_LocalPosition.y
@@ -151,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1009353482526682237, guid: ac27d66e4f84bc144b2f173efcd6d484, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.8
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 1009353482526682237, guid: ac27d66e4f84bc144b2f173efcd6d484, type: 3}
       propertyPath: m_LocalRotation.w
