@@ -12,6 +12,8 @@ public abstract class CardDisplay : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI effectText;
 
+    public AudioSource activateEffectSound;
+
     public Image artworkImage;
     public Image backgroundImage;
 
@@ -140,6 +142,10 @@ public abstract class CardDisplay : MonoBehaviour
             {
                 Debug.Log("Activating " + this.name + "'s effect");
                 this.hasActivatedEffect = true;
+
+                //sound effect for activated card
+                activateEffectSound.Play();
+
                 glowEffect.SetActive(false);
                 return cardEffectScript.PerformEffect(gm);
             }
