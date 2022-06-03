@@ -13,14 +13,16 @@ public class BasketballCourt : CardEffect
 
     private void OnEnable()
     {
-        Player currPlayer = GameManager.Instance.GetCurrentPlayer();
+        int playerNumber = gameObject.GetComponent<CardDisplay>().playerNumber;
+        Player currPlayer = GameManager.Instance.players[playerNumber - 1];
         EventsManager em = currPlayer.GetEventsManager();
         em.OnCardPlayedFromHand += CardPassive;    
     }
 
     private void OnDisable()
     {
-        Player currPlayer = GameManager.Instance.GetCurrentPlayer();
+        int playerNumber = gameObject.GetComponent<CardDisplay>().playerNumber;
+        Player currPlayer = GameManager.Instance.players[playerNumber - 1];
         EventsManager em = currPlayer.GetEventsManager();
         em.OnCardPlayedFromHand -= CardPassive;
     }
@@ -37,8 +39,10 @@ public class BasketballCourt : CardEffect
         CardDisplay thisCard = gameObject.GetComponent<CardDisplay>();
         GameData data = GameManager.Instance.GetGameData(thisCard);
 
+        StudentCardDisplay scd = placedCard.GetComponent<StudentCardDisplay>();
+
         int studentCount = data.friendlyStudents.Count;
-        if (studentCount == 5){
+        if (studentCount == 5 && scd != null){
             int effectValue = 5 + thisCard.GetEffectValueModifier();
 
             foreach (StudentCardDisplay s in data.friendlyStudents){

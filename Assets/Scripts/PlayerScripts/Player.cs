@@ -144,5 +144,6 @@ public class Player : MonoBehaviour
         field.ReduceEffectModifiers();
         GameManager.Instance.SwitchPlayers();
         field.ResetBuildingBools();
+        field.IncreaseCardsTurnCounts();
     }
 }

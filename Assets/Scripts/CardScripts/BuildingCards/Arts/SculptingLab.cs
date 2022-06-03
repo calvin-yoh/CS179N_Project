@@ -13,14 +13,16 @@ public class SculptingLab : CardEffect
 
     private void OnEnable()
     {
-        Player oppPlayer = GameManager.Instance.GetOpposingPlayer();
+        int playerNumber = gameObject.GetComponent<CardDisplay>().playerNumber;
+        Player oppPlayer = GameManager.Instance.players[playerNumber % 2];
         EventsManager em = oppPlayer.GetEventsManager();
         em.OnCardPlayedFromHand += CardPassive;
     }
 
     private void OnDisable()
     {
-        Player oppPlayer = GameManager.Instance.GetOpposingPlayer();
+        int playerNumber = gameObject.GetComponent<CardDisplay>().playerNumber;
+        Player oppPlayer = GameManager.Instance.players[playerNumber % 2];
         EventsManager em = oppPlayer.GetEventsManager();
         em.OnCardPlayedFromHand -= CardPassive;
     }

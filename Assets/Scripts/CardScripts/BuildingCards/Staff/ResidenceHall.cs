@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConcertHall : CardEffect
+public class ResidenceHall : CardEffect
 {
     protected override void Start()
     {
@@ -27,7 +27,7 @@ public class ConcertHall : CardEffect
         em.OnCardPlayedFromHand -= CardPassive;
     }
 
-    //Your student cards have +1 duration when played.
+    // All your students gain +1 duration when played.
     public override int PerformEffect(GameData data)
     {
         return 0;
@@ -38,7 +38,6 @@ public class ConcertHall : CardEffect
         StudentCardDisplay scd = card.GetComponent<StudentCardDisplay>();
         if (scd != null)
         {
-            Debug.Log("ConcertHall building increased dur");
             scd.ChangeDurationBy(1);    
         }
     }

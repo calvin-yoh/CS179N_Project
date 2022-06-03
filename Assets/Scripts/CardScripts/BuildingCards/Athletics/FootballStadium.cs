@@ -16,14 +16,16 @@ public class FootballStadium : CardEffect
 
     private void OnEnable()
     {
-        Player currPlayer = GameManager.Instance.GetCurrentPlayer();
+        int playerNumber = gameObject.GetComponent<CardDisplay>().playerNumber;
+        Player currPlayer = GameManager.Instance.players[playerNumber - 1];
         EventsManager em = currPlayer.GetEventsManager();
         em.OnCardPlayedFromHand += CardPassive;    
     }
 
     private void OnDisable()
     {
-        Player currPlayer = GameManager.Instance.GetCurrentPlayer();
+        int playerNumber = gameObject.GetComponent<CardDisplay>().playerNumber;
+        Player currPlayer = GameManager.Instance.players[playerNumber - 1];
         EventsManager em = currPlayer.GetEventsManager();
         em.OnCardPlayedFromHand -= CardPassive;
     }
@@ -53,8 +55,8 @@ public class FootballStadium : CardEffect
     {
         CardDisplay thisCard = gameObject.GetComponent<CardDisplay>();
         GameData data = GameManager.Instance.GetGameData(thisCard);
-
-        if (placedCard.GetCardMajor() == Card.Major.Athletics){
+        StudentCardDisplay scd = placedCard.GetComponent<StudentCardDisplay>();
+        if (placedCard.GetCardMajor() == Card.Major.Athletics && scd != null){
 
             athleteCount++;
             int effectValue = 1 + thisCard.GetEffectValueModifier();

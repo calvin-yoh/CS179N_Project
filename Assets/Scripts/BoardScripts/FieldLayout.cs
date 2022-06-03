@@ -115,6 +115,18 @@ public class FieldLayout : MonoBehaviour
         }
     }
 
+    public void IncreaseCardsTurnCounts(){
+        foreach (BuildingCardDisplay building in GetActiveBuildingCards()){
+            building.IncreaseTurnCount();
+        }
+        foreach (StudentCardDisplay student in GetActiveStudentCards()){
+            student.IncreaseTurnCount();
+        }
+        foreach (FacultyCardDisplay faculty in GetActiveFacultyCards()){
+            faculty.IncreaseTurnCount();
+        }
+    }
+
     public void ReduceEffectModifiers()
     {
         foreach (StudentCardDisplay stud in studentCardDisplays)
