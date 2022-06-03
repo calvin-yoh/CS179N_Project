@@ -23,6 +23,10 @@ public class DropContainer : MonoBehaviour, IDropHandler
     public GameObject buildingSymbol;
     public GameObject facultySymbol;
 
+    public void Start(){
+        CardsManager.instance.loadDeck();
+    }
+
     public void OnDrop(PointerEventData eventData){
         addCard(eventData.pointerDrag);
     }
@@ -62,10 +66,9 @@ public class DropContainer : MonoBehaviour, IDropHandler
             buildingSymbol.GetComponentInChildren<Text>().text = "Building Cards: " + buildingCount.ToString() + " / " + MAX_BUILDING_CAPACITY.ToString();
             facultySymbol.GetComponentInChildren<Text>().text = "Faculty Cards: " + facultyCount.ToString() + " / " + MAX_FACULTY_CAPACITY.ToString();
 
-            CardsManager.saveCurrentDeck();
             previousChildCount = transform.childCount;
 
-
+            CardsManager.instance.saveCurrentDeck();
             RectTransform rec = GetComponent<RectTransform>();
 
             float cardHeight = 375f;

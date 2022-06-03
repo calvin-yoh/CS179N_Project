@@ -10,16 +10,30 @@ public class DeckSave{
 
 public class CardsManager : MonoBehaviour
 {
-    private static string currentDeckPath;
-    private static Dictionary<string, Card> cardDict = new Dictionary<string, Card>();
-    public static GameObject cardsGrid;
-    public static GameObject deckGrid;
+    public static CardsManager instance;
 
-    void Start()
+    private Dictionary<string, Card> cardDict = new Dictionary<string, Card>();
+    private string currentDeckPath;
+
+    public GameObject cardsGrid;
+    public GameObject deckGrid;
+
+
+    private void Awake(){
+        if(instance == null){
+            instance = this;
+            LoadCardObjects();
+        }
+        else{
+            Destroy(gameObject);
+        }
+    }
+
+
+    //Loads all the cards from the cards folder.
+    public void LoadCardObjects()
     {   
         currentDeckPath = Application.dataPath + "/Data/currentDeck.json";
-        cardsGrid = GameObject.Find("Cards Grid");
-        deckGrid = GameObject.Find("Deck Grid");
 
         // Loading student cards
         Object[] R_ArtStudentCards = Resources.LoadAll("Cards/StudentCards/Art Students", typeof(StudentCard));
@@ -70,13 +84,9 @@ public class CardsManager : MonoBehaviour
         if(!File.Exists(currentDeckPath)){
             File.WriteAllText(currentDeckPath, "");
         }
-        // Load all the cards to be displayed.
-        cardsGrid.GetComponent<LoadCards>().loadAll();
-        // Load the cards in the current deck.
-        loadDeck(currentDeckPath);
     }
 
-    public static List<Card> getAllCards(){
+    public List<Card> getAllCards(){
         List<Card> cards = new List<Card>();
         foreach(KeyValuePair<string, Card> entry in cardDict){
             cards.Add(entry.Value);
@@ -84,14 +94,14 @@ public class CardsManager : MonoBehaviour
         return cards;
     }
     
-    public static Card getCard(string name){
+    public Card getCard(string name){
         if(cardDict.ContainsKey(name)){
             return cardDict[name];
         }
         return null;
     }
 
-    public static void saveCurrentDeck(){
+    public void saveCurrentDeck(){
         DeckSave deckSave = new DeckSave();
         deckSave.cards = new List<string>(); 
         foreach(Transform card in deckGrid.transform){
@@ -111,10 +121,10 @@ public class CardsManager : MonoBehaviour
         File.WriteAllText(currentDeckPath, json);
     }
 
-    public static void loadDeck(string filename){
+    public void loadDeck(){
         string json;
-        if(File.Exists(filename)){
-            json = File.ReadAllText(filename);
+        if(File.Exists(currentDeckPath)){
+            json = File.ReadAllText(currentDeckPath);
         }else{ return; }
 
         DeckSave deckSave = JsonUtility.FromJson<DeckSave>(json);
@@ -146,7 +156,8 @@ public class CardsManager : MonoBehaviour
         }
     }
 
-    public static List<Card> getDeckCards(){
+    //Returns the cards in the deck selected.
+    public List<Card> getCardsInDeck(){
         List<Card> cards = new List<Card>();
         foreach(Transform card in deckGrid.transform){
             switch(card.gameObject.GetComponent<DragAndDrop>().type){
