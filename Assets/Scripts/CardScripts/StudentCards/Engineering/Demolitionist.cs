@@ -13,7 +13,11 @@ public class Demolitionist : CardEffect
     //Deal {6} damage to an opposing non-engineering building.
     public override int PerformEffect(GameData data)
     {
-        
+        if(data.target[0].GetCardType() != Card.Type.Building)
+        {
+            return -1;
+        }
+
         BuildingCardDisplay target;
         int effectValue = 6 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
         

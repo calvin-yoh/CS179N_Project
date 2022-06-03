@@ -13,7 +13,11 @@ public class Cyborg : CardEffect
     //Human Augmentation: Reduce an opposing student's duration by 1.
     public override int PerformEffect(GameData data)
     {
-        
+        if(data.target[0].GetCardType() != Card.Type.Student)
+        {
+            return -1;
+        }
+
         StudentCardDisplay target;
         int effectValue = 1 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
         if (data.target[0].gameObject.TryGetComponent(out target))

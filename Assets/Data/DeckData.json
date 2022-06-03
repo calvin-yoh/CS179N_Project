@@ -3,9 +3,12 @@
     "decks": [
         {
             "cards": [
-                "Actor : Lead Actress",
+                "Baseball Batter",
+                "Soccer Striker",
                 "Photographer",
-                "Dark Room"
+                "Video Editor",
+                "Concert Hall",
+                "Gym"
             ]
         }
     ]
