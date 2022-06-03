@@ -10,28 +10,16 @@ public class AdmissionsOffice : CardEffect
 {
     protected override void Start(){
         targetType = Card.Type.Student;
-        targetTeam = TargetTeam.Friendly;
-        numTargets = 1;
+        targetTeam = TargetTeam.Enemy;
+        numTargets = 0;
     }
 
-    // Academic advisor - remove random card from enemy hands
+    //Discard a random card from your opponent's hand. Disable this card for 1 turn.
     public override int PerformEffect(GameData data)
     {
-        
-        if(data.self.turnsInPlay %2 == 0){
-            
-            //foreach()
-            
-            Debug.Log("Admissions office removed card from enemy hand");
-        } 
-        else 
-        {
-            Debug.Log("Error when Admissions office needs to wait longer");
-        }
-
-
-        
-    
+        var hand =  data.enemyHand;
+        hand.RemoveRandomCard();
+        gameObject.GetComponent<CardDisplay>().DistractCard();
         return 0;
     }
 }

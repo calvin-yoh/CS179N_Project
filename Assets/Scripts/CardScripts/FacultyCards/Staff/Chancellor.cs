@@ -11,30 +11,27 @@ public class Chancellor : CardEffect
     protected override void Start(){
         targetType = Card.Type.Student;
         targetTeam = TargetTeam.Enemy;
-        numTargets = 0;
+        numTargets = 1;
     }
 
-    // Chancellor - Every 2 turns choose one of your opponents card to remove from play
+    // Chancellor - Remove a student from play. Disable this card for 1 turn.
     public override int PerformEffect(GameData data)
     {
-        
-        GameObject go = data.target[0].gameObject;
-        CardDisplay target;
+        CardDisplay target = data.target[0];
+        GameObject go = target.gameObject;
 
-        if(data.self.turnsInPlay %2 == 0){
+        StudentCardDisplay temp;
 
-            if(go.TryGetComponent(out target)){
-                target.RemoveCardFromPlay();
-                Debug.Log("Chancellor expelled a student");
-
-            } else {
-                Debug.Log("Error when Chancellor tries to expel a student");
-            }
-
+        if(go.TryGetComponent(out temp))
+        {
+            temp.SetDuration(0);
+            Debug.Log("Chancellor expelled a student");
+            gameObject.GetComponent<CardDisplay>().DistractCard();
+        } 
+        else 
+        {
+            Debug.Log("Error when Chancellor tries to expel a student");
         }
-
-        
-    
         return 0;
     }
 }

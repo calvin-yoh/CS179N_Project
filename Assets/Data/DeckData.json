@@ -1,5 +1,5 @@
 {
-    "currentDeck": 3,
+    "currentDeck": 4,
     "decks": [
         {
             "cards": [
@@ -16,13 +16,14 @@
                 "Event Coordinator",
                 "Film Professor",
                 "Soccer Coach",
-                "Cybersecurity Club",
-                "Theater",
-                "Computer Lab",
-                "Robot Arena",
-                "Server Room",
-                "Residence Hall",
-                "Computer Science Professor"
+                "Cybersecurity Club"
+            ]
+        },
+        {
+            "cards": [
+                "Actor : Cast",
+                "Musicians",
+                "Concept Artist"
             ]
         },
         {
@@ -31,8 +32,7 @@
                 "Cyborg",
                 "Academics Advisor",
                 "Admissions Office",
-                "Dark Room",
-                "Track and Field"
+                "Dark Room"
             ]
         },
         {
@@ -46,13 +46,11 @@
                 "Jazz Band",
                 "Baseball Batter",
                 "Soccer Striker",
-                "Actor : Lead Actress",
-                "Super Computer"
+                "Actor : Lead Actress"
             ]
         },
         {
             "cards": [
-                "Football Team",
                 "Football Team",
                 "Soccer Striker",
                 "Soccer Striker",
@@ -72,7 +70,7 @@
                 "Dining Hall",
                 "Soccer Striker",
                 "Football Team",
-                "Ice Rink"
+                "Baseball Batter"
             ]
         }
     ]

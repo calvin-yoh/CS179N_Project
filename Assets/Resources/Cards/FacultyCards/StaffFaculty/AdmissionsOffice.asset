@@ -16,8 +16,9 @@ MonoBehaviour:
   major: 2
   type: 2
   effectName: Decline
-  effect: Every other turn, without looking, choose one card from your opponent's
-    hand and discard it.
+  effect: Discard a random card from your opponent's hand. Disable this card for
+    1 turn.
   artwork: {fileID: 21300000, guid: 8cccabb1eb08c0e4cabe701e5dece1f1, type: 3}
   health: 0
   duration: 0
+  effectScript: {fileID: 11500000, guid: 5b98a1e4feca3aa44986c7b1eb9b4995, type: 3}
