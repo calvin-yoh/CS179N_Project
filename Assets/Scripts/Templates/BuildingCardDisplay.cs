@@ -180,6 +180,13 @@ public class BuildingCardDisplay : CardDisplay
 		cardArmor = oldCard.GetCardArmor();
 	}
 
+	public void CopyInformationUI(BuildingCardDisplay oldCard)
+	{
+		base.CopyInformationUI(oldCard);
+		cardHealth = oldCard.GetCardHealth();
+		cardArmor = oldCard.GetCardArmor();
+	}
+
 	public override void HideCard(){
 		base.HideCard();
 		healthText.text = "";

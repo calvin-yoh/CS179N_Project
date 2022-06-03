@@ -78,6 +78,13 @@ public class StudentCardDisplay : CardDisplay
 		cardEffectName = oldCard.GetCardEffectName();
     }
 
+	public void CopyInformationUI(StudentCardDisplay oldCard)
+	{
+		base.CopyInformationUI(oldCard);
+		cardDuration = oldCard.GetCardDuration();
+		cardEffectName = oldCard.GetCardEffectName();
+	}
+
 	public override void HideCard(){
 		base.HideCard();
 		durationText.text = "";
