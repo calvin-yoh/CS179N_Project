@@ -40,7 +40,7 @@ public class FootballStadium : CardEffect
             }
         }
 
-        int effectValue = athleteCount * data.self.GetEffectValueModifier();
+        int effectValue = athleteCount * (1 + data.self.GetEffectValueModifier());
 
         foreach(BuildingCardDisplay b in data.friendlyBuildings){
             if (b.GetCardMajor() == Card.Major.Athletics){
@@ -63,27 +63,27 @@ public class FootballStadium : CardEffect
     public override void CardPlayedFromHandPassive(CardDisplay card)
     {
         
-        if (card.GetCardMajor() == Card.Major.Athletics){
+        // if (card.GetCardMajor() == Card.Major.Athletics){
 
-            athleteCount++;
-            int effectValue = 1 * data.self.GetEffectValueModifier();
-            card.SetEffectValueModifier(card.GetEffectValueModifier() + (athleteCount * data.self.GetEffectValueModifier()));
+        //     athleteCount++;
+        //     int effectValue = 1 * data.self.GetEffectValueModifier();
+        //     card.SetEffectValueModifier(card.GetEffectValueModifier() + (athleteCount * data.self.GetEffectValueModifier()));
 
-            foreach(BuildingCardDisplay b in data.friendlyBuildings){
-                if (b.GetCardMajor() == Card.Major.Athletics){
-                    b.SetEffectValueModifier(b.GetEffectValueModifier() + effectValue);
-                }
-            }
-            foreach(FacultyCardDisplay f in data.friendlyFaculties){
-                if (f.GetCardMajor() == Card.Major.Athletics){
-                    f.SetEffectValueModifier(f.GetEffectValueModifier() + effectValue);
-                }
-            }
-            foreach(StudentCardDisplay s in data.friendlyStudents){
-                if (s.GetCardMajor() == Card.Major.Athletics){
-                    s.SetEffectValueModifier(s.GetEffectValueModifier() + effectValue);
-                }
-            }
-        }
+        //     foreach(BuildingCardDisplay b in data.friendlyBuildings){
+        //         if (b.GetCardMajor() == Card.Major.Athletics){
+        //             b.SetEffectValueModifier(b.GetEffectValueModifier() + effectValue);
+        //         }
+        //     }
+        //     foreach(FacultyCardDisplay f in data.friendlyFaculties){
+        //         if (f.GetCardMajor() == Card.Major.Athletics){
+        //             f.SetEffectValueModifier(f.GetEffectValueModifier() + effectValue);
+        //         }
+        //     }
+        //     foreach(StudentCardDisplay s in data.friendlyStudents){
+        //         if (s.GetCardMajor() == Card.Major.Athletics){
+        //             s.SetEffectValueModifier(s.GetEffectValueModifier() + effectValue);
+        //         }
+        //     }
+        // }
     }
 }
