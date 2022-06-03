@@ -13,6 +13,11 @@ public class FootballTeam : CardEffect
     // Deal {6} damage to a target enemy building. If there is no enemy Athletic card, deal {3} more.
     public override int PerformEffect(GameData data)
     {
+        if(data.target[0].GetCardType() != Card.Type.Building)
+        {
+            return -1;
+        }
+
         int damage = 6 + data.self.GetEffectValueModifier();
         int bonusDamage = 3 + data.self.GetEffectValueModifier();
 

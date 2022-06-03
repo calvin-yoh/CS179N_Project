@@ -13,6 +13,10 @@ public class Librarian : CardEffect
 
     // Shush - Reduce a target student's effect value by {2} for 1 turn.
     public override int PerformEffect(GameData data){
+        if(data.target[0].GetCardType() != Card.Type.Student){
+            return -1;
+        }
+
         StudentCardDisplay target;
         int effectValue = 2 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
         if (data.target[0].gameObject.TryGetComponent(out target)){

@@ -13,6 +13,11 @@ public class Chef : CardEffect
     //Grant a target student +2 effect value.
     public override int PerformEffect(GameData data)
     {
+        if (data.target[0].GetCardType() != Card.Type.Student)
+        {
+            return -1;
+        }
+
         GameObject go = data.target[0].gameObject;
         StudentCardDisplay target;
 

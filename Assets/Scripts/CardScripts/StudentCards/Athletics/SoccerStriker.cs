@@ -12,6 +12,11 @@ public class SoccerStriker : CardEffect
     // Deal {3} damage to a target enemy building. For every Soccer card on the field, do 1 more.
     public override int PerformEffect(GameData data)
     {
+        if(data.target[0].GetCardType() != Card.Type.Building)
+        {
+            return -1;
+        }
+
         GameObject go = data.target[0].gameObject;
         BuildingCardDisplay target;
 
