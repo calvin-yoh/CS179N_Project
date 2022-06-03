@@ -8,6 +8,7 @@ public class Chef : CardEffect
     {
         targetType = Card.Type.Student;
         targetTeam = TargetTeam.Friendly;
+        numTargets = 1;
     }
     //Grant a target student +2 effect value.
     public override int PerformEffect(GameData data)

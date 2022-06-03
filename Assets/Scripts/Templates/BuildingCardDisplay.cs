@@ -113,6 +113,7 @@ public class BuildingCardDisplay : CardDisplay
 		}
 
 		cardHealth -= realDamage;
+		DisplayInformation();
 		if (cardHealth <= 0){
 			RemoveCardFromPlay();
 			GameManager.Instance.CheckGameEnded(playerNumber);

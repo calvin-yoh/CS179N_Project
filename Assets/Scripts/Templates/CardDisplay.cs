@@ -330,6 +330,7 @@ public abstract class CardDisplay : MonoBehaviour
                     return;
                 }
 
+
                 if (GetEffectValueModifier() != 0)
                 {
                     tempDamage += GetEffectValueModifier();

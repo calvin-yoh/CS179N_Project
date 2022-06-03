@@ -29,7 +29,7 @@ public class FootballStadium : CardEffect
     }
 
     // Athletic building
-    // All Athletics cards gain {+1} effect power for each friendly student Athletics card.
+    // All Athletic student cards gain {+1} effect power for each friendly student Athletics card.
     public override int PerformEffect(GameData data)
     {
         this.data = data;
@@ -42,16 +42,6 @@ public class FootballStadium : CardEffect
 
         int effectValue = athleteCount * (1 + data.self.GetEffectValueModifier());
 
-        foreach(BuildingCardDisplay b in data.friendlyBuildings){
-            if (b.GetCardMajor() == Card.Major.Athletics){
-                b.SetEffectValueModifier(b.GetEffectValueModifier() + effectValue);
-            }
-        }
-        foreach(FacultyCardDisplay f in data.friendlyFaculties){
-            if (f.GetCardMajor() == Card.Major.Athletics){
-                f.SetEffectValueModifier(f.GetEffectValueModifier() + effectValue);
-            }
-        }
         foreach(StudentCardDisplay s in data.friendlyStudents){
             if (s.GetCardMajor() == Card.Major.Athletics){
                 s.SetEffectValueModifier(s.GetEffectValueModifier() + effectValue);
