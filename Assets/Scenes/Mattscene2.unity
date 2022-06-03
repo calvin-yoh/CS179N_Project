@@ -763,15 +763,15 @@ PrefabInstance:
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: c96ecda401878734baf04fccf2bf3fc0, type: 2}
+      objectReference: {fileID: 11400000, guid: cec6c1601fea98049ada0a158bdb013f, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: c96ecda401878734baf04fccf2bf3fc0, type: 2}
+      objectReference: {fileID: 11400000, guid: cec6c1601fea98049ada0a158bdb013f, type: 2}
     - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: openDeck.Array.data[7]
       value: 
-      objectReference: {fileID: 11400000, guid: c96ecda401878734baf04fccf2bf3fc0, type: 2}
+      objectReference: {fileID: 11400000, guid: cec6c1601fea98049ada0a158bdb013f, type: 2}
     - target: {fileID: 52183315598125516, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: activateEffectSound
       value: 
