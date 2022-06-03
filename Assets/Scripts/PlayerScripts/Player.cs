@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
         if (!isAI)
         {
-            deck.SetCustomDeck();
+            // deck.SetCustomDeck();
         }
         deck.SetUpDeck();
     }
