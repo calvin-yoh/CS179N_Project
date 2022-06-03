@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: buildings.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: openDeck.Array.data[0]
@@ -181,19 +181,19 @@ PrefabInstance:
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: buildings.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 6210905feb98da94baaf9eab42eb7673, type: 2}
+      objectReference: {fileID: 11400000, guid: 951c49892b2462c46a5da2a2e394d45f, type: 2}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: buildings.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 951c49892b2462c46a5da2a2e394d45f, type: 2}
+      objectReference: {fileID: 11400000, guid: f3f889e8bb663ff45b4b8e512a3018f2, type: 2}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: buildings.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: f3f889e8bb663ff45b4b8e512a3018f2, type: 2}
+      objectReference: {fileID: 11400000, guid: 6644c0472cbc6e146a00032e201cd921, type: 2}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: buildings.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 6644c0472cbc6e146a00032e201cd921, type: 2}
+      objectReference: {fileID: 11400000, guid: 257bd0a52af77104db21b6fb8fe09646, type: 2}
     - target: {fileID: 1170981858, guid: aa8bc4db3b2f2ef4790d3f6bff088390, type: 3}
       propertyPath: buildings.Array.data[4]
       value: 
@@ -740,6 +740,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5230f04009da7fc4f94690899aebc478, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5230f04009da7fc4f94690899aebc478, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5230f04009da7fc4f94690899aebc478, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 431a1669ed477024298cfc90ec6d540c, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 431a1669ed477024298cfc90ec6d540c, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: c96ecda401878734baf04fccf2bf3fc0, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: c96ecda401878734baf04fccf2bf3fc0, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: c96ecda401878734baf04fccf2bf3fc0, type: 2}
     - target: {fileID: 52183315598125516, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: activateEffectSound
       value: 

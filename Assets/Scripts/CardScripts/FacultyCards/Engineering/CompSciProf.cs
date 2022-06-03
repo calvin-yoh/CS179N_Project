@@ -8,20 +8,23 @@ public class CompSciProf : CardEffect
     {
         targetType = Card.Type.Building;
         targetTeam = TargetTeam.Enemy;
-        numTargets = 1;
+        numTargets = 0;
     }
-    //
+
+    // If your opponent has 0 Engineering buildings, deal {10} damage to all your opponents buildings
     public override int PerformEffect(GameData data)
     {
 
         bool containsCSBuilding = false;
-        foreach (BuildingCardDisplay building in data.friendlyBuildings){
-            if(building.GetCardMajor() == Card.Major.Engineering)
+        foreach (BuildingCardDisplay building in data.enemyBuildings){
+            if(building.GetCardMajor() == Card.Major.Engineering){
                 containsCSBuilding = true;
+                break;
+            }
         }
 
-        if(containsCSBuilding){
-            var damage = 5 + data.self.GetEffectValueModifier();
+        if(!containsCSBuilding){
+            var damage = 10 + data.self.GetEffectValueModifier();
             Debug.Log("CompSci prof damages enemy buildings");
 
             foreach (BuildingCardDisplay building in data.enemyBuildings){
