@@ -18,6 +18,7 @@ MonoBehaviour:
   effectName: Paint Mix
   effect: If the Concept Artist is in play, this card cannot be targetted. Deals
     4 damage to 2 of your opponent's buildings.
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: da15f7cc998ea4a7281bc878520ebe81, type: 3}
   health: 0
   duration: 0
+  effectScript: {fileID: 0}
