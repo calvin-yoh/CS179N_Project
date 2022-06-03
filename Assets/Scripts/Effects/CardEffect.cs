@@ -24,7 +24,7 @@ public abstract class CardEffect : MonoBehaviour
     /// <returns></returns>
     public abstract int PerformEffect(GameData data);
 
-    public virtual void CardPlayedFromHandPassive(CardDisplay card) { return; }
+    public virtual void CardPassive(CardDisplay card) { return; }
 
     //Flip a coin. 0 for Tails. 1 for Head
     public int FlipCoin(int luckModifier)
