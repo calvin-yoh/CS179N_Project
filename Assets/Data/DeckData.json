@@ -1,9 +1,8 @@
 {
-    "currentDeck": 1,
+    "currentDeck": 0,
     "decks": [
         {
             "cards": [
-                "Baseball Batter",
                 "Soccer Goalkeeper",
                 "Soccer Striker",
                 "Video Editor",
@@ -16,12 +15,15 @@
                 "Librarian",
                 "Event Coordinator",
                 "Film Professor",
-                "Soccer Coach"
+                "Soccer Coach",
+                "Cybersecurity Club"
             ]
         },
         {
             "cards": [
-                "Soccer Coach"
+                "Video Editor",
+                "Soccer Striker",
+                "Actor : Lead Actress"
             ]
         }
     ]
