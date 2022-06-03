@@ -1,26 +1,19 @@
 {
-    "currentDeck": 2,
+    "currentDeck": 1,
     "decks": [
         {
             "cards": [
-                "Baseball Batter",
-                "Photographer"
+                "Jazz Band",
+                "Baseball Batter"
             ]
         },
         {
             "cards": [
-                "Actor : Cast",
-                "Musicians",
-                "Concept Artist"
-            ]
-        },
-        {
-            "cards": [
-                "Baseball Batter",
-                "Cyborg",
-                "Academics Advisor",
-                "Admissions Office",
-                "Dark Room"
+                "Video Editor",
+                "Soccer Striker",
+                "Soccer Striker",
+                "Soccer Coach",
+                "Sculpting Lab"
             ]
         }
     ]

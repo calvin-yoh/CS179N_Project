@@ -60,6 +60,8 @@ public class DropContainer : MonoBehaviour, IDropHandler
 
         if (card.transform.parent == this.transform){ return; }
 
+        int currentDeck = CardsManager.instance.DeckData.currentDeck;
+
         switch(card.GetComponent<DragAndDrop>().type){
             case Card.Type.Student:
                 if (studentCount >= MAX_STUDENT_CAPACITY) return;
@@ -67,10 +69,12 @@ public class DropContainer : MonoBehaviour, IDropHandler
                 break;  
             case Card.Type.Building:
                 if (buildingCount >= MAX_BUILDING_CAPACITY) return;
+                if (CardsManager.instance.DeckData.decks[currentDeck].cards.Contains(card.GetComponent<CardDisplay>().GetCardName())) return;
                 buildingCount++;
                 break;
             case Card.Type.Faculty:
                 if (facultyCount >= MAX_FACULTY_CAPACITY) return;
+                if (CardsManager.instance.DeckData.decks[currentDeck].cards.Contains(card.GetComponent<CardDisplay>().GetCardName())) return;
                 facultyCount++;
                 break;
             default:
