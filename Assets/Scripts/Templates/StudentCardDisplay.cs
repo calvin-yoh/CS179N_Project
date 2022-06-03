@@ -34,6 +34,18 @@ public class StudentCardDisplay : CardDisplay
 		return cardEffectName;
 	}
 
+	public void SetDuration(int newDuration){
+		cardDuration = newDuration;
+		if (cardDuration <= 0)
+		{
+			RemoveCardFromPlay();
+		}
+		else
+		{
+			DisplayInformation();
+		}
+	}
+
 	public void ChangeDurationBy(int value)
 	{
 		cardDuration += value;

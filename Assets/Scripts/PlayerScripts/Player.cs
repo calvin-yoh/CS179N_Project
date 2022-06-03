@@ -97,13 +97,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void PlaceCard(int index, CardDisplay newCardDisplay){
+    public CardDisplay PlaceCard(int index, CardDisplay newCardDisplay){
         Card newCard = newCardDisplay.card;
         Card.Type type = newCard.type;
         switch (type){
             case Card.Type.Student:
                 if (numStudentCardsCanPlace == 0){  // Already played student card, don't place card down
-                    return;
+                    return null;
                 }
                 else{
                     numStudentCardsCanPlace--;
@@ -111,15 +111,14 @@ public class Player : MonoBehaviour
                 break;
             case Card.Type.Faculty:
                 if (numFacultyCardsCanPlace == 0){  // Already played faculty card, don't place card down
-                    return;
+                    return null;
                 }
                 else{
                     numFacultyCardsCanPlace--;
                 }
                 break;
             case Card.Type.Building:
-                field.ActivateCard(index, newCardDisplay, number);
-                return;
+                return field.ActivateCard(index, newCardDisplay, number);;
             default:
                 break;
         }
@@ -129,6 +128,7 @@ public class Player : MonoBehaviour
 
         //place card sound effect
         placeCardSound.Play();
+        return c;
     }
 
     public void ChangeNumStudentsCanPlace(int change){
