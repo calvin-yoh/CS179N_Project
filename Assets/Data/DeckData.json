@@ -1,1 +1,27 @@
-{"currentDeck":0,"decks":[{"cards":["Jazz Band","Baseball Batter","Soccer Striker","Graphic Design Club","Soccer Coach","Concert Hall"]}]}
+{
+    "currentDeck": 2,
+    "decks": [
+        {
+            "cards": [
+                "Baseball Batter",
+                "Photographer"
+            ]
+        },
+        {
+            "cards": [
+                "Actor : Cast",
+                "Musicians",
+                "Concept Artist"
+            ]
+        },
+        {
+            "cards": [
+                "Baseball Batter",
+                "Cyborg",
+                "Academics Advisor",
+                "Admissions Office",
+                "Dark Room"
+            ]
+        }
+    ]
+}
