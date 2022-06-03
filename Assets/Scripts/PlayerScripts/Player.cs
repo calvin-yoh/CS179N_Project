@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
     }
 
     public void SetUpDeck(){
+
+        if (!isAI)
+        {
+            deck.SetCustomDeck();
+        }
         deck.SetUpDeck();
     }
 
