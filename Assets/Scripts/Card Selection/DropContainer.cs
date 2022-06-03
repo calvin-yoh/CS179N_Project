@@ -84,6 +84,11 @@ public class DropContainer : MonoBehaviour, IDropHandler
         var copy = Instantiate(card, transform.position, transform.rotation);
         copy.GetComponent<RectTransform>().SetParent(this.transform);
         copy.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+
+        var sound = GetComponent<AudioSource>();
+        if(sound != null){
+            sound.Play();
+        }
         CardsManager.instance.addCardToDeck(card.GetComponent<CardDisplay>().GetCardName());
     }
 
