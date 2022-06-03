@@ -14,23 +14,26 @@ public class Chancellor : CardEffect
         numTargets = 0;
     }
 
-    // Chancellor - Every 3 turns choose one of your opponents card to remove from play
+    // Chancellor - Every 2 turns choose one of your opponents card to remove from play
     public override int PerformEffect(GameData data)
     {
         
-        // GameObject go = data.target[0].gameObject;
-        // CardDisplay target;
-        // var turnCounter = 1;
+        GameObject go = data.target[0].gameObject;
+        CardDisplay target;
 
+        if(data.self.turnsInPlay %2 == 0){
 
-        // if(go.TryGetComponent(out target)){
-        //     target.RemoveCardFromPlay();
-        //     if(data)
-        //     Debug.Log("Chancellor expelled a student");
+            if(go.TryGetComponent(out target)){
+                target.RemoveCardFromPlay();
+                Debug.Log("Chancellor expelled a student");
 
-        // } else {
-        //     Debug.Log("Error when Chancellor tries to expel a student");
-        // }
+            } else {
+                Debug.Log("Error when Chancellor tries to expel a student");
+            }
+
+        }
+
+        
     
         return 0;
     }
