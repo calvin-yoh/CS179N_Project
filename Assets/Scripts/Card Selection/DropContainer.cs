@@ -16,6 +16,7 @@ public class DropContainer : MonoBehaviour, IDropHandler
     private const int MAX_BUILDING_CAPACITY = 5;
     private const int MAX_FACULTY_CAPACITY = 3;
     private const int MAX_TOTAL_CAPACITY = 20;
+    private const float MIN_HEIGHT = 1100.0f;
 
     private int previousChildCount = 0;
 
@@ -48,6 +49,20 @@ public class DropContainer : MonoBehaviour, IDropHandler
                     facultyCount++;
                     break;
             }
+        }
+
+
+        RectTransform rec = GetComponent<RectTransform>();
+        float cardHeight = 375f;
+
+        float rows = Mathf.Ceil(transform.childCount / 2f);
+
+        float new_height = (cardHeight * (rows + 0.5f));
+        
+        if (new_height > MIN_HEIGHT){
+            rec.sizeDelta = new Vector2(rec.sizeDelta.x, new_height);
+        }else{
+            rec.sizeDelta = new Vector2(rec.sizeDelta.x, MIN_HEIGHT);
         }
     }
 
@@ -84,6 +99,11 @@ public class DropContainer : MonoBehaviour, IDropHandler
         var copy = Instantiate(card, transform.position, transform.rotation);
         copy.GetComponent<RectTransform>().SetParent(this.transform);
         copy.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+
+        var sound = GetComponent<AudioSource>();
+        if(sound != null){
+            sound.Play();
+        }
         CardsManager.instance.addCardToDeck(card.GetComponent<CardDisplay>().GetCardName());
     }
 
@@ -106,8 +126,10 @@ public class DropContainer : MonoBehaviour, IDropHandler
 
             float new_height = (cardHeight * (rows + 0.5f));
             
-            if (new_height > rec.sizeDelta.y){
+            if (new_height > MIN_HEIGHT){
                 rec.sizeDelta = new Vector2(rec.sizeDelta.x, new_height);
+            }else{
+                rec.sizeDelta = new Vector2(rec.sizeDelta.x, MIN_HEIGHT);
             }
         }
     }

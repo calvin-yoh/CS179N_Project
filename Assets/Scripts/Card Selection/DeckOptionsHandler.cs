@@ -45,15 +45,15 @@ public class DeckOptionsHandler : MonoBehaviour
     }
 
     public void deleteCurrentDeck(){
+        deckOptions.value = (int)Options.browse;
+        deckOptions.RefreshShownValue();
+
         if (CardsManager.instance.DeckData.decks.Count <= 1){
             return;
         }
 
         CardsManager.instance.removeDeck(decks.value);
         decks.options.RemoveAt(decks.value);
-
-        deckOptions.value = (int)Options.browse;
-        deckOptions.RefreshShownValue();
 
         decks.value = 0;
 

@@ -24,6 +24,10 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         GetComponent<CanvasGroup>().alpha = 0.6f;
         copy.GetComponent<RectTransform>().localScale = new Vector3(1.75f, 1.75f, 1.75f);
+        var sound = GetComponent<AudioSource>();
+        if(sound != null){
+            sound.Play();
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData){

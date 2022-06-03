@@ -35,6 +35,11 @@ public class Trash : MonoBehaviour, IDropHandler
         }
 
         if (!(card.transform.parent.gameObject.name == "Deck Grid")){ return; }
+        var sound = GetComponent<AudioSource>();
+        if(sound != null){
+            sound.Play();
+        }
+        CardsManager.instance.removeCardFromDeck(card.GetComponent<CardDisplay>().GetCardName());
         Destroy(card);
     }
 }

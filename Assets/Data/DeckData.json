@@ -1,10 +1,22 @@
 {
-    "currentDeck": 3,
+    "currentDeck": 4,
     "decks": [
         {
             "cards": [
-                "Baseball Batter",
-                "Photographer"
+                "Soccer Goalkeeper",
+                "Soccer Striker",
+                "Video Editor",
+                "Actor : Lead Actress",
+                "Actor : Lead Actress",
+                "Soccer Goalkeeper",
+                "Musicians",
+                "Demolitionist",
+                "Concoction Specialist",
+                "Librarian",
+                "Event Coordinator",
+                "Film Professor",
+                "Soccer Coach",
+                "Cybersecurity Club"
             ]
         },
         {
@@ -34,17 +46,31 @@
                 "Jazz Band",
                 "Baseball Batter",
                 "Soccer Striker",
-                "Snowboarding Club",
-                "Cyborg",
-                "Statician",
-                "Computer Science Professor",
+                "Actor : Lead Actress"
+            ]
+        },
+        {
+            "cards": [
+                "Football Team",
+                "Football Team",
+                "Soccer Striker",
+                "Soccer Striker",
+                "Soccer Goalkeeper",
+                "Soccer Goalkeeper",
+                "Cheerleaders",
+                "Cheerleaders",
+                "Tour Guide",
+                "Tour Guide",
+                "Residence Hall",
+                "Track and Field",
+                "Gym",
+                "Football Stadium",
+                "The Chancellor",
                 "Admissions Office",
-                "Track and Field Coach",
-                "Concert Hall",
-                "Sculpting Lab",
-                "Arts Building",
-                "Dark Room",
-                "Theater"
+                "Soccer Coach",
+                "Event Coordinator",
+                "Event Coordinator",
+                "Bell Tower"
             ]
         }
     ]
