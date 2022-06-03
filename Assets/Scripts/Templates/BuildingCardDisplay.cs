@@ -15,11 +15,15 @@ public class BuildingCardDisplay : CardDisplay
 
 	public TextMeshProUGUI healthText;
 
+	public Image buildingStatusImage;
+
+	[SerializeField] private Sprite weakenedIcon;
+	[SerializeField] private Sprite immuneIcon;
+
 	private int fieldLocation = 0;
 
 	private bool isWeakened;
 	private bool isImmune;
-
 
 	//Additional card information
 	private int BUILDING_MAX_HEALTH;
@@ -29,7 +33,7 @@ public class BuildingCardDisplay : CardDisplay
 	// Use this for initialization
 	void Start()
 	{
-		BUILDING_MAX_HEALTH = cardHealth;
+		
 	}
 
 	public int GetCardHealth(){
@@ -47,11 +51,13 @@ public class BuildingCardDisplay : CardDisplay
 	public void SetBuildingWeaken(bool weaken)
 	{
 		isWeakened = weaken;
+		DisplayStatusImage();
 	}
 
 	public void ResetWeaken()
 	{
 		isWeakened = false;
+		
 	}
 
 	public void SetBuildingImmunity(bool immunity)
@@ -62,6 +68,24 @@ public class BuildingCardDisplay : CardDisplay
 	public void ResetImmunity()
 	{
 		isImmune=false;
+	}
+
+	public void DisplayStatusImage()
+	{
+		if (isImmune)
+		{
+			buildingStatusImage.gameObject.SetActive(true);
+			buildingStatusImage.sprite = immuneIcon;
+		}
+		else if (isWeakened)
+		{
+			buildingStatusImage.gameObject.SetActive(true);
+			buildingStatusImage.sprite = weakenedIcon;
+		}
+		else
+        {
+			buildingStatusImage.gameObject.SetActive(false);
+		}
 	}
 
 	public void DamageBuilding(int damageTaken){
@@ -125,6 +149,7 @@ public class BuildingCardDisplay : CardDisplay
 	{
 		base.SetUpInformation();
 		cardHealth = card.health;
+		BUILDING_MAX_HEALTH = cardHealth;
 		cardArmor = 0;
 	}
 
@@ -132,6 +157,7 @@ public class BuildingCardDisplay : CardDisplay
 	{
 		base.SetUpInformationUI();
 		cardHealth = card.health;
+		BUILDING_MAX_HEALTH = cardHealth;
 		cardArmor = 0;
 	}
 
