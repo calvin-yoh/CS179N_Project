@@ -31,6 +31,7 @@ public abstract class CardDisplay : MonoBehaviour
     public int turnsInPlay;
     [SerializeField] private GameObject glowEffect;
     [SerializeField] private GameObject ActivateEffectButton;
+    [SerializeField] private GameObject distractedImage;
 
     public bool activateButtonWasPressed;
 
@@ -52,6 +53,7 @@ public abstract class CardDisplay : MonoBehaviour
     void Start()
     {
     }
+
     #region Getters/Setters
 
     public Card.Major GetCardMajor()
@@ -82,11 +84,13 @@ public abstract class CardDisplay : MonoBehaviour
 
     public void DistractCard()
     {
+        distractedImage.SetActive(true);
         isDistracted = true;
     }
 
     public void UnDistractCard()
     {
+        distractedImage.SetActive(false);
         isDistracted = false;
     }
 
