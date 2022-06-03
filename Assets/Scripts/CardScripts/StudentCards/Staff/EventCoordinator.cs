@@ -12,6 +12,11 @@ public class EventCoordinator : CardEffect
 
     // Rally - Grant a target student this ability : act again.
     public override int PerformEffect(GameData data){
+
+        if(data.target[0].GetCardType() != Card.Type.Student){
+            return -1;
+        }
+        
         StudentCardDisplay student;
         if (data.target[0].gameObject.TryGetComponent(out student)){
             data.target[0].ReactivateCard();

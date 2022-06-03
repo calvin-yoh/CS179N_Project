@@ -14,6 +14,11 @@ public class ConstructionWorker : CardEffect
     //Flip a coin. If heads, deal {5} damage to a target building. If tails, deal {3} damage to a target building.
     public override int PerformEffect(GameData data)
     {
+        if (data.target[0].GetCardType() != Card.Type.Building)
+        {
+            return -1;
+        }
+
         int luckModifier = GetLuckModifierValue(data.friendlyPlayer, data.self);
         var target = data.target[0];
         int headsEffectValue = 7 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();

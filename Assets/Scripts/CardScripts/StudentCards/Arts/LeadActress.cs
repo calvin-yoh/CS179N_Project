@@ -15,9 +15,9 @@ public class LeadActress : CardEffect
     {
         if (data.target[0].GetCardType() != Card.Type.Building)
         {
-           return -1;
+            return -1;
         }
-        
+
         int baseDamage = 2;
         int damage = baseDamage + (data.self.turnsInPlay * baseDamage);
         BuildingCardDisplay building = (BuildingCardDisplay)data.target[0];

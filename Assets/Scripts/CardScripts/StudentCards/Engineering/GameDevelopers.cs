@@ -14,6 +14,11 @@ public class GameDevelopers : CardEffect
     // Script - Distract a target enemy student for 1 turn.
     public override int PerformEffect(GameData data)
     {
+        if (data.target[0].GetCardType() != Card.Type.Student)
+        {
+            return -1;
+        }
+
         StudentCardDisplay student;
         if (data.target[0].gameObject.TryGetComponent(out student))
         {
