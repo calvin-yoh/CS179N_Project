@@ -476,6 +476,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 86326600, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306543535, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 773512961, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 939180326, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612832753, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897519632, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979035375, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 52183315598125516, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: activateEffectSound
       value: 
@@ -484,6 +512,42 @@ PrefabInstance:
       propertyPath: activateEffectSound
       value: 
       objectReference: {fileID: 770174174}
+    - target: {fileID: 1204887254688063688, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204887254688082075, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204887254837822752, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204887255371860304, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204887255411405859, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204887255804645192, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204887255878032551, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204887256468317991, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204887256543249395, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2213263970930203027, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: activateEffectSound
       value: 
@@ -608,6 +672,10 @@ PrefabInstance:
       propertyPath: activateEffectSound
       value: 
       objectReference: {fileID: 414263070}
+    - target: {fileID: 6090836865346240059, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6227044109327168595, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: activateEffectSound
       value: 
