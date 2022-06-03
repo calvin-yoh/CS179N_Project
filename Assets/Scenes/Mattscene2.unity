@@ -431,6 +431,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8799754326339141964, guid: 4b1da3077440e5e488fb81e0bafb666b, type: 3}
+      propertyPath: facultyCardDisplayPrefab
+      value: 
+      objectReference: {fileID: 7077248147722597310, guid: 3473855d853bfd046a046dd5b57e9048, type: 3}
+    - target: {fileID: 8799754326339141964, guid: 4b1da3077440e5e488fb81e0bafb666b, type: 3}
+      propertyPath: studentCardDisplayPrefab
+      value: 
+      objectReference: {fileID: 7077248147722597310, guid: 77d730bfcd8b10845b871d5b20c76548, type: 3}
+    - target: {fileID: 8799754326339141964, guid: 4b1da3077440e5e488fb81e0bafb666b, type: 3}
+      propertyPath: buildingCardDisplayPrefab
+      value: 
+      objectReference: {fileID: 7077248147722597310, guid: a26ba3a03abb643cb937f4a1724e0333, type: 3}
     - target: {fileID: 8799754326339141965, guid: 4b1da3077440e5e488fb81e0bafb666b, type: 3}
       propertyPath: m_Name
       value: CardsManager

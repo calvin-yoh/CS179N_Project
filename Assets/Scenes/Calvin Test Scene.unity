@@ -184,6 +184,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ceff65b9990e332419a54526c0dc1b86, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: ceff65b9990e332419a54526c0dc1b86, type: 2}
+    - target: {fileID: 61897635, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
+      propertyPath: openDeck.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: ceff65b9990e332419a54526c0dc1b86, type: 2}
     - target: {fileID: 86326600, guid: e0061b5416cf9c9458edbcbb3aa5f499, type: 3}
       propertyPath: m_SortingOrder
       value: -1
