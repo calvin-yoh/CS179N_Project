@@ -15,6 +15,7 @@ public class StudentCardDisplay : CardDisplay
 
 	public TextMeshProUGUI durationText;
 	public TextMeshProUGUI effectNameText;
+	public GameObject durationBubble;
 
 	//Additional card information
 	public int cardDuration;
@@ -78,8 +79,9 @@ public class StudentCardDisplay : CardDisplay
 
 	public override void DisplayInformation()
 	{
+		// durationBubble.SetActive(true);
 		base.DisplayInformation();
-		durationText.text = "Dur : " + cardDuration.ToString();
+		durationText.text = cardDuration.ToString();
 		effectNameText.text = cardEffectName.ToString();
 	}
 
@@ -101,5 +103,6 @@ public class StudentCardDisplay : CardDisplay
 		base.HideCard();
 		durationText.text = "";
 		effectNameText.text = "";
+		durationBubble.SetActive(false);
 	}
 }
