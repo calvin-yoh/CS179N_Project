@@ -1403,6 +1403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ceb2de6da3b44b499a14fe5449dc79d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardsGrid: {fileID: 1338283699}
+  deckGrid: {fileID: 1997568915}
 --- !u!4 &640573480
 Transform:
   m_ObjectHideFlags: 0

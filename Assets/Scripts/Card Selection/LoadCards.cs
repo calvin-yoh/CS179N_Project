@@ -9,8 +9,8 @@ public class LoadCards : MonoBehaviour
     public GameObject FacultyCardDisplayPrefab;
     public float cardSize;
 
-    public void loadAll(){
-        foreach(var card in CardsManager.getAllCards()){
+    public void Start(){
+        foreach(var card in CardsManager.instance.getAllCards()){
             switch(card.type){
                 case Card.Type.Building:
                     var buildingCard = (BuildingCard)card;
