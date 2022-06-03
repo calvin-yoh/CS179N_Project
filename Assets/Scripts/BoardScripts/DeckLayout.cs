@@ -13,8 +13,33 @@ public class DeckLayout : MonoBehaviour
     private Stack<CardDisplay> deck;
     private int number;
 
+    public void Start()
+    {
+        
+    }
+
+    public void SetCustomDeck()
+    {
+        openDeck.Clear();
+        buildings.Clear();
+        List<Card> tempDeck = CardsManager.instance.getCurrentDeck();
+
+        foreach (var card in tempDeck)
+        {
+            if (card.type == Card.Type.Building)
+            {
+                buildings.Add(card);
+            }
+            else
+            {
+                openDeck.Add(card);
+            }
+        }
+    }
+
     // Instantiates all the cards in the deck at the start of the game
     public void SetUpDeck(){
+        
         Player thisPlayer = gameObject.GetComponentInParent<Player>();
         number = thisPlayer.number;
 
