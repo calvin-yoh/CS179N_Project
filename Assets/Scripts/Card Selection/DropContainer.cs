@@ -12,10 +12,10 @@ public class DropContainer : MonoBehaviour, IDropHandler
     public  int studentCount = 0;
     public  int buildingCount = 0;
 
-    private const int MAX_STUDENT_CAPACITY = 12;
+    private const int MAX_STUDENT_CAPACITY = 17;
     private const int MAX_BUILDING_CAPACITY = 5;
     private const int MAX_FACULTY_CAPACITY = 3;
-    private const int MAX_TOTAL_CAPACITY = 20;
+    private const int MAX_TOTAL_CAPACITY = 25;
     private const float MIN_HEIGHT = 1100.0f;
 
     private int previousChildCount = 0;
@@ -109,7 +109,7 @@ public class DropContainer : MonoBehaviour, IDropHandler
 
     void Update(){
         if (transform.childCount != previousChildCount){
-            transform.parent.gameObject.GetComponentInChildren<Text>().text =  "Deck: " + transform.childCount.ToString() + " / 20";
+            transform.parent.gameObject.GetComponentInChildren<Text>().text =  "Deck: " + transform.childCount.ToString() + " / " + MAX_TOTAL_CAPACITY.ToString();
             
             studentSymbol.GetComponentInChildren<Text>().text = "Student Cards: " + studentCount.ToString() + " / " + MAX_STUDENT_CAPACITY.ToString();
             buildingSymbol.GetComponentInChildren<Text>().text = "Building Cards: " + buildingCount.ToString() + " / " + MAX_BUILDING_CAPACITY.ToString();
