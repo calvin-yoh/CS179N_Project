@@ -85,6 +85,13 @@ public class StudentCardDisplay : CardDisplay
 		effectNameText.text = cardEffectName.ToString();
 	}
 
+	public override void DisplayInformationUI()
+	{
+		base.DisplayInformationUI();
+		durationText.text = "Dur: " + cardDuration.ToString();
+		effectNameText.text = cardEffectName.ToString();
+	}
+
     public void CopyInformation(StudentCardDisplay oldCard)
     {
         base.CopyInformation(oldCard);

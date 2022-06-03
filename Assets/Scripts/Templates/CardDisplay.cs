@@ -211,6 +211,32 @@ public abstract class CardDisplay : MonoBehaviour
         artworkImage.sprite = cardArtwork;
     }
 
+    public virtual void DisplayInformationUI()
+    {
+        switch (cardMajor) {
+            case Card.Major.Arts:
+                backgroundImage.sprite = artBackground;
+                break;
+            case Card.Major.Engineering:
+                backgroundImage.sprite = engineeringBackground;
+                break;
+            case Card.Major.Athletics:
+                backgroundImage.sprite = athleticBackground;
+                break;
+            case Card.Major.Staff:
+                backgroundImage.sprite = staffBackground;
+                break;
+            default:
+                Debug.LogError("Invalid major for card");
+                break;
+        }
+
+        nameText.text = cardName;
+        effectText.text = cardEffectString;
+
+        artworkImage.sprite = cardArtwork;
+    }
+
     public virtual void CopyInformation(CardDisplay oldCard) {
         cardType = oldCard.GetCardType();
         cardMajor = oldCard.GetCardMajor();

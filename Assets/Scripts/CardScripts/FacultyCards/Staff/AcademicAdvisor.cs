@@ -8,29 +8,21 @@ using UnityEngine;
 //Staff Faculty 
 public class AcademicAdvisor : CardEffect
 {
-    protected override void Start(){
+    protected override void Start()
+    {
         targetType = Card.Type.Student;
         targetTeam = TargetTeam.Friendly;
-        numTargets = 1;
+        numTargets = 0;
     }
 
-    // Academic advisor - Choose one of your students cards to prevent it from being disabled for 1 turn // same thing as reactivate 
+    // Academic advisor - Reactivate all your student cards. // same thing as reactivate 
     public override int PerformEffect(GameData data)
     {
-        
-        StudentCardDisplay student;
-        if (data.target[0].gameObject.TryGetComponent(out student))
+        foreach(var student in data.friendlyStudents)
         {
-            data.target[0].ReactivateCard();
+            student.ReactivateCard();
             Debug.Log("Academic advisor worked");
         }
-        else
-        {
-            Debug.Log("Error with Academic advisor effect");
-        }
-
-        
-    
         return 0;
     }
 }

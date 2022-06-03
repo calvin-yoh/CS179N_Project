@@ -45,6 +45,13 @@ public class HandLayout : MonoBehaviour
         }
     }
 
+    public void RemoveRandomCard()
+    {
+        int val = Random.Range(0, hand.Count);
+        CardDisplay cd = hand[val];
+        RemoveCard(cd);
+    }
+
     public List<CardDisplay> getHand()
     {
         return hand;

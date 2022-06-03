@@ -52,7 +52,6 @@
         {
             "cards": [
                 "Football Team",
-                "Football Team",
                 "Soccer Striker",
                 "Soccer Striker",
                 "Soccer Goalkeeper",
@@ -70,7 +69,8 @@
                 "Track and Field",
                 "Dining Hall",
                 "Soccer Striker",
-                "Football Team"
+                "Football Team",
+                "Baseball Batter"
             ]
         }
     ]

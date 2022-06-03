@@ -174,6 +174,17 @@ public class BuildingCardDisplay : CardDisplay
 		}
 	}
 
+	public override void DisplayInformationUI()
+    {
+		base.DisplayInformationUI();
+		if (cardArmor == 0){
+			healthText.text = "HP : " + cardHealth.ToString();
+		}
+		else{
+			healthText.text = "HP : " + cardHealth.ToString() + " + " + $"<color=#A9A9A9>{cardArmor.ToString()}</color>";
+		}
+	}
+
 	public void CopyInformation(BuildingCardDisplay oldCard){
 		base.CopyInformation(oldCard);
 		cardHealth = oldCard.GetCardHealth();

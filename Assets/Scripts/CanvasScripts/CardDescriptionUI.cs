@@ -37,21 +37,21 @@ public class CardDescriptionUI : MonoBehaviour
                 buildingCardDisplay.CopyInformationUI(cardDisplay as BuildingCardDisplay);
                 // buildingCardDisplay.SetUpInformation();
                 buildingCardDisplay.gameObject.SetActive(true);
-                buildingCardDisplay.DisplayInformation();
+                buildingCardDisplay.DisplayInformationUI();
                 break;
             case Card.Type.Faculty:
                 facultyCardDisplay.card = cardDisplay.card;
                 facultyCardDisplay.CopyInformationUI(cardDisplay as FacultyCardDisplay);
                 // facultyCardDisplay.SetUpInformation();
                 facultyCardDisplay.gameObject.SetActive(true);
-                facultyCardDisplay.DisplayInformation();
+                facultyCardDisplay.DisplayInformationUI();
                 break;
             case Card.Type.Student:
                 studentCardDisplay.card = cardDisplay.card;
                 studentCardDisplay.CopyInformationUI(cardDisplay as StudentCardDisplay);
                 // studentCardDisplay.SetUpInformation();
                 studentCardDisplay.gameObject.SetActive(true);
-                studentCardDisplay.DisplayInformation();
+                studentCardDisplay.DisplayInformationUI();
                 break;
             default:
                 Debug.Log("Cannot show card description. Wrong card type");
