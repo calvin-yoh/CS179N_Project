@@ -22,7 +22,29 @@ public class DeckSwap : MonoBehaviour
         deckGrid.GetComponent<DropContainer>().loadCurrentDeck();
     }
 
+    private void AddRandomBuildingCard(){
+        var cards = CardsManager.instance.getAllCards();
+        var buildings = new List<Card>();
+        foreach(var card in cards){
+            if (card.type == Card.Type.Building){
+                buildings.Add(card);
+            }
+        }
+        //get random building card
+        var randomIndex = Random.Range(0, buildings.Count);
+        var randomCard = buildings[randomIndex];
+        var temp = Instantiate(CardsManager.instance.getCardPrefab(randomCard.type));
+        temp.GetComponent<CardDisplay>().card = randomCard;
+        temp.GetComponent<CardDisplay>().SetUpInformationUI();
+        temp.GetComponent<CardDisplay>().DisplayInformation();
+        deckGrid.GetComponent<DropContainer>().addCard(temp);
+    }
+
     public void OnValueChange(int value){
+        if(deckGrid.GetComponent<DropContainer>().buildingCount < 1){
+            AddRandomBuildingCard();
+        }
+        
         CardsManager.instance.setCurrentDeck(value);
         deckGrid.GetComponent<DropContainer>().loadCurrentDeck();
     }

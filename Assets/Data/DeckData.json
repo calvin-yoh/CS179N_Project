@@ -1,5 +1,5 @@
 {
-    "currentDeck": 4,
+    "currentDeck": 0,
     "decks": [
         {
             "cards": [
@@ -16,14 +16,16 @@
                 "Event Coordinator",
                 "Film Professor",
                 "Soccer Coach",
-                "Cybersecurity Club"
+                "Cybersecurity Club",
+                "Theater"
             ]
         },
         {
             "cards": [
                 "Actor : Cast",
                 "Musicians",
-                "Concept Artist"
+                "Concept Artist",
+                "Staff Work Union"
             ]
         },
         {
