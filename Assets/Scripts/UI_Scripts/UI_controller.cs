@@ -22,7 +22,7 @@ public class UI_controller : MonoBehaviour
 
     public void GoToLevelOne()
     {
-        SceneManager.LoadScene("Calvin Test Scene");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void GoToLevelTwo()
