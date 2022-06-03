@@ -34,6 +34,12 @@ public class FacultyCardDisplay : CardDisplay
 		cardEffectName = card.effectName;
 	}
 
+	public override void SetUpInformationUI()
+	{
+		base.SetUpInformationUI();
+		cardEffectName = card.effectName;
+	}
+
 	public override void DisplayInformation()
 	{
 		base.DisplayInformation();

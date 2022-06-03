@@ -17,7 +17,7 @@ public class LoadCards : MonoBehaviour
                     var buildingCardDisplay = Instantiate(BuildingCardDisplayPrefab, transform);
                     buildingCardDisplay.GetComponent<BuildingCardDisplay>().card = buildingCard;
 
-                    buildingCardDisplay.GetComponent<BuildingCardDisplay>().SetUpInformation();
+                    buildingCardDisplay.GetComponent<BuildingCardDisplay>().SetUpInformationUI();
                     buildingCardDisplay.GetComponent<BuildingCardDisplay>().DisplayInformation();
 
                     break;
@@ -26,7 +26,7 @@ public class LoadCards : MonoBehaviour
                     var studentCardDisplay = Instantiate(StudentCardDisplayPrefab, transform);
                     studentCardDisplay.GetComponent<StudentCardDisplay>().card = studentCard;
 
-                    studentCardDisplay.GetComponent<StudentCardDisplay>().SetUpInformation();
+                    studentCardDisplay.GetComponent<StudentCardDisplay>().SetUpInformationUI();
                     studentCardDisplay.GetComponent<StudentCardDisplay>().DisplayInformation();
                     break;
                 case Card.Type.Faculty:
@@ -34,7 +34,7 @@ public class LoadCards : MonoBehaviour
                     var facultyCardDisplay = Instantiate(FacultyCardDisplayPrefab, transform);
                     facultyCardDisplay.GetComponent<FacultyCardDisplay>().card = facultyCard;
 
-                    facultyCardDisplay.GetComponent<FacultyCardDisplay>().SetUpInformation();
+                    facultyCardDisplay.GetComponent<FacultyCardDisplay>().SetUpInformationUI();
                     facultyCardDisplay.GetComponent<FacultyCardDisplay>().DisplayInformation();
                     break;
             }

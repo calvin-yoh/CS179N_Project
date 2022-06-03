@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 184985734}
   - component: {fileID: 184985733}
   - component: {fileID: 184985732}
+  - component: {fileID: 184985735}
   m_Layer: 5
   m_Name: SelectDeck
   m_TagString: Untagged
@@ -410,7 +411,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 184985735}
+        m_TargetAssemblyTypeName: DeckSwap, Assembly-CSharp
+        m_MethodName: OnValueChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &184985733
 MonoBehaviour:
@@ -450,6 +463,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184985730}
   m_CullTransparentMesh: 1
+--- !u!114 &184985735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184985730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3adb5fd288e8047e2a0d72524f950c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deckGrid: {fileID: 1997568915}
 --- !u!1 &321248711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,6 +1434,9 @@ MonoBehaviour:
   buildingCardDisplayPrefab: {fileID: 7077248147722597310, guid: a26ba3a03abb643cb937f4a1724e0333, type: 3}
   studentCardDisplayPrefab: {fileID: 7077248147722597310, guid: 77d730bfcd8b10845b871d5b20c76548, type: 3}
   facultyCardDisplayPrefab: {fileID: 7077248147722597310, guid: 3473855d853bfd046a046dd5b57e9048, type: 3}
+  DeckData:
+    currentDeck: 0
+    decks: []
 --- !u!4 &640573480
 Transform:
   m_ObjectHideFlags: 0
@@ -4069,6 +4098,7 @@ GameObject:
   - component: {fileID: 1707122314}
   - component: {fileID: 1707122313}
   - component: {fileID: 1707122312}
+  - component: {fileID: 1707122315}
   m_Layer: 5
   m_Name: DeckOptions
   m_TagString: Untagged
@@ -4156,7 +4186,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1707122315}
+        m_TargetAssemblyTypeName: DeckOptionsHandler, Assembly-CSharp
+        m_MethodName: OnValueChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1707122313
 MonoBehaviour:
@@ -4196,6 +4238,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707122310}
   m_CullTransparentMesh: 1
+--- !u!114 &1707122315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707122310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e6e0535dc2249db8fae5774fc4892b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decks: {fileID: 184985732}
+  deckGrid: {fileID: 1997568915}
 --- !u!1 &1734813295
 GameObject:
   m_ObjectHideFlags: 0

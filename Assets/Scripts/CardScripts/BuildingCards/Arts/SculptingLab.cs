@@ -7,35 +7,37 @@ public class SculptingLab : CardEffect
     protected override void Start()
     {
         targetType = Card.Type.Student;
-        targetTeam = TargetTeam.Friendly;
+        targetTeam = TargetTeam.Enemy;
         numTargets = 0;
     }
 
     private void OnEnable()
     {
-        
+        Player oppPlayer = GameManager.Instance.GetOpposingPlayer();
+        EventsManager em = oppPlayer.GetEventsManager();
+        em.OnCardPlayedFromHand += CardPassive;
     }
 
     private void OnDisable()
     {
+        Player oppPlayer = GameManager.Instance.GetOpposingPlayer();
+        EventsManager em = oppPlayer.GetEventsManager();
+        em.OnCardPlayedFromHand -= CardPassive;
     }
 
-    //The opponent's student cards have -1 duration when played.
     public override int PerformEffect(GameData data)
     {
         return 0;
     }
 
-    public override void CardPlayedFromHandPassive(CardDisplay card)
+    //The opponent's student cards have -1 duration when played.
+    public override void CardPassive(CardDisplay card)
     {
         StudentCardDisplay scd = card.GetComponent<StudentCardDisplay>();
         if (scd != null)
         {
-            if (scd.playerNumber == GameManager.Instance.GetCurrentPlayer().number)
-            {
-                Debug.Log("ConcertHall building increased dur");
-                scd.ChangeDurationBy(1);
-            }
+            Debug.Log("ScupltingLab building increased dur");
+            scd.ChangeDurationBy(-1);
         }
     }
 }

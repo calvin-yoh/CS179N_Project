@@ -23,23 +23,22 @@ public class CardsManager : MonoBehaviour
     private Dictionary<string, Card> cardDict = new Dictionary<string, Card>();
     private string currentDeckPath;
 
-    public GameObject cardsGrid;
-    public GameObject deckGrid;
-
     public GameObject buildingCardDisplayPrefab;
     public GameObject studentCardDisplayPrefab;
     public GameObject facultyCardDisplayPrefab;
 
-    private DataSave DeckData;
+    public DataSave DeckData;
 
     private void Awake(){
         if(instance == null){
             instance = this;
-            LoadCardObjects();
         }
-        else{
+        else if (instance != this){
             Destroy(gameObject);
+
         }
+        DontDestroyOnLoad(gameObject);
+        LoadCardObjects();
     }
 
 
@@ -118,7 +117,7 @@ public class CardsManager : MonoBehaviour
     }
 
     public void saveDataToJson(){
-        string json = JsonUtility.ToJson(DeckData);
+        string json = JsonUtility.ToJson(DeckData, true);
         File.WriteAllText(currentDeckPath, json);
     }
 
@@ -137,17 +136,13 @@ public class CardsManager : MonoBehaviour
     }
 
     public void setCurrentDeck(int deck){
-        if(deck < DeckData.decks.Count){
-            DeckData.currentDeck = deck;
-            saveDataToJson();
-        }
+        DeckData.currentDeck = deck;
+        saveDataToJson();
     }
 
     public void removeDeck(int deckIndex){
-        if(deckIndex < DeckData.decks.Count){
-            DeckData.decks.RemoveAt(deckIndex);
-            saveDataToJson();
-        }
+        DeckData.decks.RemoveAt(deckIndex);
+        saveDataToJson();
     }
 
     public void addCardToDeck(string card){

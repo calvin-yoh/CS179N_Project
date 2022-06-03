@@ -1,1 +1,20 @@
-{"currentDeck":0,"decks":[{"cards":["Jazz Band","Baseball Batter","Soccer Striker","Graphic Design Club","Soccer Coach","Concert Hall"]}]}
+{
+    "currentDeck": 1,
+    "decks": [
+        {
+            "cards": [
+                "Jazz Band",
+                "Baseball Batter"
+            ]
+        },
+        {
+            "cards": [
+                "Video Editor",
+                "Soccer Striker",
+                "Soccer Striker",
+                "Soccer Coach",
+                "Sculpting Lab"
+            ]
+        }
+    ]
+}
