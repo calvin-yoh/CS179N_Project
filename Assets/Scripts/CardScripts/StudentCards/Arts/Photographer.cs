@@ -17,6 +17,10 @@ public class Photographer : CardEffect
         FacultyCardDisplay target;
 
         //int effectValue = 6 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
+        if(data.target[0].GetCardType() != Card.Type.Faculty)
+        {
+            return -1;
+        }
 
         if (go.TryGetComponent(out target))
         {

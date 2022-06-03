@@ -1,76 +1,11 @@
 {
-    "currentDeck": 4,
+    "currentDeck": 0,
     "decks": [
         {
             "cards": [
-                "Soccer Goalkeeper",
-                "Soccer Striker",
-                "Video Editor",
                 "Actor : Lead Actress",
-                "Actor : Lead Actress",
-                "Soccer Goalkeeper",
-                "Musicians",
-                "Demolitionist",
-                "Concoction Specialist",
-                "Librarian",
-                "Event Coordinator",
-                "Film Professor",
-                "Soccer Coach",
-                "Cybersecurity Club"
-            ]
-        },
-        {
-            "cards": [
-                "Actor : Cast",
-                "Musicians",
-                "Concept Artist"
-            ]
-        },
-        {
-            "cards": [
-                "Baseball Batter",
-                "Cyborg",
-                "Academics Advisor",
-                "Admissions Office",
+                "Photographer",
                 "Dark Room"
-            ]
-        },
-        {
-            "cards": [
-                "Dance Team",
-                "Jazz Band",
-                "Jazz Band",
-                "Jazz Band",
-                "Graphic Design Club",
-                "Graphic Design Club",
-                "Jazz Band",
-                "Baseball Batter",
-                "Soccer Striker",
-                "Actor : Lead Actress"
-            ]
-        },
-        {
-            "cards": [
-                "Football Team",
-                "Soccer Striker",
-                "Soccer Striker",
-                "Soccer Goalkeeper",
-                "Soccer Goalkeeper",
-                "Cheerleaders",
-                "Cheerleaders",
-                "Tour Guide",
-                "Tour Guide",
-                "The Chancellor",
-                "Soccer Coach",
-                "Sports Medic",
-                "Basketball Court",
-                "Football Stadium",
-                "Gym",
-                "Track and Field",
-                "Dining Hall",
-                "Soccer Striker",
-                "Football Team",
-                "Baseball Batter"
             ]
         }
     ]
