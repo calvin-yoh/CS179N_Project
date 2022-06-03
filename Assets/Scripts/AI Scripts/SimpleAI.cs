@@ -33,8 +33,8 @@ public class SimpleAI : Player
         isPlaceCardsPhase = false;
         isActivateEffectPhase = false;
         isEndTurnPhase = false;
-        hasPlayedFacultyCard = false;
-        hasPlayedStudentCard = false;
+        numStudentCardsCanPlace = 1;
+        numFacultyCardsCanPlace = 1;
     }
 
 
@@ -56,6 +56,7 @@ public class SimpleAI : Player
     public IEnumerator DrawPhase()
     {
         Debug.Log("Drawing a card");
+        
         //DrawCard();
         StartTurn();
         yield return new WaitForSeconds(2f);

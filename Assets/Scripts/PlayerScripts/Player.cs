@@ -6,16 +6,18 @@ public class Player : MonoBehaviour
 {
     public int numStartingCards = 5;
 
-    // private bool canPlaceStudent = true;
-    // private bool canPlaceFaculty = true;
+    public AudioSource drawSound;
+    public AudioSource placeCardSound;
+
     [SerializeField] protected HandLayout hand;
     [SerializeField] protected FieldLayout field;
     [SerializeField] protected DeckLayout deck;
+    [SerializeField] protected EventsManager ev;
 
     public bool isAI = false;
     public int number;
-    protected bool hasPlayedStudentCard;
-    protected bool hasPlayedFacultyCard;
+    public int numStudentCardsCanPlace;
+    public int numFacultyCardsCanPlace;
     
     private LuckModifier luckModifier = new LuckModifier();
 
@@ -48,60 +50,46 @@ public class Player : MonoBehaviour
         return luckModifier;
     }
 
+    public EventsManager GetEventsManager(){
+        return ev;
+    }
+
     #endregion
 
     public void StartTurn(){
-        hasPlayedFacultyCard = false;
-        hasPlayedStudentCard = false;
+        numStudentCardsCanPlace = 1;
+        numFacultyCardsCanPlace = 1;
         field.ReactivateCards();
         DrawCard();
+        ActivateBuildingEffects();
     }
 
     public void DrawCard(){
         CardDisplay cd = deck.GetTop();
         cd.inHand = true;
+        cd.inDeck = false;
         cd.SetUpInformation();
         cd.ReactivateCard();
         cd.DisplayInformation();
 
         hand.AddCard(cd);
         // Debug.Log(this.name + " has " + hand.Count + " cards");
+
+        //sound effect for draw
+        drawSound.Play();
     }
 
     //Dupe to prevent breaking current functionality
-    public void PlaceCard(int index, Card newCard)
+    public void PlaceBuilding(int index, Card newCard)
     {
-        Card.Type type = newCard.type;
-        switch (type)
-        {
-            case Card.Type.Student:
-                if (hasPlayedStudentCard)
-                {  // Already played student card, don't place card down
-                    return;
-                }
-                else
-                {
-                    hasPlayedStudentCard = true;
-                }
-                break;
-            case Card.Type.Faculty:
-                if (hasPlayedFacultyCard)
-                {  // Already played faculty card, don't place card down
-                    return;
-                }
-                else
-                {
-                    hasPlayedFacultyCard = true;
-                }
-                break;
-            case Card.Type.Building:
-                field.ActivateCard(index, newCard, number);
-                return;
-            default:
-                break;
-        }
         field.ActivateCard(index, newCard, number);
-        hand.RemoveCard(newCard);
+    }
+
+    public void ActivateBuildingEffects(){
+        foreach (BuildingCardDisplay b in field.GetActiveBuildingCards()){
+            GameData gd = GameManager.Instance.GetGameData(b);
+            b.ActivateEffect(gd);
+        }
     }
 
     public void PlaceCard(int index, CardDisplay newCardDisplay){
@@ -109,19 +97,19 @@ public class Player : MonoBehaviour
         Card.Type type = newCard.type;
         switch (type){
             case Card.Type.Student:
-                if (hasPlayedStudentCard){  // Already played student card, don't place card down
+                if (numStudentCardsCanPlace == 0){  // Already played student card, don't place card down
                     return;
                 }
                 else{
-                    hasPlayedStudentCard = true;
+                    numStudentCardsCanPlace--;
                 }
                 break;
             case Card.Type.Faculty:
-                if (hasPlayedFacultyCard){  // Already played faculty card, don't place card down
+                if (numFacultyCardsCanPlace == 0){  // Already played faculty card, don't place card down
                     return;
                 }
                 else{
-                    hasPlayedFacultyCard = true;
+                    numFacultyCardsCanPlace--;
                 }
                 break;
             case Card.Type.Building:
@@ -130,8 +118,20 @@ public class Player : MonoBehaviour
             default:
                 break;
         }
-        field.ActivateCard(index, newCardDisplay, number);
-        hand.RemoveCard(newCard);
+        CardDisplay c = field.ActivateCard(index, newCardDisplay, number);
+        ev.CallOnCardPlayedFromHand(c);
+        hand.RemoveCard(newCardDisplay);
+
+        //place card sound effect
+        placeCardSound.Play();
+    }
+
+    public void ChangeNumStudentsCanPlace(int change){
+        numStudentCardsCanPlace += change;
+    }
+
+    public void ChangeNumFacultyCanPlace(int change){
+        numFacultyCardsCanPlace += change;
     }
 
     public void EndTurn(){

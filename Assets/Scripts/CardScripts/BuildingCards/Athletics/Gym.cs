@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConcertHall : CardEffect
+public class Gym : CardEffect
 {
     protected override void Start()
     {
@@ -15,17 +15,15 @@ public class ConcertHall : CardEffect
     {
         Player currPlayer = GameManager.Instance.GetCurrentPlayer();
         EventsManager em = currPlayer.GetEventsManager();
-        em.OnCardPlayedFromHand += CardPlayedFromHandPassive;    
-    }
+        em.OnCardPlayedFromHand -= CardPlayedFromHandPassive;    }
 
     private void OnDisable()
     {
         Player currPlayer = GameManager.Instance.GetCurrentPlayer();
         EventsManager em = currPlayer.GetEventsManager();
-        em.OnCardPlayedFromHand -= CardPlayedFromHandPassive;
-    }
+        em.OnCardPlayedFromHand -= CardPlayedFromHandPassive;    }
 
-    //Your student cards have +1 duration when played.
+    // All your Athletics cards gain +1 duration when played.
     public override int PerformEffect(GameData data)
     {
         return 0;
@@ -33,12 +31,11 @@ public class ConcertHall : CardEffect
 
     public override void CardPlayedFromHandPassive(CardDisplay card)
     {
-        StudentCardDisplay scd = card.GetComponent<StudentCardDisplay>();
-        if (scd != null)
+        StudentCardDisplay scd;
+        if (card.TryGetComponent(out scd))
         {
-            if (scd.playerNumber == GameManager.Instance.GetCurrentPlayer().number)
-            {
-                Debug.Log("ConcertHall building increased dur");
+            if (scd.GetCardMajor() == Card.Major.Athletics){
+                Debug.Log("Gym building increased dur");
                 scd.ChangeDurationBy(1);
             }
         }

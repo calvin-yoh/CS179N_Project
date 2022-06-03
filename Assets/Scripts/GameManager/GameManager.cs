@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
                 p.DrawCard();
             }
         }
+        players[0].StartTurn();
     }
 
     public void SwitchPlayers(){
@@ -71,6 +72,41 @@ public class GameManager : MonoBehaviour
             CanvasManager.Instance.ShowEndTurnButton();
             currPlayer.StartTurn();
         } 
+    }
+
+    public GameData GetGameData(CardDisplay thisCard){
+        Player player = GetCurrentPlayer();
+        Player enemy = GetOpposingPlayer();
+        CardDisplay self = thisCard;
+        List<CardDisplay> targets = new List<CardDisplay>();
+
+        List<BuildingCardDisplay> friendlyBuildings = player.GetField().GetActiveBuildingCards();
+        List<BuildingCardDisplay> enemyBuildings = enemy.GetField().GetActiveBuildingCards();
+
+        List<FacultyCardDisplay> friendlyFaculties = player.GetField().GetActiveFacultyCards();
+        List<FacultyCardDisplay> enemyFaculties = enemy.GetField().GetActiveFacultyCards(); ;
+
+        List<StudentCardDisplay> friendlyStudents = player.GetField().GetActiveStudentCards();
+        List<StudentCardDisplay> enemyStudents = enemy.GetField().GetActiveStudentCards(); 
+
+        DeckLayout friendlyDeck = player.GetDeck();
+        DeckLayout enemyDeck = enemy.GetDeck();
+
+        HandLayout friendlyHand = player.GetHand();
+        HandLayout enemyHand = enemy.GetHand();
+        Player friendly = GameManager.Instance.GetCurrentPlayer();
+        Player enemyPlayer = GameManager.Instance.GetOpposingPlayer();
+
+        GameData gd = new GameData(friendlyBuildings, enemyBuildings,
+                friendlyFaculties, enemyFaculties,
+                friendlyStudents, enemyStudents,
+                friendlyDeck, enemyDeck,
+                friendlyHand, enemyHand,
+                targets, self,
+                friendly, enemy
+            );
+        
+        return gd;
     }
 
     public void CheckGameEnded(int playerNumber){

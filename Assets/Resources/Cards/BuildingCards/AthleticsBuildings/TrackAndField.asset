@@ -20,4 +20,4 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: b88917fb238407c4b8b62bedcac3b27a, type: 3}
   health: 30
   duration: 0
-  effectScript: {fileID: 0}
+  effectScript: {fileID: 11500000, guid: e042908ca7dd6ba468c4495d04ebdc21, type: 3}

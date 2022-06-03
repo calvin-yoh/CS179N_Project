@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FootballStadium : CardEffect
 {
+    private int athleteCount;
+    private GameData data;
+
     protected override void Start()
     {
         targetType = Card.Type.Student;
@@ -11,10 +14,25 @@ public class FootballStadium : CardEffect
         numTargets = 0;
     }
 
+    private void OnEnable()
+    {
+        Player currPlayer = GameManager.Instance.GetCurrentPlayer();
+        EventsManager em = currPlayer.GetEventsManager();
+        em.OnCardPlayedFromHand += CardPlayedFromHandPassive;    
+    }
+
+    private void OnDisable()
+    {
+        Player currPlayer = GameManager.Instance.GetCurrentPlayer();
+        EventsManager em = currPlayer.GetEventsManager();
+        em.OnCardPlayedFromHand -= CardPlayedFromHandPassive;
+    }
+
     // Athletic building
     // All Athletics cards gain {+1} effect power for each friendly student Athletics card.
     public override int PerformEffect(GameData data)
     {
+        this.data = data;
         int athleteCount = 0;
         foreach(StudentCardDisplay s in data.friendlyStudents){
             if (s.GetCardMajor() == Card.Major.Athletics){
@@ -22,13 +40,50 @@ public class FootballStadium : CardEffect
             }
         }
 
-        int effectValue = 1 + (athleteCount * data.self.GetEffectValueModifier());
+        int effectValue = athleteCount * data.self.GetEffectValueModifier();
 
+        foreach(BuildingCardDisplay b in data.friendlyBuildings){
+            if (b.GetCardMajor() == Card.Major.Athletics){
+                b.SetEffectValueModifier(b.GetEffectValueModifier() + effectValue);
+            }
+        }
+        foreach(FacultyCardDisplay f in data.friendlyFaculties){
+            if (f.GetCardMajor() == Card.Major.Athletics){
+                f.SetEffectValueModifier(f.GetEffectValueModifier() + effectValue);
+            }
+        }
         foreach(StudentCardDisplay s in data.friendlyStudents){
             if (s.GetCardMajor() == Card.Major.Athletics){
                 s.SetEffectValueModifier(s.GetEffectValueModifier() + effectValue);
             }
         }
         return 0;
+    }
+
+    public override void CardPlayedFromHandPassive(CardDisplay card)
+    {
+        
+        if (card.GetCardMajor() == Card.Major.Athletics){
+
+            athleteCount++;
+            int effectValue = 1 * data.self.GetEffectValueModifier();
+            card.SetEffectValueModifier(card.GetEffectValueModifier() + (athleteCount * data.self.GetEffectValueModifier()));
+
+            foreach(BuildingCardDisplay b in data.friendlyBuildings){
+                if (b.GetCardMajor() == Card.Major.Athletics){
+                    b.SetEffectValueModifier(b.GetEffectValueModifier() + effectValue);
+                }
+            }
+            foreach(FacultyCardDisplay f in data.friendlyFaculties){
+                if (f.GetCardMajor() == Card.Major.Athletics){
+                    f.SetEffectValueModifier(f.GetEffectValueModifier() + effectValue);
+                }
+            }
+            foreach(StudentCardDisplay s in data.friendlyStudents){
+                if (s.GetCardMajor() == Card.Major.Athletics){
+                    s.SetEffectValueModifier(s.GetEffectValueModifier() + effectValue);
+                }
+            }
+        }
     }
 }

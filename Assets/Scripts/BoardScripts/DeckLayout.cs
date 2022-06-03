@@ -47,14 +47,15 @@ public class DeckLayout : MonoBehaviour
             CardDisplay cd = gameob.GetComponent<CardDisplay>();
             cd.card = newCard;
             cd.playerNumber = number;
-            // cd.SetUpInformation();
+            cd.inDeck = true;
+            cd.SetUpInformation();
             // cd.ReactivateCard();
             cd.HideCard();
             deck.Push(cd);
         }
 
         for (int i=0; i < buildings.Count; i++){
-            thisPlayer.PlaceCard(i, buildings[i]);
+            thisPlayer.PlaceBuilding(i, buildings[i]);
         }
     }
 
