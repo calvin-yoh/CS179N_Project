@@ -17,6 +17,10 @@ public class BuildingCardDisplay : CardDisplay
 
 	private int fieldLocation = 0;
 
+	private bool isWeakened;
+	private bool isImmune;
+
+
 	//Additional card information
 	private int BUILDING_MAX_HEALTH;
 	private int cardHealth;
@@ -40,19 +44,51 @@ public class BuildingCardDisplay : CardDisplay
 		}
 	}
 
+	public void SetBuildingWeaken(bool weaken)
+	{
+		isWeakened = weaken;
+	}
+
+	public void ResetWeaken()
+	{
+		isWeakened = false;
+	}
+
+	public void SetBuildingImmunity(bool immunity)
+	{
+		isImmune = immunity;
+	}
+
+	public void ResetImmunity()
+	{
+		isImmune=false;
+	}
+
 	public void DamageBuilding(int damageTaken){
+
+		int realDamage = damageTaken;
+		if (isImmune)
+		{
+			return;
+		}
+		if (isWeakened)
+		{
+			realDamage *= 2;
+		}
+		
 		if (cardArmor > 0){
-			if (cardArmor > damageTaken){
-				cardArmor -= damageTaken;
+			if (cardArmor > realDamage)
+			{
+				cardArmor -= realDamage;
 				return;
 			}
 			else{
-				damageTaken -= cardArmor;
+				realDamage -= cardArmor;
 				cardArmor = 0;
 			}
 		}
 
-		cardHealth -= damageTaken;
+		cardHealth -= realDamage;
 		if (cardHealth <= 0){
 			RemoveCardFromPlay();
 			GameManager.Instance.CheckGameEnded(playerNumber);
@@ -113,5 +149,11 @@ public class BuildingCardDisplay : CardDisplay
 	public override void HideCard(){
 		base.HideCard();
 		healthText.text = "";
+	}
+
+	public void ResetBuildingBools()
+	{
+		ResetWeaken();
+		ResetImmunity();
 	}
 }

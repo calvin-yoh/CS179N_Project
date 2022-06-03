@@ -18,14 +18,14 @@ public class FootballStadium : CardEffect
     {
         Player currPlayer = GameManager.Instance.GetCurrentPlayer();
         EventsManager em = currPlayer.GetEventsManager();
-        em.OnCardPlayedFromHand += CardPlayedFromHandPassive;    
+        em.OnCardPlayedFromHand += CardPassive;    
     }
 
     private void OnDisable()
     {
         Player currPlayer = GameManager.Instance.GetCurrentPlayer();
         EventsManager em = currPlayer.GetEventsManager();
-        em.OnCardPlayedFromHand -= CardPlayedFromHandPassive;
+        em.OnCardPlayedFromHand -= CardPassive;
     }
 
     // Athletic building
@@ -60,7 +60,7 @@ public class FootballStadium : CardEffect
         return 0;
     }
 
-    public override void CardPlayedFromHandPassive(CardDisplay card)
+    public override void CardPassive(CardDisplay card)
     {
         
         // if (card.GetCardMajor() == Card.Major.Athletics){

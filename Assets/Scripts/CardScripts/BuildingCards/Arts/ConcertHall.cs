@@ -15,14 +15,14 @@ public class ConcertHall : CardEffect
     {
         Player currPlayer = GameManager.Instance.GetCurrentPlayer();
         EventsManager em = currPlayer.GetEventsManager();
-        em.OnCardPlayedFromHand += CardPlayedFromHandPassive;    
+        em.OnCardPlayedFromHand += CardPassive;    
     }
 
     private void OnDisable()
     {
         Player currPlayer = GameManager.Instance.GetCurrentPlayer();
         EventsManager em = currPlayer.GetEventsManager();
-        em.OnCardPlayedFromHand -= CardPlayedFromHandPassive;
+        em.OnCardPlayedFromHand -= CardPassive;
     }
 
     //Your student cards have +1 duration when played.
@@ -31,16 +31,13 @@ public class ConcertHall : CardEffect
         return 0;
     }
 
-    public override void CardPlayedFromHandPassive(CardDisplay card)
+    public override void CardPassive(CardDisplay card)
     {
         StudentCardDisplay scd = card.GetComponent<StudentCardDisplay>();
         if (scd != null)
         {
-            if (scd.playerNumber == GameManager.Instance.GetCurrentPlayer().number)
-            {
-                Debug.Log("ConcertHall building increased dur");
-                scd.ChangeDurationBy(1);
-            }
+            Debug.Log("ConcertHall building increased dur");
+            scd.ChangeDurationBy(1);    
         }
     }
 }
