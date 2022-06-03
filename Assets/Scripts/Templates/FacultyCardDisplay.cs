@@ -51,6 +51,12 @@ public class FacultyCardDisplay : CardDisplay
 		cardEffectName = oldCard.GetCardEffectName();
 	}
 
+	public void CopyInformationUI(FacultyCardDisplay oldCard)
+	{
+		base.CopyInformationUI(oldCard);
+		cardEffectName = oldCard.GetCardEffectName();
+	}
+
 	public override void HideCard(){
 		base.HideCard();
 		effectNameText.text = "";

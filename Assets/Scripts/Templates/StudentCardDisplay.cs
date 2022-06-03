@@ -15,6 +15,7 @@ public class StudentCardDisplay : CardDisplay
 
 	public TextMeshProUGUI durationText;
 	public TextMeshProUGUI effectNameText;
+	public GameObject durationBubble;
 
 	//Additional card information
 	public int cardDuration;
@@ -32,6 +33,18 @@ public class StudentCardDisplay : CardDisplay
 	}
 	public string GetCardEffectName(){
 		return cardEffectName;
+	}
+
+	public void SetDuration(int newDuration){
+		cardDuration = newDuration;
+		if (cardDuration <= 0)
+		{
+			RemoveCardFromPlay();
+		}
+		else
+		{
+			DisplayInformation();
+		}
 	}
 
 	public void ChangeDurationBy(int value)
@@ -66,8 +79,9 @@ public class StudentCardDisplay : CardDisplay
 
 	public override void DisplayInformation()
 	{
+		// durationBubble.SetActive(true);
 		base.DisplayInformation();
-		durationText.text = "Dur : " + cardDuration.ToString();
+		durationText.text = cardDuration.ToString();
 		effectNameText.text = cardEffectName.ToString();
 	}
 
@@ -78,9 +92,17 @@ public class StudentCardDisplay : CardDisplay
 		cardEffectName = oldCard.GetCardEffectName();
     }
 
+	public void CopyInformationUI(StudentCardDisplay oldCard)
+	{
+		base.CopyInformationUI(oldCard);
+		cardDuration = oldCard.GetCardDuration();
+		cardEffectName = oldCard.GetCardEffectName();
+	}
+
 	public override void HideCard(){
 		base.HideCard();
 		durationText.text = "";
 		effectNameText.text = "";
+		durationBubble.SetActive(false);
 	}
 }

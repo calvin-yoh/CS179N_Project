@@ -34,21 +34,21 @@ public class CardDescriptionUI : MonoBehaviour
         {
             case Card.Type.Building:
                 buildingCardDisplay.card = cardDisplay.card;
-                buildingCardDisplay.CopyInformation(cardDisplay as BuildingCardDisplay);
+                buildingCardDisplay.CopyInformationUI(cardDisplay as BuildingCardDisplay);
                 // buildingCardDisplay.SetUpInformation();
                 buildingCardDisplay.gameObject.SetActive(true);
                 buildingCardDisplay.DisplayInformation();
                 break;
             case Card.Type.Faculty:
                 facultyCardDisplay.card = cardDisplay.card;
-                facultyCardDisplay.CopyInformation(cardDisplay as FacultyCardDisplay);
+                facultyCardDisplay.CopyInformationUI(cardDisplay as FacultyCardDisplay);
                 // facultyCardDisplay.SetUpInformation();
                 facultyCardDisplay.gameObject.SetActive(true);
                 facultyCardDisplay.DisplayInformation();
                 break;
             case Card.Type.Student:
                 studentCardDisplay.card = cardDisplay.card;
-                studentCardDisplay.CopyInformation(cardDisplay as StudentCardDisplay);
+                studentCardDisplay.CopyInformationUI(cardDisplay as StudentCardDisplay);
                 // studentCardDisplay.SetUpInformation();
                 studentCardDisplay.gameObject.SetActive(true);
                 studentCardDisplay.DisplayInformation();

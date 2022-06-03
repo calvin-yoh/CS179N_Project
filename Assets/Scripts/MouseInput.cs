@@ -253,7 +253,6 @@ public class MouseInput : MonoBehaviour
                     //Show card details on the UI
                     if ((c.playerNumber == player.number || c.inPlay) && !c.inDeck){    // Prevents player from reading opponents hand
                         CanvasManager.Instance.ShowCardDetails(c);
-
                     }                
                 }
                 else

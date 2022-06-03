@@ -108,6 +108,7 @@ public abstract class CardDisplay : MonoBehaviour
     {
         effectValueModifier = val;
         UpdateEffectString();
+        DisplayInformation();
     }
 
     public void IncreaseTurnCount(){
@@ -219,6 +220,16 @@ public abstract class CardDisplay : MonoBehaviour
         isDistracted = oldCard.IsDistracted();
         UpdateEffectString();
         LoadCardEffectScript();
+    }
+
+    public virtual void CopyInformationUI(CardDisplay oldCard)
+    {
+        cardType = oldCard.GetCardType();
+        cardMajor = oldCard.GetCardMajor();
+        cardName = oldCard.GetCardName();
+        cardArtwork = oldCard.GetCardArtwork();
+        cardEffectString = oldCard.GetCardEffectString();
+        isDistracted = oldCard.IsDistracted();
     }
 
     public virtual void HideCard() {
@@ -351,7 +362,7 @@ public abstract class CardDisplay : MonoBehaviour
             }
         }
 
-        cardEffectString =  updatedString.ToString();
+        cardEffectString = updatedString.ToString();
     }
 
     public void EnableEffectButton(){

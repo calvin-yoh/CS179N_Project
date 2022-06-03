@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrackAndField : CardEffect
+public class BellTower : CardEffect
 {
     protected override void Start()
     {
@@ -11,10 +11,13 @@ public class TrackAndField : CardEffect
         numTargets = 0;
     }
 
-    // You can summon 1 extra student on your turn.
+    // Every other turn, you can put an additional student and faculty into play.
     public override int PerformEffect(GameData data)
     {
-        data.friendlyPlayer.ChangeNumStudentsCanPlace(1);
+        if (data.self.turnsInPlay % 2 == 0){
+            data.friendlyPlayer.ChangeNumStudentsCanPlace(1);
+            data.friendlyPlayer.ChangeNumFacultyCanPlace(1);
+        }
         return 0;
     }
 }

@@ -95,6 +95,10 @@ public class DeckLayout : MonoBehaviour
     }
 
     public CardDisplay GetTop(){
+        if (deck.Count <= 0){
+            Debug.Log("Deck is empty");
+            return null;
+        }
         return deck.Pop();
     }
 }

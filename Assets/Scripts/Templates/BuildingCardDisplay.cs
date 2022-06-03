@@ -113,6 +113,7 @@ public class BuildingCardDisplay : CardDisplay
 		}
 
 		cardHealth -= realDamage;
+		DisplayInformation();
 		if (cardHealth <= 0){
 			RemoveCardFromPlay();
 			GameManager.Instance.CheckGameEnded(playerNumber);
@@ -175,6 +176,13 @@ public class BuildingCardDisplay : CardDisplay
 
 	public void CopyInformation(BuildingCardDisplay oldCard){
 		base.CopyInformation(oldCard);
+		cardHealth = oldCard.GetCardHealth();
+		cardArmor = oldCard.GetCardArmor();
+	}
+
+	public void CopyInformationUI(BuildingCardDisplay oldCard)
+	{
+		base.CopyInformationUI(oldCard);
 		cardHealth = oldCard.GetCardHealth();
 		cardArmor = oldCard.GetCardArmor();
 	}

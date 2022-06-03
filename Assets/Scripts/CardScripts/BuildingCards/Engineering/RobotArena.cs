@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasketballCourt : CardEffect
+public class RobotArena : CardEffect
 {
     protected override void Start()
     {
@@ -27,8 +27,7 @@ public class BasketballCourt : CardEffect
         em.OnCardPlayedFromHand -= CardPassive;
     }
 
-    // Athletic building
-    // If you have exactly 5 students on the field, your Athletics cards gain {+5} effect value.
+    // When you summon an engineering student, summon a robotic {1} duration copy.
     public override int PerformEffect(GameData data)
     {
         return 0;
@@ -40,16 +39,22 @@ public class BasketballCourt : CardEffect
         GameData data = GameManager.Instance.GetGameData(thisCard);
 
         StudentCardDisplay scd = placedCard.GetComponent<StudentCardDisplay>();
-
-        int studentCount = data.friendlyStudents.Count;
-        if (studentCount == 5 && scd != null){
-            int effectValue = 5 + thisCard.GetEffectValueModifier();
-
-            foreach (StudentCardDisplay s in data.friendlyStudents){
-                if (s.GetCardMajor() == Card.Major.Athletics){
-                    s.SetEffectValueModifier(s.GetEffectValueModifier() + effectValue);
+        if (scd != null && scd.GetCardMajor() == Card.Major.Engineering)
+        {
+            int effectValue = 1 + thisCard.GetEffectValueModifier();
+            int index = 0;
+            Player currPlayer = data.friendlyPlayer;
+            while (currPlayer.GetField().CheckIfOccupied(index, Card.Type.Student)){           // Get next available index on the field
+                index++;
+                if (index >= 7){
+                    Debug.Log("Student slots are full");
+                    return;
                 }
             }
+
+            CardDisplay c = currPlayer.GetField().ActivateCard(index, placedCard, currPlayer.number);
+            StudentCardDisplay newStudent = c as StudentCardDisplay;
+            newStudent.SetDuration(effectValue);
         }
     }
 }

@@ -71,17 +71,22 @@ public class Player : MonoBehaviour
 
     public void DrawCard(){
         CardDisplay cd = deck.GetTop();
-        cd.inHand = true;
-        cd.inDeck = false;
-        cd.SetUpInformation();
-        cd.ReactivateCard();
-        cd.DisplayInformation();
+        if (cd != null){
+            cd.inHand = true;
+            cd.inDeck = false;
+            cd.SetUpInformation();
+            cd.ReactivateCard();
+            cd.DisplayInformation();
 
-        hand.AddCard(cd);
-        // Debug.Log(this.name + " has " + hand.Count + " cards");
+            hand.AddCard(cd);
+            // Debug.Log(this.name + " has " + hand.Count + " cards");
 
-        //sound effect for draw
-        drawSound.Play();
+            //sound effect for draw
+            drawSound.Play();
+        }
+        else{       // Player is out of cards, take fatigue damage
+            TakeFatigueDamage();
+        }
     }
 
     //Dupe to prevent breaking current functionality
@@ -97,13 +102,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void PlaceCard(int index, CardDisplay newCardDisplay){
+    public CardDisplay PlaceCard(int index, CardDisplay newCardDisplay){
         Card newCard = newCardDisplay.card;
         Card.Type type = newCard.type;
         switch (type){
             case Card.Type.Student:
                 if (numStudentCardsCanPlace == 0){  // Already played student card, don't place card down
-                    return;
+                    return null;
                 }
                 else{
                     numStudentCardsCanPlace--;
@@ -111,15 +116,14 @@ public class Player : MonoBehaviour
                 break;
             case Card.Type.Faculty:
                 if (numFacultyCardsCanPlace == 0){  // Already played faculty card, don't place card down
-                    return;
+                    return null;
                 }
                 else{
                     numFacultyCardsCanPlace--;
                 }
                 break;
             case Card.Type.Building:
-                field.ActivateCard(index, newCardDisplay, number);
-                return;
+                return field.ActivateCard(index, newCardDisplay, number);;
             default:
                 break;
         }
@@ -129,6 +133,7 @@ public class Player : MonoBehaviour
 
         //place card sound effect
         placeCardSound.Play();
+        return c;
     }
 
     public void ChangeNumStudentsCanPlace(int change){
@@ -139,10 +144,17 @@ public class Player : MonoBehaviour
         numFacultyCardsCanPlace += change;
     }
 
+    public void TakeFatigueDamage(){
+        foreach (BuildingCardDisplay b in field.GetActiveBuildingCards()){
+            b.DamageBuilding(5);
+        }
+    }
+
     public void EndTurn(){
         field.ReduceStudentCardDurations();
         field.ReduceEffectModifiers();
         GameManager.Instance.SwitchPlayers();
         field.ResetBuildingBools();
+        field.IncreaseCardsTurnCounts();
     }
 }

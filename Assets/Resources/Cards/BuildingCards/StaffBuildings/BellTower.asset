@@ -16,8 +16,8 @@ MonoBehaviour:
   major: 2
   type: 0
   effectName: 
-  effect: Every other turn, you can put an additional student or faculty into play.
+  effect: Every other turn, you can put an additional student and faculty into play.
   artwork: {fileID: 21300000, guid: baeeeee73e3530f499e3ef252a17c879, type: 3}
   health: 10
   duration: 0
-  effectScript: {fileID: 0}
+  effectScript: {fileID: 11500000, guid: 9eb05cb4cacafe74bb472677f84b83f5, type: 3}
