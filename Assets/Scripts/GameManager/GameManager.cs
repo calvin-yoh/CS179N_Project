@@ -130,6 +130,12 @@ public class GameManager : MonoBehaviour
 
         if (players.Count == 1){
             CanvasManager.Instance.ActivateEndScreen(players[0].number);
+            
+            var UI =  GameObject.FindWithTag("UIcon");
+            if(players[0].number == 1){
+                UI.GetComponent<UI_controller>().UnlockNextLevel();
+            }
+
             StartCoroutine(ReturnToMenu());
         }
     }
