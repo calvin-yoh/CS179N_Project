@@ -33,7 +33,7 @@ public class BuildingCardDisplay : CardDisplay
 	// Use this for initialization
 	void Start()
 	{
-		BUILDING_MAX_HEALTH = cardHealth;
+		
 	}
 
 	public int GetCardHealth(){
@@ -149,6 +149,7 @@ public class BuildingCardDisplay : CardDisplay
 	{
 		base.SetUpInformation();
 		cardHealth = card.health;
+		BUILDING_MAX_HEALTH = cardHealth;
 		cardArmor = 0;
 	}
 
@@ -156,6 +157,7 @@ public class BuildingCardDisplay : CardDisplay
 	{
 		base.SetUpInformationUI();
 		cardHealth = card.health;
+		BUILDING_MAX_HEALTH = cardHealth;
 		cardArmor = 0;
 	}
 

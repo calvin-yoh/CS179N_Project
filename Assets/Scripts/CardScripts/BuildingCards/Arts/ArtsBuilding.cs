@@ -14,11 +14,13 @@ public class ArtsBuilding : CardEffect
     //Every turn, this building recovers {2} health points.
     public override int PerformEffect(GameData data)
     {
+        
         BuildingCardDisplay thisBuilding = data.self.GetComponent<BuildingCardDisplay>();
 
         int effectValue = 2 + data.self.GetEffectValueModifier();
 
         thisBuilding.HealBuilding(effectValue);
+        
 
         return 0;
     }
