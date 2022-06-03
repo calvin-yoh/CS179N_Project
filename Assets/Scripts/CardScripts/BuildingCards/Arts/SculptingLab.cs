@@ -13,16 +13,11 @@ public class SculptingLab : CardEffect
 
     private void OnEnable()
     {
-        Player currPlayer = GameManager.Instance.GetCurrentPlayer();
-        EventsManager em = currPlayer.GetEventsManager();
-        em.OnCardPlayedFromHand += CardPlayedFromHandPassive;
+        
     }
 
     private void OnDisable()
     {
-        Player currPlayer = GameManager.Instance.GetCurrentPlayer();
-        EventsManager em = currPlayer.GetEventsManager();
-        em.OnCardPlayedFromHand -= CardPlayedFromHandPassive;
     }
 
     //The opponent's student cards have -1 duration when played.
