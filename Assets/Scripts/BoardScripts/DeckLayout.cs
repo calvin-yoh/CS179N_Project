@@ -20,7 +20,21 @@ public class DeckLayout : MonoBehaviour
 
     public void SetCustomDeck()
     {
-        openDeck = CardsManager.instance.getCurrentDeck();
+        openDeck.Clear();
+        buildings.Clear();
+        List<Card> tempDeck = CardsManager.instance.getCurrentDeck();
+
+        foreach (var card in tempDeck)
+        {
+            if (card.type == Card.Type.Building)
+            {
+                buildings.Add(card);
+            }
+            else
+            {
+                openDeck.Add(card);
+            }
+        }
     }
 
     // Instantiates all the cards in the deck at the start of the game
