@@ -71,17 +71,22 @@ public class Player : MonoBehaviour
 
     public void DrawCard(){
         CardDisplay cd = deck.GetTop();
-        cd.inHand = true;
-        cd.inDeck = false;
-        cd.SetUpInformation();
-        cd.ReactivateCard();
-        cd.DisplayInformation();
+        if (cd != null){
+            cd.inHand = true;
+            cd.inDeck = false;
+            cd.SetUpInformation();
+            cd.ReactivateCard();
+            cd.DisplayInformation();
 
-        hand.AddCard(cd);
-        // Debug.Log(this.name + " has " + hand.Count + " cards");
+            hand.AddCard(cd);
+            // Debug.Log(this.name + " has " + hand.Count + " cards");
 
-        //sound effect for draw
-        drawSound.Play();
+            //sound effect for draw
+            drawSound.Play();
+        }
+        else{       // Player is out of cards, take fatigue damage
+            TakeFatigueDamage();
+        }
     }
 
     //Dupe to prevent breaking current functionality
@@ -137,6 +142,12 @@ public class Player : MonoBehaviour
 
     public void ChangeNumFacultyCanPlace(int change){
         numFacultyCardsCanPlace += change;
+    }
+
+    public void TakeFatigueDamage(){
+        foreach (BuildingCardDisplay b in field.GetActiveBuildingCards()){
+            b.DamageBuilding(5);
+        }
     }
 
     public void EndTurn(){
