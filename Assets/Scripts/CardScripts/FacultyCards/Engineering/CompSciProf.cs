@@ -10,38 +10,26 @@ public class CompSciProf : CardEffect
         targetTeam = TargetTeam.Enemy;
         numTargets = 1;
     }
-    //Distract a target enemy faculty card for 1 turn.
+    //
     public override int PerformEffect(GameData data)
     {
-        GameObject go = data.target[0].gameObject;
-        FacultyCardDisplay target;
 
-        // //int effectValue = 6 + data.self.GetComponent<CardDisplay>().GetEffectValueModifier();
+        bool containsCSBuilding = false;
+        foreach (BuildingCardDisplay building in data.friendlyBuildings){
+            if(building.GetCardMajor() == Card.Major.Engineering)
+                containsCSBuilding = true;
+        }
 
-        // List<BuildingCardDisplay> temp = data.enemyBuildings;
+        if(containsCSBuilding){
+            var damage = 5 + data.self.GetEffectValueModifier();
+            Debug.Log("CompSci prof damages enemy buildings");
 
-        // foreach(BuildingCardDisplay building in temp)
-        // {
-        //     building.DamageBuilding()
-        // }
+            foreach (BuildingCardDisplay building in data.enemyBuildings){
+                building.DamageBuilding(damage);
+            }
+        }
 
 
-        // foreach(BuildingCardDisplay building in temp)
-        // {
-        //     building.SetCardArmor(building.GetCardArmor() + effectValue);
-        // }
-
-        // if (go.TryGetComponent(out target))
-        // {
-        //     target.DistractCard();
-        //     Debug.Log("Photographer effect worked");
-        // }
-        // else
-        // {
-        //     Debug.Log("Photographer card effect error");
-        //     return -1;
-        // }
         return 0;
     }
-
 }
