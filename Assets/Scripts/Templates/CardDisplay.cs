@@ -264,6 +264,13 @@ public abstract class CardDisplay : MonoBehaviour
     public void RemoveCardFromPlay() 
     {
         ResetCardToPlaceholder();
+        Player temp = GameManager.Instance.GetPlayerWithNum(playerNumber);
+
+        if (temp != null)
+        {
+            EventsManager em = temp.GetEventsManager();
+            em.CallOnCardRemovedFromField(this);
+        }
         this.gameObject.SetActive(false);
     }
 

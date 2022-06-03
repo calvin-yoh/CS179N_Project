@@ -42,6 +42,18 @@ public class GameManager : MonoBehaviour
         return players[(currPlayerIndex+1) % 2];
     }
 
+    public Player GetPlayerWithNum(int num)
+    {
+        foreach (var player in players)
+        {
+            if (player.number == num)
+            {
+                return player;
+            }
+        }
+        return null;
+    }
+
     public void SetUpGame(){
         int number = 1;
         foreach (Player p in players){

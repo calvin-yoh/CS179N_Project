@@ -35,11 +35,29 @@ public class Theater : CardEffect
     //If any friendly Actor card is in play, this building cannot be attacked.
     public override void CardPassive(CardDisplay card)
     {
-        StudentCardDisplay scd = card.GetComponent<StudentCardDisplay>();
-        if (scd != null)
+        GameData data = GameManager.Instance.GetGameData(card);
+
+        BuildingCardDisplay bd = this.GetComponent<BuildingCardDisplay>();
+
+        foreach (CardDisplay c in data.friendlyFaculties)
         {
-            Debug.Log("ConcertHall building increased dur");
-            scd.ChangeDurationBy(1);
+            string s = c.GetCardName();
+            if (s.Contains("Actor"))
+            {
+                bd.SetBuildingImmunity(true);
+                return;
+            }
         }
+        foreach (CardDisplay c in data.friendlyStudents)
+        {
+            string s = c.GetCardName();
+            if (s.Contains("Actor"))
+            {
+                bd.SetBuildingImmunity(true);
+                return;
+            }
+        }
+
+        bd.ResetImmunity();
     }
 }

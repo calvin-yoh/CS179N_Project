@@ -13,8 +13,19 @@ public class DeckLayout : MonoBehaviour
     private Stack<CardDisplay> deck;
     private int number;
 
+    public void Start()
+    {
+        
+    }
+
+    public void SetCustomDeck()
+    {
+        openDeck = CardsManager.instance.getCurrentDeck();
+    }
+
     // Instantiates all the cards in the deck at the start of the game
     public void SetUpDeck(){
+        
         Player thisPlayer = gameObject.GetComponentInParent<Player>();
         number = thisPlayer.number;
 

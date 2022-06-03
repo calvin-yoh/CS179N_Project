@@ -161,6 +161,5 @@ public class BuildingCardDisplay : CardDisplay
 	public void ResetBuildingBools()
 	{
 		ResetWeaken();
-		ResetImmunity();
 	}
 }
