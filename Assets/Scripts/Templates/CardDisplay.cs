@@ -167,6 +167,18 @@ public abstract class CardDisplay : MonoBehaviour
         LoadCardEffectScript();
     }
 
+    public virtual void SetUpInformationUI()
+    {
+        cardType = card.type;
+        cardMajor = card.major;
+        cardName = card.name;
+        cardArtwork = card.artwork;
+        isDistracted = false;
+        turnsInPlay = 0;
+        UpdateEffectString();
+    }
+
+
     // Updates front end ui with backend information
     public virtual void DisplayInformation()
     {

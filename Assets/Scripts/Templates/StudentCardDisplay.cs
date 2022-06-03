@@ -57,7 +57,14 @@ public class StudentCardDisplay : CardDisplay
 		cardEffectName = card.effectName;
     }
 
-    public override void DisplayInformation()
+	public override void SetUpInformationUI()
+	{
+		base.SetUpInformationUI();
+		cardDuration = card.duration;
+		cardEffectName = card.effectName;
+	}
+
+	public override void DisplayInformation()
 	{
 		base.DisplayInformation();
 		durationText.text = "Dur : " + cardDuration.ToString();

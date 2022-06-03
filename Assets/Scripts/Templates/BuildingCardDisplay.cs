@@ -128,6 +128,13 @@ public class BuildingCardDisplay : CardDisplay
 		cardArmor = 0;
 	}
 
+	public override void SetUpInformationUI()
+	{
+		base.SetUpInformationUI();
+		cardHealth = card.health;
+		cardArmor = 0;
+	}
+
 
 	public override void DisplayInformation()
     {
