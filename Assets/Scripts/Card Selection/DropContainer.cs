@@ -36,7 +36,7 @@ public class DropContainer : MonoBehaviour, IDropHandler
             var temp = Instantiate(CardsManager.instance.getCardPrefab(card.type));
             temp.GetComponent<CardDisplay>().card = card;
             temp.GetComponent<CardDisplay>().SetUpInformationUI();
-            temp.GetComponent<CardDisplay>().DisplayInformation();
+            temp.GetComponent<CardDisplay>().DisplayInformationUI();
             temp.transform.SetParent(transform);
             switch(card.type){
                 case Card.Type.Building:

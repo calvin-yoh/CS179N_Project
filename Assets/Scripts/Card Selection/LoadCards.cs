@@ -18,7 +18,7 @@ public class LoadCards : MonoBehaviour
                     buildingCardDisplay.GetComponent<BuildingCardDisplay>().card = buildingCard;
 
                     buildingCardDisplay.GetComponent<BuildingCardDisplay>().SetUpInformationUI();
-                    buildingCardDisplay.GetComponent<BuildingCardDisplay>().DisplayInformation();
+                    buildingCardDisplay.GetComponent<BuildingCardDisplay>().DisplayInformationUI();
 
                     break;
                 case Card.Type.Student:
@@ -27,7 +27,7 @@ public class LoadCards : MonoBehaviour
                     studentCardDisplay.GetComponent<StudentCardDisplay>().card = studentCard;
 
                     studentCardDisplay.GetComponent<StudentCardDisplay>().SetUpInformationUI();
-                    studentCardDisplay.GetComponent<StudentCardDisplay>().DisplayInformation();
+                    studentCardDisplay.GetComponent<StudentCardDisplay>().DisplayInformationUI();
                     break;
                 case Card.Type.Faculty:
                     var facultyCard = (FacultyCard)card;
@@ -35,7 +35,7 @@ public class LoadCards : MonoBehaviour
                     facultyCardDisplay.GetComponent<FacultyCardDisplay>().card = facultyCard;
 
                     facultyCardDisplay.GetComponent<FacultyCardDisplay>().SetUpInformationUI();
-                    facultyCardDisplay.GetComponent<FacultyCardDisplay>().DisplayInformation();
+                    facultyCardDisplay.GetComponent<FacultyCardDisplay>().DisplayInformationUI();
                     break;
             }
         }
