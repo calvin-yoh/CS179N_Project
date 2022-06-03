@@ -138,5 +138,6 @@ public class Player : MonoBehaviour
         field.ReduceStudentCardDurations();
         field.ReduceEffectModifiers();
         GameManager.Instance.SwitchPlayers();
+        field.ResetBuildingBools();
     }
 }

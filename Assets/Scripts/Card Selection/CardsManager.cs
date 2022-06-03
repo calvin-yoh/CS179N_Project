@@ -2,42 +2,66 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 
+[System.Serializable]
 public class DeckSave{
     public List<string> cards;
 }
 
+[System.Serializable]
+ public class DataSave{
+    public int currentDeck; 
+    public List<DeckSave> decks;
+ }
+
 
 public class CardsManager : MonoBehaviour
 {
-    private static string currentDeckPath;
-    private static Dictionary<string, Card> cardDict = new Dictionary<string, Card>();
-    public static GameObject cardsGrid;
-    public static GameObject deckGrid;
+    public static CardsManager instance;
 
-    void Start()
+    private Dictionary<string, Card> cardDict = new Dictionary<string, Card>();
+    private string currentDeckPath;
+
+    public GameObject buildingCardDisplayPrefab;
+    public GameObject studentCardDisplayPrefab;
+    public GameObject facultyCardDisplayPrefab;
+
+    public DataSave DeckData;
+
+    private void Awake(){
+        if(instance == null){
+            instance = this;
+        }
+        else if (instance != this){
+            Destroy(gameObject);
+
+        }
+        DontDestroyOnLoad(gameObject);
+        LoadCardObjects();
+    }
+
+
+    //Loads all the cards from the cards folder.
+    public void LoadCardObjects()
     {   
-        currentDeckPath = Application.dataPath + "/Data/currentDeck.json";
-        cardsGrid = GameObject.Find("Cards Grid");
-        deckGrid = GameObject.Find("Deck Grid");
-
         // Loading student cards
-        Object[] R_ArtStudentCards = Resources.LoadAll("Cards/StudentCards/Art Students", typeof(StudentCard));
-        Object[] R_AthleticStudentCards = Resources.LoadAll("Cards/StudentCards/Athletic Students", typeof(StudentCard));
-        Object[] R_EngineeringStudentCards = Resources.LoadAll("Cards/StudentCards/Engineering Students", typeof(StudentCard));
-        Object[] R_StaffStudentCards = Resources.LoadAll("Cards/StudentCards/Staff Students", typeof(StudentCard));
+        UnityEngine.Object[] R_ArtStudentCards = Resources.LoadAll("Cards/StudentCards/Art Students", typeof(StudentCard));
+        UnityEngine.Object[] R_AthleticStudentCards = Resources.LoadAll("Cards/StudentCards/Athletic Students", typeof(StudentCard));
+        UnityEngine.Object[] R_EngineeringStudentCards = Resources.LoadAll("Cards/StudentCards/Engineering Students", typeof(StudentCard));
+        UnityEngine.Object[] R_StaffStudentCards = Resources.LoadAll("Cards/StudentCards/Staff Students", typeof(StudentCard));
 
         // Loading Faculty cards
-        Object[] R_Art_FacultyCards = Resources.LoadAll("Cards/FacultyCards/ArtsFaculty", typeof(FacultyCard));
-        Object[] R_Athletic_FacultyCards = Resources.LoadAll("Cards/FacultyCards/AthleticsFaculty", typeof(FacultyCard));
-        Object[] R_Engineering_FacultyCards = Resources.LoadAll("Cards/FacultyCards/EngineeringFaculty", typeof(FacultyCard));
-        Object[] R_Staff_FacultyCards = Resources.LoadAll("Cards/FacultyCards/StaffFaculty", typeof(FacultyCard));
+        UnityEngine.Object[] R_Art_FacultyCards = Resources.LoadAll("Cards/FacultyCards/ArtsFaculty", typeof(FacultyCard));
+        UnityEngine.Object[] R_Athletic_FacultyCards = Resources.LoadAll("Cards/FacultyCards/AthleticsFaculty", typeof(FacultyCard));
+        UnityEngine.Object[] R_Engineering_FacultyCards = Resources.LoadAll("Cards/FacultyCards/EngineeringFaculty", typeof(FacultyCard));
+        UnityEngine.Object[] R_Staff_FacultyCards = Resources.LoadAll("Cards/FacultyCards/StaffFaculty", typeof(FacultyCard));
 
         // Loading Buiding cards.
-        Object[] R_BuildingCards = Resources.LoadAll("Cards/BuildingCards", typeof(BuildingCard));
+        UnityEngine.Object[] R_BuildingCards = Resources.LoadAll("Cards/BuildingCards", typeof(BuildingCard));
 
         
-        List<Object[]> R_cards = new List<Object[]>();
+        List<UnityEngine.Object[]> R_cards = new List<UnityEngine.Object[]>();
         R_cards.Add(R_ArtStudentCards);
         R_cards.Add(R_AthleticStudentCards);
         R_cards.Add(R_EngineeringStudentCards);
@@ -52,9 +76,9 @@ public class CardsManager : MonoBehaviour
 
 
         // Adding all the cards to the card dictionary.
-        foreach (Object[] R_card in R_cards)
+        foreach (UnityEngine.Object[] R_card in R_cards)
         {
-            foreach (Object R_cardObj in R_card)
+            foreach (UnityEngine.Object R_cardObj in R_card)
             {
                 var card = (Card)R_cardObj;
                 if(!cardDict.ContainsKey(card.name)){
@@ -66,17 +90,18 @@ public class CardsManager : MonoBehaviour
 
 
 
-        //check if the currenDeckPath exists if not create it.
+        currentDeckPath = Application.dataPath + "/Data/DeckData.json";
         if(!File.Exists(currentDeckPath)){
             File.WriteAllText(currentDeckPath, "");
         }
-        // Load all the cards to be displayed.
-        cardsGrid.GetComponent<LoadCards>().loadAll();
-        // Load the cards in the current deck.
-        loadDeck(currentDeckPath);
+
+        DeckData = new DataSave();
+        DeckData.decks = new List<DeckSave>();
+        addDeck(false);
+        loadDataFromJson();
     }
 
-    public static List<Card> getAllCards(){
+    public List<Card> getAllCards(){
         List<Card> cards = new List<Card>();
         foreach(KeyValuePair<string, Card> entry in cardDict){
             cards.Add(entry.Value);
@@ -84,83 +109,75 @@ public class CardsManager : MonoBehaviour
         return cards;
     }
     
-    public static Card getCard(string name){
+    public Card getCard(string name){
         if(cardDict.ContainsKey(name)){
             return cardDict[name];
         }
         return null;
     }
 
-    public static void saveCurrentDeck(){
-        DeckSave deckSave = new DeckSave();
-        deckSave.cards = new List<string>(); 
-        foreach(Transform card in deckGrid.transform){
-            switch(card.gameObject.GetComponent<DragAndDrop>().type){
-                case Card.Type.Building:
-                    deckSave.cards.Add(card.gameObject.GetComponent<BuildingCardDisplay>().card.name);
-                    break;
-                case Card.Type.Student:
-                    deckSave.cards.Add(card.gameObject.GetComponent<StudentCardDisplay>().card.name);
-                    break;
-                case Card.Type.Faculty:
-                    deckSave.cards.Add(card.gameObject.GetComponent<FacultyCardDisplay>().card.name);
-                    break;
-            }
-        }
-        string json = JsonUtility.ToJson(deckSave);
+    public void saveDataToJson(){
+        string json = JsonUtility.ToJson(DeckData, true);
         File.WriteAllText(currentDeckPath, json);
     }
 
-    public static void loadDeck(string filename){
-        string json;
-        if(File.Exists(filename)){
-            json = File.ReadAllText(filename);
-        }else{ return; }
+    public void loadDataFromJson(){
+        string json = File.ReadAllText(currentDeckPath);
+        JsonUtility.FromJsonOverwrite(json, DeckData);
+    }
 
-        DeckSave deckSave = JsonUtility.FromJson<DeckSave>(json);
-        foreach(string cardName in deckSave.cards){
-            var card = getCard(cardName);
-            if(card != null){
-                var cardDisplay = Instantiate(cardsGrid.GetComponent<LoadCards>().getPrefab(card.type));
-                switch(card.type){
-                    case Card.Type.Building:
-                        cardDisplay.GetComponent<BuildingCardDisplay>().card = card;
-                        cardDisplay.GetComponent<BuildingCardDisplay>().SetUpInformation();
-                        cardDisplay.GetComponent<BuildingCardDisplay>().DisplayInformation();
-                        deckGrid.GetComponent<DropContainer>().addCard(cardDisplay);
-                        break;
-                    case Card.Type.Student:
-                        cardDisplay.GetComponent<StudentCardDisplay>().card = card;
-                        cardDisplay.GetComponent<StudentCardDisplay>().SetUpInformation();
-                        cardDisplay.GetComponent<StudentCardDisplay>().DisplayInformation();
-                        deckGrid.GetComponent<DropContainer>().addCard(cardDisplay);
-                        break;
-                    case Card.Type.Faculty:
-                        cardDisplay.GetComponent<FacultyCardDisplay>().card = card;
-                        cardDisplay.GetComponent<FacultyCardDisplay>().SetUpInformation();
-                        cardDisplay.GetComponent<FacultyCardDisplay>().DisplayInformation();
-                        deckGrid.GetComponent<DropContainer>().addCard(cardDisplay);
-                        break;
-                }
-            }
+    public void addDeck(bool save = true){
+        DeckSave newDeck = new DeckSave();
+        newDeck.cards = new List<string>();
+        DeckData.decks.Add(newDeck);
+        if(save){
+            saveDataToJson();
         }
     }
 
-    public static List<Card> getDeckCards(){
+    public void setCurrentDeck(int deck){
+        DeckData.currentDeck = deck;
+        saveDataToJson();
+    }
+
+    public void removeDeck(int deckIndex){
+        DeckData.decks.RemoveAt(deckIndex);
+        saveDataToJson();
+    }
+
+    public void addCardToDeck(string card){
+        if(DeckData.decks.Count > 0){
+            DeckData.decks[DeckData.currentDeck].cards.Add(card);
+            saveDataToJson();
+        }
+    }
+
+
+    public void removeCardFromDeck(string card){
+        if(DeckData.decks.Count > 0){
+            DeckData.decks[DeckData.currentDeck].cards.Remove(card);
+            saveDataToJson();
+        }
+    }
+
+    public List<Card> getCurrentDeck(){
         List<Card> cards = new List<Card>();
-        foreach(Transform card in deckGrid.transform){
-            switch(card.gameObject.GetComponent<DragAndDrop>().type){
-                case Card.Type.Building:
-                    cards.Add(card.gameObject.GetComponent<BuildingCardDisplay>().card);
-                    break;
-                case Card.Type.Student:
-                    cards.Add(card.gameObject.GetComponent<StudentCardDisplay>().card);
-                    break;
-                case Card.Type.Faculty:
-                    cards.Add(card.gameObject.GetComponent<FacultyCardDisplay>().card);
-                    break;
-            }
+        foreach(string card in DeckData.decks[DeckData.currentDeck].cards){
+            cards.Add(getCard(card));
         }
         return cards;
+    }
+
+    public GameObject getCardPrefab(Card.Type type){
+        switch(type){
+            case Card.Type.Building:
+                return buildingCardDisplayPrefab;
+            case Card.Type.Faculty:
+                return facultyCardDisplayPrefab;
+            case Card.Type.Student:
+                return studentCardDisplayPrefab;
+            default:
+                return null;
+        }
     }
 }

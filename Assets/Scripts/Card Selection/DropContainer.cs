@@ -23,6 +23,34 @@ public class DropContainer : MonoBehaviour, IDropHandler
     public GameObject buildingSymbol;
     public GameObject facultySymbol;
 
+    public void loadCurrentDeck(){
+        foreach(Transform child in transform){
+            Destroy(child.gameObject);
+        }
+        facultyCount = 0;
+        studentCount = 0;
+        buildingCount = 0;
+
+        foreach(Card card in CardsManager.instance.getCurrentDeck()){
+            var temp = Instantiate(CardsManager.instance.getCardPrefab(card.type));
+            temp.GetComponent<CardDisplay>().card = card;
+            temp.GetComponent<CardDisplay>().SetUpInformationUI();
+            temp.GetComponent<CardDisplay>().DisplayInformation();
+            temp.transform.SetParent(transform);
+            switch(card.type){
+                case Card.Type.Building:
+                    buildingCount++;
+                    break;
+                case Card.Type.Student:
+                    studentCount++;
+                    break;
+                case Card.Type.Faculty:
+                    facultyCount++;
+                    break;
+            }
+        }
+    }
+
     public void OnDrop(PointerEventData eventData){
         addCard(eventData.pointerDrag);
     }
@@ -32,6 +60,8 @@ public class DropContainer : MonoBehaviour, IDropHandler
 
         if (card.transform.parent == this.transform){ return; }
 
+        int currentDeck = CardsManager.instance.DeckData.currentDeck;
+
         switch(card.GetComponent<DragAndDrop>().type){
             case Card.Type.Student:
                 if (studentCount >= MAX_STUDENT_CAPACITY) return;
@@ -39,10 +69,12 @@ public class DropContainer : MonoBehaviour, IDropHandler
                 break;  
             case Card.Type.Building:
                 if (buildingCount >= MAX_BUILDING_CAPACITY) return;
+                if (CardsManager.instance.DeckData.decks[currentDeck].cards.Contains(card.GetComponent<CardDisplay>().GetCardName())) return;
                 buildingCount++;
                 break;
             case Card.Type.Faculty:
                 if (facultyCount >= MAX_FACULTY_CAPACITY) return;
+                if (CardsManager.instance.DeckData.decks[currentDeck].cards.Contains(card.GetComponent<CardDisplay>().GetCardName())) return;
                 facultyCount++;
                 break;
             default:
@@ -52,6 +84,7 @@ public class DropContainer : MonoBehaviour, IDropHandler
         var copy = Instantiate(card, transform.position, transform.rotation);
         copy.GetComponent<RectTransform>().SetParent(this.transform);
         copy.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+        CardsManager.instance.addCardToDeck(card.GetComponent<CardDisplay>().GetCardName());
     }
 
     void Update(){
@@ -62,10 +95,9 @@ public class DropContainer : MonoBehaviour, IDropHandler
             buildingSymbol.GetComponentInChildren<Text>().text = "Building Cards: " + buildingCount.ToString() + " / " + MAX_BUILDING_CAPACITY.ToString();
             facultySymbol.GetComponentInChildren<Text>().text = "Faculty Cards: " + facultyCount.ToString() + " / " + MAX_FACULTY_CAPACITY.ToString();
 
-            CardsManager.saveCurrentDeck();
             previousChildCount = transform.childCount;
 
-
+            CardsManager.instance.saveDataToJson();
             RectTransform rec = GetComponent<RectTransform>();
 
             float cardHeight = 375f;

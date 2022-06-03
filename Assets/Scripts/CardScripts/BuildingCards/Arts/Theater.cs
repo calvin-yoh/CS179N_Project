@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gym : CardEffect
+public class Theater : CardEffect
 {
     protected override void Start()
     {
-        targetType = Card.Type.Student;
+        targetType = Card.Type.Building;
         targetTeam = TargetTeam.Friendly;
         numTargets = 0;
     }
@@ -15,31 +15,31 @@ public class Gym : CardEffect
     {
         Player currPlayer = GameManager.Instance.GetCurrentPlayer();
         EventsManager em = currPlayer.GetEventsManager();
-        em.OnCardPlayedFromHand += CardPassive;    
+        em.OnCardPlayedFromHand += CardPassive;
+        em.OnCardRemovedFromField += CardPassive;
     }
 
     private void OnDisable()
     {
         Player currPlayer = GameManager.Instance.GetCurrentPlayer();
         EventsManager em = currPlayer.GetEventsManager();
-        em.OnCardPlayedFromHand -= CardPassive;   
+        em.OnCardPlayedFromHand -= CardPassive;
+        em.OnCardRemovedFromField -= CardPassive;
     }
 
-    // All your Athletics cards gain +1 duration when played.
     public override int PerformEffect(GameData data)
     {
         return 0;
     }
 
+    //If any friendly Actor card is in play, this building cannot be attacked.
     public override void CardPassive(CardDisplay card)
     {
-        StudentCardDisplay scd;
-        if (card.TryGetComponent(out scd))
+        StudentCardDisplay scd = card.GetComponent<StudentCardDisplay>();
+        if (scd != null)
         {
-            if (scd.GetCardMajor() == Card.Major.Athletics){
-                Debug.Log("Gym building increased dur");
-                scd.ChangeDurationBy(1);
-            }
+            Debug.Log("ConcertHall building increased dur");
+            scd.ChangeDurationBy(1);
         }
     }
 }

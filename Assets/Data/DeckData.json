@@ -1,0 +1,20 @@
+{
+    "currentDeck": 1,
+    "decks": [
+        {
+            "cards": [
+                "Jazz Band",
+                "Baseball Batter"
+            ]
+        },
+        {
+            "cards": [
+                "Video Editor",
+                "Soccer Striker",
+                "Soccer Striker",
+                "Soccer Coach",
+                "Sculpting Lab"
+            ]
+        }
+    ]
+}

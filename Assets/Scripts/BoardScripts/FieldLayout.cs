@@ -96,6 +96,9 @@ public class FieldLayout : MonoBehaviour
     }
 
     public void ReactivateCards(){
+        foreach (BuildingCardDisplay building in GetActiveBuildingCards()){
+            building.ReactivateCard();
+        }
         foreach (StudentCardDisplay student in GetActiveStudentCards()){
             student.ReactivateCard();
         }
@@ -123,6 +126,19 @@ public class FieldLayout : MonoBehaviour
             }
         }
     }
+
+    public void ResetBuildingBools()
+    {
+        foreach (BuildingCardDisplay build in buildingCardDisplays)
+        {
+            if (build != null && build.inPlay)
+            {
+                build.ResetBuildingBools();
+                build.DisplayInformation();
+            }
+        }
+    }
+
 
     public bool CheckIfOccupied(int index, Card.Type cardType){
         switch (cardType){
