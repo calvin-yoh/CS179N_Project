@@ -96,6 +96,9 @@ public class FieldLayout : MonoBehaviour
     }
 
     public void ReactivateCards(){
+        foreach (BuildingCardDisplay building in GetActiveBuildingCards()){
+            building.ReactivateCard();
+        }
         foreach (StudentCardDisplay student in GetActiveStudentCards()){
             student.ReactivateCard();
         }

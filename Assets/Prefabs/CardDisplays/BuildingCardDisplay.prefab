@@ -515,7 +515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1355654323164359155
 RectTransform:
   m_ObjectHideFlags: 0
@@ -633,7 +633,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.022328317, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8200392
+  m_Radius: 0.0001
 --- !u!1 &6046434584222497955
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +903,7 @@ MonoBehaviour:
   hasActivatedEffect: 0
   inHand: 0
   inPlay: 0
+  inDeck: 0
   playerNumber: 0
   turnsInPlay: 0
   glowEffect: {fileID: 1508364045}
@@ -1413,5 +1414,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.00001
   m_Center: {x: 0, y: 0, z: 0}
