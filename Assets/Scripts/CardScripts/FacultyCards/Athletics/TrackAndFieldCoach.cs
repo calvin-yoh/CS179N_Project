@@ -32,5 +32,4 @@ public class TrackAndFieldCoach : CardEffect
         }
         return 0;
     }
-    
 }
