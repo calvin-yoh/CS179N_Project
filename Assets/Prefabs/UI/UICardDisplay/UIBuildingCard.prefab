@@ -771,9 +771,13 @@ MonoBehaviour:
   turnsInPlay: 0
   glowEffect: {fileID: 0}
   ActivateEffectButton: {fileID: 0}
+  distractedImage: {fileID: 0}
   activateButtonWasPressed: 0
   cardEffectScript: {fileID: 0}
   healthText: {fileID: 372777964459668265}
+  buildingStatusImage: {fileID: 0}
+  weakenedIcon: {fileID: 0}
+  immuneIcon: {fileID: 0}
 --- !u!114 &3490181759754047356
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -35,7 +35,7 @@ public class Card : ScriptableObject
 	public int health = 0;
 	public int duration = 0;
 
-	public MonoScript effectScript;
+	public TextAsset effectScript;
 
 	public void Print()
 	{
