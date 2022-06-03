@@ -24,7 +24,24 @@ public class DropContainer : MonoBehaviour, IDropHandler
     public GameObject facultySymbol;
 
     public void Start(){
-        CardsManager.instance.loadDeck();
+        foreach(Card card in CardsManager.instance.getCurrentDeck()){
+            var temp = Instantiate(CardsManager.instance.getCardPrefab(card.type));
+            temp.GetComponent<CardDisplay>().card = card;
+            temp.GetComponent<CardDisplay>().SetUpInformation();
+            temp.GetComponent<CardDisplay>().DisplayInformation();
+            temp.transform.SetParent(transform);
+            switch(card.type){
+                case Card.Type.Building:
+                    buildingCount++;
+                    break;
+                case Card.Type.Student:
+                    studentCount++;
+                    break;
+                case Card.Type.Faculty:
+                    facultyCount++;
+                    break;
+            }
+        }
     }
 
     public void OnDrop(PointerEventData eventData){
@@ -56,6 +73,7 @@ public class DropContainer : MonoBehaviour, IDropHandler
         var copy = Instantiate(card, transform.position, transform.rotation);
         copy.GetComponent<RectTransform>().SetParent(this.transform);
         copy.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+        CardsManager.instance.addCardToDeck(card.GetComponent<CardDisplay>().GetCardName());
     }
 
     void Update(){
@@ -68,7 +86,7 @@ public class DropContainer : MonoBehaviour, IDropHandler
 
             previousChildCount = transform.childCount;
 
-            CardsManager.instance.saveCurrentDeck();
+            CardsManager.instance.saveDataToJson();
             RectTransform rec = GetComponent<RectTransform>();
 
             float cardHeight = 375f;

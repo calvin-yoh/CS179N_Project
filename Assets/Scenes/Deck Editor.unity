@@ -1405,6 +1405,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardsGrid: {fileID: 1338283699}
   deckGrid: {fileID: 1997568915}
+  buildingCardDisplayPrefab: {fileID: 7077248147722597310, guid: a26ba3a03abb643cb937f4a1724e0333, type: 3}
+  studentCardDisplayPrefab: {fileID: 7077248147722597310, guid: 77d730bfcd8b10845b871d5b20c76548, type: 3}
+  facultyCardDisplayPrefab: {fileID: 7077248147722597310, guid: 3473855d853bfd046a046dd5b57e9048, type: 3}
 --- !u!4 &640573480
 Transform:
   m_ObjectHideFlags: 0

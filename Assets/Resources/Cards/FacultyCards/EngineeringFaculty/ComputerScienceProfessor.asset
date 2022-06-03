@@ -18,6 +18,7 @@ MonoBehaviour:
   effectName: Hack
   effect: deal 3 damage to all your opponents buildings unless they have 1 CS building
     in play
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: b2be9d78baa194244b8e657008e66873, type: 3}
   health: 0
   duration: 0
+  effectScript: {fileID: 0}
